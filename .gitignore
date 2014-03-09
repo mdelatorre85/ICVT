@@ -2,3 +2,7 @@
 .idea/
 *.iml
 .gradle/
+*.class
+*.jar
+mock-impl/build/
+core/build/
