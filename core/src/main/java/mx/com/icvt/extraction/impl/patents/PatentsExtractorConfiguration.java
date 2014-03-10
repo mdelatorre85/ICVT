@@ -8,6 +8,6 @@ import mx.com.icvt.extraction.ExtractorConfiguration;
  * Date: 09/03/14
  * Time: 11:15
  */
-public class PatentsConfiguration implements ExtractorConfiguration {
+public class PatentsExtractorConfiguration implements ExtractorConfiguration {
 
 }
