@@ -6,4 +6,5 @@ package mx.com.icvt.visualization;
  * Time: 10:03
  */
 public interface DataPresenter {
+    public String getDataToPresent(DataQuery query);
 }
