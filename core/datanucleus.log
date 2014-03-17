@@ -1,0 +1,75 @@
+23:30:38,859 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool : Creaci•À?n del esquema
+23:30:38,860 (main) INFO  [DataNucleus.SchemaTool] - DataNucleus SchemaTool : Classpath
+23:30:38,860 (main) INFO  [DataNucleus.SchemaTool] - >>  /usr/local/maven/boot/plexus-classworlds-2.5.1.jar
+23:30:38,871 (main) DEBUG [DataNucleus.Plugin] - Plugin Registry "org.datanucleus.plugin.EclipsePluginRegistry" no existe. Usando registry de DataNucleus. Reason : •À?La clase org.eclipse.core.runtime.RegistryFactory no esta en el CLASSPATH!. Por favor compruebe la especificaci•À?n y el CLASSPATH..
+23:30:38,872 (main) DEBUG [DataNucleus.Plugin] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+23:30:38,895 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus.enhancer version 3.1.1 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-enhancer/3.1.1/datanucleus-enhancer-3.1.1.jar.
+23:30:38,904 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-enhancer/3.1.1/datanucleus-enhancer-3.1.1.jar!/plugin.xml.
+23:30:38,906 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-enhancer/3.1.1/datanucleus-enhancer-3.1.1.jar!/plugin.xml.
+23:30:38,908 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus version 3.1.5 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar.
+23:30:38,948 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar!/plugin.xml.
+23:30:38,980 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar!/plugin.xml.
+23:30:38,986 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus.api.jdo version 4.0.0.m1 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.0-m1/datanucleus-api-jdo-4.0.0-m1.jar.
+23:30:38,992 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.0-m1/datanucleus-api-jdo-4.0.0-m1.jar!/plugin.xml.
+23:30:38,995 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.0-m1/datanucleus-api-jdo-4.0.0-m1.jar!/plugin.xml.
+23:30:38,998 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus.store.rdbms version 4.0.0.m1 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-rdbms/4.0.0-m1/datanucleus-rdbms-4.0.0-m1.jar.
+23:30:39,037 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-rdbms/4.0.0-m1/datanucleus-rdbms-4.0.0-m1.jar!/plugin.xml.
+23:30:39,074 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-rdbms/4.0.0-m1/datanucleus-rdbms-4.0.0-m1.jar!/plugin.xml.
+23:30:39,088 (main) ERROR [DataNucleus.SchemaTool] - Error creating NucleusContext
+El plugin (Bundle) "org.datanucleus" ya esta registrado. Por favor compruebe que usted no tiene otras versiones del mismo plugin en el CLASSPATH. El URL "file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/4.0.0-m1/datanucleus-core-4.0.0-m1.jar" esta registrado, y intenta registra otro al URL "file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar."
+org.datanucleus.exceptions.NucleusException: El plugin (Bundle) "org.datanucleus" ya esta registrado. Por favor compruebe que usted no tiene otras versiones del mismo plugin en el CLASSPATH. El URL "file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/4.0.0-m1/datanucleus-core-4.0.0-m1.jar" esta registrado, y intenta registra otro al URL "file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar."
+	at org.datanucleus.plugin.NonManagedPluginRegistry.registerBundle(NonManagedPluginRegistry.java:541)
+	at org.datanucleus.plugin.NonManagedPluginRegistry.registerBundle(NonManagedPluginRegistry.java:395)
+	at org.datanucleus.plugin.NonManagedPluginRegistry.registerExtensions(NonManagedPluginRegistry.java:219)
+	at org.datanucleus.plugin.NonManagedPluginRegistry.registerExtensionPoints(NonManagedPluginRegistry.java:160)
+	at org.datanucleus.plugin.PluginManager.<init>(PluginManager.java:65)
+	at org.datanucleus.plugin.PluginManager.createPluginManager(PluginManager.java:427)
+	at org.datanucleus.NucleusContext.<init>(NucleusContext.java:224)
+	at org.datanucleus.NucleusContext.<init>(NucleusContext.java:204)
+	at org.datanucleus.NucleusContext.<init>(NucleusContext.java:182)
+	at org.datanucleus.store.schema.SchemaTool.getNucleusContextForMode(SchemaTool.java:503)
+	at org.datanucleus.store.schema.SchemaTool.main(SchemaTool.java:266)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.executeInJvm(AbstractDataNucleusMojo.java:333)
+	at org.datanucleus.maven.AbstractSchemaToolMojo.executeSchemaTool(AbstractSchemaToolMojo.java:308)
+	at org.datanucleus.maven.AbstractSchemaToolMojo.executeDataNucleusTool(AbstractSchemaToolMojo.java:130)
+	at org.datanucleus.maven.AbstractDataNucleusMojo.execute(AbstractDataNucleusMojo.java:126)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:133)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:108)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:76)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:116)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:361)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:213)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:157)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+00:12:23,462 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+00:12:23,589 (main) DEBUG [DataNucleus.Plugin] - Plugin Registry "org.datanucleus.plugin.EclipsePluginRegistry" no existe. Usando registry de DataNucleus. Reason : •À?La clase org.eclipse.core.runtime.RegistryFactory no esta en el CLASSPATH!. Por favor compruebe la especificaci•À?n y el CLASSPATH..
+00:12:23,590 (main) DEBUG [DataNucleus.Plugin] - Using PluginRegistry org.datanucleus.plugin.NonManagedPluginRegistry
+00:12:23,620 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus.enhancer version 3.1.1 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-enhancer/3.1.1/datanucleus-enhancer-3.1.1.jar.
+00:12:23,630 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-enhancer/3.1.1/datanucleus-enhancer-3.1.1.jar!/plugin.xml.
+00:12:23,632 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-enhancer/3.1.1/datanucleus-enhancer-3.1.1.jar!/plugin.xml.
+00:12:23,634 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus version 3.1.5 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar.
+00:12:23,671 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar!/plugin.xml.
+00:12:23,701 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-core/3.1.5/datanucleus-core-3.1.5.jar!/plugin.xml.
+00:12:23,707 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus.api.jdo version 4.0.0.m1 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.0-m1/datanucleus-api-jdo-4.0.0-m1.jar.
+00:12:23,719 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.0-m1/datanucleus-api-jdo-4.0.0-m1.jar!/plugin.xml.
+00:12:23,723 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-api-jdo/4.0.0-m1/datanucleus-api-jdo-4.0.0-m1.jar!/plugin.xml.
+00:12:23,726 (main) DEBUG [DataNucleus.Plugin] - Registering bundle org.datanucleus.store.rdbms version 4.0.0.m1 at URL file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-rdbms/4.0.0-m1/datanucleus-rdbms-4.0.0-m1.jar.
+00:12:23,764 (main) DEBUG [DataNucleus.Plugin] - Loading extension points from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-rdbms/4.0.0-m1/datanucleus-rdbms-4.0.0-m1.jar!/plugin.xml.
+00:12:23,787 (main) DEBUG [DataNucleus.Plugin] - Loading extensions from plug-in file jar:file:/Users/lnx1337/.m2/repository/org/datanucleus/datanucleus-rdbms/4.0.0-m1/datanucleus-rdbms-4.0.0-m1.jar!/plugin.xml.
