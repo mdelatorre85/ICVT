@@ -1,7 +1,9 @@
 package mx.com.icvt.extraction.impl.vocaciones;
 
-import javax.jdo.annotations.*;
-import java.io.Serializable;
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 
 
 /**
@@ -9,9 +11,7 @@ import java.io.Serializable;
  */
 
 @PersistenceCapable(table = "unidad_economica")
-public class UnidadEconomica implements java.io.Serializable  {
-
-
+public class UnidadEconomica {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
     int d_llave;
@@ -66,7 +66,6 @@ public class UnidadEconomica implements java.io.Serializable  {
 
     @Persistent
     String calle3;
-
 
     @Persistent
     String numero_ext;
@@ -134,14 +133,9 @@ public class UnidadEconomica implements java.io.Serializable  {
     @Persistent
     Double latitud;
 
-    public int getd_llave(){
-
-        return this.d_llave;
-    }
-
-    public UnidadEconomica(int cve_ent,int cve_num,int cve_loc){
-        this.cve_ent=cve_ent;
-        this.cve_loc=cve_num;
-        this.cve_loc=cve_loc;
+    public UnidadEconomica(int cve_ent, int cve_num, int cve_loc) {
+        this.cve_ent = cve_ent;
+        this.cve_loc = cve_num;
+        this.cve_loc = cve_loc;
     }
 }

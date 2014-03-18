@@ -12,14 +12,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-core</artifactId>
-            <version>[4.0.0-m1, )</version>
-        </dependency>
-        <dependenecy>
-            <groupId>org.datanucleus</groupId>
-            <artifactId>datanucleus-api-jdo</artifactId>
-            <version>[4.0.0-m1, )</version>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>[1.2, 1.3)</version>
         </dependency>
         <dependency>
             <groupId>javax.jdo</groupId>
@@ -27,12 +22,15 @@
             <version>[3.0, )</version>
         </dependency>
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>[1.2, 1.3)</version>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-core</artifactId>
+            <version>[4.0.0-m1, )</version>
         </dependency>
-
-
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-api-jdo</artifactId>
+            <version>[4.0.0-m1, )</version>
+        </dependency>
         <dependency>
             <groupId>org.datanucleus</groupId>
             <artifactId>datanucleus-rdbms</artifactId>
@@ -43,31 +41,58 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.17</version>
         </dependency>
+    </dependencies>
 
-</dependencies>
-
-
-<build>
+    <build>
         <plugins>
-    <plugin>
-    <groupId>org.datanucleus</groupId>
-    <artifactId>maven-datanucleus-plugin</artifactId>
-    <version>3.1.2</version>
-    <configuration>
-      <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
-      <verbose>false</verbose>
-      <fork>false</fork>
-    </configuration>
-    <executions>
-      <execution>
-        <phase>process-classes</phase>
-        
-      </execution>
-    </executions>
-  </plugin>
-  </plugins>
-</build>
-
-    
-
+            <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>maven-datanucleus-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+                    <verbose>false</verbose>
+                    <fork>false</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>datanucleus-maven-plugin</artifactId>
+                <version>4.0.0-m1</version>
+                <configuration>
+                    <api>JDO</api>
+                    <persistenceUnitName>SITE</persistenceUnitName>
+                    <log4jConfiguration>${basedir}/log4j.properties</log4jConfiguration>
+                    <verbose>false</verbose>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.1</version>
+                <configuration>
+                    <mainClass>mx.com.icvt.extraction.impl.vocaciones.TestJDO</mainClass>
+                    <systemProperties>
+                        <systemProperty>
+                            <key>log4j.configuration</key>
+                            <value>file:${basedir}/log4j.properties</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
