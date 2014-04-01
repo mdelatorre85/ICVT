@@ -6,4 +6,7 @@ package mx.com.icvt.extraction;
  * Time: 09:48
  */
 public interface ExtractorConfiguration {
+
+    public String getStringUrl();
+
 }
