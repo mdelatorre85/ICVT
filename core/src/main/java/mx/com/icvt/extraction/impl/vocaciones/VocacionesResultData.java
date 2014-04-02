@@ -2,6 +2,10 @@ package mx.com.icvt.extraction.impl.vocaciones;
 
 import mx.com.icvt.extraction.ResultData;
 
+import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.PrimaryKey;
 import java.util.List;
 
 /**
@@ -10,10 +14,33 @@ import java.util.List;
  * Date: 09/03/14
  * Time: 18:05
  */
-//TODO cambiar el genérico por la clase adecuada del modelo de datos
-public class VocacionesResultData implements ResultData<Object> {
+@PersistenceCapable
+public class VocacionesResultData implements ResultData {
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private int d_llave;
+    @Persistent
+    private int cve_ent;
+
+    public VocacionesResultData() {
+        super();
+    }
+
+    public int getD_llave() {
+        return this.d_llave;
+    }
+
+    public int getCve() {
+        return this.cve_ent;
+    }
+
+    public VocacionesResultData(int cve_ent) {
+        super();
+        this.cve_ent = cve_ent;
+    }
+
     @Override
-    public List<Object> getResults() {
+    public List getResults() {
         return null;
     }
 }

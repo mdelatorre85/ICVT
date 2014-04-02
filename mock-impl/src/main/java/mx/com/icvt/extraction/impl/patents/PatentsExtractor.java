@@ -14,7 +14,7 @@ public class PatentsExtractor implements DataExtractor {
     @Override
     public ResultData extract(ExtractorConfiguration extractorConfiguration) {
         PatentsResultData resultData = new PatentsResultData();
-        resultData.setResult("Result data");
+//        resultData.setResult("Result data");
         return resultData;
     }
 }
