@@ -1,4 +1,4 @@
-package mx.com.icvt.model.news;
+package mx.com.icvt.model;
 
 import java.io.Serializable;
 import java.text.ParseException;
