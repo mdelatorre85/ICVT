@@ -21,9 +21,6 @@ public class News implements Serializable, Comparable<News>{
     private String description;
     private String image;
 
-    private NewsMetadata newsMetadata;
-
-
     @SuppressWarnings("unused")
     private  News() { }
 
@@ -75,15 +72,6 @@ public class News implements Serializable, Comparable<News>{
 
     public void setUrl(String string) {
         this.url = string;
-    }
-
-
-    public NewsMetadata getNewsMetadata() {
-        return newsMetadata;
-    }
-
-    public void setNewsMetadata(NewsMetadata newsMetadata) {
-        this.newsMetadata = newsMetadata;
     }
 
     @Override

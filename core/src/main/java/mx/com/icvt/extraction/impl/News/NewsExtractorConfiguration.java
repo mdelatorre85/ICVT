@@ -1,7 +1,6 @@
-package mx.com.icvt.extraction.impl.News;
+package mx.com.icvt.extraction.impl.news;
 
 import mx.com.icvt.extraction.ExtractorConfiguration;
-import mx.com.icvt.extraction.impl.Util.UrlUtil;
 
 import java.io.Serializable;
 

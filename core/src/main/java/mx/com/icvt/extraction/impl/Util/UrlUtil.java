@@ -1,4 +1,4 @@
-package mx.com.icvt.extraction.impl.Util;
+package mx.com.icvt.extraction.impl.util;
 
 /**
  * Created by miguelangeldelatorre on 29/03/14.
