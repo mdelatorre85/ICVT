@@ -24,7 +24,7 @@ public class PatentsResultData implements ResultData<Patent> {
 
     @Override
     public List<Patent> getResults() {
-        if (results ==  null){
+        if (results == null) {
             results = new ArrayList<Patent>();
         }
         return results;

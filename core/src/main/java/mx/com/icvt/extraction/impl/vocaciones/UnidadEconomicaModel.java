@@ -2,7 +2,6 @@ package mx.com.icvt.extraction.impl.vocaciones;
 
 import javax.jdo.*;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -11,23 +10,23 @@ import java.util.List;
 
 public class UnidadEconomicaModel {
 
-    public  String clase_act;
-    public  String d_llave;
-    public  String tipoIndustria;
-    public  String proceso;
-    public  String queryProceso;
-    public  List<UnidadEconomica> proveedores;
+    public String clase_act;
+    public String d_llave;
+    public String tipoIndustria;
+    public String proceso;
+    public String queryProceso;
+    public List<UnidadEconomica> proveedores;
 
     public UnidadEconomica getUnidadEconomica() {
 
-        List<UnidadEconomica> LunidadE= null;
+        List<UnidadEconomica> LunidadE = null;
         UnidadEconomica unidadE = null;
 
-        this.queryProceso=" WHERE d_llave=="+getD_llave();
+        this.queryProceso = " WHERE d_llave==" + getD_llave();
 
         LunidadE = this.execQueryCondition();
 
-        if (LunidadE.size()==0) return null;
+        if (LunidadE.size() == 0) return null;
 
         unidadE = LunidadE.get(0);
 
@@ -37,7 +36,7 @@ public class UnidadEconomicaModel {
         return unidadE;
     }
 
-    public  List<UnidadEconomica> getProveedores() {
+    public List<UnidadEconomica> getProveedores() {
 
         List<UnidadEconomica> proveedores = null;
 
@@ -46,7 +45,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryParticularInsumos();
 
-            if (this.getQuery()!= ""){
+            if (this.getQuery() != "") {
                 proveedores = this.execQueryCondition();
             }
 
@@ -57,7 +56,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryParticularConfeccionPT();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 proveedores = this.execQueryCondition();
             }
 
@@ -68,7 +67,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryProveedoresFabricacionPV();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 proveedores = this.execQueryCondition();
             }
             return proveedores;
@@ -78,14 +77,14 @@ public class UnidadEconomicaModel {
 
             this.setQueryProveedoresFabricacionCPMS();
 
-            if (this.getQuery()!= "") {
+            if (this.getQuery() != "") {
                 proveedores = this.execQueryCondition();
             }
 
             return proveedores;
         }
 
-       return proveedores;
+        return proveedores;
     }
 
     public void setQueryProveedoresFabricacionCPMS() {
@@ -99,7 +98,7 @@ public class UnidadEconomicaModel {
         // Fabricación de calzado
 
         if (this.proceso.equals("3162")) {
-            this.queryProceso =" where clase_act.startsWith(\"3161\")";
+            this.queryProceso = " where clase_act.startsWith(\"3161\")";
         }
 
         // Fabricacion de otros
@@ -115,21 +114,21 @@ public class UnidadEconomicaModel {
         // Tejido
 
         if (this.proceso.equals("3151")) {
-            this.queryProceso=" where clase_act.startsWith(\"3132\") ||  "+
+            this.queryProceso = " where clase_act.startsWith(\"3132\") ||  " +
                     "clase_act.startsWith(\"3133\")";
         }
 
         // Confeccion prendas de vestir
 
         if (this.proceso.equals("3152")) {
-            this.queryProceso=" where clase_act.startsWith(\"3132\") ||  "+
+            this.queryProceso = " where clase_act.startsWith(\"3132\") ||  " +
                     "clase_act.startsWith(\"3133\") || clase_act.startsWith(\"3161\") ";
         }
 
         // Confeccion accesorios de vestir
 
         if (this.proceso.equals("3159")) {
-            this.queryProceso=" where clase_act.startsWith(\"3132\") ||  "+
+            this.queryProceso = " where clase_act.startsWith(\"3132\") ||  " +
                     "clase_act.startsWith(\"3133\") || clase_act.startsWith(\"3131\") ";
         }
 
@@ -156,13 +155,13 @@ public class UnidadEconomicaModel {
         if (this.proceso.equals("3133")) {
 
             System.out.println("Proceso: Acabado Depende: Fabricacion-->Preparacion  332 331");
-            this.queryProceso = " where clase_act.startsWith(\"3131\") || "+
+            this.queryProceso = " where clase_act.startsWith(\"3131\") || " +
                     "clase_act.startsWith(\"3132\")";
         }
 
     }
 
-    public  List<UnidadEconomica> getClientes() {
+    public List<UnidadEconomica> getClientes() {
 
         List<UnidadEconomica> clientes = null;
 
@@ -170,7 +169,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryProcesoParticularClientesInsumos();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 clientes = this.execQueryCondition();
             }
 
@@ -181,7 +180,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryParticularConfeccionClientesPT();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 clientes = this.execQueryCondition();
             }
 
@@ -192,7 +191,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryProcesoParticularClientesFabricacionCPMS();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 clientes = this.execQueryCondition();
             }
 
@@ -219,8 +218,8 @@ public class UnidadEconomicaModel {
         // Fabricacion de otros productos
 
         if (this.proceso.equals("3169")) {
-           this.queryProceso = " where clase_act.startsWith(\"315999\") || " +
-                                         " clase_act.startsWith(\"31521\")";
+            this.queryProceso = " where clase_act.startsWith(\"315999\") || " +
+                    " clase_act.startsWith(\"31521\")";
         }
 
     }
@@ -228,7 +227,7 @@ public class UnidadEconomicaModel {
     public void setQueryProcesoParticularClientesInsumos() {
 
         this.queryProceso = " where  clase_act.startsWith(\"314\") || " +
-                                     " clase_act.startsWith(\"315\")";
+                " clase_act.startsWith(\"315\")";
 
     }
 
@@ -240,25 +239,19 @@ public class UnidadEconomicaModel {
 
         PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SITE");
         PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
+        Transaction tx = pm.currentTransaction();
 
-        List <UnidadEconomica>  proveedores = null;
-        try
-        {
+        List<UnidadEconomica> proveedores = null;
+        try {
             tx.begin();
-            Query q=pm.newQuery("SELECT FROM " + UnidadEconomica.class.getName() + this.queryProceso);
+            Query q = pm.newQuery("SELECT FROM " + UnidadEconomica.class.getName() + this.queryProceso);
             q.setOrdering("nom_estab asc");
-            proveedores = (List<UnidadEconomica>)q.execute();
+            proveedores = (List<UnidadEconomica>) q.execute();
             tx.commit();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Exception performing queries : " + e.getMessage());
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
+        } finally {
+            if (tx.isActive()) {
                 tx.rollback();
             }
             pm.close();
@@ -272,28 +265,22 @@ public class UnidadEconomicaModel {
 
         PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SITE");
         PersistenceManager pm = pmf.getPersistenceManager();
-        Transaction tx=pm.currentTransaction();
+        Transaction tx = pm.currentTransaction();
 
         List<UnidadEconomica> competencias;
         competencias = Arrays.asList();
 
-        try
-        {
+        try {
             tx.begin();
             Query q = pm.newQuery("SELECT FROM " + UnidadEconomica.class.getName());
-            q.setFilter("clase_act==\""+ this.getClase_act()+"\"");
+            q.setFilter("clase_act==\"" + this.getClase_act() + "\"");
             q.setOrdering("nom_estab asc");
-            competencias = (List<UnidadEconomica>)q.execute();
+            competencias = (List<UnidadEconomica>) q.execute();
             tx.commit();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Exception performing queries : " + e.getMessage());
-        }
-        finally
-        {
-            if (tx.isActive())
-            {
+        } finally {
+            if (tx.isActive()) {
                 tx.rollback();
             }
             pm.close();
@@ -309,7 +296,7 @@ public class UnidadEconomicaModel {
 
     public void setTipoIndustriaProceso() {
         this.tipoIndustria = this.getClase_act().substring(0, 3);
-        this.proceso = this.getClase_act().substring(0,4);
+        this.proceso = this.getClase_act().substring(0, 4);
     }
 
     public String getTipoIndustria() {

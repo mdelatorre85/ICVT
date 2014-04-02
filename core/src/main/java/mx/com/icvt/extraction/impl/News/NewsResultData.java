@@ -18,8 +18,8 @@ public class NewsResultData implements ResultData<News> {
 
     @Override
     public ArrayList<News> getResults() {
-        if (results== null)
-            results= new ArrayList<News>();
+        if (results == null)
+            results = new ArrayList<News>();
 
         return results;
     }

@@ -134,113 +134,113 @@ public class UrlUtil {
         //    url = url.replace("%", "%25");
         //}
         if (url.contains("-")) {
-            url = url.replace("-","%2D");
+            url = url.replace("-", "%2D");
         }
         if (url.contains("+")) {
-            url = url.replace("+","%2B");
+            url = url.replace("+", "%2B");
         }
 
         if (url.contains("0")) {
-            url = url.replace("0","%30");
+            url = url.replace("0", "%30");
         }
 
         if (url.contains("1")) {
-            url = url.replace("1","%31");
+            url = url.replace("1", "%31");
         }
 
         if (url.contains("2")) {
-            url = url.replace("2","%32");
+            url = url.replace("2", "%32");
         }
 
         if (url.contains("3")) {
-            url = url.replace("3","%33");
+            url = url.replace("3", "%33");
         }
 
         if (url.contains("4")) {
-            url = url.replace("4","%34");
+            url = url.replace("4", "%34");
         }
 
         if (url.contains("5")) {
-            url = url.replace("5","%35");
+            url = url.replace("5", "%35");
         }
 
         if (url.contains("6")) {
-            url = url.replace("6","%36");
+            url = url.replace("6", "%36");
         }
 
         if (url.contains("7")) {
-            url = url.replace("7","%37");
+            url = url.replace("7", "%37");
         }
 
         if (url.contains("8")) {
-            url = url.replace("8" ,"%38");
+            url = url.replace("8", "%38");
         }
         if (url.contains("9")) {
-            url = url.replace("9","%39");
+            url = url.replace("9", "%39");
         }
         if (url.contains("[")) {
-            url = url.replace("[","%5B");
+            url = url.replace("[", "%5B");
         }
         if (url.contains("\\")) {
-            url = url.replace("\\","%5C");
+            url = url.replace("\\", "%5C");
         }
         if (url.contains("%5D")) {
-            url = url.replace("%5D","]");
+            url = url.replace("%5D", "]");
         }
         if (url.contains("^")) {
-            url = url.replace("^","%5E");
+            url = url.replace("^", "%5E");
         }
         if (url.contains("_")) {
-            url = url.replace("_","%5F");
+            url = url.replace("_", "%5F");
         }
         if (url.contains("%7B")) {
-            url = url.replace("{","%7B");
+            url = url.replace("{", "%7B");
         }
         if (url.contains("|")) {
-            url = url.replace("|","%7C");
+            url = url.replace("|", "%7C");
         }
         if (url.contains("}")) {
-            url = url.replace("}","%7D");
+            url = url.replace("}", "%7D");
         }
         if (url.contains("~")) {
-            url = url.replace("~","%7E");
+            url = url.replace("~", "%7E");
         }
         if (url.contains("Á")) {
-            url = url.replace("Á","%C1");
+            url = url.replace("Á", "%C1");
         }
         if (url.contains("É")) {
-            url = url.replace("É","%C9");
+            url = url.replace("É", "%C9");
         }
         if (url.contains("Í")) {
-            url = url.replace("Í","%CD");
+            url = url.replace("Í", "%CD");
         }
         if (url.contains("Ó")) {
-            url = url.replace("Ó","%D3");
+            url = url.replace("Ó", "%D3");
         }
         if (url.contains("Ú")) {
-            url = url.replace("Ú","%DA");
+            url = url.replace("Ú", "%DA");
         }
 
         if (url.contains("á")) {
-            url = url.replace("á","%E1");
+            url = url.replace("á", "%E1");
         }
         if (url.contains("é")) {
-            url = url.replace("é","%E9");
+            url = url.replace("é", "%E9");
         }
         if (url.contains("í")) {
-            url = url.replace("í","%ED");
+            url = url.replace("í", "%ED");
         }
         if (url.contains("ó")) {
-            url = url.replace("ó","%F3");
+            url = url.replace("ó", "%F3");
         }
         if (url.contains("ú")) {
-            url = url.replace("ú","%FA");
+            url = url.replace("ú", "%FA");
         }
         if (url.contains("ü")) {
-            url = url.replace("ü","%FC");
+            url = url.replace("ü", "%FC");
         }
         if (url.contains("ñ")) {
-            url = url.replace("ñ","%F1");
+            url = url.replace("ñ", "%F1");
         }
         return url;
     }

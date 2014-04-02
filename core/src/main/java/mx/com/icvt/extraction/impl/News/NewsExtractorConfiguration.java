@@ -15,26 +15,27 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
     private Order order = Order.RELEVANCE;
 
     @SuppressWarnings("unused")
-    private NewsExtractorConfiguration(){}
+    private NewsExtractorConfiguration() {
+    }
 
     @Override
-    public String getStringUrl(){
+    public String getStringUrl() {
 
         StringBuilder sb = new StringBuilder("http://news.google.com/news?q=");
         sb.append(query);
 
-        if (source!= null ){
+        if (source != null) {
             sb.append("+source:\"");
             sb.append(source);
             sb.append("\"");
         }
 
-        if (language != null){
+        if (language != null) {
             sb.append("&");
             sb.append(language.getName());
         }
 
-        if (order != null){
+        if (order != null) {
             sb.append("&");
             sb.append(order.getName());
         }
@@ -43,11 +44,11 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
         return sb.toString();
     }
 
-    public NewsExtractorConfiguration (String query){
-        if (query == null || query.length()==0){
+    public NewsExtractorConfiguration(String query) {
+        if (query == null || query.length() == 0) {
             throw new IllegalArgumentException("Argument query cannot be null or empty");
         }
-        this.query =query.replace(' ', '+');
+        this.query = query.replace(' ', '+');
     }
 
     void setOrder(Order order) {
@@ -78,14 +79,15 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
         this.source = source.replace(' ', '+');
     }
 
-    public enum Language{
+    public enum Language {
 
-        EN("hl=en"), ES("hl=es"), DE("hl=de"), FR("hl=fr"), IT("hl=it"),PL("hl=pl");
+        EN("hl=en"), ES("hl=es"), DE("hl=de"), FR("hl=fr"), IT("hl=it"), PL("hl=pl");
         //TODO agregar CN JP PT y KR
 
-        Language(String name){
+        Language(String name) {
             this.name = name;
         }
+
         private String name;
 
         public String getName() {
@@ -94,14 +96,15 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
 
     }
 
-    public enum Order{
+    public enum Order {
 
-        RELEVANCE("scoring=r"), DATEDESC ("scoring=n"), DATEASC("scoring=o");
+        RELEVANCE("scoring=r"), DATEDESC("scoring=n"), DATEASC("scoring=o");
 
 
-        Order(String name){
+        Order(String name) {
             this.name = name;
         }
+
         private String name;
 
         public String getName() {

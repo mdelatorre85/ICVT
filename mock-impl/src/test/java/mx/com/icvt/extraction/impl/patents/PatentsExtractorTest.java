@@ -11,6 +11,6 @@ import junit.framework.TestCase;
 public class PatentsExtractorTest extends TestCase {
     public void testExtract() throws Exception {
         PatentsExtractor extractor = new PatentsExtractor();
-        assertEquals(((PatentsResultData)extractor.extract(null)).getResult(), "Result data");
+        assertEquals(((PatentsResultData) extractor.extract(null)).getResult(), "Result data");
     }
 }

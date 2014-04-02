@@ -26,9 +26,9 @@ public class Patent implements Serializable {
     private Patent() {
     }
 
-    public  Patent(String tittle, String url) {
+    public Patent(String tittle, String url) {
         this.tittle = tittle;
-        this.url =url;
+        this.url = url;
     }
 
     public Long getId() {
@@ -78,7 +78,7 @@ public class Patent implements Serializable {
             SimpleDateFormat df = new SimpleDateFormat("yyyy",
                     Locale.ENGLISH);
             //Wed, 26 Mar 2014 17:34:34 GMT
-            publicationDate =  df.parse(publicationStringDate);
+            publicationDate = df.parse(publicationStringDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }

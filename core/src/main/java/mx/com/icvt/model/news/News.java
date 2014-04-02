@@ -2,15 +2,15 @@ package mx.com.icvt.model.news;
 
 import java.io.Serializable;
 import java.text.ParseException;
-import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 
 /**
  * @author miguelangeldelatorre
  */
-public class News implements Serializable, Comparable<News>{
+public class News implements Serializable, Comparable<News> {
 
 
     private Long id;
@@ -22,9 +22,10 @@ public class News implements Serializable, Comparable<News>{
     private String image;
 
     @SuppressWarnings("unused")
-    private  News() { }
+    private News() {
+    }
 
-    public News(String title, String url, String pubDateString, String description, String image){
+    public News(String title, String url, String pubDateString, String description, String image) {
         this.title = title;
         this.url = url;
         this.pubDateString = pubDateString;
@@ -34,8 +35,8 @@ public class News implements Serializable, Comparable<News>{
         try {
             SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
                     Locale.ENGLISH);
-                                                      //Wed, 26 Mar 2014 17:34:34 GMT
-            pubDate =  df.parse(pubDateString);
+            //Wed, 26 Mar 2014 17:34:34 GMT
+            pubDate = df.parse(pubDateString);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -63,7 +64,7 @@ public class News implements Serializable, Comparable<News>{
 
     @Override
     public String toString() {
-        return title + ","+ url;
+        return title + "," + url;
     }
 
     public Long getID() {

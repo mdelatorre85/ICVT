@@ -8,7 +8,7 @@ import mx.com.icvt.extraction.ExtractorConfiguration;
  * Date: 09/03/14
  * Time: 18:04
  */
-public class VocacionesExtractorConfiguration implements ExtractorConfiguration{
+public class VocacionesExtractorConfiguration implements ExtractorConfiguration {
 
     @Override
     public String getStringUrl() {

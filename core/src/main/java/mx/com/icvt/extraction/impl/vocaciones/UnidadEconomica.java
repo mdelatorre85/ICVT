@@ -21,7 +21,7 @@ public class UnidadEconomica {
     public int cve_ent;
 
     @Persistent
-    public  int cve_num;
+    public int cve_num;
 
     @Persistent
     public int cve_loc;
@@ -448,7 +448,7 @@ public class UnidadEconomica {
         this.cve_loc = cve_loc;
     }
 
-    public UnidadEconomica(){
+    public UnidadEconomica() {
         super();
     }
 

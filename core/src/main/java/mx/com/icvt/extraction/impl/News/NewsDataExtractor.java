@@ -14,14 +14,12 @@ import java.util.Date;
 /**
  * Created by miguelangeldelatorre on 25/03/14.
  */
-public class NewsDataExtractor implements DataExtractor<NewsExtractorConfiguration,NewsResultData>{
-
-
+public class NewsDataExtractor implements DataExtractor<NewsExtractorConfiguration, NewsResultData> {
     @Override
     public NewsResultData extract(NewsExtractorConfiguration extractorConfiguration) {
 
-        if (extractorConfiguration== null){
-            throw new  IllegalArgumentException("Argument cannot be null or empty");
+        if (extractorConfiguration == null) {
+            throw new IllegalArgumentException("Argument cannot be null or empty");
         }
 
         NewsResultData retorno = new NewsResultData();
@@ -32,12 +30,12 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
             System.out.println(extractorConfiguration.getStringUrl());
             doc = Jsoup.connect(extractorConfiguration.getStringUrl()).get();
             retorno.setConfiguration(extractorConfiguration);
-            for (Element e :doc.select("item")){
+            for (Element e : doc.select("item")) {
 
                 String tittle = e.select("title").text();
                 String guid = e.select("guid").text();
-                guid = guid.substring(guid.indexOf("cluster=")+8);
-                String pubdate =  e.select("pubdate").text();
+                guid = guid.substring(guid.indexOf("cluster=") + 8);
+                String pubdate = e.select("pubdate").text();
 
                 Document dd = Jsoup.parse(e.select("description").text());
                 String description = dd.select(".lh").text();
@@ -63,7 +61,7 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
     }
 
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
         NewsExtractorConfiguration config = new NewsExtractorConfiguration("precio cobre");
         config.setOrder(NewsExtractorConfiguration.Order.DATEDESC);
         config.setLanguage(NewsExtractorConfiguration.Language.ES);

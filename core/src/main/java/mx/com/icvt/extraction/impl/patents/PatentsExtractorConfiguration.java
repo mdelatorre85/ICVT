@@ -7,9 +7,10 @@ import java.io.Serializable;
 /**
  * Created with IntelliJ IDEA.
  * User: Cesar
+ *
  * @author miguelangeldelatorre
- * Date: 09/03/14
- * Time: 11:15
+ *         Date: 09/03/14
+ *         Time: 11:15
  */
 public class PatentsExtractorConfiguration implements Serializable, ExtractorConfiguration {
 
@@ -25,10 +26,10 @@ public class PatentsExtractorConfiguration implements Serializable, ExtractorCon
     private int page = 1; // start
 
 
-    public PatentsExtractorConfiguration (String query){
-            if (query == null || query.length()==0){
-                throw new IllegalArgumentException("Argument query cannot be null or empty");
-            }
+    public PatentsExtractorConfiguration(String query) {
+        if (query == null || query.length() == 0) {
+            throw new IllegalArgumentException("Argument query cannot be null or empty");
+        }
         this.query = query;
     }
 
@@ -36,37 +37,37 @@ public class PatentsExtractorConfiguration implements Serializable, ExtractorCon
     @Override
     public String getStringUrl() {
         StringBuilder sb = new StringBuilder("http://scholar.google.com.mx/scholar?q=");
-        sb.append(query.replace(' ','+'));
+        sb.append(query.replace(' ', '+'));
 
-        if (allintitle){
+        if (allintitle) {
             sb.append("&as_occt=title");
         }
 
-        if (author!= null&&author.length()>0){
+        if (author != null && author.length() > 0) {
             sb.append("&as_sauthors=");
-            sb.append(author.replace(' ','+'));
+            sb.append(author.replace(' ', '+'));
         }
 
-        if(patents){
+        if (patents) {
             sb.append("&as_publication=");
-        } else if (publishedIn != null &&  publishedIn.length() > 0){
+        } else if (publishedIn != null && publishedIn.length() > 0) {
             sb.append("&as_publication=");
-            sb.append(publishedIn.replace(' ','+'));
+            sb.append(publishedIn.replace(' ', '+'));
         }
 
-        if (publicationDateStart!= null){
+        if (publicationDateStart != null) {
             sb.append("&as_ylo=");
             sb.append(publicationDateStart.intValue());
         }
 
-        if (publicationDateEnd!= null){
+        if (publicationDateEnd != null) {
             sb.append("&as_yhi=");
             sb.append(publicationDateEnd.intValue());
         }
 
-        if (page>1){
+        if (page > 1) {
             sb.append("&start=");
-            sb.append((page-1)*10);
+            sb.append((page - 1) * 10);
         }
 
         return sb.toString();

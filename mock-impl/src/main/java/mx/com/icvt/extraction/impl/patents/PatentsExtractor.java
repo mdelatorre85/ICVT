@@ -1,7 +1,7 @@
 package mx.com.icvt.extraction.impl.patents;
 
-import mx.com.icvt.extraction.ExtractorConfiguration;
 import mx.com.icvt.extraction.DataExtractor;
+import mx.com.icvt.extraction.ExtractorConfiguration;
 import mx.com.icvt.extraction.ResultData;
 
 /**
