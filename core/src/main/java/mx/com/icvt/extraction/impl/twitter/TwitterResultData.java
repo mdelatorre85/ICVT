@@ -42,7 +42,10 @@ public class TwitterResultData implements ResultData<Tweet> {
 
     @Override
     public ArrayList<Tweet> getResults() {
-        return null;
+        if (results == null ){
+            results = new ArrayList<Tweet>();
+        }
+        return results;
     }
 
     @Override
