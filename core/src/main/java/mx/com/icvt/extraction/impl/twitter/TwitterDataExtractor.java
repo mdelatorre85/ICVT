@@ -46,6 +46,16 @@ public class TwitterDataExtractor implements DataExtractor<TwitterExtractorConfi
             case SEARCHQUERY:
                 try {
                     Query query = new Query(extractorConfiguration.getQuery());
+                    if (extractorConfiguration.getResultType()!= null){
+                        query.setResultType(extractorConfiguration.getResultType());
+                    }
+                    query.setCount(extractorConfiguration.getCount());
+                    if (extractorConfiguration.getDateStartString()!= null){
+                        query.setSince(extractorConfiguration.getDateStartString());
+                    }
+                    if (extractorConfiguration.getDateEndString()!= null){
+                        query.setUntil(extractorConfiguration.getDateEndString());
+                    }
                     QueryResult result;
                     result = twitter.search(query);
                     List<Status> tweets = result.getTweets();
