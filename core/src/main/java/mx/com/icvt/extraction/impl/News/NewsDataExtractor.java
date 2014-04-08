@@ -1,7 +1,7 @@
 package mx.com.icvt.extraction.impl.news;
 
 import mx.com.icvt.extraction.DataExtractor;
-import mx.com.icvt.model.news.News;
+import mx.com.icvt.model.News;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
