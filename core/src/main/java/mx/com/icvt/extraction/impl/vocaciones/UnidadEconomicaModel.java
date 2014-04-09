@@ -268,6 +268,45 @@ public class UnidadEconomicaModel {
 
     }
 
+
+
+    public  List<UnidadEconomica> test() {
+
+
+        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SITE");
+        PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+
+        List<UnidadEconomica> competencias;
+        competencias = Arrays.asList();
+
+        try
+        {
+            tx.begin();
+           // Query q = pm.newQuery("SELECT FROM " + UnidadEconomica.class.getName());
+            Query q = pm.newQuery("javax.jdo.query.SQL", "select a.d_llave,nom_estab,a.clase_act,u.desc_act from "+UnidadEconomica.class.getName()+" a  inner join clase_actividades u  where  u.clase_act=a.clase_act and a.d_llave=22816");
+            //q.setFilter("clase_act==\""+ this.getClase_act()+"\"");
+            //q.setOrdering("nom_estab asc");
+            competencias = (List<UnidadEconomica>)q.execute();
+            tx.commit();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Exception performing queries : " + e.getMessage());
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+
+        return competencias;
+
+    }
+
     public List<UnidadEconomica> getCompetencias() {
 
         PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("SITE");

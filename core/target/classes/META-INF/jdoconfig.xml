@@ -3,7 +3,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:noNamespaceSchemaLocation="http://java.sun.com/xml/ns/jdo/jdoconfig">
 
-    <!-- Datastore Txn PMF -->
+    <!-- Datastore Txn  -->
     <persistence-manager-factory name="SITE">
         <property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
         <property name="javax.jdo.option.ConnectionURL" value="jdbc:mysql://localhost/siteDB?useServerPrepStmts=false"/>
