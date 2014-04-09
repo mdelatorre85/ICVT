@@ -48,7 +48,7 @@ public class TestJDO {
 
        
 
-/*
+
         List<UnidadEconomica> demo = null;
         demo =obj.test();
 
@@ -60,9 +60,7 @@ public class TestJDO {
             System.out.println(pp.getNom_estab());
 
         }
-*/
 
-/*
 
        // get competencias unidad economica
 
@@ -94,7 +92,7 @@ public class TestJDO {
                System.out.println(cliente.getNom_estab());
            }
        }
-*/
+
 
     }
 
