@@ -11,7 +11,7 @@ public class TestJDO {
     public static void main(String args[]) {
 
 
-        UnidadEconomicaModel obj = new UnidadEconomicaModel("1337");
+       UnidadEconomicaModel obj = new UnidadEconomicaModel("12168");
 
 
         // get info unidad economica
@@ -36,12 +36,25 @@ public class TestJDO {
         proveedores = obj.getProveedores();
 
         if (proveedores != null) {
+           Iterator<UnidadEconomica> prov = proveedores.iterator();
+           while (prov.hasNext()) {
+               UnidadEconomica pro = prov.next();
+               System.out.println(pro.getDireccion());
+           }
+        }
 
-            Iterator<UnidadEconomica> prov = proveedores.iterator();
-            while (prov.hasNext()) {
-                UnidadEconomica pro = prov.next();
-                System.out.println(pro.getNom_estab());
-            }
+       
+
+
+        List<UnidadEconomica> demo = null;
+        demo =obj.test();
+
+        Iterator<UnidadEconomica> p=demo.iterator();
+
+
+        while (p.hasNext()){
+            UnidadEconomica pp=p.next();
+            System.out.println(pp.getNom_estab());
 
         }
 

@@ -27,15 +27,6 @@ public class UnidadEconomica {
     public int cve_loc;
 
     @Persistent
-    public String nic;
-
-    @Persistent
-    public String nop;
-
-    @Persistent
-    public String ageb;
-
-    @Persistent
     public String manzana;
 
     @Persistent
@@ -44,30 +35,40 @@ public class UnidadEconomica {
     @Persistent
     public String nom_propie;
 
-    @Persistent
-    public String tipo_calle;
+    public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getExt_tel1() {
+		return ext_tel1;
+	}
+
+	public void setExt_tel1(String ext_tel1) {
+		this.ext_tel1 = ext_tel1;
+	}
+
+	public int getD_llave() {
+		return d_llave;
+	}
+
+	public Double getLongitud() {
+		return longitud;
+	}
+
+	public Double getLatitud() {
+		return latitud;
+	}
+
+	@Persistent
+    public String direccion;
 
     @Persistent
     public String calle;
-
-    @Persistent
-    public String tipo_vial1;
-
-    @Persistent
-    public String calle_1;
-
-    @Persistent
-    public String tipo_vial2;
-
-    @Persistent
-    public String calle2;
-
-    @Persistent
-    public String tipo_vial3;
-
-    @Persistent
-    public String calle3;
-
+    
     @Persistent
     public String numero_ext;
 
@@ -76,9 +77,6 @@ public class UnidadEconomica {
 
     @Persistent
     public String numero_int;
-
-    @Persistent
-    public String tipo_asent;
 
     @Persistent
     public String colonia;
@@ -90,10 +88,7 @@ public class UnidadEconomica {
     public String telefono1;
 
     @Persistent
-    public String ext_tel2;
-
-    @Persistent
-    public String fax;
+    public String ext_tel1;
 
     @Persistent
     public String clase_act;
@@ -162,30 +157,6 @@ public class UnidadEconomica {
         this.cve_loc = cve_loc;
     }
 
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
-
-    public String getNop() {
-        return nop;
-    }
-
-    public void setNop(String nop) {
-        this.nop = nop;
-    }
-
-    public String getAgeb() {
-        return ageb;
-    }
-
-    public void setAgeb(String ageb) {
-        this.ageb = ageb;
-    }
-
     public String getManzana() {
         return manzana;
     }
@@ -210,68 +181,12 @@ public class UnidadEconomica {
         this.nom_propie = nom_propie;
     }
 
-    public String getTipo_calle() {
-        return tipo_calle;
-    }
-
-    public void setTipo_calle(String tipo_calle) {
-        this.tipo_calle = tipo_calle;
-    }
-
     public String getCalle() {
         return calle;
     }
 
     public void setCalle(String calle) {
         this.calle = calle;
-    }
-
-    public String getTipo_vial1() {
-        return tipo_vial1;
-    }
-
-    public void setTipo_vial1(String tipo_vial1) {
-        this.tipo_vial1 = tipo_vial1;
-    }
-
-    public String getCalle_1() {
-        return calle_1;
-    }
-
-    public void setCalle_1(String calle_1) {
-        this.calle_1 = calle_1;
-    }
-
-    public String getTipo_vial2() {
-        return tipo_vial2;
-    }
-
-    public void setTipo_vial2(String tipo_vial2) {
-        this.tipo_vial2 = tipo_vial2;
-    }
-
-    public String getCalle2() {
-        return calle2;
-    }
-
-    public void setCalle2(String calle2) {
-        this.calle2 = calle2;
-    }
-
-    public String getTipo_vial3() {
-        return tipo_vial3;
-    }
-
-    public void setTipo_vial3(String tipo_vial3) {
-        this.tipo_vial3 = tipo_vial3;
-    }
-
-    public String getCalle3() {
-        return calle3;
-    }
-
-    public void setCalle3(String calle3) {
-        this.calle3 = calle3;
     }
 
     public String getNumero_ext() {
@@ -298,14 +213,6 @@ public class UnidadEconomica {
         this.numero_int = numero_int;
     }
 
-    public String getTipo_asent() {
-        return tipo_asent;
-    }
-
-    public void setTipo_asent(String tipo_asent) {
-        this.tipo_asent = tipo_asent;
-    }
-
     public String getColonia() {
         return colonia;
     }
@@ -328,22 +235,6 @@ public class UnidadEconomica {
 
     public void setTelefono1(String telefono1) {
         this.telefono1 = telefono1;
-    }
-
-    public String getExt_tel2() {
-        return ext_tel2;
-    }
-
-    public void setExt_tel2(String ext_tel2) {
-        this.ext_tel2 = ext_tel2;
-    }
-
-    public String getFax() {
-        return fax;
-    }
-
-    public void setFax(String fax) {
-        this.fax = fax;
     }
 
     public String getClase_act() {
