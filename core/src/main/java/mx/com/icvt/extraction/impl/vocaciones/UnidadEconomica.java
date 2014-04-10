@@ -35,33 +35,7 @@ public class UnidadEconomica {
     @Persistent
     public String nom_propie;
 
-    public String getDireccion() {
-		return direccion;
-	}
-
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-
-	public String getExt_tel1() {
-		return ext_tel1;
-	}
-
-	public void setExt_tel1(String ext_tel1) {
-		this.ext_tel1 = ext_tel1;
-	}
-
-	public int getD_llave() {
-		return d_llave;
-	}
-
-	public Double getLongitud() {
-		return longitud;
-	}
-
-	public Double getLatitud() {
-		return latitud;
-	}
+   
 
 	@Persistent
     public String direccion;
@@ -71,9 +45,6 @@ public class UnidadEconomica {
     
     @Persistent
     public String numero_ext;
-
-    @Persistent
-    public String edificio;
 
     @Persistent
     public String numero_int;
@@ -94,9 +65,6 @@ public class UnidadEconomica {
     public String clase_act;
 
     @Persistent
-    public String centro_com;
-
-    @Persistent
     public String num_local;
 
     @Persistent
@@ -104,9 +72,6 @@ public class UnidadEconomica {
 
     @Persistent
     public String www;
-
-    @Persistent
-    public String correoelec2;
 
     @Persistent
     public String tipo_estab;
@@ -197,14 +162,6 @@ public class UnidadEconomica {
         this.numero_ext = numero_ext;
     }
 
-    public String getEdificio() {
-        return edificio;
-    }
-
-    public void setEdificio(String edificio) {
-        this.edificio = edificio;
-    }
-
     public String getNumero_int() {
         return numero_int;
     }
@@ -245,14 +202,6 @@ public class UnidadEconomica {
         this.clase_act = clase_act;
     }
 
-    public String getCentro_com() {
-        return centro_com;
-    }
-
-    public void setCentro_com(String centro_com) {
-        this.centro_com = centro_com;
-    }
-
     public String getNum_local() {
         return num_local;
     }
@@ -275,14 +224,6 @@ public class UnidadEconomica {
 
     public void setWww(String www) {
         this.www = www;
-    }
-
-    public String getCorreoelec2() {
-        return correoelec2;
-    }
-
-    public void setCorreoelec2(String correoelec2) {
-        this.correoelec2 = correoelec2;
     }
 
     public String getTipo_estab() {
@@ -342,6 +283,34 @@ public class UnidadEconomica {
     public UnidadEconomica(){
         super();
     }
+    
+    public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
+	public String getExt_tel1() {
+		return ext_tel1;
+	}
+
+	public void setExt_tel1(String ext_tel1) {
+		this.ext_tel1 = ext_tel1;
+	}
+
+	public int getD_llave() {
+		return d_llave;
+	}
+
+	public Double getLongitud() {
+		return longitud;
+	}
+
+	public Double getLatitud() {
+		return latitud;
+	}
 
 
 }
