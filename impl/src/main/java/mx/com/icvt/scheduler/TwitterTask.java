@@ -1,4 +1,4 @@
-package mx.com.icvt.extraction.impl.scheduler;
+package mx.com.icvt.scheduler;
 
 import mx.com.icvt.extraction.impl.twitter.TwitterDataExtractor;
 import mx.com.icvt.extraction.impl.twitter.TwitterExtractorConfiguration;

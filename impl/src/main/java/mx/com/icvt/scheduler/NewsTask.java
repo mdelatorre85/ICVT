@@ -1,4 +1,4 @@
-package mx.com.icvt.extraction.impl.scheduler;
+package mx.com.icvt.scheduler;
 
 import mx.com.icvt.extraction.impl.news.NewsDataExtractor;
 import mx.com.icvt.extraction.impl.news.NewsExtractorConfiguration;
@@ -23,7 +23,7 @@ public class NewsTask implements Job {
 
         for (NewsExtractorConfiguration config : configurations) {
             NewsResultData results = extractor.extract(config);
-            //TODO 3 Por cada TwitterDataExtractors guardar los resultados
+            NewsDataPersister dataPersister = new NewsDataPersister();
         }
 
     }

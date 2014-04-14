@@ -1,4 +1,4 @@
-package mx.com.icvt.extraction.impl.scheduler;
+package mx.com.icvt.scheduler;
 
 import mx.com.icvt.extraction.impl.patents.PatentsDataExtractor;
 import mx.com.icvt.extraction.impl.patents.PatentsExtractorConfiguration;

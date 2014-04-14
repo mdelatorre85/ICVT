@@ -1,4 +1,4 @@
-package mx.com.icvt.extraction.impl.scheduler;
+package mx.com.icvt.scheduler;
 
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
