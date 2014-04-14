@@ -6,3 +6,13 @@
 *.jar
 mock-impl/build/
 core/build/
+icvt.xml
+module_icvt.xml
+icvt.properties
+*.classpath
+*.project
+core/datanucleus.log
+core/target/
+datanucleus.log
+impl/datanucleus.log
+impl/target/
