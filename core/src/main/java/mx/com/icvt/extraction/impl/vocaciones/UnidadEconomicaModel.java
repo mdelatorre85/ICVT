@@ -95,7 +95,7 @@ public class UnidadEconomicaModel {
             this.queryProceso = "";
         }
 
-        // Fabricación de calzado
+        // Fabricaci��n de calzado
 
         if (this.proceso.equals("3162")) {
             this.queryProceso = " where clase_act.startsWith(\"3161\")";
@@ -143,7 +143,7 @@ public class UnidadEconomicaModel {
     public void setQueryParticularInsumos() {
 
         if (this.proceso.equals("3131")) {
-            System.out.println("Proceso: Preparación");
+            System.out.println("Proceso: Preparaci��n");
             this.queryProceso = "";
         }
 
@@ -280,7 +280,8 @@ public class UnidadEconomicaModel {
             Query q = pm.newQuery("javax.jdo.query.SQL", "select a.d_llave,nom_estab,a.clase_act,u.desc_act from "+UnidadEconomica.class.getName()+" a  inner join clase_actividades u  where  u.clase_act=a.clase_act and a.d_llave=22816");
             //q.setFilter("clase_act==\""+ this.getClase_act()+"\"");
             //q.setOrdering("nom_estab asc");
-            competencias = (List<UnidadEconomica>)q.execute();
+            List<UnidadEconomica> execute = (List<UnidadEconomica>)q.execute();
+			competencias = execute;
             tx.commit();
         }
         catch (Exception e)
