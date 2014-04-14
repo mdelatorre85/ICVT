@@ -16,3 +16,5 @@ core/target/
 datanucleus.log
 impl/datanucleus.log
 impl/target/
+core/datanucleus.log
+core/module_core.xml
