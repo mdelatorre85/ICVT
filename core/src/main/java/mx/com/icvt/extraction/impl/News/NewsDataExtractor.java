@@ -9,6 +9,7 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.text.ParseException;
 import java.util.Date;
 
 /**
@@ -45,7 +46,11 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
                 if (image != null)
                     System.out.println(image);
 
-                retorno.getResults().add(new News(tittle, guid, pubdate, description, image));
+                try {
+                    retorno.getResults().add(new News(tittle, guid, pubdate, description, image));
+                } catch (ParseException e1) {
+                    e1.printStackTrace();
+                }
 
             }
         } catch (MalformedURLException e) {
@@ -61,7 +66,7 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         NewsExtractorConfiguration config = new NewsExtractorConfiguration("precio cobre");
         config.setOrder(NewsExtractorConfiguration.Order.DATEDESC);
         config.setLanguage(NewsExtractorConfiguration.Language.ES);

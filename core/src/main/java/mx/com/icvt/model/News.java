@@ -25,7 +25,7 @@ public class News implements Serializable, Comparable<News> {
     private News() {
     }
 
-    public News(String title, String url, String pubDateString, String description, String image) {
+    public News(String title, String url, String pubDateString, String description, String image) throws ParseException {
         this.title = title;
         this.url = url;
         this.pubDateString = pubDateString;
@@ -39,6 +39,7 @@ public class News implements Serializable, Comparable<News> {
             pubDate = df.parse(pubDateString);
         } catch (ParseException e) {
             e.printStackTrace();
+            throw e;
         }
     }
 
@@ -71,12 +72,17 @@ public class News implements Serializable, Comparable<News> {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setUrl(String string) {
         this.url = string;
     }
 
     @Override
     public int compareTo(News o) {
+        //TODO Implementar comparación por imagen, y contenido de descripción - título
         return pubDate.compareTo(o.pubDate);
     }
 
