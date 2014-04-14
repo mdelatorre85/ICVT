@@ -1,4 +1,4 @@
-package mx.com.icvt.extraction.impl.news;
+package mx.com.icvt.extraction.impl.noticias;
 
 import mx.com.icvt.extraction.ExtractorConfiguration;
 
