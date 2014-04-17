@@ -5,6 +5,8 @@
              version="1.0">
     <persistence-unit name="SITE">
         <class>mx.com.icvt.persistence.impl.news.Noticia</class>
+        <class>mx.com.icvt.persistence.impl.tweets.DBTweet</class>
+        <class>mx.com.icvt.persistence.impl.patents.DBPatent</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>

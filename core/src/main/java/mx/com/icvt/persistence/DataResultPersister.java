@@ -8,6 +8,6 @@ import mx.com.icvt.extraction.ResultData;
  * Date: 09/03/14
  * Time: 18:01
  */
-public interface DataResultPersister {
-    public void persist(ResultData data);
+public interface DataResultPersister<T extends ResultData> {
+    public void persist(T data);
 }

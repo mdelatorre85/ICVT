@@ -1,6 +1,6 @@
 package mx.com.icvt.persistence.impl.news;
 
-import mx.com.icvt.extraction.ResultData;
+import mx.com.icvt.extraction.impl.news.NewsResultData;
 import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.DataResultPersister;
 
@@ -9,18 +9,18 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class NewsDataPersister implements DataResultPersister {
+public class NewsDataPersister implements DataResultPersister<NewsResultData> {
     private static SimpleDateFormat FORMAT;
     static {
         FORMAT = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z", Locale.ENGLISH);
     }
 
     @Override
-    public void persist(ResultData rs) {
+    public void persist(NewsResultData rs) {
         List<Noticia> noticias = new LinkedList<Noticia>();
         Noticia noticia;
 
-        ArrayList<News> results = (ArrayList<News>) rs.getResults();
+        ArrayList<News> results = rs.getResults();
         for (News news : results){
             noticia = new Noticia();
             noticia.setUrl(news.getUrl());
@@ -46,7 +46,7 @@ public class NewsDataPersister implements DataResultPersister {
 
     public List<News> getAllPersisted(){
         List<News> noticias = new ArrayList<News>();
-        String pubDate = "";
+        String pubDate;
         News news;
 
         PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
