@@ -134,4 +134,20 @@ public class Tweet implements Comparable<Tweet> {
         }
         return 0;
     }
+
+    /**
+     *
+     * @param obj
+     * @return True en caso de que sean de la misma clase que sus ids, RTs y Favs sean identicos.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof  Tweet){
+            Tweet other = ((Tweet)obj);
+            if (id == other.id && retweetCount == other.retweetCount &&  favoriteCount== other.favoriteCount){
+                return true;
+            }
+        }
+        return false;
+    }
 }
