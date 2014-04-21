@@ -42,10 +42,6 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
                 String description = dd.select(".lh").text();
                 String image = dd.select("img").attr("src");
 
-                System.out.println(description);
-                if (image != null)
-                    System.out.println(image);
-
                 try {
                     retorno.getResults().add(new News(tittle, guid, pubdate, description, image));
                 } catch (ParseException e1) {

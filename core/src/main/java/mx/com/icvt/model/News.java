@@ -1,6 +1,8 @@
 package mx.com.icvt.model;
 
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class News implements Serializable, Comparable<News> {
     private Date pubDate;
     private String description = "";
     private String image = "";
+    private String source = "";
 
     @SuppressWarnings("unused")
     private News() {
@@ -30,6 +33,7 @@ public class News implements Serializable, Comparable<News> {
             throw new IllegalArgumentException("Argument url cannot be null or empty.");
         }
         this.url = url;
+        setSourceFromUrl();
 
         if (pubDateString == null || pubDateString.length() == 0) {
             throw new IllegalArgumentException("Argument pubDateString cannot be null or empty.");
@@ -78,6 +82,7 @@ public class News implements Serializable, Comparable<News> {
 
     public void setUrl(String string) {
         this.url = string;
+        setSourceFromUrl();
     }
 
     @Override
@@ -145,5 +150,21 @@ public class News implements Serializable, Comparable<News> {
 
     public String getImage() {
         return image;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    private void setSourceFromUrl(){
+        try{
+            source = new URL(url).getHost();
+            if(source.startsWith("www.")){
+                source = source.substring(4);
+            }
+        }catch (MalformedURLException ez){
+            ez.printStackTrace();
+        }
+
     }
 }
