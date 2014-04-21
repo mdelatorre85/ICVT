@@ -9,7 +9,7 @@ import java.util.Date;
 /**
  * Created by miguelangeldelatorre on 01/04/14.
  */
-public class Tweet {
+public class Tweet implements Comparable<Tweet> {
 
     private Long id;
     private String text;
@@ -27,13 +27,15 @@ public class Tweet {
 
 
     @SuppressWarnings("unused")
-    private Tweet(){}
+    private Tweet() {
+    }
+
     public Tweet(Status status) {
         id = status.getId();
         text = status.getText();
         pubDate = status.getCreatedAt();
         GeoLocation geo = status.getGeoLocation();
-        if (geo != null){
+        if (geo != null) {
             latitude = geo.getLatitude();
             longitude = geo.getLongitude();
         }
@@ -41,10 +43,10 @@ public class Tweet {
         retweetCount = status.getRetweetCount();
 
         User user = status.getUser();
-        if (user!= null){
+        if (user != null) {
             userID = user.getId();
             userName = user.getName();
-            userScreenName =user.getScreenName();
+            userScreenName = user.getScreenName();
             userProfileUrl = user.getProfileImageURL();
 
             StringBuilder sb = new StringBuilder("https://twitter.com/");
@@ -53,7 +55,6 @@ public class Tweet {
             sb.append(id);
             url = sb.toString();
         }
-
 
 
     }
@@ -104,5 +105,33 @@ public class Tweet {
 
     public String getUrl() {
         return url;
+    }
+
+    /**
+     * @param o
+     * @return 0 en caso de que los ids de ambos objetos, cuenta de RTs y Favs sean identicos.
+     * 1 en caso de que sus ids sean iguales pero este objeto tenga mas RTs o Favs o que sus ids sean diferentes y
+     * este objeto tenga una fecha de publicación mas reciente.
+     * -1 en caso de que sus ids sean iguales pero este objeto tenga menos RTs o Favs o que sus ids sean diferentes y
+     * este objeto tenga una fecha de publicación menos reciente.
+     */
+    @Override
+    public int compareTo(Tweet o) {
+        if (id == o.id) {
+            if (retweetCount == o.retweetCount && favoriteCount == o.favoriteCount) {
+                return 0;
+            } else if (retweetCount < o.retweetCount || favoriteCount < o.favoriteCount) {
+                return -1;
+            } else if (favoriteCount > o.favoriteCount || retweetCount > o.retweetCount) {
+                return 1;
+            }
+        } else {
+            if (pubDate.getTime() < o.pubDate.getTime()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+        return 0;
     }
 }
