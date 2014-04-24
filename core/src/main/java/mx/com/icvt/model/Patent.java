@@ -22,8 +22,7 @@ public class Patent implements Serializable {
     private String patentString;
     private List<String> authors;
 
-    @SuppressWarnings("unused")
-    private Patent() {
+    public Patent() {
     }
 
     public Patent(String tittle, String url) {
@@ -92,6 +91,10 @@ public class Patent implements Serializable {
         if (authors == null)
             authors = new ArrayList<String>();
         return authors;
+    }
+
+    public void setAuthors(List<String> authors){
+        this.authors = authors;
     }
 
     public String getPatentString() {

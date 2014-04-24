@@ -5,6 +5,7 @@ import mx.com.icvt.model.News;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by miguelangeldelatorre on 25/03/14.
@@ -17,7 +18,7 @@ public class NewsResultData implements ResultData<News> {
     private Date endDate;
 
     @Override
-    public ArrayList<News> getResults() {
+    public List<News> getResults() {
         if (results == null)
             results = new ArrayList<News>();
 

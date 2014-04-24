@@ -6,11 +6,7 @@ import twitter4j.User;
 
 import java.util.Date;
 
-/**
- * Created by miguelangeldelatorre on 01/04/14.
- */
 public class Tweet {
-
     private Long id;
     private String text;
     private Date pubDate;
@@ -25,15 +21,24 @@ public class Tweet {
     private String userName;
     private String userProfileUrl;
 
+    public Tweet() {
+        this.id = 0l;
+        this.text = "";
+        this.pubDate = new Date();
+        this.url = "";
+        this.latitude = 0d;
+        this.longitude = 0d;
+        this.retweetCount = 0;
+        this.favoriteCount = 0;
+        this.userID = 0l;
+    }
 
-    @SuppressWarnings("unused")
-    private Tweet(){}
     public Tweet(Status status) {
         id = status.getId();
         text = status.getText();
         pubDate = status.getCreatedAt();
         GeoLocation geo = status.getGeoLocation();
-        if (geo != null){
+        if (geo != null) {
             latitude = geo.getLatitude();
             longitude = geo.getLongitude();
         }
@@ -41,10 +46,10 @@ public class Tweet {
         retweetCount = status.getRetweetCount();
 
         User user = status.getUser();
-        if (user!= null){
+        if (user != null) {
             userID = user.getId();
             userName = user.getName();
-            userScreenName =user.getScreenName();
+            userScreenName = user.getScreenName();
             userProfileUrl = user.getProfileImageURL();
 
             StringBuilder sb = new StringBuilder("https://twitter.com/");
@@ -53,9 +58,6 @@ public class Tweet {
             sb.append(id);
             url = sb.toString();
         }
-
-
-
     }
 
     public Long getId() {
@@ -104,5 +106,53 @@ public class Tweet {
 
     public String getUrl() {
         return url;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setRetweetCount(Integer retweetCount) {
+        this.retweetCount = retweetCount;
+    }
+
+    public void setFavoriteCount(Integer favoriteCount) {
+        this.favoriteCount = favoriteCount;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
+    }
+
+    public void setUserScreenName(String userScreenName) {
+        this.userScreenName = userScreenName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setUserProfileUrl(String userProfileUrl) {
+        this.userProfileUrl = userProfileUrl;
     }
 }

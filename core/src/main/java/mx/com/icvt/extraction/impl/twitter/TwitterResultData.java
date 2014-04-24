@@ -5,6 +5,7 @@ import mx.com.icvt.model.Tweet;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by miguelangeldelatorre on 01/04/14.
@@ -41,7 +42,7 @@ public class TwitterResultData implements ResultData<Tweet> {
     }
 
     @Override
-    public ArrayList<Tweet> getResults() {
+    public List<Tweet> getResults() {
         if (results == null ){
             results = new ArrayList<Tweet>();
         }
