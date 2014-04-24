@@ -10,17 +10,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class NewsDataPersister implements DataResultPersister<NewsResultData> {
-    private static SimpleDateFormat FORMAT;
-    static {
-        FORMAT = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z", Locale.ENGLISH);
-    }
-
     @Override
     public void persist(NewsResultData rs) {
         List<Noticia> noticias = new LinkedList<Noticia>();
         Noticia noticia;
 
-        ArrayList<News> results = rs.getResults();
+        List<News> results = rs.getResults();
         for (News news : results){
             noticia = new Noticia();
             noticia.setUrl(news.getUrl());
@@ -42,32 +37,6 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
 
         transaction.commit();
         persistenceManager.close();
-    }
-
-    public List<News> getAllPersisted(){
-        List<News> noticias = new ArrayList<News>();
-        String pubDate;
-        News news;
-
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager persistenceManager = factory.getPersistenceManager();
-        Query query = persistenceManager.newQuery(Noticia.class);
-        query.setResultClass(Noticia.class);
-
-        Collection<Noticia> results = (Collection<Noticia>)query.execute();
-        for (Noticia n : results){
-            pubDate = FORMAT.format(n.getFechaPublicacion());
-
-            try {
-                news = new News(n.getTitulo(), n.getUrl(), pubDate, n.getDescripcion(), "");
-                news.setId(n.getId());
-                noticias.add(news);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return noticias;
     }
 
     public Long deleteAllPersisted(){

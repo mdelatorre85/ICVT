@@ -7,4 +7,6 @@ import javax.jdo.annotations.Persistent;
 public class ExtraccionNoticia {
     @Persistent(primaryKey = "true")
     private Long id;
+
+
 }

@@ -4,10 +4,9 @@ import mx.com.icvt.extraction.impl.patents.PatentsResultData;
 import mx.com.icvt.model.Patent;
 import mx.com.icvt.persistence.DataResultPersister;
 
-import javax.jdo.JDOHelper;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.Transaction;
+import javax.jdo.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class PatentsDataPersister implements DataResultPersister<PatentsResultDa
         List<Patent> results = data.getResults();
         List<DBPatent> patents = new LinkedList<DBPatent>();
         for (Patent result : results){
-            patents.add(modelTransformer(result));
+            patents.add(new DBPatent(result));
         }
 
         PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
@@ -33,24 +32,32 @@ public class PatentsDataPersister implements DataResultPersister<PatentsResultDa
         manager.close();
     }
 
-    private static DBPatent modelTransformer(Patent patent) {
-        assert patent != null;
+    public List<Patent> getAllPersisted(){
+        List<Patent> patents = new ArrayList<Patent>();
 
-        DBPatent dbPatent = new DBPatent();
-        StringBuilder autores = new StringBuilder();
-
-        for (String autor : patent.getAuthors()) {
-            autores.append(autor);
-            autores.append(":");
+        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
+        PersistenceManager manager = factory.getPersistenceManager();
+        Query query = manager.newQuery(DBPatent.class);
+        Collection<DBPatent> results = (Collection<DBPatent>)query.execute();
+        for (DBPatent patent : results){
+            patents.add(patent.getPatent());
         }
 
-        dbPatent.setTitulo(patent.getTittle());
-        dbPatent.setDescripcion(patent.getDescriptionText());
-        dbPatent.setUrl(patent.getUrl());
-        dbPatent.setFechaPublicacion(patent.getPublicationDate());
-        dbPatent.setContenido(patent.getPatentString());
-        dbPatent.setAutores(autores.toString().substring(0, autores.toString().length() - 1));
+        return patents;
+    }
 
-        return dbPatent;
+    public Long deleteAllPersisted(){
+        Long deleted;
+
+        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
+        PersistenceManager manager = factory.getPersistenceManager();
+        manager.currentTransaction().begin();
+
+        Query query = manager.newQuery(DBPatent.class);
+        deleted = query.deletePersistentAll();
+
+        manager.currentTransaction().commit();
+
+        return deleted;
     }
 }

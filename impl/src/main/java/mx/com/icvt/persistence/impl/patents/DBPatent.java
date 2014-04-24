@@ -1,8 +1,11 @@
 package mx.com.icvt.persistence.impl.patents;
 
+import mx.com.icvt.model.Patent;
+
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
+import java.util.ArrayList;
 import java.util.Date;
 
 @PersistenceCapable
@@ -17,6 +20,28 @@ public class DBPatent {
     private String autores;
 
     public DBPatent() {
+    }
+
+    public DBPatent(Patent patent){
+        this.setTitulo(patent.getTittle());
+        this.setDescripcion(patent.getDescriptionText());
+        this.setUrl(patent.getUrl());
+        this.setFechaPublicacion(patent.getPublicationDate());
+        this.setContenido(patent.getPatentString());
+        this.setAutores("");
+    }
+
+    public Patent getPatent(){
+        Patent patent = new Patent();
+        patent.setId(this.getId());
+        patent.setTittle(this.getTitulo());
+        patent.setDescriptionText(this.getDescripcion());
+        patent.setUrl(this.getUrl());
+        patent.setPublicationDate(this.getFechaPublicacion());
+        patent.setPatentString(this.getContenido());
+        patent.setAuthors(new ArrayList<String>());
+
+        return patent;
     }
 
     public Long getId() {

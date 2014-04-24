@@ -4,5 +4,13 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
-
+    <display-name>Archetype Created Web Application</display-name>
+    <servlet>
+        <servlet-name>InteligenciaSocial</servlet-name>
+        <servlet-class>mx.com.icvt.front.InteligenciaSocialServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InteligenciaSocial</servlet-name>
+        <url-pattern>/inteligenciaSocial</url-pattern>
+    </servlet-mapping>
 </web-app>

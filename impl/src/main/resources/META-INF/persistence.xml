@@ -15,7 +15,6 @@
             <property name="javax.jdo.option.ConnectionUserName" value="cesar"/>
             <property name="javax.jdo.option.ConnectionPassword" value="password"/>
             <property name="datanucleus.query.jdoql.allowAll" value="true"/>
-
         </properties>
     </persistence-unit>
 </persistence>

@@ -1,13 +1,14 @@
 package mx.com.icvt.persistence.impl.tweets;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
+import mx.com.icvt.model.Tweet;
+
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import java.util.Date;
 
 @PersistenceCapable
 public class DBTweet {
-    @Persistent(primaryKey = "true", valueStrategy = IdGeneratorStrategy.IDENTITY)
+    @Persistent(primaryKey = "true")
     private Long id;
     private String texto;
     private Date fechaPublicacion;
@@ -23,6 +24,21 @@ public class DBTweet {
     private String urlPerfilUsuario;
 
     public DBTweet() {
+    }
+
+    public DBTweet(Tweet tweet){
+        this.setTexto(tweet.getText());
+        this.setUrl(tweet.getUrl());
+        this.setFechaPublicacion(tweet.getPubDate());
+        this.setUrl(tweet.getUrl());
+        this.setLatitud(tweet.getLatitude());
+        this.setLongitud(tweet.getLongitude());
+        this.setNumeroRetweets(tweet.getRetweetCount());
+        this.setNumeroFavoritos(tweet.getFavoriteCount());
+        this.setId(tweet.getUserID());
+        this.setAliasUsuario(tweet.getUserScreenName());
+        this.setNombreUsuario(tweet.getUserName());
+        this.setUrlPerfilUsuario(tweet.getUserProfileUrl());
     }
 
     public Long getId() {
@@ -119,5 +135,23 @@ public class DBTweet {
 
     public void setUrlPerfilUsuario(String urlPerfilUsuario) {
         this.urlPerfilUsuario = urlPerfilUsuario;
+    }
+
+    public Tweet getTweet(){
+        Tweet tweet = new Tweet();
+        tweet.setId(this.getId());
+        tweet.setText(this.getTexto());
+        tweet.setPubDate(this.getFechaPublicacion());
+        tweet.setUrl(this.getUrl());
+        tweet.setLatitude(this.getLatitud());
+        tweet.setLongitude(this.getLongitud());
+        tweet.setRetweetCount(this.getNumeroRetweets());
+        tweet.setFavoriteCount(this.getNumeroFavoritos());
+        tweet.setUserID(this.getIdUsuario());
+        tweet.setUserScreenName(this.getAliasUsuario());
+        tweet.setUserName(this.getNombreUsuario());
+        tweet.setUserProfileUrl(this.getUrlPerfilUsuario());
+
+        return tweet;
     }
 }

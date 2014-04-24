@@ -1,6 +1,6 @@
 package mx.com.icvt.persistence.impl.news;
 
-import mx.com.icvt.extraction.ResultData;
+import mx.com.icvt.extraction.impl.news.NewsResultData;
 import mx.com.icvt.model.News;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -14,11 +14,13 @@ import static junit.framework.Assert.assertTrue;
 
 public class NewsDataPersisterTest {
     private NewsDataPersister dataPersister;
-    private ResultData<News> resultData;
+    private NewsDataRetriever dataRetriever;
+    private NewsResultData resultData;
 
     @Before
     public void setUp() {
         dataPersister = new NewsDataPersister();
+        dataRetriever = new NewsDataRetriever();
         resultData = creaResulDataNoticias(1, 5);
     }
 
@@ -26,7 +28,7 @@ public class NewsDataPersisterTest {
     public void alProporcionarNoticiasNoDuplicadasSePersistenTodasLasNoticias() {
         dataPersister.persist(resultData);
 
-        List<News> persisted = dataPersister.getAllPersisted();
+        List<News> persisted = dataRetriever.retrieve();
         assertTrue(resultData.getResults().size() == persisted.size());
 
         cleanDataStore();
@@ -36,10 +38,10 @@ public class NewsDataPersisterTest {
     @Ignore
     public void siRecibeNoticiaDuplicadaMasCompletaGuardaNuevaNoticia() {
         dataPersister.persist(resultData);
-        resultData = new ResultData<News>() {
+        resultData = new NewsResultData() {
             @Override
             public List<News> getResults() {
-                List<News> noticias = new ArrayList<News>();
+                ArrayList<News> noticias = new ArrayList<News>();
                 News noticia;
 
                 String url = "URL Noticia 1";
@@ -59,7 +61,7 @@ public class NewsDataPersisterTest {
 
         dataPersister.persist(resultData);
 
-        List<News> persisted = dataPersister.getAllPersisted();
+        List<News> persisted = dataRetriever.retrieve();
         assertTrue(resultData.getResults().size() == persisted.size());
 
 
@@ -73,11 +75,11 @@ public class NewsDataPersisterTest {
 
     }
 
-    private ResultData<News> creaResulDataNoticias(final int indiceInicio, final int indiceFinal) {
-        ResultData<News> resultData = new ResultData<News>() {
+    private NewsResultData creaResulDataNoticias(final int indiceInicio, final int indiceFinal) {
+        NewsResultData resultData = new NewsResultData(){
             @Override
             public List<News> getResults() {
-                List<News> noticias = new ArrayList<News>();
+                ArrayList<News> noticias = new ArrayList<News>();
                 News noticia;
 
                 for (int index = indiceInicio; index < indiceFinal; index++) {
