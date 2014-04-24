@@ -21,7 +21,7 @@ public class UnidadEconomica {
     public int cve_ent;
 
     @Persistent
-    public  int cve_num;
+    public  int cve_mun;
 
     @Persistent
     public int cve_loc;
@@ -34,8 +34,6 @@ public class UnidadEconomica {
 
     @Persistent
     public String nom_propie;
-
-   
 
 	@Persistent
     public String direccion;
@@ -106,12 +104,12 @@ public class UnidadEconomica {
         this.cve_ent = cve_ent;
     }
 
-    public int getCve_num() {
-        return cve_num;
+    public int getCve_mun() {
+        return cve_mun;
     }
 
-    public void setCve_num(int cve_num) {
-        this.cve_num = cve_num;
+    public void setCve_mun(int cve_mun) {
+        this.cve_mun = cve_mun;
     }
 
     public int getCve_loc() {
