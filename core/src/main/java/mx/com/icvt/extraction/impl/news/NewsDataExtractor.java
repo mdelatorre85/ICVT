@@ -66,7 +66,7 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
         NewsExtractorConfiguration config = new NewsExtractorConfiguration("precio cobre");
         config.setOrder(NewsExtractorConfiguration.Order.DATEDESC);
         config.setLanguage(NewsExtractorConfiguration.Language.ES);
-        //config.setSource("El Financiero");
+        config.setSource("El Financiero");
         new NewsDataExtractor().extract(config);
 
     }

@@ -156,13 +156,13 @@ public class News implements Serializable, Comparable<News> {
         return source;
     }
 
-    private void setSourceFromUrl(){
-        try{
+    private void setSourceFromUrl() {
+        try {
             source = new URL(url).getHost();
-            if(source.startsWith("www.")){
+            if (source.startsWith("www.")) {
                 source = source.substring(4);
             }
-        }catch (MalformedURLException ez){
+        } catch (MalformedURLException ez) {
             ez.printStackTrace();
         }
 
