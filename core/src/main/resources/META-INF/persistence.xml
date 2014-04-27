@@ -10,6 +10,7 @@
         <class>mx.com.icvt.extraction.impl.intsocial.CensosEconomicos</class>
         <class>mx.com.icvt.extraction.impl.intsocial.CensosEducacion</class>
         <class>mx.com.icvt.extraction.impl.intsocial.CensosPoblacion</class>
+        <class>mx.com.icvt.model.User</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="javax.jdo.option.ConnectionURL"
