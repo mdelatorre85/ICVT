@@ -7,6 +7,9 @@
     <persistence-unit name="SITE">
         <class>mx.com.icvt.extraction.impl.vocaciones.UnidadEconomica</class>
         <class>mx.com.icvt.extraction.impl.vocaciones.Municipio</class>
+        <class>mx.com.icvt.extraction.impl.intsocial.CensosEconomicos</class>
+        <class>mx.com.icvt.extraction.impl.intsocial.CensosEducacion</class>
+        <class>mx.com.icvt.extraction.impl.intsocial.CensosPoblacion</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="javax.jdo.option.ConnectionURL"

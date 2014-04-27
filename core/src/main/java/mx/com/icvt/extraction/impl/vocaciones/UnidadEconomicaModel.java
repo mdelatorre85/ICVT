@@ -143,7 +143,7 @@ public class UnidadEconomicaModel {
     public void setQueryParticularInsumos() {
 
         if (this.proceso.equals("3131")) {
-            System.out.println("Proceso: Preparaci��n");
+            System.out.println("Proceso: Preparacion");
             this.queryProceso = "";
         }
 
