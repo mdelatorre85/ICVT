@@ -42,10 +42,6 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
                 String description = dd.select(".lh").text();
                 String image = dd.select("img").attr("src");
 
-                System.out.println(description);
-                if (image != null)
-                    System.out.println(image);
-
                 try {
                     retorno.getResults().add(new News(tittle, guid, pubdate, description, image));
                 } catch (ParseException e1) {
@@ -70,7 +66,7 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
         NewsExtractorConfiguration config = new NewsExtractorConfiguration("precio cobre");
         config.setOrder(NewsExtractorConfiguration.Order.DATEDESC);
         config.setLanguage(NewsExtractorConfiguration.Language.ES);
-        //config.setSource("El Financiero");
+        config.setSource("El Financiero");
         new NewsDataExtractor().extract(config);
 
     }

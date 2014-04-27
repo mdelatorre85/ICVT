@@ -1,0 +1,84 @@
+// http://jsfiddle.net/trevor_davis/jURUG/
+
+$cols: 12;
+$gutter: 2%;
+
+
+$one_col: (100% - ($gutter * ($cols - 1))) / $cols;
+
+@mixin cols($num) {
+    width: ($one_col * $num) + ($gutter * ($num - 1));
+    // outline: 1px dotted #CCCCCC;
+}
+
+@mixin sub_cols($num_child, $num_parent) {
+    $parent_size: ($one_col * $num_parent) + ($gutter * ($num_parent - 1));
+    $child_size: ($one_col * $num_child) + ($gutter * ($num_child - 1));
+    margin-left: ($gutter / $parent_size) * 100%;
+    width: ($child_size / $parent_size) * 100%;
+}
+
+/* @group grid */
+.row {
+    #{enumerate('.g', 1, $cols, '')} {
+        float: left;
+        margin-left: $gutter;
+    }
+
+    @for $i from 1 through $cols {
+        .g#{$i} {
+            @include cols($i);
+        }
+    }
+    
+    > :first-child,
+    .row > :first-child {
+        margin-left: 0;
+    }
+}
+
+.row:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.lte7 .row {
+    height: 1%;
+}
+
+
+// el container de toda la vida
+.container {
+    clear: both;
+    // outline: 1px dotted #2A2A2A;
+
+    &:before, &:after{
+        content: ' ';
+        display: table;
+    }
+
+    &:after{
+        clear: both;
+    }
+
+    margin: 0 auto;
+    width: 1000px;
+}
+
+/*
+@media screen and (max-width: 640px){
+    #{enumerate('.g', 1, $cols, '')} {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .container {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+*/
