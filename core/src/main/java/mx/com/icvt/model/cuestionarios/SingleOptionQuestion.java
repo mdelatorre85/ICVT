@@ -58,4 +58,8 @@ public class SingleOptionQuestion extends Question {
         }
         possibleOptions.remove(possibleOption);
     }
+
+    public  void removePossibleOption(int index){
+        possibleOptions.remove(index);
+    }
 }

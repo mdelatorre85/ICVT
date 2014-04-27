@@ -6,8 +6,9 @@ package mx.com.icvt.model.cuestionarios;
 public abstract class Answer {
 
     private Long id;
-    private Long quetionId;
+    private Long questionId;
     private Long userId;
+
     private Question question;
 
     public Answer(Long userId, Question question) {
@@ -19,7 +20,7 @@ public abstract class Answer {
         }
 
         this.userId = userId;
-        this.quetionId = question.getId();
+        this.questionId = question.getId();
         this.question = question;
     }
 
@@ -32,11 +33,11 @@ public abstract class Answer {
     }
 
     public Long getQuetionId() {
-        return quetionId;
+        return questionId;
     }
 
     public void setQuetionId(Long quetionId) {
-        this.quetionId = quetionId;
+        this.questionId = quetionId;
     }
 
     public Long getUserId() {
@@ -56,5 +57,6 @@ public abstract class Answer {
             throw new IllegalArgumentException("Argument question cannot be null.");
         }
         this.question = question;
+        questionId = question.getId();
     }
 }

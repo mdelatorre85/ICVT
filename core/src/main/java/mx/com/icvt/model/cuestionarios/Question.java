@@ -7,6 +7,10 @@ public abstract class Question<U extends Answer> {
 
     private Long id;
     private String textQuestion;
+    private Long topicId;
+
+    private Topic topic;
+    private Answer answer;
 
     public Question(String textQuestion){
         if (textQuestion == null || textQuestion.length() <= 0) {
@@ -31,4 +35,26 @@ public abstract class Question<U extends Answer> {
         this.textQuestion = textQuestion;
     }
 
+    public Topic getTopic() {
+        return topic;
+    }
+
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+        if (topic != null){
+            this.topicId = topic.getId();
+        }
+    }
+
+    public Long getTopicId() {
+        return topicId;
+    }
+
+    public Answer getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
+    }
 }
