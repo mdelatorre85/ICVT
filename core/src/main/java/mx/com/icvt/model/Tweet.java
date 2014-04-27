@@ -6,7 +6,7 @@ import twitter4j.User;
 
 import java.util.Date;
 
-public class Tweet {
+public class Tweet implements Comparable<Tweet> {
     private Long id;
     private String text;
     private Date pubDate;
@@ -155,4 +155,48 @@ public class Tweet {
     public void setUserProfileUrl(String userProfileUrl) {
         this.userProfileUrl = userProfileUrl;
     }
+
+    /**
+     * @param o
+     * @return 0 en caso de que los ids de ambos objetos, cuenta de RTs y Favs sean identicos.
+     * 1 en caso de que sus ids sean iguales pero este objeto tenga mas RTs o Favs o que sus ids sean diferentes y
+     * este objeto tenga una fecha de publicación mas reciente.
+     * -1 en caso de que sus ids sean iguales pero este objeto tenga menos RTs o Favs o que sus ids sean diferentes y
+     * este objeto tenga una fecha de publicación menos reciente.
+     */
+    @Override
+    public int compareTo(Tweet o) {
+        if (id == o.id) {
+            if (retweetCount == o.retweetCount && favoriteCount == o.favoriteCount) {
+                return 0;
+            } else if (retweetCount < o.retweetCount || favoriteCount < o.favoriteCount) {
+                return -1;
+            } else if (favoriteCount > o.favoriteCount || retweetCount > o.retweetCount) {
+                return 1;
+            }
+        } else {
+            if (pubDate.getTime() < o.pubDate.getTime()) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+        return 0;
+    }
+
+    /**
+     * @param obj
+     * @return True en caso de que sean de la misma clase que sus ids, RTs y Favs sean identicos.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Tweet) {
+            Tweet other = ((Tweet) obj);
+            if (id == other.id && retweetCount == other.retweetCount && favoriteCount == other.favoriteCount) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
+
