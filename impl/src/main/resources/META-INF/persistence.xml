@@ -7,6 +7,8 @@
         <class>mx.com.icvt.persistence.impl.news.Noticia</class>
         <class>mx.com.icvt.persistence.impl.tweets.DBTweet</class>
         <class>mx.com.icvt.persistence.impl.patents.DBPatent</class>
+        <class>mx.com.icvt.persistence.impl.tags.Etiqueta</class>
+        <class>mx.com.icvt.persistence.impl.news.NoticiaEtiqueta</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
@@ -15,13 +17,12 @@
             <!--<property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>-->
             <!--<property name="javax.jdo.option.ConnectionUserName" value="cesar"/>-->
             <!--<property name="javax.jdo.option.ConnectionPassword" value="password"/>-->
-            <!--<property name="datanucleus.query.jdoql.allowAll" value="true"/>-->
+            <property name="datanucleus.query.jdoql.allowAll" value="true"/>
 
             <property name="javax.jdo.option.ConnectionURL" value="jdbc:hsqldb:mem:nucleus1"/>
             <property name="javax.jdo.option.ConnectionDriverName" value="org.hsqldb.jdbcDriver"/>
             <property name="javax.jdo.option.ConnectionUserName" value="sa"/>
             <property name="javax.jdo.option.ConnectionPassword" value=""/>
-            <!--<property name="javax.jdo.option.Mapping" value="hsql"/>-->
 
             <property name="datanucleus.schema.autoCreateAll" value="true"/>
         </properties>

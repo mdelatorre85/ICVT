@@ -28,6 +28,15 @@ public class News implements Serializable, Comparable<News> {
     private News() {
     }
 
+    public News(Long id, String title, String url, Date pubDate, String description, String image){
+        this.id = id;
+        this.title = title;
+        this.url = url;
+        this.pubDate = pubDate;
+        this.description = description;
+        this.image = image;
+    }
+
     public News(String title, String url, String pubDateString, String description, String image) throws ParseException {
         if (url == null || url.length() == 0) {
             throw new IllegalArgumentException("Argument url cannot be null or empty.");

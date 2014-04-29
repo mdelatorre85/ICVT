@@ -8,14 +8,14 @@ import java.text.ParseException;
 import static junit.framework.Assert.assertNotNull;
 
 public class NewsTest {
-    @Test(expected = ParseException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testInstantationWithWrongDate() throws ParseException {
-        new News("", "", "", "", "");
+        new News("My title", "http://myurl.com", "", "My description", "My image");
     }
 
     @Test
     public void testCorrectInstantation() throws ParseException {
-        News news = new News("", "", "Wed, 26 Mar 2014 17:34:34 GMT", "", "");
+        News news = new News("MyTitle", "http://myurl.com", "Wed, 26 Mar 2014 17:34:34 GMT", "", "");
         assertNotNull(news);
     }
 
