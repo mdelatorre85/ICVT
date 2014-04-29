@@ -13,22 +13,16 @@ import java.util.Locale;
  * @author miguelangeldelatorre
  */
 public class News implements Serializable, Comparable<News> {
-
-
     private Long id;
-    private String title = "";
+    private String title;
     private String url = "";
     private String pubDateString;
     private Date pubDate;
-    private String description = "";
-    private String image = "";
-    private String source = "";
+    private String description;
+    private String image;
+    private String source;
 
-    @SuppressWarnings("unused")
-    private News() {
-    }
-
-    public News(Long id, String title, String url, Date pubDate, String description, String image){
+    public News(Long id, String title, String url, Date pubDate, String description, String image) {
         this.id = id;
         this.title = title;
         this.url = url;
@@ -37,7 +31,7 @@ public class News implements Serializable, Comparable<News> {
         this.image = image;
     }
 
-    public News(String title, String url, String pubDateString, String description, String image) throws ParseException {
+    public News(String title, String url, String pubDateString, String description, String image) throws ParseException, MalformedURLException {
         if (url == null || url.length() == 0) {
             throw new IllegalArgumentException("Argument url cannot be null or empty.");
         }
@@ -48,25 +42,16 @@ public class News implements Serializable, Comparable<News> {
             throw new IllegalArgumentException("Argument pubDateString cannot be null or empty.");
         }
         this.pubDateString = pubDateString;
-
-        if (title != null)
-            this.title = title;
-
-        if (description != null)
-            this.description = description;
+        this.title = title;
+        this.description = description;
 
         if (image != null)
             this.image = image;
 
-        try {
-            SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
-                    Locale.ENGLISH);
-            //Wed, 26 Mar 2014 17:34:34 GMT
-            pubDate = df.parse(pubDateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            throw e;
-        }
+        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
+                Locale.ENGLISH);
+        //Wed, 26 Mar 2014 17:34:34 GMT
+        pubDate = df.parse(pubDateString);
     }
 
     public String getPubDateString() {
@@ -89,7 +74,10 @@ public class News implements Serializable, Comparable<News> {
         return url;
     }
 
-    public void setUrl(String string) {
+    public void setUrl(String string) throws MalformedURLException {
+        if (url == null || url.length() == 0) {
+            throw new IllegalArgumentException("Argument url cannot be null or empty.");
+        }
         this.url = string;
         setSourceFromUrl();
     }
@@ -114,30 +102,47 @@ public class News implements Serializable, Comparable<News> {
      */
     @Override
     public int compareTo(News o) {
-        if (id != null && o.id != null) {
-            if (id.longValue() == o.id.longValue() && url.equals(o.url)) {
-                if (image.equals(o.image) && description.equals(o.description) && title.equals(o.title)) {
-                    return 0;
-                } else if (image.length() == 0 && o.image.length() > 0) {
+        if (url.equals(o.url)) {
+            if (id != null && o.id != null) {
+                if (id.longValue() < o.id.longValue()) {
                     return -1;
-                } else if (o.image.length() == 0 && image.length() > 0) {
+                } else if (id.longValue() > o.id.longValue()) {
                     return 1;
-                } else if (description.length() == 0 && o.description.length() > 0) {
-                    return -1;
-                } else if (description.length() > 0 && o.description.length() == 0) {
-                    return 1;
-                } else if (description.length() != o.description.length()) {
-                    return description.length() - o.description.length();
-                } else if (title.length() == 0 && o.title.length() > 0) {
-                    return -1;
-                } else if (title.length() > 0 && o.title.length() == 0) {
-                    return 1;
-                } else if (title.length() != o.title.length()) {
-                    return title.length() - o.title.length();
                 }
+            } else if (id != null && o.id == null) {
+                return 1;
+            } else if (id == null && o.id != null) {
+                return -1;
+            } else if (image != null && o.image == null) {
+                return 1;
+            } else if (image == null && o.image != null) {
+                return -1;
+            } else if (description != null && o.description == null) {
+                return 1;
+            } else if (description == null && o.description != null) {
+                return -1;
+            } else if (description != null && o.description != null) {
+                if (description.length() > o.description.length()) {
+                    return 1;
+                } else if (description.length() < o.description.length()) {
+                    return -1;
+                }
+            } else if (title != null && o.title == null) {
+                return 1;
+            } else if (title == null && o.title != null) {
+                return -1;
+            } else if (title != null && o.title != null) {
+                if (title.length() > o.title.length()) {
+                    return 1;
+                } else if (title.length() < o.title.length()) {
+                    return -1;
+                }
+            } else if (!pubDate.equals(o.pubDate)) {
+                return pubDate.compareTo(o.pubDate);
+            } else {
+                return 0;
             }
         }
-
         return url.compareTo(o.url);
     }
 
@@ -145,14 +150,56 @@ public class News implements Serializable, Comparable<News> {
     public boolean equals(Object obj) {
         if (obj instanceof News) {
             News news = ((News) obj);
-            if (id != null) {
-                if (id.longValue() == news.id.longValue() && image.equals(news.image) && description.equals(news.description) && title.equals(news.title)) {
-                    return true;
-                } else if (image.equals(news.image) && description.equals(news.description) && title.equals(news.title)) {
-                    return true;
+
+            if (id != null && news.id != null) {
+                if (id.longValue() != news.getID().longValue()) {
+                    return false;
                 }
+            } else if ((id != null && news.id == null) || (id == null && news.id != null)) {
+                return false;
             }
 
+            if (url != null && news.getUrl() != null) {
+                if (!url.equals(news.getUrl())) {
+                    return false;
+                }
+            } else if ((url != null && news.getUrl() == null) || (url == null && news.getUrl() != null)) {
+                return false;
+            }
+
+            if (title != null && news.getTitle() != null) {
+                if (!title.equals(news.getTitle())) {
+                    return false;
+                }
+            } else if ((title != null && news.getTitle() == null) || (title == null && news.getTitle() != null)) {
+                return false;
+            }
+
+            if (image != null && news.getImage() != null) {
+                if (!image.equals(news.getImage())) {
+                    return false;
+                }
+            } else if ((image != null && news.getImage() == null) || (image == null && news.getImage() != null)) {
+                return false;
+            }
+
+            if (description != null && news.getDescription() != null) {
+                if (!description.equals(news.getDescription())) {
+                    return false;
+                }
+            } else if ((description != null && news.getDescription() == null) || (description == null && news.getDescription() != null)) {
+                return false;
+            }
+
+            if (pubDate != null && news.getPubDate() != null) {
+                if (!pubDate.equals(news.getPubDate())) {
+                    return false;
+                }
+            } else if ((pubDate != null && news.getPubDate() == null) || (pubDate == null && news.getPubDate() != null)) {
+                return false;
+            }
+
+            return true;
         }
         return false;
     }
@@ -165,15 +212,10 @@ public class News implements Serializable, Comparable<News> {
         return source;
     }
 
-    private void setSourceFromUrl() {
-        try {
-            source = new URL(url).getHost();
-            if (source.startsWith("www.")) {
-                source = source.substring(4);
-            }
-        } catch (MalformedURLException ez) {
-            ez.printStackTrace();
+    private void setSourceFromUrl() throws MalformedURLException {
+        source = new URL(url).getHost();
+        if (source.startsWith("www.")) {
+            source = source.substring(4);
         }
-
     }
 }

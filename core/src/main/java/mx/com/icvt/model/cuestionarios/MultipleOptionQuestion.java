@@ -3,13 +3,13 @@ package mx.com.icvt.model.cuestionarios;
 import java.util.ArrayList;
 
 /**
- * Created by miguelangeldelatorre on 25/04/14.
+ * Created by miguelangeldelatorre on 27/04/14.
  */
-public class SingleOptionQuestion extends Question {
+public class MultipleOptionQuestion extends Question {
 
     private ArrayList<String> possibleOptions;
 
-    public SingleOptionQuestion(String textQuestion) {
+    public MultipleOptionQuestion(String textQuestion) {
         super(textQuestion);
         possibleOptions = new ArrayList<String>();
     }
@@ -26,7 +26,7 @@ public class SingleOptionQuestion extends Question {
         return retorno;
     }
 
-    public int posibleOptionsSize(){
+    public int getPossibleOptionsSize(){
         return possibleOptions.size();
     }
 
@@ -38,7 +38,6 @@ public class SingleOptionQuestion extends Question {
         if (possibleOption == null || possibleOption.length() == 0){
             throw new IllegalArgumentException("Argument possibleOption cannot be null or empty");
         }
-        possibleOptions.add(possibleOption);
     }
 
     public String getPossibleOption(int index){

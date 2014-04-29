@@ -6,19 +6,22 @@ package mx.com.icvt.model.cuestionarios;
 public abstract class Answer {
 
     private Long id;
-    private Long quetionId;
+    private Long questionId;
     private Long userId;
 
-    public Answer(Long userId, Long questionId) {
+    private Question question;
+
+    public Answer(Long userId, Question question) {
         if (userId == null) {
             throw new IllegalArgumentException("Argument userId cannot be null.");
         }
-        if (questionId == null) {
-            throw new IllegalArgumentException("Argument questionId cannot be null.");
+        if (question == null) {
+            throw new IllegalArgumentException("Argument question cannot be null.");
         }
 
         this.userId = userId;
-        this.quetionId = questionId;
+        this.questionId = question.getId();
+        this.question = question;
     }
 
     public Long getId() {
@@ -30,11 +33,11 @@ public abstract class Answer {
     }
 
     public Long getQuetionId() {
-        return quetionId;
+        return questionId;
     }
 
     public void setQuetionId(Long quetionId) {
-        this.quetionId = quetionId;
+        this.questionId = quetionId;
     }
 
     public Long getUserId() {
@@ -43,5 +46,17 @@ public abstract class Answer {
 
     public void setUserId(Long userId) {
         this.userId = userId;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        if (question == null) {
+            throw new IllegalArgumentException("Argument question cannot be null.");
+        }
+        this.question = question;
+        questionId = question.getId();
     }
 }

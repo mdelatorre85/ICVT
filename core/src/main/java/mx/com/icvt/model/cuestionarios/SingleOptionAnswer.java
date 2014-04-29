@@ -7,15 +7,9 @@ public class SingleOptionAnswer extends Answer {
 
     private Integer answer;
 
-    public SingleOptionAnswer(Long userId, Long questionId, Integer answer) {
-        super(userId, questionId);
+    public SingleOptionAnswer(Long userId, SingleOptionQuestion question) {
+        super(userId, question);
 
-        if (answer == null) {
-            throw new IllegalArgumentException("Argument answer cannot be null");
-        }
-
-        //TODO validar que la respuesta se encuentre en rango de respuestas.
-        this.answer = answer;
     }
 
     public Integer getAnswer() {
@@ -23,6 +17,22 @@ public class SingleOptionAnswer extends Answer {
     }
 
     public void setAnswer(Integer answer) {
-        this.answer = answer;
+        SingleOptionQuestion q = (SingleOptionQuestion)getQuestion();
+        if(answer ==  null  ){
+            throw new IllegalArgumentException("Argument answer cannot be null");
+        } else if (answer.intValue()>=0 && answer.intValue()< q.posibleOptionsSize()){
+            this.answer = answer;
+        } else {
+            throw new IndexOutOfBoundsException("Answer must be in the range of the possible options for the question.");
+        }
+    }
+
+    @Override
+    public void setQuestion(Question question) {
+        if (question != null && question instanceof SingleOptionQuestion){
+            super.setQuestion(question);
+        }else {
+            throw new IllegalArgumentException("Argument question cannot be null and most be a SingleOptionQuestion");
+        }
     }
 }

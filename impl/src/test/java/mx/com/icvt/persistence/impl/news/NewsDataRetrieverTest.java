@@ -5,6 +5,7 @@ import mx.com.icvt.model.News;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +45,8 @@ public class NewsDataRetrieverTest {
                         noticia = new News(title, url, fechaPublicacion, descripcion, urlImage);
                         noticias.add(noticia);
                     } catch (ParseException e) {
+                    } catch (MalformedURLException e) {
+                        e.printStackTrace();
                     }
                 }
                 return noticias;
