@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import mx.com.icvt.extraction.impl.intsocial.*;
+import mx.com.icvt.extraction.impl.user.UserResultData;
+import mx.com.icvt.model.User;
 
 
 public class TestJDO {
@@ -12,10 +14,52 @@ public class TestJDO {
 
     public static void main(String args[]) {
 
+        UserResultData urd = new UserResultData();
+        User us = new User();
 
+        // Add User
+        System.out.println("Add user:");
+        us.setIdentity("dev.lnx1337@gmail.com");
+        us.setPassword("lamisma00");
+        us.setRole_site_id(1);
+        us.setRole_social_id(1);
+        us.setUnidad_economica_id(1453);
+        us.setName("Jair");
+        us.setFirst_name("Peña");
+        us.setLast_name("Trejo");
+        us.setPhone("5544963762");
+        us.setAvatar("http://lols.com/img.com");
+        us.setStatus(1);
+        urd.user = us;
+
+        Iterator<User> responseAdd = urd.Save().iterator();
+        while (responseAdd.hasNext()) {
+            User pro = responseAdd.next();
+            System.out.println("identity: "+pro.getIdentity()+" password:"+pro.getPassword());
+        }
+
+        // List User
+        System.out.println("List users:");
+        List<User> allUsers =null;
+        allUsers = urd.List();
+        Iterator<User> allUserList = allUsers.iterator();
+        while (allUserList.hasNext()) {
+            User pro = allUserList.next();
+            System.out.println("identity: "+pro.getIdentity()+" password:"+pro.getPassword());
+        }
+
+        // Login User
+        System.out.println("Login user:");
+        us.setIdentity("dev.lnx1337@gmail.com");
+        us.setPassword("lamisma00");
+        Iterator<User> responseLogin = urd.Login().iterator();
+        while (responseLogin.hasNext()) {
+            User u = responseLogin.next();
+            System.out.println("identity: "+u.getName()+"  password:"+u.getAvatar());
+        }
+
+       /*
        UnidadEconomicaModel obj = new UnidadEconomicaModel("12168");
-
-
 
        // get info unidad economica
 
@@ -149,7 +193,7 @@ public class TestJDO {
                 System.out.println(cliente.getNom_estab());
             }
         }
-
+        */
     }
 
 }

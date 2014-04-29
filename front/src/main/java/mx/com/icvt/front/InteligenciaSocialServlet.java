@@ -20,7 +20,7 @@ public class InteligenciaSocialServlet extends HttpServlet {
         NewsDataRetriever retriever = new NewsDataRetriever();
         List<mx.com.icvt.model.News> noticias = retriever.retrieveAllEnabled();
 
-        request.setAttribute("noticias", noticias);
+        request.setAttribute("noticias", null);
         RequestDispatcher dispatcher = request.getRequestDispatcher("inteligenciaSocial.jsp");
         dispatcher.forward(request, response);
     }

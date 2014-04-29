@@ -9,8 +9,19 @@
         <servlet-name>InteligenciaSocial</servlet-name>
         <servlet-class>mx.com.icvt.front.InteligenciaSocialServlet</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>InteligenciaSocial</servlet-name>
         <url-pattern>/inteligenciaSocial</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <description></description>
+        <display-name>UserRestServlet</display-name>
+        <servlet-name>UserRestServlet</servlet-name>
+        <servlet-class>mx.com.icvt.front.UserRestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserRestServlet</servlet-name>
+        <url-pattern>/api/v1/*</url-pattern>
     </servlet-mapping>
 </web-app>
