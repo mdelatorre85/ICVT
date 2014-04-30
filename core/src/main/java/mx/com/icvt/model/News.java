@@ -5,8 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.*;
 
 
 /**
@@ -21,6 +20,7 @@ public class News implements Serializable, Comparable<News> {
     private String description;
     private String image;
     private String source;
+    private Map<Long, String> etiquetas;
 
     public News(Long id, String title, String url, Date pubDate, String description, String image) {
         this.id = id;
@@ -29,6 +29,7 @@ public class News implements Serializable, Comparable<News> {
         this.pubDate = pubDate;
         this.description = description;
         this.image = image;
+        this.etiquetas = new HashMap<>();
     }
 
     public News(String title, String url, String pubDateString, String description, String image) throws ParseException, MalformedURLException {
@@ -52,6 +53,7 @@ public class News implements Serializable, Comparable<News> {
                 Locale.ENGLISH);
         //Wed, 26 Mar 2014 17:34:34 GMT
         pubDate = df.parse(pubDateString);
+        this.etiquetas = new HashMap<>();
     }
 
     public String getPubDateString() {
@@ -217,5 +219,17 @@ public class News implements Serializable, Comparable<News> {
         if (source.startsWith("www.")) {
             source = source.substring(4);
         }
+    }
+
+    public void setEtiquetas(Map<Long, String> etiquetas){
+        this.etiquetas = etiquetas;
+    }
+
+    public void addEtiqueta(Long id, String value){
+        this.etiquetas.put(id, value);
+    }
+
+    public Map<Long, String> getEtiquetas(){
+        return this.etiquetas;
     }
 }

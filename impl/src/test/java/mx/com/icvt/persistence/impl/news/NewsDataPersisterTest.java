@@ -4,6 +4,9 @@ import mx.com.icvt.extraction.impl.news.NewsResultData;
 import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.impl.tags.Etiqueta;
 import mx.com.icvt.persistence.impl.tags.EtiquetaPersister;
+import mx.com.icvt.persistence.impl.tags.EtiquetaRetriever;
+import mx.com.icvt.persistence.impl.utils.TestingDataProvider;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -93,37 +96,31 @@ public class NewsDataPersisterTest {
 
     @Test
     @Ignore
-    public void alAgregarEtiquetaANoticiaSeCrearUnaEntradaEnNoticiaEtiqueta() {
-        resultData = creaResulDataNoticias(1, 5);
-        dataPersister.persist(resultData);
-        List<News> persisted = dataRetriever.retrieveAllEnabled();
+    public void esPosibleAgregarYRecuperarEtiquetaDeNoticias() {
+        NewsResultData data = creaResulDataNoticias(1, 1);
+        dataPersister.persist(data);
 
         EtiquetaPersister etiquetaPersister = new EtiquetaPersister();
-        List<Etiqueta> etiquetas = new ArrayList<Etiqueta>();
-        etiquetas.add(new Etiqueta("Economia"));
-        etiquetas.add(new Etiqueta("Seguridad"));
-        etiquetas.add(new Etiqueta("Exportaciones"));
-        etiquetas.add(new Etiqueta("Regulaciones"));
-        etiquetas.add(new Etiqueta("Tecnología"));
+        EtiquetaRetriever etiquetaRetriever = new EtiquetaRetriever();
 
-        for (Etiqueta etiqueta : etiquetas) {
-            etiquetaPersister.persist(etiqueta);
+        List<Etiqueta> etiquetas = TestingDataProvider.ETIQUETAS;
+
+        for (Etiqueta e : etiquetas){
+            etiquetaPersister.persist(e);
         }
 
-        Long idNoticia;
-        Long idEtiqueta;
-        for (News news : persisted) {
-            idNoticia = news.getID();
-            idEtiqueta = etiquetaPersister.getIdByValue("Economia");
-            System.out.println("Id de la etiqueta Economia: " + idEtiqueta);
-            System.out.println("Id de noticia " + news.getID());
-            dataPersister.addLabel(idNoticia, idEtiqueta);
-        }
+        Etiqueta etiqueta = etiquetaRetriever.getByValue(etiquetas.get(0).getValor());
+        assertNotNull(etiqueta);
 
-        for (News news : persisted) {
-            System.out.println("Obteniendo etiquetas para la noticia: " + news.getID());
-            assertEquals(1, dataPersister.getLabels(news.getID()).size());
-        }
+        News news = dataRetriever.getByUrl(createUrlDummy(1));
+        assertNotNull(news);
+
+        dataPersister.addLabel(news.getID(), etiqueta.getId());
+
+        News noticiaConEtiqueta = dataRetriever.getById(news.getID());
+        assertTrue(noticiaConEtiqueta.getEtiquetas().containsValue(etiqueta.getValor()));
+
+        cleanDataStore();
     }
 
     @Test
@@ -165,6 +162,7 @@ public class NewsDataPersisterTest {
     }
 
     @Test
+    @Ignore
     public void siRecibeNoticiaDuplicadasMenosCompletaConservaNoticiaOriginal() {
 
     }
@@ -178,7 +176,7 @@ public class NewsDataPersisterTest {
 
                 for (int index = indiceInicio; index <= indiceFinal; index++) {
                     String title = "Título Noticia " + index;
-                    String url = "http://" + index + ".com";
+                    String url = createUrlDummy(index);
                     String descripcion = "Descripción Noticia " + index;
                     String fechaPublicacion = "Wed, " + index + " Mar 2014 17:34:34 GMT";
                     String urlImage = "URL Imagen " + index;
@@ -197,7 +195,17 @@ public class NewsDataPersisterTest {
         return resultData;
     }
 
+    private String createUrlDummy(int index){
+        return "http://" + index + ".com";
+    }
+
+    @After
+    public void tearDown(){
+        cleanDataStore();
+    }
+
     private void cleanDataStore() {
         dataPersister.deleteAllPersisted();
+        new EtiquetaPersister().removeAllPersisted();
     }
 }

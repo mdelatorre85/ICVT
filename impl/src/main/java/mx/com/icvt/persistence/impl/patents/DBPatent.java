@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "Patentes")
 public class DBPatent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

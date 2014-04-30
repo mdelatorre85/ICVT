@@ -37,4 +37,15 @@ public class EtiquetaPersister {
         manager.close();
         return etiqueta;
     }
+
+    public int removeAllPersisted() {
+        int deleted;
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createQuery("DELETE FROM Etiqueta t");
+        deleted = query.executeUpdate();
+        manager.getTransaction().commit();
+        manager.close();
+        return deleted;
+    }
 }
