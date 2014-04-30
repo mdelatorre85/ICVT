@@ -5,12 +5,12 @@
              version="1.0">
     <!-- Tutorial "unit" -->
     <persistence-unit name="SITE">
-        <class>mx.com.icvt.extraction.impl.vocaciones.UnidadEconomica</class>
-        <class>mx.com.icvt.extraction.impl.vocaciones.Municipio</class>
-        <class>mx.com.icvt.extraction.impl.intsocial.CensosEconomicos</class>
-        <class>mx.com.icvt.extraction.impl.intsocial.CensosEducacion</class>
-        <class>mx.com.icvt.extraction.impl.intsocial.CensosPoblacion</class>
-        <class>mx.com.icvt.model.User</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.Municipio</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.CensosEconomicos</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.CensosEducacion</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.CensosPoblacion</class>
+        <class>mx.com.icvt.persistence.impl.user.User</class>
         <exclude-unlisted-classes/>
         <properties>
             <property name="javax.jdo.option.ConnectionURL"

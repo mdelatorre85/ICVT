@@ -1,15 +1,17 @@
 package mx.com.icvt.persistence.impl.news;
 
 import mx.com.icvt.model.News;
+import mx.com.icvt.persistence.impl.tags.Etiqueta;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
-@PersistenceCapable
+@Entity
+@Table(name = "Noticias")
 public class Noticia {
-    @Persistent(primaryKey = "true", valueStrategy = IdGeneratorStrategy.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String url;
     private String titulo;
@@ -19,6 +21,14 @@ public class Noticia {
     private String tituloMostrado;
     private String descripcionMostrada;
     private boolean habilitada;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "NoticiaEtiqueta", joinColumns = {
+            @JoinColumn(name = "idNoticia")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "idEtiqueta")
+    })
+    private List<Etiqueta> etiquetas;
 
     public Noticia() {
     }
@@ -106,5 +116,13 @@ public class Noticia {
 
     public void setHabilitada(boolean habilitada) {
         this.habilitada = habilitada;
+    }
+
+    public List<Etiqueta> getEtiquetas() {
+        return etiquetas;
+    }
+
+    public void setEtiquetas(List<Etiqueta> etiquetas) {
+        this.etiquetas = etiquetas;
     }
 }

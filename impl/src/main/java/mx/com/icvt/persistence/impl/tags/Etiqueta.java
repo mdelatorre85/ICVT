@@ -1,14 +1,22 @@
 package mx.com.icvt.persistence.impl.tags;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
+import mx.com.icvt.persistence.impl.news.Noticia;
+import mx.com.icvt.persistence.impl.patents.DBPatent;
 
-@PersistenceCapable
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "Etiqueta")
 public class Etiqueta {
-    @Persistent(primaryKey = "true", valueStrategy = IdGeneratorStrategy.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String valor;
+    @ManyToMany
+    private List<Noticia> noticias;
+    @ManyToMany
+    private List<DBPatent> patentes;
 
     public Etiqueta() {
     }

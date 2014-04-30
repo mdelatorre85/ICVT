@@ -1,10 +1,11 @@
 package mx.com.icvt.persistence.impl.news;
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
+import javax.persistence.*;
 
-@PersistenceCapable
+@Entity
+@Table(name = "ExtraccionNoticias")
 public class Extraccion {
-    @Persistent(primaryKey = "true")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 }

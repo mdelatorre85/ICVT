@@ -4,92 +4,62 @@ import mx.com.icvt.extraction.impl.news.NewsResultData;
 import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.DataResultPersister;
 import mx.com.icvt.persistence.impl.tags.Etiqueta;
-import mx.com.icvt.persistence.impl.tags.EtiquetaPersister;
 
-import javax.jdo.*;
-import javax.jdo.annotations.PersistenceAware;
-import java.util.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-@PersistenceAware
 public class NewsDataPersister implements DataResultPersister<NewsResultData> {
     @Override
     public void persist(NewsResultData rs) {
-        List<Noticia> noticias = new LinkedList<Noticia>();
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
+
+        List<Noticia> toPersist = new LinkedList<Noticia>();
         Noticia noticia;
 
         List<News> results = rs.getResults();
-        for (News news : results){
+        for (News news : results) {
             noticia = new Noticia(news);
-            noticias.add(noticia);
+            toPersist.add(noticia);
         }
 
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager persistenceManager = factory.getPersistenceManager();
-        Transaction transaction = persistenceManager.currentTransaction();
-        transaction.begin();
-
-        for (Noticia n : noticias){
-            persistenceManager.makePersistent(n);
+        for (Noticia entity : toPersist) {
+            manager.persist(entity);
         }
 
-        transaction.commit();
-        persistenceManager.close();
-    }
-
-    public Long deleteAllPersisted(){
-        Long deleted;
-
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager persistenceManager = factory.getPersistenceManager();
-        Transaction transaction = persistenceManager.currentTransaction();
-        transaction.begin();
-
-        Query query = persistenceManager.newQuery(Noticia.class);
-        deleted = query.deletePersistentAll();
-
-        query = persistenceManager.newQuery(NoticiaEtiqueta.class);
-        query.deletePersistentAll();
-
-        transaction.commit();
-        persistenceManager.close();
-
-        return deleted;
-    }
-
-    public void addLabel(Long idNoticia, Long idEtiqueta){
-        NoticiaEtiqueta noticiaEtiqueta = new NoticiaEtiqueta(idNoticia, idEtiqueta);
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        manager.currentTransaction().begin();
-        manager.makePersistent(noticiaEtiqueta);
-        manager.currentTransaction().commit();
-    }
-
-    public List<Etiqueta> getLabels(Long idNoticia){
-        List<Etiqueta> etiquetas = new ArrayList<Etiqueta>();
-
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        Query query = manager.newQuery(NoticiaEtiqueta.class);
-        query.setFilter("idNoticia == idNoticia");
-        query.declareParameters("Long idNoticia");
-        List<NoticiaEtiqueta> labels = (List<NoticiaEtiqueta>) query.execute(idNoticia);
-
-        EtiquetaPersister persister = new EtiquetaPersister();
-
-        Long idEtiqueta;
-        Etiqueta etiqueta;
-        for (NoticiaEtiqueta ne : labels){
-            idEtiqueta = ne.getIdEtiqueta();
-            etiqueta = persister.getById(idEtiqueta);
-
-            if (etiqueta != null){
-                etiquetas.add(etiqueta);
-            }
-        }
-
+        manager.getTransaction().commit();
         manager.close();
+    }
 
+    public Long deleteAllPersisted() {
+        int deleted;
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
+
+        Query query = manager.createQuery("DELETE FROM Noticia n");
+        deleted = query.executeUpdate();
+
+        manager.getTransaction().commit();
+
+        return (long) deleted;
+    }
+
+    public void addLabels(Long idNoticia, List<Long> idsEtiqueta) {
+        Persistence.createEntityManagerFactory("SITE").createEntityManager();
+    }
+
+    public void addLabel(Long idNoticia, Long idEtiqueta) {
+
+    }
+
+    public List<Etiqueta> getLabels(Long idNoticia) {
+        List<Etiqueta> etiquetas = new ArrayList<Etiqueta>();
         return etiquetas;
     }
 }

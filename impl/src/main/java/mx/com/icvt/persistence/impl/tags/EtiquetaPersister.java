@@ -1,34 +1,29 @@
 package mx.com.icvt.persistence.impl.tags;
 
-import javax.jdo.JDOHelper;
-import javax.jdo.PersistenceManager;
-import javax.jdo.PersistenceManagerFactory;
-import javax.jdo.Query;
-import javax.jdo.annotations.PersistenceAware;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 
-@PersistenceAware
 public class EtiquetaPersister {
     public void persist(Etiqueta etiqueta) {
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        manager.currentTransaction().begin();
-        manager.makePersistent(etiqueta);
-        manager.currentTransaction().commit();
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
+        manager.persist(etiqueta);
+        manager.getTransaction().commit();
+        manager.close();
     }
 
     public Long getIdByValue(String valorEtiqueta) {
         Long id = null;
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        Query query = manager.newQuery(Etiqueta.class);
-        query.setFilter("valor == valorEtiqueta");
-        query.declareParameters("String valorEtiqueta");
-        query.setResultClass(Etiqueta.class);
-        query.setUnique(true);
-        Etiqueta etiqueta = (Etiqueta) query.execute(valorEtiqueta);
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery("SELECT t FROM Etiqueta t WHERE t.valor = :valor");
+        query.setParameter("valor", valorEtiqueta);
 
-        if (etiqueta != null){
-            id = etiqueta.getId();
+        try {
+            Etiqueta result = (Etiqueta) query.getSingleResult();
+            id = result.getId();
+        } catch (NoResultException e) {
         }
 
         manager.close();
@@ -36,14 +31,9 @@ public class EtiquetaPersister {
         return id;
     }
 
-    public Etiqueta getById(Long idEtiqueta){
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        Query query = manager.newQuery(Etiqueta.class);
-        query.setFilter("id == idEtiqueta");
-        query.declareParameters("Long idEtiqueta");
-        query.setUnique(true);
-        Etiqueta etiqueta = (Etiqueta) query.execute(idEtiqueta);
+    public Etiqueta getById(Long idEtiqueta) {
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Etiqueta etiqueta = manager.find(Etiqueta.class, idEtiqueta);
         manager.close();
         return etiqueta;
     }

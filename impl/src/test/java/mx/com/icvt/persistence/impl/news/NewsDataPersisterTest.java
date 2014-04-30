@@ -39,7 +39,7 @@ public class NewsDataPersisterTest {
     }
 
     @Test
-    public void alPersistirUnaNoticiaLaPuedoRecuperarPorSuUrl(){
+    public void alPersistirUnaNoticiaLaPuedoRecuperarPorSuUrl() {
         resultData = creaResulDataNoticias(1, 1);
         dataPersister.persist(resultData);
         News byUrl = dataRetriever.getByUrl("http://1.com");
@@ -49,7 +49,7 @@ public class NewsDataPersisterTest {
     }
 
     @Test
-    public void alConsultarUnaNoticiaNoPersistidaPorUrlSeDevuelveNull(){
+    public void alConsultarUnaNoticiaNoPersistidaPorUrlSeDevuelveNull() {
         resultData = creaResulDataNoticias(1, 1);
         dataPersister.persist(resultData);
         News byUrl = dataRetriever.getByUrl("http://1000.com");
@@ -73,14 +73,14 @@ public class NewsDataPersisterTest {
     }
 
     @Test
-    public void alConsultarPorListaDeIdsSeDevuelvenLasNoticiasQueCumplenConElCriterio(){
+    public void alConsultarPorListaDeIdsSeDevuelvenLasNoticiasQueCumplenConElCriterio() {
         resultData = creaResulDataNoticias(1, 5);
         dataPersister.persist(resultData);
 
         List<News> allEnabled = dataRetriever.retrieveAllEnabled();
 
         List<Long> ids = new ArrayList<Long>();
-        for (News n : allEnabled){
+        for (News n : allEnabled) {
             ids.add(n.getID());
         }
 
@@ -93,7 +93,7 @@ public class NewsDataPersisterTest {
 
     @Test
     @Ignore
-    public void alAgregarEtiquetaANoticiaSeCrearUnaEntradaEnNoticiaEtiqueta(){
+    public void alAgregarEtiquetaANoticiaSeCrearUnaEntradaEnNoticiaEtiqueta() {
         resultData = creaResulDataNoticias(1, 5);
         dataPersister.persist(resultData);
         List<News> persisted = dataRetriever.retrieveAllEnabled();
@@ -106,13 +106,13 @@ public class NewsDataPersisterTest {
         etiquetas.add(new Etiqueta("Regulaciones"));
         etiquetas.add(new Etiqueta("Tecnología"));
 
-        for (Etiqueta etiqueta : etiquetas){
+        for (Etiqueta etiqueta : etiquetas) {
             etiquetaPersister.persist(etiqueta);
         }
 
         Long idNoticia;
         Long idEtiqueta;
-        for (News news : persisted){
+        for (News news : persisted) {
             idNoticia = news.getID();
             idEtiqueta = etiquetaPersister.getIdByValue("Economia");
             System.out.println("Id de la etiqueta Economia: " + idEtiqueta);
@@ -120,7 +120,7 @@ public class NewsDataPersisterTest {
             dataPersister.addLabel(idNoticia, idEtiqueta);
         }
 
-        for (News news : persisted){
+        for (News news : persisted) {
             System.out.println("Obteniendo etiquetas para la noticia: " + news.getID());
             assertEquals(1, dataPersister.getLabels(news.getID()).size());
         }
@@ -170,7 +170,7 @@ public class NewsDataPersisterTest {
     }
 
     private NewsResultData creaResulDataNoticias(final int indiceInicio, final int indiceFinal) {
-        NewsResultData resultData = new NewsResultData(){
+        NewsResultData resultData = new NewsResultData() {
             @Override
             public List<News> getResults() {
                 ArrayList<News> noticias = new ArrayList<News>();
@@ -197,7 +197,7 @@ public class NewsDataPersisterTest {
         return resultData;
     }
 
-    private void cleanDataStore(){
+    private void cleanDataStore() {
         dataPersister.deleteAllPersisted();
     }
 }

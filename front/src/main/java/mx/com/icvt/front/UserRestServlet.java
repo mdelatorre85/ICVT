@@ -9,8 +9,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import mx.com.icvt.extraction.impl.user.UserResultData;
-import mx.com.icvt.model.User;
+import mx.com.icvt.persistence.impl.user.UserResultData;
+import mx.com.icvt.persistence.impl.user.User;
 import net.sf.json.JSONArray;
 
 public class UserRestServlet extends HttpServlet {
@@ -93,7 +93,7 @@ public class UserRestServlet extends HttpServlet {
         us.setPassword(pass);
         obj.user=us;
 
-        List<User> listUser = obj.Login();
+        List<User> listUser = obj.login();
 
         if(listUser!=null){
             JSONArray array = JSONArray.fromObject(listUser);

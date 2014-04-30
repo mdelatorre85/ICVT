@@ -4,9 +4,10 @@ import mx.com.icvt.extraction.impl.patents.PatentsResultData;
 import mx.com.icvt.model.Patent;
 import mx.com.icvt.persistence.DataResultPersister;
 
-import javax.jdo.*;
+import javax.persistence.EntityManager;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,49 +16,45 @@ public class PatentsDataPersister implements DataResultPersister<PatentsResultDa
     public void persist(PatentsResultData data) {
         List<Patent> results = data.getResults();
         List<DBPatent> patents = new LinkedList<DBPatent>();
-        for (Patent result : results){
+        for (Patent result : results) {
             patents.add(new DBPatent(result));
         }
 
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        Transaction transaction = manager.currentTransaction();
-        transaction.begin();
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
 
-        for (DBPatent patent : patents){
-            manager.makePersistent(patent);
+        for (DBPatent patent : patents) {
+            manager.persist(patent);
         }
 
-        transaction.commit();
+        manager.getTransaction().commit();
         manager.close();
     }
 
-    public List<Patent> getAllPersisted(){
+    public List<Patent> getAllPersisted() {
         List<Patent> patents = new ArrayList<Patent>();
 
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        Query query = manager.newQuery(DBPatent.class);
-        Collection<DBPatent> results = (Collection<DBPatent>)query.execute();
-        for (DBPatent patent : results){
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery("SELECT p FROM DBPatent p");
+        List<DBPatent> results = query.getResultList();
+
+        for (DBPatent patent : results) {
             patents.add(patent.getPatent());
         }
+        manager.close();
 
         return patents;
     }
 
-    public Long deleteAllPersisted(){
-        Long deleted;
+    public Long deleteAllPersisted() {
+        int deleted;
 
-        PersistenceManagerFactory factory = JDOHelper.getPersistenceManagerFactory("SITE");
-        PersistenceManager manager = factory.getPersistenceManager();
-        manager.currentTransaction().begin();
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createQuery("DELETE p FROM DBPatent p");
+        deleted = query.executeUpdate();
+        manager.getTransaction().commit();
 
-        Query query = manager.newQuery(DBPatent.class);
-        deleted = query.deletePersistentAll();
-
-        manager.currentTransaction().commit();
-
-        return deleted;
+        return (long) deleted;
     }
 }

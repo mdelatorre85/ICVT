@@ -1,16 +1,17 @@
 package mx.com.icvt.persistence.impl.patents;
 
 import mx.com.icvt.model.Patent;
+import mx.com.icvt.persistence.impl.tags.Etiqueta;
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-@PersistenceCapable
+@Entity
 public class DBPatent {
-    @Persistent(primaryKey = "true", valueStrategy = IdGeneratorStrategy.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
     private String descripcion;
@@ -18,11 +19,13 @@ public class DBPatent {
     private Date fechaPublicacion;
     private String contenido;
     private String autores;
+    @ManyToMany
+    private List<Etiqueta> etiquetas;
 
     public DBPatent() {
     }
 
-    public DBPatent(Patent patent){
+    public DBPatent(Patent patent) {
         this.setTitulo(patent.getTittle());
         this.setDescripcion(patent.getDescriptionText());
         this.setUrl(patent.getUrl());
@@ -31,7 +34,7 @@ public class DBPatent {
         this.setAutores("");
     }
 
-    public Patent getPatent(){
+    public Patent getPatent() {
         Patent patent = new Patent();
         patent.setId(this.getId());
         patent.setTittle(this.getTitulo());
@@ -98,5 +101,13 @@ public class DBPatent {
 
     public void setAutores(String autores) {
         this.autores = autores;
+    }
+
+    public List<Etiqueta> getEtiquetas() {
+        return etiquetas;
+    }
+
+    public void setEtiquetas(List<Etiqueta> etiquetas) {
+        this.etiquetas = etiquetas;
     }
 }

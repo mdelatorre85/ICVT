@@ -2,13 +2,15 @@ package mx.com.icvt.persistence.impl.tweets;
 
 import mx.com.icvt.model.Tweet;
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
-@PersistenceCapable
+@Entity
+@Table(name = "Tweets")
 public class DBTweet {
-    @Persistent(primaryKey = "true")
+    @Id
     private Long id;
     private String texto;
     private Date fechaPublicacion;
@@ -26,7 +28,7 @@ public class DBTweet {
     public DBTweet() {
     }
 
-    public DBTweet(Tweet tweet){
+    public DBTweet(Tweet tweet) {
         this.setTexto(tweet.getText());
         this.setUrl(tweet.getUrl());
         this.setFechaPublicacion(tweet.getPubDate());
@@ -137,7 +139,7 @@ public class DBTweet {
         this.urlPerfilUsuario = urlPerfilUsuario;
     }
 
-    public Tweet getTweet(){
+    public Tweet getTweet() {
         Tweet tweet = new Tweet();
         tweet.setId(this.getId());
         tweet.setText(this.getTexto());
