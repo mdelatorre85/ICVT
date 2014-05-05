@@ -32,6 +32,9 @@ public abstract class Question<U extends Answer> {
     }
 
     void setTextQuestion(String textQuestion) {
+        if (textQuestion == null || textQuestion.length() <= 0) {
+            throw new IllegalArgumentException("Argument textQuestion cannot be null or empty");
+        }
         this.textQuestion = textQuestion;
     }
 

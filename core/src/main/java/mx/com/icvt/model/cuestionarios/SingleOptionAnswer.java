@@ -34,5 +34,6 @@ public class SingleOptionAnswer extends Answer {
         } else {
             throw new IllegalArgumentException("Argument question cannot be null and most be a SingleOptionQuestion");
         }
+        super.setQuestion(question);
     }
 }
