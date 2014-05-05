@@ -15,50 +15,49 @@ public class MultipleOptionQuestion extends Question {
     }
 
     /**
-     *
      * @return a Copy of the arraylist of possible options. To modify the options you must use this object methods
      */
     public ArrayList<String> getPossibleOptions() {
         ArrayList<String> retorno = new ArrayList<String>();
-        for(String s : possibleOptions){
+        for (String s : possibleOptions) {
             retorno.add(s.trim());
         }
         return retorno;
     }
 
-    public int getPossibleOptionsSize(){
+    public int getPossibleOptionsSize() {
         return possibleOptions.size();
     }
 
-    public void  clearPossibleOptions(){
+    public void clearPossibleOptions() {
         possibleOptions = new ArrayList<String>();
     }
 
-    public void addPossibleOptions(String possibleOption){
-        if (possibleOption == null || possibleOption.length() == 0){
+    public void addPossibleOptions(String possibleOption) {
+        if (possibleOption == null || possibleOption.length() == 0) {
             throw new IllegalArgumentException("Argument possibleOption cannot be null or empty");
         }
     }
 
-    public String getPossibleOption(int index){
+    public String getPossibleOption(int index) {
         return possibleOptions.get(index);
     }
 
-    public void setPosibleOption(String possibleOption, int index){
-        if (possibleOption == null || possibleOption.length() == 0){
+    public void setPosibleOption(String possibleOption, int index) {
+        if (possibleOption == null || possibleOption.length() == 0) {
             throw new IllegalArgumentException("Argument possibleOption cannot be null or empty");
         }
         possibleOptions.set(index, possibleOption);
     }
 
-    public  void removePossibleOption(String possibleOption){
-        if (possibleOption == null || possibleOption.length() == 0){
+    public void removePossibleOption(String possibleOption) {
+        if (possibleOption == null || possibleOption.length() == 0) {
             throw new IllegalArgumentException("Argument possibleOption cannot be null or empty");
         }
         possibleOptions.remove(possibleOption);
     }
 
-    public  void removePossibleOption(int index){
+    public void removePossibleOption(int index) {
         possibleOptions.remove(index);
     }
 }

@@ -1,5 +1,7 @@
 package mx.com.icvt.model;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class Patent implements Comparable<Patent> {
     private Patent() {
     }
 
-    public Patent(String tittle, String url) {
+    public Patent(String tittle, String url) throws MalformedURLException {
         if (tittle == null || tittle.length() == 0) {
             throw new IllegalArgumentException("Argument tittle cannot be null or empty.");
         }
@@ -35,6 +37,8 @@ public class Patent implements Comparable<Patent> {
 
         this.tittle = tittle;
         this.url = url;
+
+        new URL(url);
     }
 
     public Long getId() {
@@ -73,25 +77,21 @@ public class Patent implements Comparable<Patent> {
         return publicationDate;
     }
 
-    public void setPublicationDate(Date publicationDate) {
-        this.publicationDate = publicationDate;
-    }
-
     public String getPublicationStringDate() {
         return publicationStringDate;
     }
 
-    public void setPublicationStringDate(String publicationStringDate) {
+    public void setPublicationStringDate(String publicationStringDate) throws ParseException {
+        if (publicationStringDate == null || publicationStringDate.length() > 4 || publicationStringDate.length() <= 0) {
+            throw new IllegalArgumentException("Argument publicationStringDate cannot be null or empty.");
+        }
         this.publicationStringDate = publicationStringDate;
 
-        try {
-            SimpleDateFormat df = new SimpleDateFormat("yyyy",
-                    Locale.ENGLISH);
-            //Wed, 26 Mar 2014 17:34:34 GMT
-            publicationDate = df.parse(publicationStringDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        SimpleDateFormat df = new SimpleDateFormat("yyyy",
+                Locale.ENGLISH);
+        //Wed, 26 Mar 2014 17:34:34 GMT
+        publicationDate = df.parse(publicationStringDate);
+
     }
 
     public List<String> getAuthors() {

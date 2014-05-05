@@ -42,10 +42,10 @@ public class News implements Serializable, Comparable<News> {
         if (image != null)
             this.image = image;
 
-            SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
-                    Locale.ENGLISH);
-            //Wed, 26 Mar 2014 17:34:34 GMT
-            pubDate = df.parse(pubDateString);
+        SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
+                Locale.ENGLISH);
+        //Wed, 26 Mar 2014 17:34:34 GMT
+        pubDate = df.parse(pubDateString);
     }
 
     public String getPubDateString() {
@@ -118,7 +118,7 @@ public class News implements Serializable, Comparable<News> {
             } else if (description != null && o.description != null) {
                 if (description.length() > o.description.length()) {
                     return 1;
-                } else if (description.length() < o.description.length()){
+                } else if (description.length() < o.description.length()) {
                     return -1;
                 }
             } else if (title != null && o.title == null) {
@@ -128,12 +128,12 @@ public class News implements Serializable, Comparable<News> {
             } else if (title != null && o.title != null) {
                 if (title.length() > o.title.length()) {
                     return 1;
-                } else if (title.length() < o.title.length()){
+                } else if (title.length() < o.title.length()) {
                     return -1;
                 }
-            } else if(!pubDate.equals(o.pubDate)){
+            } else if (!pubDate.equals(o.pubDate)) {
                 return pubDate.compareTo(o.pubDate);
-            } else{
+            } else {
                 return 0;
             }
         }
@@ -145,51 +145,51 @@ public class News implements Serializable, Comparable<News> {
         if (obj instanceof News) {
             News news = ((News) obj);
 
-            if (id != null && news.id!= null) {
-                if (id.longValue() != news.getID().longValue()){
+            if (id != null && news.id != null) {
+                if (id.longValue() != news.getID().longValue()) {
                     return false;
                 }
-            } else if ((id != null && news.id== null) ||(id == null && news.id != null)){
+            } else if ((id != null && news.id == null) || (id == null && news.id != null)) {
                 return false;
             }
 
-            if (url != null && news.getUrl()!= null){
-                if (!url.equals(news.getUrl())){
+            if (url != null && news.getUrl() != null) {
+                if (!url.equals(news.getUrl())) {
                     return false;
                 }
-            } else if ((url != null && news.getUrl() == null)||(url == null && news.getUrl() != null)){
+            } else if ((url != null && news.getUrl() == null) || (url == null && news.getUrl() != null)) {
                 return false;
             }
 
-            if (title != null && news.getTitle()!= null){
-                if (!title.equals(news.getTitle())){
+            if (title != null && news.getTitle() != null) {
+                if (!title.equals(news.getTitle())) {
                     return false;
                 }
-            } else if ((title != null && news.getTitle() == null)||(title == null && news.getTitle() != null)){
+            } else if ((title != null && news.getTitle() == null) || (title == null && news.getTitle() != null)) {
                 return false;
             }
 
-            if (image != null && news.getImage()!= null){
-                if (!image.equals(news.getImage())){
+            if (image != null && news.getImage() != null) {
+                if (!image.equals(news.getImage())) {
                     return false;
                 }
-            } else if ((image != null && news.getImage() == null)||(image == null && news.getImage() != null)){
+            } else if ((image != null && news.getImage() == null) || (image == null && news.getImage() != null)) {
                 return false;
             }
 
-            if (description != null && news.getDescription()!= null){
-                if (!description.equals(news.getDescription())){
+            if (description != null && news.getDescription() != null) {
+                if (!description.equals(news.getDescription())) {
                     return false;
                 }
-            } else if ((description != null && news.getDescription() == null)||(description == null && news.getDescription() != null)){
+            } else if ((description != null && news.getDescription() == null) || (description == null && news.getDescription() != null)) {
                 return false;
             }
 
-            if (pubDate != null && news.getPubDate()!= null){
-                if (!pubDate.equals(news.getPubDate())){
+            if (pubDate != null && news.getPubDate() != null) {
+                if (!pubDate.equals(news.getPubDate())) {
                     return false;
                 }
-            } else if ((pubDate != null && news.getPubDate() == null)||(pubDate == null && news.getPubDate() != null)){
+            } else if ((pubDate != null && news.getPubDate() == null) || (pubDate == null && news.getPubDate() != null)) {
                 return false;
             }
 
@@ -206,10 +206,10 @@ public class News implements Serializable, Comparable<News> {
         return source;
     }
 
-    private void setSourceFromUrl() throws MalformedURLException{
-            source = new URL(url).getHost();
-            if (source.startsWith("www.")) {
-                source = source.substring(4);
-            }
+    private void setSourceFromUrl() throws MalformedURLException {
+        source = new URL(url).getHost();
+        if (source.startsWith("www.")) {
+            source = source.substring(4);
+        }
     }
 }
