@@ -2,6 +2,7 @@ package mx.com.icvt.front;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -15,7 +16,7 @@ import mx.com.icvt.persistence.impl.user.User;
 import net.sf.json.JSONArray;
 
 @PersistenceContext
-public class UserRestServlet extends HttpServlet {
+public class UserRestServlet extends HttpServlet implements Serializable {
 
     private class RestRequest {
 
