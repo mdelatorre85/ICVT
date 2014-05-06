@@ -1,18 +1,13 @@
 package mx.com.icvt.persistence.impl.user;
 
+import mx.com.icvt.hash.BCrypt;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import mx.com.icvt.hash.BCrypt;
-
-/**
- * Created by lnx1337 on 27/04/14.
- */
-
 
 public class UserResultData {
     public User user;
@@ -24,13 +19,12 @@ public class UserResultData {
     }
 
     public List<User> login() {
-
         String identity = "dev.lnx1337@gmail.com";
         String password = "lamisma00";
         List<User> users;
 
-       factory = Persistence.createEntityManagerFactory("SITE");
-       EntityManager em = factory.createEntityManager();
+        factory = Persistence.createEntityManagerFactory("SITE");
+        EntityManager em = factory.createEntityManager();
 
         Query query = em.createQuery("SELECT u FROM User u WHERE u.identity = :identity AND u.password = :password");
         query.setParameter("identity", identity);
@@ -39,21 +33,21 @@ public class UserResultData {
 
         if (users.isEmpty()) {
             users = null;
-            return  users;
-        }
+        } else {
+            boolean matchFound = false;
+            for (User pro : users) {
+                boolean matched = BCrypt.checkpw(this.user.getPassword(), pro.getPassword());
+                if (matched) {
+                    matchFound = true;
+                }
+            }
 
-        Iterator<User> prov = users.iterator();
-
-        while (prov.hasNext()) {
-            User pro = prov.next();
-            boolean matched = BCrypt.checkpw(this.user.getPassword(), pro.getPassword());
-            if (matched) {
-                return users;
+            if (!matchFound){
+                users = null;
             }
         }
 
         em.close();
-
         return users;
     }
 
