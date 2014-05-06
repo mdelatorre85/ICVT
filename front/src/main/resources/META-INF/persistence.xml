@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
-             version="1.0">
-    <persistence-unit name="SITE">
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="SITE" transaction-type="RESOURCE_LOCAL">
         <class>mx.com.icvt.persistence.impl.news.Noticia</class>
         <class>mx.com.icvt.persistence.impl.tweets.DBTweet</class>
         <class>mx.com.icvt.persistence.impl.patents.DBPatent</class>
-        <exclude-unlisted-classes/>
+        <class>mx.com.icvt.persistence.impl.tags.Etiqueta</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.Municipio</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.CensosEconomicos</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.CensosEducacion</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.CensosPoblacion</class>
+        <class>mx.com.icvt.persistence.impl.user.User</class>
         <properties>
-            <property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory"/>
-            <property name="javax.jdo.option.ConnectionURL" value="jdbc:mysql://localhost:3306/siteDB?useServerPrepStmts=false"/>
-            <property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.jdo.option.ConnectionUserName" value="cesar"/>
-            <property name="javax.jdo.option.ConnectionPassword" value="password"/>
-            <property name="datanucleus.query.jdoql.allowAll" value="true"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ICVT" />
+            <property name="javax.persistence.jdbc.user" value="cesar" />
+            <property name="javax.persistence.jdbc.password" value="password" />
+            <!--<property name="hbm2ddl.auto" value="create"/>-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
     </persistence-unit>
 </persistence>
