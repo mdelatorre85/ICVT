@@ -16,17 +16,21 @@ public class Noticia {
     private String url;
     private String titulo;
     private String descripcion;
+    @Column(name = "fecha_publicacion")
     private Date fechaPublicacion;
+    @Column(name = "url_imagen")
     private String urlImagen;
+    @Column(name = "titulo_mostrado")
     private String tituloMostrado;
+    @Column(name = "descripcion_mostrada")
     private String descripcionMostrada;
     private boolean habilitada;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "NoticiaEtiqueta", joinColumns = {
-            @JoinColumn(name = "idNoticia")
+    @JoinTable(name = "Noticia_tiene_etiquetas", joinColumns = {
+            @JoinColumn(name = "id_noticia")
     }, inverseJoinColumns = {
-            @JoinColumn(name = "idEtiqueta")
+            @JoinColumn(name = "id_etiqueta")
     })
     private List<Etiqueta> etiquetas;
 

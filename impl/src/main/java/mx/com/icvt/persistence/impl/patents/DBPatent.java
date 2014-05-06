@@ -17,14 +17,15 @@ public class DBPatent {
     private String titulo;
     private String descripcion;
     private String url;
+    @Column(name = "fecha_publicacion")
     private Date fechaPublicacion;
     private String contenido;
     private String autores;
     @ManyToMany
-    @JoinTable(name = "PatenteEtiqueta", joinColumns = {
-            @JoinColumn(name = "idPatente")
+    @JoinTable(name = "Patente_tiene_etiquetas", joinColumns = {
+            @JoinColumn(name = "id_patente")
     }, inverseJoinColumns = {
-            @JoinColumn(name = "idEtiqueta")
+            @JoinColumn(name = "id_etiqueta")
     })
     private List<Etiqueta> etiquetas;
 

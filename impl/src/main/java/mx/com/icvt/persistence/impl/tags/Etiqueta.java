@@ -4,6 +4,7 @@ import mx.com.icvt.persistence.impl.news.Noticia;
 import mx.com.icvt.persistence.impl.patents.DBPatent;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -19,6 +20,8 @@ public class Etiqueta {
     private List<DBPatent> patentes;
 
     public Etiqueta() {
+        noticias = new ArrayList<Noticia>();
+        patentes = new ArrayList<DBPatent>();
     }
 
     public Etiqueta(String valor){

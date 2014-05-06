@@ -19,7 +19,7 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ICVT" />
             <property name="javax.persistence.jdbc.user" value="cesar" />
             <property name="javax.persistence.jdbc.password" value="password" />
-            <property name="hbm2ddl.auto" value="create"/>
+            <!--<property name="hbm2ddl.auto" value="create"/>-->
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
     </persistence-unit>

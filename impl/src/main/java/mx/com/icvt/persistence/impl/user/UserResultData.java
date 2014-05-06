@@ -1,59 +1,82 @@
 package mx.com.icvt.persistence.impl.user;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import mx.com.icvt.hash.BCrypt;
 
 /**
  * Created by lnx1337 on 27/04/14.
  */
+
+
 public class UserResultData {
     public User user;
     public String token;
+    private static EntityManagerFactory factory;
 
     public UserResultData() {
         this.user = new User();
     }
 
     public List<User> login() {
+
         String identity = "dev.lnx1337@gmail.com";
         String password = "lamisma00";
         List<User> users;
 
-        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("SELECT u FROM User u WHERE u.identity = :identity AND u.password = :password");
+       factory = Persistence.createEntityManagerFactory("SITE");
+       EntityManager em = factory.createEntityManager();
+
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.identity = :identity AND u.password = :password");
         query.setParameter("identity", identity);
         query.setParameter("password", password);
         users = query.getResultList();
 
         if (users.isEmpty()) {
             users = null;
+            return  users;
         }
 
-        manager.close();
+        Iterator<User> prov = users.iterator();
+
+        while (prov.hasNext()) {
+            User pro = prov.next();
+            boolean matched = BCrypt.checkpw(this.user.getPassword(), pro.getPassword());
+            if (matched) {
+                return users;
+            }
+        }
+
+        em.close();
+
         return users;
     }
 
     public List<User> list() {
         List<User> users;
-        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("SELECT u FROM User u");
+        factory = Persistence.createEntityManagerFactory("SITE");
+        EntityManager em = factory.createEntityManager();
+        Query query = em.createQuery("SELECT u FROM User u");
         users = query.getResultList();
-        manager.close();
+        factory.close();
         return users;
     }
 
     public List<User> save() {
         if (!exist()) {
             EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+            String generatedSecuredPasswordHash = BCrypt.hashpw(this.user.getPassword(), BCrypt.gensalt(12));
+            this.user.setPassword(generatedSecuredPasswordHash);
             manager.getTransaction().begin();
             manager.persist(this.user);
             manager.getTransaction().commit();
 
         }
-
         return null;
     }
 
@@ -75,7 +98,6 @@ public class UserResultData {
         if (user != null) {
             exist = true;
         }
-
         manager.close();
         return exist;
     }

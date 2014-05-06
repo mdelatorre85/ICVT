@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
+import javax.persistence.PersistenceContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,14 +14,15 @@ import mx.com.icvt.persistence.impl.user.UserResultData;
 import mx.com.icvt.persistence.impl.user.User;
 import net.sf.json.JSONArray;
 
+@PersistenceContext
 public class UserRestServlet extends HttpServlet {
 
     private class RestRequest {
 
-        private Pattern regExAllPattern = Pattern.compile("/user");
-        private Pattern regExIdPattern = Pattern.compile("/user/([0-9]*)");
+        private Pattern regExAllPattern = Pattern.compile("/user/");
+        private Pattern regExIdPattern = Pattern.compile("/user/([0-9a-z]*)");
 
-        private Integer id;
+        private String id;
 
         public RestRequest(String pathInfo) throws ServletException {
             // regex parse pathInfo
@@ -29,7 +31,7 @@ public class UserRestServlet extends HttpServlet {
             // Check for ID case first, since the All pattern would also match
             matcher = regExIdPattern.matcher(pathInfo);
             if (matcher.find()) {
-                id = Integer.parseInt(matcher.group(1));
+                id = matcher.group(1);
                 return;
             }
 
@@ -39,11 +41,11 @@ public class UserRestServlet extends HttpServlet {
             throw new ServletException("Invalid URI");
         }
 
-        public Integer getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(Integer id) {
+        public void setId(String id) {
             this.id = id;
         }
     }
@@ -86,7 +88,7 @@ public class UserRestServlet extends HttpServlet {
         UserResultData obj =new UserResultData();
         User us = new User();
 
-        String user = request.getParameter("username");
+        String user = request.getParameter("identity");
         String pass = request.getParameter("password");
 
         us.setIdentity(user);
