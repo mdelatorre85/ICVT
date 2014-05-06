@@ -5,14 +5,12 @@ import mx.com.icvt.persistence.impl.tags.EtiquetaPersister;
 import mx.com.icvt.persistence.impl.tags.EtiquetaRetriever;
 import mx.com.icvt.persistence.impl.utils.TestingDataProvider;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
 import static junit.framework.Assert.*;
 
-@Ignore
 public class PersistenciaEtiquetasTest {
 
     private EtiquetaPersister persister;
@@ -26,7 +24,7 @@ public class PersistenciaEtiquetasTest {
 
     @Test
     public void alGuardarEtiquetasSeRecuperanLaMismaCantidad() {
-        List<Etiqueta> etiquetas = TestingDataProvider.ETIQUETAS;
+        List<Etiqueta> etiquetas = new TestingDataProvider().obtenerEtiquetasPrueba();
         for (Etiqueta etiqueta : etiquetas) {
             persister.persist(etiqueta);
         }
@@ -38,7 +36,7 @@ public class PersistenciaEtiquetasTest {
 
     @Test
     public void esPosibleBuscarUnaEtiquetaPorNombre() {
-        List<Etiqueta> etiquetas = TestingDataProvider.ETIQUETAS;
+        List<Etiqueta> etiquetas = new TestingDataProvider().obtenerEtiquetasPrueba();
         for (Etiqueta etiqueta : etiquetas) {
             persister.persist(etiqueta);
         }
@@ -57,7 +55,7 @@ public class PersistenciaEtiquetasTest {
 
     @Test
     public void esPosibleRecuperarEtiquetaPorId() {
-        List<Etiqueta> etiquetas = TestingDataProvider.ETIQUETAS;
+        List<Etiqueta> etiquetas = new TestingDataProvider().obtenerEtiquetasPrueba();
         for (Etiqueta etiqueta : etiquetas) {
             persister.persist(etiqueta);
         }

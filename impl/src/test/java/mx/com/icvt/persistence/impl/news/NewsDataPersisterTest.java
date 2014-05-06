@@ -111,7 +111,7 @@ public class NewsDataPersisterTest {
         EtiquetaPersister etiquetaPersister = new EtiquetaPersister();
         EtiquetaRetriever etiquetaRetriever = new EtiquetaRetriever();
 
-        List<Etiqueta> etiquetas = TestingDataProvider.ETIQUETAS;
+        List<Etiqueta> etiquetas = new TestingDataProvider().obtenerEtiquetasPrueba();
 
         for (Etiqueta e : etiquetas){
             etiquetaPersister.persist(e);

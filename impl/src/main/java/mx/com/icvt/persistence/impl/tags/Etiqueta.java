@@ -25,6 +25,8 @@ public class Etiqueta {
     }
 
     public Etiqueta(String valor){
+        noticias = new ArrayList<Noticia>();
+        patentes = new ArrayList<DBPatent>();
         this.valor = valor;
     }
 

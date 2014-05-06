@@ -4,6 +4,7 @@ import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.impl.tags.Etiqueta;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Noticia {
     private String descripcionMostrada;
     private boolean habilitada;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "Noticia_tiene_etiquetas", joinColumns = {
             @JoinColumn(name = "id_noticia")
     }, inverseJoinColumns = {
@@ -35,9 +36,11 @@ public class Noticia {
     private List<Etiqueta> etiquetas;
 
     public Noticia() {
+        etiquetas = new ArrayList<Etiqueta>();
     }
 
     public Noticia(News news){
+        etiquetas = new ArrayList<Etiqueta>();
         this.url = news.getUrl();
         this.titulo = this.tituloMostrado = news.getTitle();
         this.descripcion = this.descripcionMostrada = news.getDescription();
