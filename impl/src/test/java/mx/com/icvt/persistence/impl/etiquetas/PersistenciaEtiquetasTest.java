@@ -5,13 +5,15 @@ import mx.com.icvt.persistence.impl.tags.EtiquetaPersister;
 import mx.com.icvt.persistence.impl.tags.EtiquetaRetriever;
 import mx.com.icvt.persistence.impl.utils.TestingDataProvider;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.List;
 
 import static junit.framework.Assert.*;
 
-public class PersistenciaEtiquetas {
+@Ignore
+public class PersistenciaEtiquetasTest {
 
     private EtiquetaPersister persister;
     private EtiquetaRetriever retriever;

@@ -2,6 +2,7 @@ package mx.com.icvt.persistence.impl.tweets;
 
 import mx.com.icvt.model.Tweet;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -13,16 +14,22 @@ public class DBTweet {
     @Id
     private Long id;
     private String texto;
+    @Column(name = "fecha_publicacion")
     private Date fechaPublicacion;
     private String url;
     private Double latitud;
     private Double longitud;
+    @Column(name = "numero_retweets")
     private Integer numeroRetweets;
+    @Column(name = "numero_favoritos")
     private Integer numeroFavoritos;
-
+    @Column(name = "id_usuario")
     private Long idUsuario;
+    @Column(name = "alias_usuario")
     private String aliasUsuario;
+    @Column(name = "nombre_usuario")
     private String nombreUsuario;
+    @Column(name = "url_perfil_usuario")
     private String urlPerfilUsuario;
 
     public DBTweet() {

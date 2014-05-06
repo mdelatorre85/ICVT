@@ -4,11 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-/**
- * Created by lnx1337 on 16/03/14.
- */
-
 @Entity
 @Table(name = "unidad_economica")
 public class UnidadEconomica {
@@ -40,7 +35,8 @@ public class UnidadEconomica {
     private Double longitud;
     private Double latitud;
 
-    public UnidadEconomica() {}
+    public UnidadEconomica() {
+    }
 
     public UnidadEconomica(int cve_ent, int cve_num, int cve_loc) {
         this.cve_ent = cve_ent;

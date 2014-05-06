@@ -19,13 +19,24 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         manager.getTransaction().begin();
 
+        NewsDataRetriever retriever = new NewsDataRetriever();
+        News temp;
+
         List<Noticia> toPersist = new LinkedList<Noticia>();
         Noticia noticia;
 
         List<News> results = rs.getResults();
         for (News news : results) {
-            noticia = new Noticia(news);
-            toPersist.add(noticia);
+            temp = retriever.getByUrl(news.getUrl());
+            if (temp != null){
+                int i = news.compareTo(temp);
+                if (i > 0){
+
+                }
+            } else {
+                noticia = new Noticia(news);
+                toPersist.add(noticia);
+            }
         }
 
         for (Noticia entity : toPersist) {
