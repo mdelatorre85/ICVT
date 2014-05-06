@@ -34,9 +34,18 @@ public class NewsDataPersisterTest {
     @Test
     public void alProporcionarNoticiasNoDuplicadasSePersistenTodasLasNoticias() {
         dataPersister.persist(resultData);
+        int originalSize = resultData.getResults().size();
 
         List<News> persisted = dataRetriever.retrieveAllEnabled();
-        assertTrue(resultData.getResults().size() == persisted.size());
+        assertTrue(originalSize == persisted.size());
+
+        resultData = creaResulDataNoticias(6, 6);
+        dataPersister.persist(resultData);
+
+        originalSize += resultData.getResults().size();
+
+        persisted = dataRetriever.retrieveAllEnabled();
+        assertTrue(originalSize == persisted.size());
 
         cleanDataStore();
     }
@@ -95,7 +104,6 @@ public class NewsDataPersisterTest {
     }
 
     @Test
-    @Ignore
     public void esPosibleAgregarYRecuperarEtiquetaDeNoticias() {
         NewsResultData data = creaResulDataNoticias(1, 1);
         dataPersister.persist(data);
@@ -125,7 +133,53 @@ public class NewsDataPersisterTest {
 
     @Test
     @Ignore
+    public void siRecibeNoticiaDuplicadaMarcadaComoDeshabilitadaEntoncesNoActualizoNada(){
+        /*
+        * Crear dataset noticia
+        * persistir
+        * deshabilitar noticia
+        * crear dataset noticia con modificación
+        * persistir
+        * verificar que no se actualizaron datos
+        * */
+    }
+
+    @Test
+    @Ignore
+    public void siRecibeNoticiaDuplicadaConMejorImagenYHayModificacionPorAdministradorSeActualizaImagen(){
+        /*
+        * Crear dataset noticia
+        * persistir
+        * Modificar título y/o descripción
+        * crear dataset noticia con modificación (mejor imagen)
+        * persistir
+        * verificar que se actualice sólo la imagen
+        * */
+    }
+
+    @Test
+    @Ignore
+    public void siRecibeNoticiaDuplicadaSinMejorImagenYHayModificacionPorAdministradorNoSeActualizanDatos(){
+        /*
+        * Crear dataset noticia
+        * persistir
+        * Modificar título y/o descripción
+        * crear dataset noticia con modificación (no mejor imagen)
+        * persistir
+        * verificar que no se actualice ningún dato
+        * */
+    }
+
+    @Test
+    @Ignore
     public void siRecibeNoticiaDuplicadaMasCompletaGuardaNuevaNoticia() {
+        /*
+        * Crear dataset noticia
+        * persistir
+        * crear dataset noticia con modificaciones (mejor título y/o mejor descripción y/o mejor imagen)
+        * persistir
+        * verificar que no se actualizaron datos
+        * */
         dataPersister.persist(resultData);
         resultData = new NewsResultData() {
             @Override
@@ -164,7 +218,13 @@ public class NewsDataPersisterTest {
     @Test
     @Ignore
     public void siRecibeNoticiaDuplicadasMenosCompletaConservaNoticiaOriginal() {
-
+        /*
+        * Crear dataset noticia
+        * persistir
+        * crear dataset noticia con modificaciones (menor título y/o menor descripción y/o menor imagen)
+        * persistir
+        * verificar que no se actualizaron datos
+        * */
     }
 
     private NewsResultData creaResulDataNoticias(final int indiceInicio, final int indiceFinal) {

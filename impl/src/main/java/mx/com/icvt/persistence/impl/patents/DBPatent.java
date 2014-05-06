@@ -21,6 +21,11 @@ public class DBPatent {
     private String contenido;
     private String autores;
     @ManyToMany
+    @JoinTable(name = "PatenteEtiqueta", joinColumns = {
+            @JoinColumn(name = "idPatente")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "idEtiqueta")
+    })
     private List<Etiqueta> etiquetas;
 
     public DBPatent() {

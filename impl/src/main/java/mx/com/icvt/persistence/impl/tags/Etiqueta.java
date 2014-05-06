@@ -13,9 +13,9 @@ public class Etiqueta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String valor;
-    @ManyToMany
+    @ManyToMany(mappedBy = "etiquetas")
     private List<Noticia> noticias;
-    @ManyToMany
+    @ManyToMany(mappedBy = "etiquetas")
     private List<DBPatent> patentes;
 
     public Etiqueta() {
@@ -39,5 +39,21 @@ public class Etiqueta {
 
     public void setValor(String valor) {
         this.valor = valor;
+    }
+
+    public List<Noticia> getNoticias() {
+        return noticias;
+    }
+
+    public void setNoticias(List<Noticia> noticias) {
+        this.noticias = noticias;
+    }
+
+    public List<DBPatent> getPatentes() {
+        return patentes;
+    }
+
+    public void setPatentes(List<DBPatent> patentes) {
+        this.patentes = patentes;
     }
 }

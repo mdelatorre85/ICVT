@@ -11,7 +11,7 @@ import java.util.List;
 
 import static junit.framework.Assert.*;
 
-public class PersistenciaEtiquetas {
+public class PersistenciaEtiquetasTest {
 
     private EtiquetaPersister persister;
     private EtiquetaRetriever retriever;
