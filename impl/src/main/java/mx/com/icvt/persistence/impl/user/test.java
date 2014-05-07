@@ -19,7 +19,7 @@ public class test {
         // Login User
         System.out.println("Login user:");
         us.setIdentity("dev.lnx1337@gmail.com");
-        us.setPassword("gabo");
+        us.setPassword("lamisma00");
         urd.user = us;
 
         List<User> uus =null;
