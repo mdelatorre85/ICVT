@@ -32,7 +32,7 @@ curl -X POST  -F identity="test@api.com" -F password="test" http://infra1.clouda
 ```
 
 
-Si todos los datos enviados, superan todas las pruebas de validación, recibiremos una respuesta tipo **JSON** con el id de usuario y su access_token para acceder a todos los metodos authorizados.
+Si todos los datos enviados, superan todas las pruebas de validación, recibiremos una respuesta tipo **JSON** con el id de usuario y su access_token para acceder a todos los metodos authorizados cabe mencionar que la llave **role_social_id** pertenece a los roles de la plataforma social y la llave **role_site_id** pertenece a la plataforma ICVT.
 
 ```
 {
