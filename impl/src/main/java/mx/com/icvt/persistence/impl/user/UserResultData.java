@@ -1,18 +1,14 @@
 package mx.com.icvt.persistence.impl.user;
 
+import mx.com.icvt.hash.BCrypt;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import mx.com.icvt.hash.BCrypt;
-
-/**
- * Created by lnx1337 on 27/04/14.
- */
-
+import java.util.Random;
 
 public class UserResultData {
     public User user;
@@ -25,26 +21,34 @@ public class UserResultData {
 
     public List<User> login() {
 
-       factory = Persistence.createEntityManagerFactory("SITE");
-       EntityManager em = factory.createEntityManager();
-       List <User> users;
+        List<User> users;
 
-       Query query = em.createQuery("SELECT u FROM User u WHERE u.identity = :identity");
-       query.setParameter("identity", this.user.getIdentity());
-       users = query.getResultList();
+        factory = Persistence.createEntityManagerFactory("SITE");
+        EntityManager em = factory.createEntityManager();
 
-       Iterator<User> prov = users.iterator();
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.identity=:identity");
+        query.setParameter("identity", this.user.getIdentity());
+        users = query.getResultList();
 
-        while (prov.hasNext()) {
-            User pro = prov.next();
-            boolean matched = BCrypt.checkpw(this.user.getPassword(), pro.getPassword());
-            if (matched) {
-                return users;
+        if (users.isEmpty()) {
+            users = null;
+        } else {
+            boolean matchFound = false;
+            for (User pro : users) {
+                boolean matched = BCrypt.checkpw(this.user.getPassword(), pro.getPassword());
+                if (matched) {
+                    this.user.setId(pro.getId());
+                    this.updateAccesToken();
+                    matchFound = true;
+                }
+            }
+
+            if (!matchFound){
+                users = null;
             }
         }
 
         em.close();
-
         return users;
     }
 
@@ -71,6 +75,15 @@ public class UserResultData {
         return null;
     }
 
+    public void updateAccesToken() {
+        factory = Persistence.createEntityManagerFactory("SITE");
+        EntityManager em = factory.createEntityManager();
+        User user = em.find(User.class, this.user.getId());
+        em.getTransaction().begin();
+        user.setAccess_token(this.getAccesToken());
+        em.getTransaction().commit();
+    }
+
     public List<User> findById(int id) {
         List<User> users = new ArrayList<User>();
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
@@ -80,6 +93,19 @@ public class UserResultData {
         }
         manager.close();
         return users;
+    }
+
+    public String getAccesToken() {
+
+        char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNNO12343567890".toCharArray();
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            char c = chars[random.nextInt(chars.length)];
+            sb.append(c);
+        }
+        String output = sb.toString();
+        return output;
     }
 
     public boolean exist() {
