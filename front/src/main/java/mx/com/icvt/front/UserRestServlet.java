@@ -57,21 +57,6 @@ public class UserRestServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-
-        String keySource = "juan" + "200-10-11" +12343;
-
-        byte [] tokenByte = new Base64().encodeBase64(keySource.getBytes());
-
-        /*
-        MessageDigest md = MessageDigest.getInstance("MD5");
-        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
-        byte[] thedigest = md.digest(tokenByte);
-        */
-
-
-
-
-        String token = new String(tokenByte);
         out.println("GET request handling");
         out.println(request.getPathInfo());
         out.println(request.getParameterMap());
