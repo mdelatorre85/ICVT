@@ -9,16 +9,30 @@
         <servlet-name>InteligenciaSocial</servlet-name>
         <servlet-class>mx.com.icvt.front.InteligenciaSocialServlet</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>Etiquetas</servlet-name>
+        <servlet-class>mx.com.icvt.front.Etiquetas</servlet-class>
+    </servlet>    
+    <servlet>
+        <servlet-name>UserRestServlet</servlet-name>
+        <servlet-class>mx.com.icvt.front.UserRestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConfiguracionExtraccionServlet</servlet-name>
+        <servlet-class>mx.com.icvt.front.Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InteligenciaSocial</servlet-name>
         <url-pattern>/inteligenciaSocial</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <display-name>UserRestServlet</display-name>
-        <servlet-name>UserRestServlet</servlet-name>
-        <servlet-class>mx.com.icvt.front.UserRestServlet</servlet-class>
-    </servlet>
+    <servlet-mapping>
+        <servlet-name>Etiquetas</servlet-name>
+        <url-pattern>/etiquetas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConfiguracionExtraccionServlet</servlet-name>
+        <url-pattern>/configuracionExtraccion</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserRestServlet</servlet-name>
         <url-pattern>/api/v1/login</url-pattern>
