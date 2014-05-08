@@ -28,7 +28,7 @@ password="lamisma00"
 #### Ejemplo de la petición
 
 ```
-curl -X POST  -F identity="test@api.com" -F password="lamisma00" http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login
+curl -X POST  --data "identity=test@api.com&password=lamisma00"  http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login
 ```
 
 
