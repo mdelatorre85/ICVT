@@ -7,7 +7,7 @@
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
         <servlet-name>InteligenciaSocial</servlet-name>
-        <servlet-class>mx.com.icvt.front.InteligenciaSocialServlet</servlet-class>
+        <servlet-class>mx.com.icvt.front.ActualidadIndustriaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Etiquetas</servlet-name>
@@ -19,7 +19,7 @@
     </servlet>
     <servlet>
         <servlet-name>ConfiguracionExtraccionServlet</servlet-name>
-        <servlet-class>mx.com.icvt.front.Servlet</servlet-class>
+        <servlet-class>mx.com.icvt.front.ConfiguracionExtraccionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InteligenciaSocial</servlet-name>

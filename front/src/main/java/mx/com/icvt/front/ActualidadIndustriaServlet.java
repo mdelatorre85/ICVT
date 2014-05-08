@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class InteligenciaSocialServlet extends HttpServlet {
+public class ActualidadIndustriaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
@@ -21,7 +21,7 @@ public class InteligenciaSocialServlet extends HttpServlet {
         List<mx.com.icvt.model.News> noticias = retriever.retrieveAllEnabled();
 
         request.setAttribute("noticias", null);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("inteligenciaSocial.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("actualidadIndustria.jsp");
         dispatcher.forward(request, response);
     }
 }
