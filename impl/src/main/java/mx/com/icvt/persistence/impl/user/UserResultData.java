@@ -8,6 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class UserResultData {
     public User user;
@@ -19,16 +20,14 @@ public class UserResultData {
     }
 
     public List<User> login() {
-        String identity = "dev.lnx1337@gmail.com";
-        String password = "lamisma00";
+
         List<User> users;
 
         factory = Persistence.createEntityManagerFactory("SITE");
         EntityManager em = factory.createEntityManager();
 
-        Query query = em.createQuery("SELECT u FROM User u WHERE u.identity = :identity AND u.password = :password");
-        query.setParameter("identity", identity);
-        query.setParameter("password", password);
+        Query query = em.createQuery("SELECT u FROM User u WHERE u.identity=:identity");
+        query.setParameter("identity", this.user.getIdentity());
         users = query.getResultList();
 
         if (users.isEmpty()) {
@@ -38,6 +37,8 @@ public class UserResultData {
             for (User pro : users) {
                 boolean matched = BCrypt.checkpw(this.user.getPassword(), pro.getPassword());
                 if (matched) {
+                    this.user.setId(pro.getId());
+                    this.updateAccesToken();
                     matchFound = true;
                 }
             }
@@ -74,6 +75,15 @@ public class UserResultData {
         return null;
     }
 
+    public void updateAccesToken() {
+        factory = Persistence.createEntityManagerFactory("SITE");
+        EntityManager em = factory.createEntityManager();
+        User user = em.find(User.class, this.user.getId());
+        em.getTransaction().begin();
+        user.setAccess_token(this.getAccesToken());
+        em.getTransaction().commit();
+    }
+
     public List<User> findById(int id) {
         List<User> users = new ArrayList<User>();
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
@@ -83,6 +93,19 @@ public class UserResultData {
         }
         manager.close();
         return users;
+    }
+
+    public String getAccesToken() {
+
+        char[] chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNNO12343567890".toCharArray();
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < 20; i++) {
+            char c = chars[random.nextInt(chars.length)];
+            sb.append(c);
+        }
+        String output = sb.toString();
+        return output;
     }
 
     public boolean exist() {

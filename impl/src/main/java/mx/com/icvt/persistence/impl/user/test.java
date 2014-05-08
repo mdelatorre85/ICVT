@@ -16,17 +16,15 @@ public class test {
         UserResultData urd = new UserResultData();
         User us = new User();
 
-
         // Login User
         System.out.println("Login user:");
         us.setIdentity("dev.lnx1337@gmail.com");
-        us.setPassword("gabo");
+        us.setPassword("lamisma00");
         urd.user = us;
 
         List<User> uus =null;
         uus=urd.login();
 
-        /*
         Iterator<User> responseLogin = uus.iterator();
         System.out.println(responseLogin);
 
@@ -34,7 +32,7 @@ public class test {
             User u = responseLogin.next();
             System.out.println("identity: "+u.getName()+"  password:"+u.getAvatar());
         }
-        */
+
     }
 
 }
