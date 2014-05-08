@@ -18,6 +18,7 @@ public class DBPatent {
     private String descripcion;
     private String url;
     @Column(name = "fecha_publicacion")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
     private String contenido;
     private String autores;

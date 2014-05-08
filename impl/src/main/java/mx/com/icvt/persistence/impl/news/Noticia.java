@@ -18,6 +18,7 @@ public class Noticia {
     private String titulo;
     private String descripcion;
     @Column(name = "fecha_publicacion")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
     @Column(name = "url_imagen")
     private String urlImagen;

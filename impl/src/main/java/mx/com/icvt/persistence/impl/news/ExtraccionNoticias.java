@@ -9,7 +9,11 @@ public class ExtraccionNoticias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "fecha_inico")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaInicio;
+    @Column(name = "fecha_fin")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaFin;
 
     public ExtraccionNoticias() {

@@ -5,15 +5,53 @@ import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.DataResultPersister;
 import mx.com.icvt.persistence.impl.tags.Etiqueta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class NewsDataPersister implements DataResultPersister<NewsResultData> {
+    public boolean persist(ConfiguracionExtraccionNoticias configuracion){
+        boolean success = false;
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
+
+        try {
+            manager.persist(configuracion);
+            success = true;
+        } catch (EntityExistsException ignored){
+        } catch (PersistenceException ignored){
+        }
+
+        manager.getTransaction().commit();
+
+        return success;
+    }
+
+    public List<ConfiguracionExtraccionNoticias> getAllConfigurations(){
+        List<ConfiguracionExtraccionNoticias> configuraciones;
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c");
+        configuraciones = query.getResultList();
+        manager.close();
+
+        return configuraciones;
+    }
+
+    public List<ConfiguracionExtraccionNoticias> getConfigurationForActivityClass(Long idActivityClass){
+        List<ConfiguracionExtraccionNoticias> configuraciones;
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c where id_clase_actividad = :id");
+        query.setParameter("id", idActivityClass);
+        configuraciones = query.getResultList();
+        manager.close();
+
+        return configuraciones;
+    }
+
     @Override
     public void persist(NewsResultData rs) {
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();

@@ -2,10 +2,7 @@ package mx.com.icvt.persistence.impl.tweets;
 
 import mx.com.icvt.model.Tweet;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -15,6 +12,7 @@ public class DBTweet {
     private Long id;
     private String texto;
     @Column(name = "fecha_publicacion")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
     private String url;
     private Double latitud;
