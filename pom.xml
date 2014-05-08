@@ -10,7 +10,6 @@
     <modules>
         <module>core</module>
         <module>impl</module>
-        <!--<module>mock-impl</module>-->
         <module>front</module>
     </modules>
     <dependencies>
