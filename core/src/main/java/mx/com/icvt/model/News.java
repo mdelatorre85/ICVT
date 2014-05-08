@@ -29,7 +29,7 @@ public class News implements Serializable, Comparable<News> {
         this.pubDate = pubDate;
         this.description = description;
         this.image = image;
-        this.etiquetas = new HashMap<>();
+        this.etiquetas = new HashMap<Long, String>();
     }
 
     public News(String title, String url, String pubDateString, String description, String image) throws ParseException, MalformedURLException {
@@ -53,7 +53,7 @@ public class News implements Serializable, Comparable<News> {
                 Locale.ENGLISH);
         //Wed, 26 Mar 2014 17:34:34 GMT
         pubDate = df.parse(pubDateString);
-        this.etiquetas = new HashMap<>();
+        this.etiquetas = new HashMap<Long, String>();
     }
 
     public String getPubDateString() {
