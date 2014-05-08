@@ -6,7 +6,7 @@ El Api user permite hacer altas, bajas, consultas y login para usuarios.
 Login permite verificar si un usuario pertenece al sistema.
 
 #### Url del recurso
-**POST** http://infra1.cloudapp.net:8080/api/v1/user/login
+**POST** http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login
 
 
  
@@ -14,7 +14,7 @@ Login permite verificar si un usuario pertenece al sistema.
 
 ```
 identity="test@api.com"
-password="test"
+password="lamisma00"
 ```
 
 #### HTML form
@@ -28,7 +28,7 @@ password="test"
 #### Ejemplo de la petición
 
 ```
-curl -X POST  -F identity="test@api.com" -F password="test" http://infra1.cloudapp.net:8080/api/v1/user/login
+curl -X POST  -F identity="test@api.com" -F password="lamisma00" http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login
 ```
 
 
