@@ -19,6 +19,7 @@ import java.util.List;
 
 import static junit.framework.Assert.*;
 
+@Ignore
 public class NewsDataPersisterTest {
     private NewsDataPersister dataPersister;
     private NewsDataRetriever dataRetriever;

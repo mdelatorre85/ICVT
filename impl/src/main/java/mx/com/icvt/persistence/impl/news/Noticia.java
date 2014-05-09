@@ -29,12 +29,15 @@ public class Noticia {
     private boolean habilitada;
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "Noticia_tiene_etiquetas", joinColumns = {
+    @JoinTable(name = "noticia_tiene_etiquetas", joinColumns = {
             @JoinColumn(name = "id_noticia")
     }, inverseJoinColumns = {
             @JoinColumn(name = "id_etiqueta")
     })
     private List<Etiqueta> etiquetas;
+
+    @ManyToMany(mappedBy = "noticias")
+    private List<ExtraccionNoticias> extracciones;
 
     public Noticia() {
         etiquetas = new ArrayList<Etiqueta>();
@@ -132,5 +135,13 @@ public class Noticia {
 
     public void setEtiquetas(List<Etiqueta> etiquetas) {
         this.etiquetas = etiquetas;
+    }
+
+    public List<ExtraccionNoticias> getExtracciones() {
+        return extracciones;
+    }
+
+    public void setExtracciones(List<ExtraccionNoticias> extracciones) {
+        this.extracciones = extracciones;
     }
 }

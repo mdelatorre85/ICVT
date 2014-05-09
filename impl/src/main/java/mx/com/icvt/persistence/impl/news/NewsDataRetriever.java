@@ -11,6 +11,29 @@ import java.util.Date;
 import java.util.List;
 
 public class NewsDataRetriever {
+    public List<ConfiguracionExtraccionNoticias> getAllConfigurations(){
+        List<ConfiguracionExtraccionNoticias> configuraciones;
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c");
+        configuraciones = query.getResultList();
+        manager.close();
+
+        return configuraciones;
+    }
+
+    public List<ConfiguracionExtraccionNoticias> getConfigurationForActivityClass(Long idActivityClass){
+        List<ConfiguracionExtraccionNoticias> configuraciones;
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c where id_clase_actividad = :id");
+        query.setParameter("id", idActivityClass);
+        configuraciones = query.getResultList();
+        manager.close();
+
+        return configuraciones;
+    }
+
     public List<News> retrieveAllEnabled() {
         List<News> results = new ArrayList<News>();
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();

@@ -27,7 +27,6 @@
             %>
         </table>
         <h2>Agregar etiqueta</h2>
-
         <form action="etiquetas">
             Nombre de la etiqueta: <input type="text" name="nombreEtiqueta"/>
             <input type="hidden" name="action" value="persist"/>

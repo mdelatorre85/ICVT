@@ -5,6 +5,7 @@ import mx.com.icvt.persistence.impl.patents.DBPatent;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -22,6 +23,13 @@ public class Etiqueta {
     public Etiqueta() {
         noticias = new ArrayList<Noticia>();
         patentes = new ArrayList<DBPatent>();
+    }
+
+    public Etiqueta(Long id, String valor){
+        this.id = id;
+        this.valor = valor;
+        this.noticias = new LinkedList<Noticia>();
+        this.patentes = new LinkedList<DBPatent>();
     }
 
     public Etiqueta(String valor){

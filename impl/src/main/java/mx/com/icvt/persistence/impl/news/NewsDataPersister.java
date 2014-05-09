@@ -29,29 +29,6 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
         return success;
     }
 
-    public List<ConfiguracionExtraccionNoticias> getAllConfigurations(){
-        List<ConfiguracionExtraccionNoticias> configuraciones;
-
-        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c");
-        configuraciones = query.getResultList();
-        manager.close();
-
-        return configuraciones;
-    }
-
-    public List<ConfiguracionExtraccionNoticias> getConfigurationForActivityClass(Long idActivityClass){
-        List<ConfiguracionExtraccionNoticias> configuraciones;
-
-        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c where id_clase_actividad = :id");
-        query.setParameter("id", idActivityClass);
-        configuraciones = query.getResultList();
-        manager.close();
-
-        return configuraciones;
-    }
-
     @Override
     public void persist(NewsResultData rs) {
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
@@ -61,15 +38,26 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
         News temp;
 
         List<Noticia> toPersist = new LinkedList<Noticia>();
+        List<Noticia> toUpdate = new LinkedList<Noticia>();
+        List<Noticia> toIgnore = new LinkedList<Noticia>();
         Noticia noticia;
+
+        ConfiguracionExtraccionNoticias configuracion = manager.find(ConfiguracionExtraccionNoticias.class, rs.getConfiguration().getId());
+        ExtraccionNoticias extraccionNoticias = new ExtraccionNoticias(rs.getStartDate(), rs.getEndDate(), configuracion);
 
         List<News> results = rs.getResults();
         for (News news : results) {
             temp = retriever.getByUrl(news.getUrl());
             if (temp != null){
-                int i = news.compareTo(temp);
-                if (i > 0){
+                noticia = manager.find(Noticia.class, temp.getID());
 
+                if (news.compareTo(temp) > 1){
+                    noticia.setTitulo(news.getTitle());
+                    noticia.setTitulo(news.getDescription());
+                    noticia.setTitulo(news.getImage());
+                    toUpdate.add(noticia);
+                } else {
+                    toIgnore.add(noticia);
                 }
             } else {
                 noticia = new Noticia(news);
@@ -79,7 +67,19 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
 
         for (Noticia entity : toPersist) {
             manager.persist(entity);
+            extraccionNoticias.getNoticias().add(entity);
         }
+
+        for (Noticia entity : toUpdate) {
+            manager.merge(entity);
+            extraccionNoticias.getNoticias().add(entity);
+        }
+
+        for (Noticia entity : toIgnore){
+            extraccionNoticias.getNoticias().add(entity);
+        }
+
+        manager.persist(extraccionNoticias);
 
         manager.getTransaction().commit();
         manager.close();
@@ -100,15 +100,48 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
     }
 
     public void addLabels(Long idNoticia, List<Long> idsEtiqueta) {
-        Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        for (Long idEtiqueta : idsEtiqueta){
+            addLabel(idNoticia, idEtiqueta);
+        }
     }
 
     public void addLabel(Long idNoticia, Long idEtiqueta) {
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        manager.getTransaction().begin();
 
+        Noticia noticia = manager.find(Noticia.class, idNoticia);
+        Etiqueta etiqueta = manager.find(Etiqueta.class, idEtiqueta);
+
+        boolean etiquetado = false;
+        if (noticia != null && etiqueta != null){
+            for (Etiqueta temp : noticia.getEtiquetas()){
+                if (temp.getId().equals(idEtiqueta)){
+                    etiquetado = true;
+                }
+            }
+
+            if (!etiquetado){
+                noticia.getEtiquetas().add(etiqueta);
+                manager.merge(noticia);
+            }
+        }
+
+        manager.getTransaction().commit();
+        manager.close();
     }
 
     public List<Etiqueta> getLabels(Long idNoticia) {
         List<Etiqueta> etiquetas = new ArrayList<Etiqueta>();
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Noticia noticia = manager.find(Noticia.class, idNoticia);
+
+        if (noticia != null){
+            for (Etiqueta e : noticia.getEtiquetas()){
+                etiquetas.add(new Etiqueta(e.getId(), e.getValor()));
+            }
+        }
+
+        manager.close();
         return etiquetas;
     }
 }

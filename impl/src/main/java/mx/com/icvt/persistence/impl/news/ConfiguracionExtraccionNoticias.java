@@ -1,6 +1,9 @@
 package mx.com.icvt.persistence.impl.news;
 
+import mx.com.icvt.persistence.impl.vocaciones.ClaseActividad;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "configuracion_extraccion_noticias")
@@ -11,6 +14,11 @@ public class ConfiguracionExtraccionNoticias {
     @Column(name = "termino_busqueda")
     private String terminoBusqueda;
     private String fuente;
+    @ManyToOne
+    @JoinColumn(name = "id_clase_actividad")
+    private ClaseActividad claseActividad;
+    @OneToMany(mappedBy = "configuracion")
+    private List<ExtraccionNoticias> extraccionesNoticias;
 
     public ConfiguracionExtraccionNoticias() {
     }
@@ -42,5 +50,21 @@ public class ConfiguracionExtraccionNoticias {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public ClaseActividad getClaseActividad() {
+        return claseActividad;
+    }
+
+    public void setClaseActividad(ClaseActividad claseActividad) {
+        this.claseActividad = claseActividad;
+    }
+
+    public List<ExtraccionNoticias> getExtraccionesNoticias() {
+        return extraccionesNoticias;
+    }
+
+    public void setExtraccionesNoticias(List<ExtraccionNoticias> extraccionesNoticias) {
+        this.extraccionesNoticias = extraccionesNoticias;
     }
 }

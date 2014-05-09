@@ -4,11 +4,9 @@ import mx.com.icvt.extraction.ExtractorConfiguration;
 
 import java.io.Serializable;
 
-/**
- * Created by miguelangeldelatorre on 25/03/14.
- */
 public class NewsExtractorConfiguration implements Serializable, ExtractorConfiguration {
-
+    private static final long serialVersionUID = 3787616567194797212L;
+    private Long id;
     private String query;
     private String source;
     private Language language;
@@ -18,37 +16,19 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
     private NewsExtractorConfiguration() {
     }
 
-    @Override
-    public String getStringUrl() {
-
-        StringBuilder sb = new StringBuilder("http://news.google.com/news?q=");
-        sb.append(query);
-
-        if (source != null) {
-            sb.append("+source:\"");
-            sb.append(source);
-            sb.append("\"");
-        }
-
-        if (language != null) {
-            sb.append("&");
-            sb.append(language.getName());
-        }
-
-        if (order != null) {
-            sb.append("&");
-            sb.append(order.getName());
-        }
-
-        sb.append("&ie=UTF-8&num=100&output=rss");
-        return sb.toString();
-    }
-
     public NewsExtractorConfiguration(String query) {
         if (query == null || query.length() == 0) {
             throw new IllegalArgumentException("Argument query cannot be null or empty");
         }
         this.query = query.replace(' ', '+');
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     void setOrder(Order order) {
@@ -77,6 +57,32 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
 
     void setSource(String source) {
         this.source = source.replace(' ', '+');
+    }
+
+    @Override
+    public String getStringUrl() {
+
+        StringBuilder sb = new StringBuilder("http://news.google.com/news?q=");
+        sb.append(query);
+
+        if (source != null) {
+            sb.append("+source:\"");
+            sb.append(source);
+            sb.append("\"");
+        }
+
+        if (language != null) {
+            sb.append("&");
+            sb.append(language.getName());
+        }
+
+        if (order != null) {
+            sb.append("&");
+            sb.append(order.getName());
+        }
+
+        sb.append("&ie=UTF-8&num=100&output=rss");
+        return sb.toString();
     }
 
     public enum Language {

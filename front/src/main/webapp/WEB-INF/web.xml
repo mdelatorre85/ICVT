@@ -22,6 +22,10 @@
         <servlet-name>ConfiguracionExtraccionServlet</servlet-name>
         <servlet-class>mx.com.icvt.front.ConfiguracionExtraccionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ExtraerNoticias</servlet-name>
+        <servlet-class>mx.com.icvt.front.ExtraerNoticiasServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InteligenciaSocial</servlet-name>
         <url-pattern>/inteligenciaSocial</url-pattern>
