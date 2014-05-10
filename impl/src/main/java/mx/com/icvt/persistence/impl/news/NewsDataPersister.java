@@ -25,6 +25,7 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
         }
 
         manager.getTransaction().commit();
+        manager.close();
 
         return success;
     }
