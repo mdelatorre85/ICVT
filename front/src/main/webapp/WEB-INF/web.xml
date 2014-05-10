@@ -12,7 +12,11 @@
     <servlet>
         <servlet-name>Etiquetas</servlet-name>
         <servlet-class>mx.com.icvt.front.Etiquetas</servlet-class>
-    </servlet>    
+    </servlet>
+    <servlet>
+        <servlet-name>ModificarNoticia</servlet-name>
+        <servlet-class>mx.com.icvt.front.ModificarNoticia</servlet-class>
+    </servlet>
     <servlet>
         <display-name>UserRestServlet</display-name>
         <servlet-name>UserRestServlet</servlet-name>
@@ -33,6 +37,10 @@
     <servlet-mapping>
         <servlet-name>Etiquetas</servlet-name>
         <url-pattern>/etiquetas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ModificarNoticia</servlet-name>
+        <url-pattern>/modificarNoticia</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ConfiguracionExtraccionServlet</servlet-name>
