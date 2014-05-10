@@ -75,7 +75,13 @@ public class Noticia {
     }
 
     public News getNews(){
-        return new News(this.id, this.tituloMostrado, this.url, this.fechaPublicacion, this.descripcionMostrada, this.urlImagen);
+        News news = new News(this.id, this.tituloMostrado, this.url, this.fechaPublicacion, this.descripcionMostrada, this.urlImagen);
+
+        for (Etiqueta e : etiquetas){
+            news.addEtiqueta("" + e.getId(), e.getValor());
+        }
+
+        return news;
     }
 
     public Long getId() {
