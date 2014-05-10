@@ -45,11 +45,32 @@ public class Noticia {
 
     public Noticia(News news){
         etiquetas = new ArrayList<Etiqueta>();
-        this.url = news.getUrl();
-        this.titulo = this.tituloMostrado = news.getTitle();
-        this.descripcion = this.descripcionMostrada = news.getDescription();
+
+        if (news.getUrl().length() > 250){
+            this.url = news.getUrl().substring(0, 249);
+        } else {
+            this.url = news.getUrl();
+        }
+
+        if (news.getTitle().length() > 250){
+            this.titulo = this.tituloMostrado = news.getTitle().substring(0, 249);
+        } else {
+            this.titulo = this.tituloMostrado = news.getTitle();
+        }
+
+        if (news.getDescription().length() > 499){
+            this.descripcion = this.descripcionMostrada = news.getDescription().substring(0, 499);
+        } else {
+            this.descripcion = this.descripcionMostrada = news.getDescription();
+        }
+
+        if (news.getImage().length() > 250){
+            this.urlImagen = news.getImage().substring(0, 249);
+        } else {
+            this.urlImagen = news.getImage();
+        }
+
         this.fechaPublicacion = news.getPubDate();
-        this.urlImagen = news.getImage();
         this.habilitada = true;
     }
 
