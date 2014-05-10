@@ -20,7 +20,7 @@ public class ActualidadIndustriaServlet extends HttpServlet {
         NewsDataRetriever retriever = new NewsDataRetriever();
         List<mx.com.icvt.model.News> noticias = retriever.retrieveAllEnabled();
 
-        request.setAttribute("noticias", null);
+        request.setAttribute("noticias", noticias);
         RequestDispatcher dispatcher = request.getRequestDispatcher("actualidadIndustria.jsp");
         dispatcher.forward(request, response);
     }
