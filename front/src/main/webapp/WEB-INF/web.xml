@@ -6,7 +6,7 @@
          version="2.5">
     <display-name>Archetype Created Web Application</display-name>
     <servlet>
-        <servlet-name>InteligenciaSocial</servlet-name>
+        <servlet-name>ActualidadIndustria</servlet-name>
         <servlet-class>mx.com.icvt.front.ActualidadIndustriaServlet</servlet-class>
     </servlet>
     <servlet>
@@ -27,8 +27,8 @@
         <servlet-class>mx.com.icvt.front.ExtraerNoticiasServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>InteligenciaSocial</servlet-name>
-        <url-pattern>/inteligenciaSocial</url-pattern>
+        <servlet-name>ActualidadIndustria</servlet-name>
+        <url-pattern>/actualidadIndustria</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Etiquetas</servlet-name>
@@ -37,6 +37,10 @@
     <servlet-mapping>
         <servlet-name>ConfiguracionExtraccionServlet</servlet-name>
         <url-pattern>/configuracionExtraccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ExtraerNoticias</servlet-name>
+        <url-pattern>/extraerNoticias</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserRestServlet</servlet-name>
