@@ -8,10 +8,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 
-/**
- * @author miguelangeldelatorre
- */
 public class News implements Serializable, Comparable<News> {
+    private final static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+    private static final long serialVersionUID = 5859859502959765439L;
+
     private Long id;
     private String title;
     private String url = "";
@@ -57,7 +57,7 @@ public class News implements Serializable, Comparable<News> {
     }
 
     public String getPubDateString() {
-        return pubDateString;
+        return DATE_FORMAT.format(pubDate);
     }
 
     public Date getPubDate() {
