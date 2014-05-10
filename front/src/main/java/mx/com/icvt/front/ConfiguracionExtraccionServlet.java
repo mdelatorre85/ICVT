@@ -28,6 +28,7 @@ public class ConfiguracionExtraccionServlet extends HttpServlet {
     }
 
     private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("ConfiguracionExtraccionServlet -> doProcess");
         NewsDataRetriever retriever = new NewsDataRetriever();
 
         String action = request.getParameter("action");
@@ -36,10 +37,13 @@ public class ConfiguracionExtraccionServlet extends HttpServlet {
         }
 
         if (action.equals("persist")) {
+            System.out.println("action -> persist");
             NewsDataPersister persister = new NewsDataPersister();
 
             String terminoBusqueda = request.getParameter("terminoBusqueda");
-            if (terminoBusqueda == null || terminoBusqueda.equals(""))  {
+            System.out.println("terminoBusqueda -> " + terminoBusqueda);
+            if (terminoBusqueda != null && !terminoBusqueda.equals(""))  {
+                System.out.print("Persistiendo término: " + terminoBusqueda);
                 ConfiguracionExtraccionNoticias configuracion = new ConfiguracionExtraccionNoticias(terminoBusqueda, "");
                 persister.persist(configuracion);
             }
