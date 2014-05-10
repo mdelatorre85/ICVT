@@ -1,6 +1,3 @@
-<%@ page import="java.util.List" %>
-<%@ page import="mx.com.icvt.model.News" %>
-<%@ page import="net.sf.json.JSONObject" %>
 <%@ page import="net.sf.json.JSONArray" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%!
@@ -22,7 +19,7 @@
         <%=getJSONArray("noticias", request.getAttribute("noticias"))%>
         <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
         <script>
-            $(function(){
+            $(function () {
                 var table = $("#noticias");
                 var row;
                 var title;
@@ -30,7 +27,7 @@
                 var image;
                 var issueDate;
                 var url;
-                $.each(noticias, function(index, noticia){
+                $.each(noticias, function (index, noticia) {
                     row = $("<tr></tr>");
 
                     title = $("<td></td>");
