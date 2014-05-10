@@ -3,6 +3,7 @@ package mx.com.icvt.persistence.impl.news;
 import mx.com.icvt.persistence.impl.vocaciones.ClaseActividad;
 
 import javax.persistence.*;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,7 @@ public class ConfiguracionExtraccionNoticias {
     public ConfiguracionExtraccionNoticias(String terminoBusqueda, String fuente) {
         this.terminoBusqueda = terminoBusqueda;
         this.fuente = fuente;
+        this.extraccionesNoticias = new LinkedList<ExtraccionNoticias>();
     }
 
     public String getFuente() {
