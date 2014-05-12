@@ -1,4 +1,4 @@
-package mx.com.icvt.persistence.impl.news;
+package mx.com.icvt.persistence.impl.patents;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,8 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "Extraccion_noticias")
-public class ExtraccionNoticias {
+@Table(name = "extraccion_patentes")
+public class ExtraccionPatentes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,27 +22,27 @@ public class ExtraccionNoticias {
 
     @ManyToOne
     @JoinColumn(name = "id_configuracion")
-    private ConfiguracionExtraccionNoticias configuracion;
+    private ConfiguracionExtraccionPatentes configuracion;
 
     @ManyToMany
-    @JoinTable(name = "extraccion_noticias_noticias",
+    @JoinTable(name = "extraccion_patentes_patentes",
             joinColumns = {
                     @JoinColumn(name = "extraccion_id")
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "noticia_id")
+                    @JoinColumn(name = "patente_id")
             }
     )
-    private List<Noticia> noticias;
+    private List<DBPatent> patentes;
 
-    public ExtraccionNoticias() {
+    public ExtraccionPatentes() {
     }
 
-    public ExtraccionNoticias(Date fechaInicio, Date fechaFin, ConfiguracionExtraccionNoticias configuracion) {
+    public ExtraccionPatentes(Date fechaInicio, Date fechaFin, ConfiguracionExtraccionPatentes configuracion) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.configuracion = configuracion;
-        this.noticias = new LinkedList<Noticia>();
+        this.patentes = new LinkedList<DBPatent>();
     }
 
     public Long getId() {
@@ -69,19 +69,19 @@ public class ExtraccionNoticias {
         this.fechaFin = fechaFin;
     }
 
-    public ConfiguracionExtraccionNoticias getConfiguracion() {
+    public ConfiguracionExtraccionPatentes getConfiguracion() {
         return configuracion;
     }
 
-    public void setConfiguracion(ConfiguracionExtraccionNoticias configuracion) {
+    public void setConfiguracion(ConfiguracionExtraccionPatentes configuracion) {
         this.configuracion = configuracion;
     }
 
-    public List<Noticia> getNoticias() {
-        return noticias;
+    public List<DBPatent> getPatentes() {
+        return patentes;
     }
 
-    public void setNoticias(List<Noticia> noticias) {
-        this.noticias = noticias;
+    public void setPatentes(List<DBPatent> patentes) {
+        this.patentes = patentes;
     }
 }

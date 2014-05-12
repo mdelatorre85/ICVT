@@ -6,6 +6,7 @@ import mx.com.icvt.persistence.impl.tags.Etiqueta;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 @Entity
@@ -14,23 +15,39 @@ public class DBPatent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(columnDefinition = "text")
     private String titulo;
+
+    @Column(columnDefinition = "text")
     private String descripcion;
+
+    @Column(columnDefinition = "text")
     private String url;
+
     @Column(name = "fecha_publicacion")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
+
+    @Column(columnDefinition = "text")
     private String contenido;
+
+    @Column(columnDefinition = "text")
     private String autores;
-    @ManyToMany
-    @JoinTable(name = "Patente_tiene_etiquetas", joinColumns = {
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "patente_tiene_etiquetas", joinColumns = {
             @JoinColumn(name = "id_patente")
     }, inverseJoinColumns = {
             @JoinColumn(name = "id_etiqueta")
     })
     private List<Etiqueta> etiquetas;
 
+    @ManyToMany(mappedBy = "patentes")
+    private List<ExtraccionPatentes> extracciones;
+
     public DBPatent() {
+        this.extracciones = new LinkedList<ExtraccionPatentes>();
     }
 
     public DBPatent(Patent patent) {
@@ -40,6 +57,8 @@ public class DBPatent {
         this.setFechaPublicacion(patent.getPublicationDate());
         this.setContenido(patent.getPatentString());
         this.setAutores("");
+
+        this.extracciones = new LinkedList<ExtraccionPatentes>();
     }
 
     public Patent getPatent() {
@@ -117,5 +136,13 @@ public class DBPatent {
 
     public void setEtiquetas(List<Etiqueta> etiquetas) {
         this.etiquetas = etiquetas;
+    }
+
+    public List<ExtraccionPatentes> getExtracciones() {
+        return extracciones;
+    }
+
+    public void setExtracciones(List<ExtraccionPatentes> extracciones) {
+        this.extracciones = extracciones;
     }
 }

@@ -1,4 +1,4 @@
-package mx.com.icvt.persistence.impl.news;
+package mx.com.icvt.persistence.impl.tweets;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -6,8 +6,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "Extraccion_noticias")
-public class ExtraccionNoticias {
+@Table(name = "extraccion_tweets")
+public class ExtraccionTweets {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -22,27 +22,27 @@ public class ExtraccionNoticias {
 
     @ManyToOne
     @JoinColumn(name = "id_configuracion")
-    private ConfiguracionExtraccionNoticias configuracion;
+    private ConfiguracionExtraccionTweets configuracion;
 
     @ManyToMany
-    @JoinTable(name = "extraccion_noticias_noticias",
+    @JoinTable(name = "extraccion_tweets_tweets",
             joinColumns = {
                     @JoinColumn(name = "extraccion_id")
             },
             inverseJoinColumns = {
-                    @JoinColumn(name = "noticia_id")
+                    @JoinColumn(name = "tweet_id")
             }
     )
-    private List<Noticia> noticias;
+    private List<DBTweet> tweets;
 
-    public ExtraccionNoticias() {
+    public ExtraccionTweets() {
     }
 
-    public ExtraccionNoticias(Date fechaInicio, Date fechaFin, ConfiguracionExtraccionNoticias configuracion) {
+    public ExtraccionTweets(Date fechaInicio, Date fechaFin, ConfiguracionExtraccionTweets configuracion) {
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.configuracion = configuracion;
-        this.noticias = new LinkedList<Noticia>();
+        this.tweets = new LinkedList<DBTweet>();
     }
 
     public Long getId() {
@@ -69,19 +69,19 @@ public class ExtraccionNoticias {
         this.fechaFin = fechaFin;
     }
 
-    public ConfiguracionExtraccionNoticias getConfiguracion() {
+    public ConfiguracionExtraccionTweets getConfiguracion() {
         return configuracion;
     }
 
-    public void setConfiguracion(ConfiguracionExtraccionNoticias configuracion) {
+    public void setConfiguracion(ConfiguracionExtraccionTweets configuracion) {
         this.configuracion = configuracion;
     }
 
-    public List<Noticia> getNoticias() {
-        return noticias;
+    public List<DBTweet> getTweets() {
+        return tweets;
     }
 
-    public void setNoticias(List<Noticia> noticias) {
-        this.noticias = noticias;
+    public void setTweets(List<DBTweet> tweets) {
+        this.tweets = tweets;
     }
 }

@@ -1,4 +1,4 @@
-package mx.com.icvt.persistence.impl.news;
+package mx.com.icvt.persistence.impl.patents;
 
 import mx.com.icvt.persistence.impl.vocaciones.ClaseActividad;
 
@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "configuracion_extraccion_noticias")
-public class ConfiguracionExtraccionNoticias {
+@Table(name = "configuracion_extraccion_patentes")
+public class ConfiguracionExtraccionPatentes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -23,31 +23,15 @@ public class ConfiguracionExtraccionNoticias {
     private ClaseActividad claseActividad;
 
     @OneToMany(mappedBy = "configuracion")
-    private List<ExtraccionNoticias> extracciones;
+    private List<ExtraccionPatentes> extracciones;
 
-    public ConfiguracionExtraccionNoticias() {
+    public ConfiguracionExtraccionPatentes() {
     }
 
-    public ConfiguracionExtraccionNoticias(String terminoBusqueda, String fuente) {
+    public ConfiguracionExtraccionPatentes(String terminoBusqueda, String fuente) {
         this.terminoBusqueda = terminoBusqueda;
         this.fuente = fuente;
-        this.extracciones = new LinkedList<ExtraccionNoticias>();
-    }
-
-    public String getFuente() {
-        return fuente;
-    }
-
-    public void setFuente(String fuente) {
-        this.fuente = fuente;
-    }
-
-    public String getTerminoBusqueda() {
-        return terminoBusqueda;
-    }
-
-    public void setTerminoBusqueda(String terminoBusqueda) {
-        this.terminoBusqueda = terminoBusqueda;
+        this.extracciones = new LinkedList<ExtraccionPatentes>();
     }
 
     public Long getId() {
@@ -58,6 +42,22 @@ public class ConfiguracionExtraccionNoticias {
         this.id = id;
     }
 
+    public String getTerminoBusqueda() {
+        return terminoBusqueda;
+    }
+
+    public void setTerminoBusqueda(String terminoBusqueda) {
+        this.terminoBusqueda = terminoBusqueda;
+    }
+
+    public String getFuente() {
+        return fuente;
+    }
+
+    public void setFuente(String fuente) {
+        this.fuente = fuente;
+    }
+
     public ClaseActividad getClaseActividad() {
         return claseActividad;
     }
@@ -66,11 +66,11 @@ public class ConfiguracionExtraccionNoticias {
         this.claseActividad = claseActividad;
     }
 
-    public List<ExtraccionNoticias> getExtracciones() {
+    public List<ExtraccionPatentes> getExtracciones() {
         return extracciones;
     }
 
-    public void setExtracciones(List<ExtraccionNoticias> extraccionesNoticias) {
-        this.extracciones = extraccionesNoticias;
+    public void setExtracciones(List<ExtraccionPatentes> extracciones) {
+        this.extracciones = extracciones;
     }
 }

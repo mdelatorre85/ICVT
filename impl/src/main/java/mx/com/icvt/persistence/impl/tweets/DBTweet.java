@@ -4,33 +4,51 @@ import mx.com.icvt.model.Tweet;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 @Table(name = "Tweets")
 public class DBTweet {
     @Id
     private Long id;
+
     private String texto;
+
     @Column(name = "fecha_publicacion")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
+
+    @Column(columnDefinition = "text")
     private String url;
+
     private Double latitud;
+
     private Double longitud;
+
     @Column(name = "numero_retweets")
     private Integer numeroRetweets;
+
     @Column(name = "numero_favoritos")
     private Integer numeroFavoritos;
+
     @Column(name = "id_usuario")
     private Long idUsuario;
+
     @Column(name = "alias_usuario")
     private String aliasUsuario;
+
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
-    @Column(name = "url_perfil_usuario")
+
+    @Column(name = "url_perfil_usuario", columnDefinition = "text")
     private String urlPerfilUsuario;
 
+    @ManyToMany(mappedBy = "tweets")
+    private List<ExtraccionTweets> extracciones;
+
     public DBTweet() {
+        this.extracciones = new LinkedList<ExtraccionTweets>();
     }
 
     public DBTweet(Tweet tweet) {
@@ -46,6 +64,8 @@ public class DBTweet {
         this.setAliasUsuario(tweet.getUserScreenName());
         this.setNombreUsuario(tweet.getUserName());
         this.setUrlPerfilUsuario(tweet.getUserProfileUrl());
+
+        this.extracciones = new LinkedList<ExtraccionTweets>();
     }
 
     public Long getId() {

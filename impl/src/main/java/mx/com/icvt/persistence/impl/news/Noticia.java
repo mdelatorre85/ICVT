@@ -14,21 +14,32 @@ public class Noticia {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(columnDefinition = "text")
     private String url;
+
+    @Column(columnDefinition = "text")
     private String titulo;
+
+    @Column(columnDefinition = "text")
     private String descripcion;
+
     @Column(name = "fecha_publicacion")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
+
     @Column(name = "url_imagen")
     private String urlImagen;
-    @Column(name = "titulo_mostrado")
+
+    @Column(name = "titulo_mostrado", columnDefinition = "text")
     private String tituloMostrado;
-    @Column(name = "descripcion_mostrada")
+
+    @Column(name = "descripcion_mostrada", columnDefinition = "text")
     private String descripcionMostrada;
+
     private boolean habilitada;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "noticia_tiene_etiquetas", joinColumns = {
             @JoinColumn(name = "id_noticia")
     }, inverseJoinColumns = {
@@ -43,28 +54,28 @@ public class Noticia {
         etiquetas = new ArrayList<Etiqueta>();
     }
 
-    public Noticia(News news){
+    public Noticia(News news) {
         etiquetas = new ArrayList<Etiqueta>();
 
-        if (news.getUrl().length() > 250){
+        if (news.getUrl().length() > 250) {
             this.url = news.getUrl().substring(0, 249);
         } else {
             this.url = news.getUrl();
         }
 
-        if (news.getTitle().length() > 250){
+        if (news.getTitle().length() > 250) {
             this.titulo = this.tituloMostrado = news.getTitle().substring(0, 249);
         } else {
             this.titulo = this.tituloMostrado = news.getTitle();
         }
 
-        if (news.getDescription().length() > 499){
+        if (news.getDescription().length() > 499) {
             this.descripcion = this.descripcionMostrada = news.getDescription().substring(0, 499);
         } else {
             this.descripcion = this.descripcionMostrada = news.getDescription();
         }
 
-        if (news.getImage().length() > 250){
+        if (news.getImage().length() > 250) {
             this.urlImagen = news.getImage().substring(0, 249);
         } else {
             this.urlImagen = news.getImage();
@@ -74,10 +85,10 @@ public class Noticia {
         this.habilitada = true;
     }
 
-    public News getNews(){
+    public News getNews() {
         News news = new News(this.id, this.tituloMostrado, this.url, this.fechaPublicacion, this.descripcionMostrada, this.urlImagen);
 
-        for (Etiqueta e : etiquetas){
+        for (Etiqueta e : etiquetas) {
             news.addEtiqueta("" + e.getId(), e.getValor());
         }
 
