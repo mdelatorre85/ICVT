@@ -28,7 +28,7 @@ public class Noticia {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechaPublicacion;
 
-    @Column(name = "url_imagen")
+    @Column(name = "url_imagen", columnDefinition = "text")
     private String urlImagen;
 
     @Column(name = "titulo_mostrado", columnDefinition = "text")
@@ -38,6 +38,9 @@ public class Noticia {
     private String descripcionMostrada;
 
     private boolean habilitada;
+
+    @Column(columnDefinition = "text")
+    private String fuente;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "noticia_tiene_etiquetas", joinColumns = {
@@ -56,40 +59,20 @@ public class Noticia {
 
     public Noticia(News news) {
         etiquetas = new ArrayList<Etiqueta>();
-
-        if (news.getUrl().length() > 250) {
-            this.url = news.getUrl().substring(0, 249);
-        } else {
-            this.url = news.getUrl();
-        }
-
-        if (news.getTitle().length() > 250) {
-            this.titulo = this.tituloMostrado = news.getTitle().substring(0, 249);
-        } else {
-            this.titulo = this.tituloMostrado = news.getTitle();
-        }
-
-        if (news.getDescription().length() > 499) {
-            this.descripcion = this.descripcionMostrada = news.getDescription().substring(0, 499);
-        } else {
-            this.descripcion = this.descripcionMostrada = news.getDescription();
-        }
-
-        if (news.getImage().length() > 250) {
-            this.urlImagen = news.getImage().substring(0, 249);
-        } else {
-            this.urlImagen = news.getImage();
-        }
-
+        this.url = news.getUrl();
+        this.titulo = this.tituloMostrado = news.getTitle();
+        this.descripcion = this.descripcionMostrada = news.getDescription();
+        this.fuente = news.getSource();
+        this.urlImagen = news.getImage();
         this.fechaPublicacion = news.getPubDate();
         this.habilitada = true;
     }
 
     public News getNews() {
-        News news = new News(this.id, this.tituloMostrado, this.url, this.fechaPublicacion, this.descripcionMostrada, this.urlImagen);
+        News news = new News(this.id, this.tituloMostrado, this.url, this.fechaPublicacion, this.descripcionMostrada, this.urlImagen, this.fuente);
 
         for (Etiqueta e : etiquetas) {
-            news.addEtiqueta("" + e.getId(), e.getValor());
+            news.addEtiqueta(e.getId(), e.getValor());
         }
 
         return news;
@@ -181,5 +164,13 @@ public class Noticia {
 
     public void setExtracciones(List<ExtraccionNoticias> extracciones) {
         this.extracciones = extracciones;
+    }
+
+    public String getFuente() {
+        return fuente;
+    }
+
+    public void setFuente(String fuente) {
+        this.fuente = fuente;
     }
 }

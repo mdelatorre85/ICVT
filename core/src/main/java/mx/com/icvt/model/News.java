@@ -5,7 +5,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 
 public class News implements Serializable, Comparable<News> {
@@ -20,16 +23,17 @@ public class News implements Serializable, Comparable<News> {
     private String description;
     private String image;
     private String source;
-    private Map<String, String> etiquetas;
+    private Map<Long, String> etiquetas;
 
-    public News(Long id, String title, String url, Date pubDate, String description, String image) {
+    public News(Long id, String title, String url, Date pubDate, String description, String image, String source) {
         this.id = id;
         this.title = title;
         this.url = url;
         this.pubDate = pubDate;
         this.description = description;
         this.image = image;
-        this.etiquetas = new HashMap<String, String>();
+        this.source = source;
+        this.etiquetas = new HashMap<Long, String>();
     }
 
     public News(String title, String url, String pubDateString, String description, String image) throws ParseException, MalformedURLException {
@@ -53,7 +57,7 @@ public class News implements Serializable, Comparable<News> {
                 Locale.ENGLISH);
         //Wed, 26 Mar 2014 17:34:34 GMT
         pubDate = df.parse(pubDateString);
-        this.etiquetas = new HashMap<String, String>();
+        this.etiquetas = new HashMap<Long, String>();
     }
 
     public String getPubDateString() {
@@ -221,15 +225,15 @@ public class News implements Serializable, Comparable<News> {
         }
     }
 
-    public void setEtiquetas(Map<String, String> etiquetas){
+    public void setEtiquetas(Map<Long, String> etiquetas) {
         this.etiquetas = etiquetas;
     }
 
-    public void addEtiqueta(String id, String value){
+    public void addEtiqueta(Long id, String value) {
         this.etiquetas.put(id, value);
     }
 
-    public Map<String, String> getEtiquetas(){
+    public Map<Long, String> getEtiquetas() {
         return this.etiquetas;
     }
 }
