@@ -1,6 +1,7 @@
 package mx.com.icvt.persistence.impl.news;
 
 import mx.com.icvt.model.News;
+import mx.com.icvt.persistence.impl.tags.Etiqueta;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -8,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class NewsDataRetriever {
@@ -16,18 +18,6 @@ public class NewsDataRetriever {
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c");
-        configuraciones = query.getResultList();
-        manager.close();
-
-        return configuraciones;
-    }
-
-    public List<ConfiguracionExtraccionNoticias> getConfigurationForActivityClass(Long idActivityClass){
-        List<ConfiguracionExtraccionNoticias> configuraciones;
-
-        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("Select c from ConfiguracionExtraccionNoticias c where id_clase_actividad = :id");
-        query.setParameter("id", idActivityClass);
         configuraciones = query.getResultList();
         manager.close();
 
@@ -98,7 +88,7 @@ public class NewsDataRetriever {
         List<News> news = new ArrayList<News>();
 
         String sQuery = "SELECT n FROM Noticia n WHERE n.fechaPublicacion >= :beginDate ";
-        sQuery += "AND n.fechaPublicacion <= :endDate ";
+        sQuery += "AND n.fechaPublicacion <= :endDate ORDER BY n.fechaPublicacion DESC";
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         Query query = manager.createQuery(sQuery);
@@ -110,6 +100,44 @@ public class NewsDataRetriever {
             if (noticia.isHabilitada()) {
                 news.add(noticia.getNews());
             }
+        }
+
+        manager.close();
+
+        return news;
+    }
+
+    public List<News> getAllEnabledByDate(Date endDate){
+        assert endDate != null;
+        List<News> news = new ArrayList<News>();
+
+        String sQuery = "SELECT n FROM Noticia n WHERE n.fechaPublicacion <= :endDate ORDER BY n.fechaPublicacion DESC";
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createQuery(sQuery);
+        query.setParameter("endDate", endDate);
+        List<Noticia> noticias = query.getResultList();
+
+        for (Noticia noticia : noticias) {
+            if (noticia.isHabilitada()) {
+                news.add(noticia.getNews());
+            }
+        }
+
+        manager.close();
+
+        return news;
+    }
+
+    public List<News> getAllEnabledByLabel(Long labelId){
+        List<News> news = new LinkedList<News>();
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Etiqueta etiqueta = manager.find(Etiqueta.class, labelId);
+        List<Noticia> noticias = etiqueta.getNoticias();
+
+        for (Noticia noticia : noticias){
+            news.add(noticia.getNews());
         }
 
         manager.close();
