@@ -10,7 +10,7 @@ public class Questionary {
     private Long id;
     private ArrayList<Topic> topics;
 
-    private Questionary() {
+    public Questionary() {
         topics = new ArrayList<Topic>();
     }
 

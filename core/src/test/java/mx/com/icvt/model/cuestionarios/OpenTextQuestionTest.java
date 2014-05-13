@@ -26,14 +26,6 @@ public class OpenTextQuestionTest {
         question.setAnswer(null);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testWrongSetAnswerWrongAnswerClass(){
-        OpenTextQuestion question = new OpenTextQuestion("If man evolved from apes why do we still have apes?");
-        SingleOptionAnswer soa = new SingleOptionAnswer(1l, new SingleOptionQuestion("Pregunta de una sola opción"));
-        question.setAnswer(soa);
-    }
-
-
     @Test
     public void testCorrectSetAnswer(){
         OpenTextQuestion question = new OpenTextQuestion("If man evolved from apes why do we still have apes?");

@@ -10,7 +10,7 @@ public class MultipleOptionAnswer extends Answer {
 
     private TreeSet<Integer> answers;
 
-    public MultipleOptionAnswer(Long userId, SingleOptionQuestion question) {
+    public MultipleOptionAnswer(Long userId, MultipleOptionQuestion question) {
         super(userId, question);
         answers = new TreeSet<Integer>();
     }

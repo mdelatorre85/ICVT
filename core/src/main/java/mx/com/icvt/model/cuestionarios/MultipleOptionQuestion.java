@@ -37,6 +37,7 @@ public class MultipleOptionQuestion extends Question {
         if (possibleOption == null || possibleOption.length() == 0) {
             throw new IllegalArgumentException("Argument possibleOption cannot be null or empty");
         }
+        possibleOptions.add(possibleOption);
     }
 
     public String getPossibleOption(int index) {
@@ -59,5 +60,15 @@ public class MultipleOptionQuestion extends Question {
 
     public void removePossibleOption(int index) {
         possibleOptions.remove(index);
+    }
+
+    @Override
+    public void setAnswer(Answer answer) {
+        if (answer != null && answer instanceof  MultipleOptionAnswer){
+            super.setAnswer(answer);
+        } else {
+            throw new IllegalArgumentException("Answer cannot be null or empty and mos be of tge class MultipleOptionAnswer");
+        }
+
     }
 }
