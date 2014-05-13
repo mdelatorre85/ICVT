@@ -38,6 +38,12 @@ public class NewsTest {
     }
 
     @Test
+    public void testEqualsWithDifferentClass() throws MalformedURLException, ParseException{
+        News news1 = new News("", "http://www.google.com", "Wed, 26 Mar 2014 17:34:34 GMT", "", "");
+        assertFalse(news1.equals("banana"));
+    }
+
+    @Test
     public void  testEquals() throws MalformedURLException, ParseException {
         News news1 = new News("", "http://www.google.com", "Wed, 26 Mar 2014 17:34:34 GMT", "", "");
         news1.setId(new Long(12));

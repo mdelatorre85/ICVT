@@ -17,10 +17,10 @@ public class SingleOptionAnswer extends Answer {
     }
 
     public void setAnswer(Integer answer) {
-        SingleOptionQuestion q = (SingleOptionQuestion)getQuestion();
-        if(answer ==  null  ){
+        SingleOptionQuestion q = (SingleOptionQuestion) getQuestion();
+        if (answer == null) {
             throw new IllegalArgumentException("Argument answer cannot be null");
-        } else if (answer.intValue()>=0 && answer.intValue()< q.posibleOptionsSize()){
+        } else if (answer.intValue() >= 0 && answer.intValue() < q.posibleOptionsSize()) {
             this.answer = answer;
         } else {
             throw new IndexOutOfBoundsException("Answer must be in the range of the possible options for the question.");
@@ -29,10 +29,11 @@ public class SingleOptionAnswer extends Answer {
 
     @Override
     public void setQuestion(Question question) {
-        if (question != null && question instanceof SingleOptionQuestion){
+        if (question != null && question instanceof SingleOptionQuestion) {
             super.setQuestion(question);
-        }else {
+        } else {
             throw new IllegalArgumentException("Argument question cannot be null and most be a SingleOptionQuestion");
         }
+        super.setQuestion(question);
     }
 }

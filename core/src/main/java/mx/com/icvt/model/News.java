@@ -57,7 +57,10 @@ public class News implements Serializable, Comparable<News> {
                 Locale.ENGLISH);
         //Wed, 26 Mar 2014 17:34:34 GMT
         pubDate = df.parse(pubDateString);
+<<<<<<< HEAD
         this.etiquetas = new HashMap<Long, String>();
+=======
+>>>>>>> questionnaires
     }
 
     public String getPubDateString() {
@@ -223,6 +226,7 @@ public class News implements Serializable, Comparable<News> {
         if (source.startsWith("www.")) {
             source = source.substring(4);
         }
+<<<<<<< HEAD
     }
 
     public void setEtiquetas(Map<Long, String> etiquetas) {
@@ -235,5 +239,7 @@ public class News implements Serializable, Comparable<News> {
 
     public Map<Long, String> getEtiquetas() {
         return this.etiquetas;
+=======
+>>>>>>> questionnaires
     }
 }

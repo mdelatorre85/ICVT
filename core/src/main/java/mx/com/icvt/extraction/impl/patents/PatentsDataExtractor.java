@@ -8,6 +8,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 
 /**
@@ -88,13 +89,15 @@ public class PatentsDataExtractor implements DataExtractor<PatentsExtractorConfi
             }
         } catch (IOException ex) {
             ex.printStackTrace();
-        }
+        } catch (ParseException ex){
+            ex.printStackTrace();
+        };
 
 
         return retorno;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException{
         PatentsExtractorConfiguration config = new PatentsExtractorConfiguration("Paper Cup");
         new PatentsDataExtractor().extract(config);
     }
