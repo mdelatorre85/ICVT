@@ -1,27 +1,20 @@
 package mx.com.icvt.front.presenters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NoticiasAgrupadas {
-    private String fecha;
-    private ArrayList<Long> ids;
+    private List<GrupoNoticias> noticias;
 
     public NoticiasAgrupadas() {
+        noticias = new ArrayList<GrupoNoticias>();
     }
 
-    public String getFecha() {
-        return fecha;
+    public List<GrupoNoticias> getNoticias() {
+        return noticias;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public ArrayList<Long> getIds() {
-        return ids;
-    }
-
-    public void setIds(ArrayList<Long> ids) {
-        this.ids = ids;
+    public void setNoticias(List<GrupoNoticias> noticias) {
+        this.noticias = noticias;
     }
 }

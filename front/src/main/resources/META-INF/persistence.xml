@@ -8,7 +8,11 @@
         <class>mx.com.icvt.persistence.impl.news.ConfiguracionExtraccionNoticias</class>
         <class>mx.com.icvt.persistence.impl.news.ExtraccionNoticias</class>
         <class>mx.com.icvt.persistence.impl.tweets.DBTweet</class>
+        <class>mx.com.icvt.persistence.impl.tweets.ConfiguracionExtraccionTweets</class>
+        <class>mx.com.icvt.persistence.impl.tweets.ExtraccionTweets</class>
         <class>mx.com.icvt.persistence.impl.patents.DBPatent</class>
+        <class>mx.com.icvt.persistence.impl.patents.ConfiguracionExtraccionPatentes</class>
+        <class>mx.com.icvt.persistence.impl.patents.ExtraccionPatentes</class>
         <class>mx.com.icvt.persistence.impl.tags.Etiqueta</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.ClaseActividad</class>
