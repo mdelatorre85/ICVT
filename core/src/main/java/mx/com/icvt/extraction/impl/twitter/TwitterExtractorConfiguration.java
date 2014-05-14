@@ -11,6 +11,7 @@ import java.util.Date;
  * Created by miguelangeldelatorre on 01/04/14.
  */
 public class TwitterExtractorConfiguration implements ExtractorConfiguration {
+    private Long id;
 
     private String query;
     private TwitterSearchKind twitterSearchKind;
@@ -23,16 +24,17 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
     private String dateStartString = null;
     private String dateEndString = null;
 
-    private SimpleDateFormat sdf= null;
+    private SimpleDateFormat sdf = null;
 
     @SuppressWarnings("unused")
-    private TwitterExtractorConfiguration(){}
+    private TwitterExtractorConfiguration() {
+    }
 
-    public TwitterExtractorConfiguration(String query, TwitterSearchKind twitterSearchKind){
-        if (query == null || query.length()==0){
+    public TwitterExtractorConfiguration(String query, TwitterSearchKind twitterSearchKind) {
+        if (query == null || query.length() == 0) {
             throw new IllegalArgumentException("Argument query cannot be null or empty");
         }
-        if (twitterSearchKind == null){
+        if (twitterSearchKind == null) {
             throw new IllegalArgumentException("Argument twitterSearchKind cannot be null");
         }
         this.query = query;
@@ -57,7 +59,7 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
     }
 
     public void setCount(int count) {
-        if (count<= 0 && count > 100){
+        if (count <= 0 && count > 100) {
             throw new IllegalArgumentException("Argument count has to be lager than 0 and less or equal than 100");
         }
         this.count = count;
@@ -69,8 +71,8 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
 
     public void setDateStart(Date dateStart) {
         this.dateStart = dateStart;
-        if (dateStart!= null){
-            if (sdf== null)
+        if (dateStart != null) {
+            if (sdf == null)
                 sdf = new SimpleDateFormat("yyyy-MM-dd");
             dateStartString = sdf.format(dateStart);
         }
@@ -82,8 +84,8 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
 
     public void setDateEnd(Date dateEnd) {
         this.dateEnd = dateEnd;
-        if (dateEnd != null){
-            if (sdf== null)
+        if (dateEnd != null) {
+            if (sdf == null)
                 sdf = new SimpleDateFormat("yyyy-MM-dd");
             dateEndString = sdf.format(dateEnd);
         }
@@ -94,16 +96,16 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
     }
 
     public void setDateEndString(String dateEndString) throws ParseException {
-       if (dateEndString== null){
-           dateEnd= null;
-           this.dateEndString= null;
-       }else{
-           if (dateEndString.trim().length()!=10){
-               this.dateEndString = dateEndString;
-               dateEnd = sdf.parse(dateEndString);
-           }
+        if (dateEndString == null) {
+            dateEnd = null;
+            this.dateEndString = null;
+        } else {
+            if (dateEndString.trim().length() != 10) {
+                this.dateEndString = dateEndString;
+                dateEnd = sdf.parse(dateEndString);
+            }
 
-       }
+        }
 
     }
 
@@ -112,18 +114,26 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
     }
 
     public void setDateStartString(String dateStartString) throws ParseException {
-        if (dateStartString== null){
-            this.dateStartString= null;
-            dateStart= null;
-        }else{
-            if (dateStartString.trim().length()!=10){
+        if (dateStartString == null) {
+            this.dateStartString = null;
+            dateStart = null;
+        } else {
+            if (dateStartString.trim().length() != 10) {
                 this.dateStartString = dateStartString;
                 dateStart = sdf.parse(dateStartString);
             }
         }
     }
 
-    public enum TwitterSearchKind{
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public enum TwitterSearchKind {
         USERTIMELINE, SEARCHQUERY;
     }
 
@@ -133,6 +143,7 @@ public class TwitterExtractorConfiguration implements ExtractorConfiguration {
 
     /**
      * Solo aplica para la búsqueda
+     *
      * @param resultType
      */
     public void setResultType(Query.ResultType resultType) {

@@ -11,14 +11,14 @@ import java.util.List;
 /**
  * Created by miguelangeldelatorre on 01/04/14.
  */
-public class TwitterDataExtractor implements DataExtractor<TwitterExtractorConfiguration,TwitterResultData> {
+public class TwitterDataExtractor implements DataExtractor<TwitterExtractorConfiguration, TwitterResultData> {
 
 
     @Override
     public TwitterResultData extract(TwitterExtractorConfiguration extractorConfiguration) {
         TwitterResultData retorno = new TwitterResultData();
 
-        if (extractorConfiguration== null){
+        if (extractorConfiguration == null) {
             throw new IllegalArgumentException("Parameter extractorConfiguration cannot be null");
         }
 
@@ -31,13 +31,13 @@ public class TwitterDataExtractor implements DataExtractor<TwitterExtractorConfi
                 .setOAuthAccessTokenSecret("z7PH5jrfo820zUiCC0V93a5gRSqVU2qzTWZ3lpsUImT36");
         TwitterFactory tf = new TwitterFactory(cb.build());
         Twitter twitter = tf.getInstance();
-        switch (extractorConfiguration.getTwitterSearchKind()){
+        switch (extractorConfiguration.getTwitterSearchKind()) {
             case USERTIMELINE:
                 try {
                     List<Status> statuses = twitter.getUserTimeline(extractorConfiguration.getQuery());
 
                     for (Status status : statuses) {
-                         retorno.getResults().add(new Tweet(status));
+                        retorno.getResults().add(new Tweet(status));
                     }
                 } catch (TwitterException te) {
                     te.printStackTrace();
@@ -46,14 +46,14 @@ public class TwitterDataExtractor implements DataExtractor<TwitterExtractorConfi
             case SEARCHQUERY:
                 try {
                     Query query = new Query(extractorConfiguration.getQuery());
-                    if (extractorConfiguration.getResultType()!= null){
+                    if (extractorConfiguration.getResultType() != null) {
                         query.setResultType(extractorConfiguration.getResultType());
                     }
                     query.setCount(extractorConfiguration.getCount());
-                    if (extractorConfiguration.getDateStartString()!= null){
+                    if (extractorConfiguration.getDateStartString() != null) {
                         query.setSince(extractorConfiguration.getDateStartString());
                     }
-                    if (extractorConfiguration.getDateEndString()!= null){
+                    if (extractorConfiguration.getDateEndString() != null) {
                         query.setUntil(extractorConfiguration.getDateEndString());
                     }
                     QueryResult result;
@@ -74,13 +74,12 @@ public class TwitterDataExtractor implements DataExtractor<TwitterExtractorConfi
     }
 
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         TwitterExtractorConfiguration config = new TwitterExtractorConfiguration("mdelatorre85", TwitterExtractorConfiguration.TwitterSearchKind.USERTIMELINE);
         TwitterDataExtractor extractor = new TwitterDataExtractor();
         TwitterResultData results = extractor.extract(config);
         System.out.println(results.getResults().size());
-
 
 
     }
