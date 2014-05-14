@@ -15,6 +15,7 @@ public class Etiqueta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String valor;
+    private String color;
     @ManyToMany(mappedBy = "etiquetas")
     private List<Noticia> noticias;
     @ManyToMany(mappedBy = "etiquetas")
@@ -25,17 +26,19 @@ public class Etiqueta {
         patentes = new ArrayList<DBPatent>();
     }
 
-    public Etiqueta(Long id, String valor){
+    public Etiqueta(Long id, String valor, String color){
         this.id = id;
         this.valor = valor;
+        this.color = color;
         this.noticias = new LinkedList<Noticia>();
         this.patentes = new LinkedList<DBPatent>();
     }
 
-    public Etiqueta(String valor){
+    public Etiqueta(String valor, String color){
         noticias = new ArrayList<Noticia>();
         patentes = new ArrayList<DBPatent>();
         this.valor = valor;
+        this.color = color;
     }
 
     public Long getId() {
@@ -68,5 +71,13 @@ public class Etiqueta {
 
     public void setPatentes(List<DBPatent> patentes) {
         this.patentes = patentes;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
  * Date: 06/05/14
  * Time: 18:21
  */
-public class Etiquetas extends HttpServlet {
+public class EtiquetasServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -28,12 +28,13 @@ public class Etiquetas extends HttpServlet {
     }
 
     private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action") != null? request.getParameter("action") : "retrieve";
+        String action = request.getParameter("action") != null ? request.getParameter("action") : "retrieve";
 
         if (action.equals("persist")) {
             EtiquetaPersister persister = new EtiquetaPersister();
             String nombreEtiqueta = request.getParameter("nombreEtiqueta");
-            persister.persist(new Etiqueta(nombreEtiqueta));
+            String color = request.getParameter("color");
+            persister.persist(new Etiqueta(nombreEtiqueta, color));
         }
 
         EtiquetaRetriever retriever = new EtiquetaRetriever();

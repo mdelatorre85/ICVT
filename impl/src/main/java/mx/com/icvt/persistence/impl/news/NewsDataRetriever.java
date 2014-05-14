@@ -134,10 +134,83 @@ public class NewsDataRetriever {
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         Etiqueta etiqueta = manager.find(Etiqueta.class, labelId);
-        List<Noticia> noticias = etiqueta.getNoticias();
 
-        for (Noticia noticia : noticias){
-            news.add(noticia.getNews());
+        if (etiqueta != null){
+            List<Noticia> noticias = etiqueta.getNoticias();
+
+            for (Noticia noticia : noticias){
+                news.add(noticia.getNews());
+            }
+        }
+
+        manager.close();
+
+        return news;
+    }
+
+    public List<News> getAllEnabledByLabels(List<Long> idLabels){
+        assert !idLabels.isEmpty();
+
+        List<News> news = new LinkedList<News>();
+        String ids = "";
+
+        for (Long id : idLabels){
+            ids += id + ",";
+        }
+
+        ids = ids.substring(0, ids.length() - 1);
+        System.out.printf("Ids to search: %s\n", ids);
+
+        StringBuilder select = new StringBuilder();
+        select.append("select * from Noticias where id in ");
+        select.append("(select distinct(ne.id_noticia) from noticia_tiene_etiquetas ne, etiquetas e ");
+        select.append("where ne.id_etiqueta = e.id and e.id in (");
+        select.append(ids);
+        select.append("))");
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createNativeQuery(select.toString(), Noticia.class);
+        List<Noticia> resultList = query.getResultList();
+
+        for (Noticia n : resultList){
+            news.add(n.getNews());
+        }
+
+        manager.close();
+
+        return news;
+    }
+
+    public List<News> getAllEnabledByLabelsAndDate(List<Long> idLabels, Date inicio, Date fin){
+        assert !idLabels.isEmpty();
+        assert inicio != null;
+        assert fin != null;
+
+        List<News> news = new LinkedList<News>();
+        String ids = "";
+
+        for (Long id : idLabels){
+            ids += id + ",";
+        }
+
+        ids = ids.substring(0, ids.length() - 1);
+        System.out.printf("Ids to search: %s\n", ids);
+
+        StringBuilder select = new StringBuilder();
+        select.append("select * from Noticias where id in ");
+        select.append("(select distinct(ne.id_noticia) from noticia_tiene_etiquetas ne, etiquetas e ");
+        select.append("where ne.id_etiqueta = e.id and e.id in (");
+        select.append(ids);
+        select.append(")) && fecha_publicacion >= ?1 && fecha_publicacion <= ?2");
+
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Query query = manager.createNativeQuery(select.toString(), Noticia.class);
+        query.setParameter(1, inicio);
+        query.setParameter(2, fin);
+        List<Noticia> resultList = query.getResultList();
+
+        for (Noticia n : resultList){
+            news.add(n.getNews());
         }
 
         manager.close();

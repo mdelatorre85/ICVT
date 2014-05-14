@@ -72,7 +72,7 @@ public class Noticia {
         News news = new News(this.id, this.tituloMostrado, this.url, this.fechaPublicacion, this.descripcionMostrada, this.urlImagen, this.fuente);
 
         for (Etiqueta e : etiquetas) {
-            news.addEtiqueta(e.getId(), e.getValor());
+            news.addEtiqueta(e.getId(), e.getValor(), e.getColor());
         }
 
         return news;

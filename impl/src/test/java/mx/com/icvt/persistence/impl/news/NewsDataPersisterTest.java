@@ -228,6 +228,18 @@ public class NewsDataPersisterTest {
         * */
     }
 
+    @Test
+    @Ignore
+    public void esPosibleConsultarPorEtiqueta(){
+        //Fix this test
+        EtiquetaRetriever retriever = new EtiquetaRetriever();
+        Etiqueta etiqueta = retriever.getById(1l);
+        assertNotNull(etiqueta);
+        List<News> noticias = dataRetriever.getAllEnabledByLabel(etiqueta.getId());
+        assertNotNull(noticias);
+        assert !noticias.isEmpty();
+    }
+
     private NewsResultData creaResulDataNoticias(final int indiceInicio, final int indiceFinal) {
         NewsResultData resultData = new NewsResultData() {
             @Override

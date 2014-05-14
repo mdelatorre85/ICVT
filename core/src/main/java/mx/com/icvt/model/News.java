@@ -6,10 +6,9 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-
 
 public class News implements Serializable, Comparable<News> {
     private final static SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -23,7 +22,7 @@ public class News implements Serializable, Comparable<News> {
     private String description;
     private String image;
     private String source;
-    private Map<Long, String> etiquetas;
+    private List<Etiqueta> etiquetas;
 
     public News(Long id, String title, String url, Date pubDate, String description, String image, String source) {
         this.id = id;
@@ -33,7 +32,7 @@ public class News implements Serializable, Comparable<News> {
         this.description = description;
         this.image = image;
         this.source = source;
-        this.etiquetas = new HashMap<Long, String>();
+        this.etiquetas = new LinkedList<Etiqueta>();
     }
 
     public News(String title, String url, String pubDateString, String description, String image) throws ParseException, MalformedURLException {
@@ -57,7 +56,7 @@ public class News implements Serializable, Comparable<News> {
                 Locale.ENGLISH);
         //Wed, 26 Mar 2014 17:34:34 GMT
         pubDate = df.parse(pubDateString);
-        this.etiquetas = new HashMap<Long, String>();
+        this.etiquetas = new LinkedList<Etiqueta>();
     }
 
     public String getPubDateString() {
@@ -225,15 +224,47 @@ public class News implements Serializable, Comparable<News> {
         }
     }
 
-    public void setEtiquetas(Map<Long, String> etiquetas) {
-        this.etiquetas = etiquetas;
+    public void addEtiqueta(Long id, String value, String color) {
+        this.etiquetas.add(new Etiqueta(id, value, color));
     }
 
-    public void addEtiqueta(Long id, String value) {
-        this.etiquetas.put(id, value);
-    }
-
-    public Map<Long, String> getEtiquetas() {
+    public List<Etiqueta> getEtiquetas() {
         return this.etiquetas;
+    }
+
+    public class Etiqueta {
+        private Long id;
+        private String valor;
+        private String color;
+
+        private Etiqueta(Long id, String valor, String color) {
+            this.id = id;
+            this.valor = valor;
+            this.color = color;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getValor() {
+            return valor;
+        }
+
+        public void setValor(String valor) {
+            this.valor = valor;
+        }
+
+        public String getColor() {
+            return color;
+        }
+
+        public void setColor(String color) {
+            this.color = color;
+        }
     }
 }

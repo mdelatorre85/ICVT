@@ -138,7 +138,7 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
 
         if (noticia != null){
             for (Etiqueta e : noticia.getEtiquetas()){
-                etiquetas.add(new Etiqueta(e.getId(), e.getValor()));
+                etiquetas.add(new Etiqueta(e.getId(), e.getValor(), e.getColor()));
             }
         }
 

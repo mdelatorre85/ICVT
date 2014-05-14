@@ -81,7 +81,7 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
             sb.append(order.getName());
         }
 
-        sb.append("&ie=UTF-8&num=100&output=rss");
+        sb.append("&ie=UTF-8&num=20&output=rss");
         return sb.toString();
     }
 
