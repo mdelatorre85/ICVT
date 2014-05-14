@@ -12,7 +12,7 @@ public abstract class Question<U extends Answer> {
     private Topic topic;
     private Answer answer;
 
-    public Question(String textQuestion){
+    public Question(String textQuestion) {
         if (textQuestion == null || textQuestion.length() <= 0) {
             throw new IllegalArgumentException("Argument textQuestion cannot be null or empty");
         }
@@ -32,6 +32,9 @@ public abstract class Question<U extends Answer> {
     }
 
     void setTextQuestion(String textQuestion) {
+        if (textQuestion == null || textQuestion.length() <= 0) {
+            throw new IllegalArgumentException("Argument textQuestion cannot be null or empty");
+        }
         this.textQuestion = textQuestion;
     }
 
@@ -41,7 +44,7 @@ public abstract class Question<U extends Answer> {
 
     public void setTopic(Topic topic) {
         this.topic = topic;
-        if (topic != null){
+        if (topic != null) {
             this.topicId = topic.getId();
         }
     }

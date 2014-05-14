@@ -10,6 +10,10 @@ public class Questionary {
     private Long id;
     private ArrayList<Topic> topics;
 
+    public Questionary() {
+        topics = new ArrayList<Topic>();
+    }
+
     public Long getId() {
         return id;
     }
@@ -18,46 +22,42 @@ public class Questionary {
         this.id = id;
     }
 
-    private Questionary (){
-        topics = new ArrayList<Topic>();
-    }
-
     public ArrayList<Topic> getTopics() {
         ArrayList<Topic> retorno = new ArrayList<Topic>();
-        for (Topic topic : topics){
+        for (Topic topic : topics) {
             retorno.add(topic);
         }
         return topics;
     }
 
-    public int getTopicsSize(){
+    public int getTopicsSize() {
         return topics.size();
     }
 
-    public void clearTopics(){
+    public void clearTopics() {
         topics = new ArrayList<Topic>();
     }
 
-    public void addTopic(Topic topic){
+    public void addTopic(Topic topic) {
 
-        if (topic == null){
+        if (topic == null) {
             throw new IllegalArgumentException("Argument topic cannot be null or empty.");
         }
         topics.add(topic);
     }
 
-    public Topic getTopic(int index){
+    public Topic getTopic(int index) {
         return topics.get(index);
     }
 
-    public void removeTopic(Topic topic){
-        if (topic== null){
+    public void removeTopic(Topic topic) {
+        if (topic == null) {
             throw new IllegalArgumentException("Argument topic cannot be null or empty.");
         }
         topics.remove(topic);
     }
 
-    public void removeTopic(int index){
+    public void removeTopic(int index) {
         topics.remove(index);
     }
 }

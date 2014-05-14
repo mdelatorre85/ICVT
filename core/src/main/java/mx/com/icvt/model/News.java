@@ -55,6 +55,8 @@ public class News implements Serializable, Comparable<News> {
         SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
                 Locale.ENGLISH);
         //Wed, 26 Mar 2014 17:34:34 GMT
+
+
         pubDate = df.parse(pubDateString);
         this.etiquetas = new LinkedList<Etiqueta>();
     }

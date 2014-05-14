@@ -14,10 +14,10 @@ public class Topic {
     private Questionary questionary;
 
 
-    public Topic(Questionary questionary){
+    public Topic(Questionary questionary) {
 
-        if (questionary == null){
-            throw  new IllegalArgumentException("Argument questionary cannot be null or empty.");
+        if (questionary == null) {
+            throw new IllegalArgumentException("Argument questionary cannot be null or empty.");
         }
 
         this.questionaryId = questionary.getId();
@@ -44,52 +44,52 @@ public class Topic {
     }
 
     public void setQuestionary(Questionary questionary) {
-        if (questionary == null){
-            throw  new IllegalArgumentException("Argument questionary cannot be null or empty.");
+        if (questionary == null) {
+            throw new IllegalArgumentException("Argument questionary cannot be null or empty.");
         }
         this.questionary = questionary;
     }
 
-    public ArrayList<Question> getQuestions (){
+    public ArrayList<Question> getQuestions() {
         ArrayList<Question> retorno = new ArrayList<Question>();
-        for (Question q : questions){
+        for (Question q : questions) {
             retorno.add(q);
         }
         return retorno;
     }
 
-    public int questionsSize(){
+    public int questionsSize() {
         return questions.size();
     }
 
-    public void clearQuestions(){
+    public void clearQuestions() {
         questions = new ArrayList<Question>();
     }
 
-    public void addQuestion(Question question){
-        if (question == null){
-            throw  new IllegalArgumentException("Argument question cannot be null or empty.");
+    public void addQuestion(Question question) {
+        if (question == null) {
+            throw new IllegalArgumentException("Argument question cannot be null or empty.");
         }
         questions.add(question);
     }
 
-    public Question getQuestion(int index){
+    public Question getQuestion(int index) {
         return questions.get(index);
     }
 
-    public void setQuestion (Question question, int index){
-        if (question == null){
-            throw  new IllegalArgumentException("Argument question cannot be null or empty.");
+    public void setQuestion(Question question, int index) {
+        if (question == null) {
+            throw new IllegalArgumentException("Argument question cannot be null or empty.");
         }
         questions.set(index, question);
     }
 
-    public void removeQuestion(Question question){
+    public void removeQuestion(Question question) {
         questions.remove(question);
         question.setTopic(null);
     }
 
-    public void removeQuestion(int  index){
+    public void removeQuestion(int index) {
         questions.remove(index);
     }
 }
