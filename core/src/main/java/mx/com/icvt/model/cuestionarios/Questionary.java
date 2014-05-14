@@ -9,6 +9,7 @@ public class Questionary {
 
     private Long id;
     private ArrayList<Topic> topics;
+    private String tittle;
 
     public Questionary() {
         topics = new ArrayList<Topic>();
@@ -59,5 +60,13 @@ public class Questionary {
 
     public void removeTopic(int index) {
         topics.remove(index);
+    }
+
+    public String getTittle() {
+        return tittle;
+    }
+
+    public void setTittle(String tittle) {
+        this.tittle = tittle;
     }
 }
