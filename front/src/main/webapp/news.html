@@ -119,9 +119,7 @@
                 </footer>
                 <div class="tags-array cf">
                   <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}</a></li>
                   </ul>
                 </div>
               </li>
@@ -171,9 +169,7 @@
                 </footer>
                 <div class="tags-array cf">
                   <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General				</a></li>
+                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}				</a></li>
                   </ul>
                 </div>
               </li>

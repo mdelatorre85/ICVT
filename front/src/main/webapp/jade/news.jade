@@ -138,12 +138,8 @@ html.no-js
 
 							.tags-array.cf
 								ul
-									li
-										a(href='#').tag-cat-line.green Finanzas
-									li
-										a(href='#').tag-cat-line.orange Comercio
-									li
-										a(href='#').tag-cat-line.blue General
+									li(ng-repeat='etiqueta in new.etiquetas')
+										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
 
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014
@@ -205,12 +201,8 @@ html.no-js
 
 							.tags-array.cf
 								ul
-									li
-										a(href='#').tag-cat-line.green Finanzas
-									li
-										a(href='#').tag-cat-line.orange Comercio
-									li
-										a(href='#').tag-cat-line.blue General				
+									li(ng-repeat='etiqueta in new.etiquetas')
+										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}				
 	
 
 			aside.main-notification
