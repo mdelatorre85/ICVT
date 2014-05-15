@@ -1,0 +1,87 @@
+// compass init
+@import "compass/css3"
+@import "compass/reset"
+@import "libs/retina-sprites"
+
+
+// jeet grid
+@import "libs/jeet/_settings"
+@import "libs/jeet/_functions"
+@import "libs/jeet/_grid"
+
+// my init
+@import "init"
+@import "tags"
+
+// modules
+@import "ui"
+@import "layout"
+@import "login"
+@import "dashboard"
+@import "news"
+
+
+//+edit()
+
+// generic classes starts here!
+
+.panel-title
+	padding-top: $spacer
+	padding-bottom: $spacer
+
+	h1
+		font-size: 2em
+
+
+.panel-sub-menu
+	margin-bottom: $spacer
+	
+	.menu-items
+
+		li
+			float: left
+			display: block
+
+			&.selected
+				border-bottom: 2px solid $blue
+
+		a
+			display: block
+			@extend %cf
+			padding-bottom: 3px
+
+		.icon
+			display: block
+			float: left
+			width: 35px
+			height: 35px
+			background-color: lightgray
+			margin-right: 10px
+
+		.tag
+		
+
+
+	
+
+
+.search-field
+	position: relative
+
+	input[type='text']
+		border: 1px solid $lightgray
+		width: 100%
+		+bx
+		padding: 3px
+
+	button[type='submit']
+		position: absolute
+		right: 3px
+		top: 3px
+
+
+
+
+
+
+
