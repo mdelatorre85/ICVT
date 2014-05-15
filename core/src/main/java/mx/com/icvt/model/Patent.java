@@ -76,6 +76,11 @@ public class Patent implements Comparable<Patent> {
         return publicationDate;
     }
 
+    public void setPublicationDate(Date publicationDate) {
+        assert publicationDate != null;
+        this.publicationDate = publicationDate;
+    }
+
     public String getPublicationStringDate() {
         return publicationStringDate;
     }
