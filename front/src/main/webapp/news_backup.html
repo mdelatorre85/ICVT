@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
   </head>
-  <body ng-app="sampleApp" ng-controller="NewsController">
+  <body ng-app="sampleApp">
     <div class="main-wrapper">
       <header class="main-header">
         <div class="main-logo"><a href="index.html">site</a></div>
@@ -102,19 +102,20 @@
           </div>
         </div>
         <div class="panel-news-listing">
-          <div class="container">
+          <div class="container" ng-controller="NewsController">
             <h2 class="date"><i class='fa fa-calendar-o'></i><span>Hoy</span>, 24 de Septiembre 2014</h2>
             <ul>
-              <li ng-repeat="new in newsb" class="element">
+
+              <li class="element" ng-repeat="new in newsa" >
                 <header class="cf">
-                  <div class="pic"><a href="#"><img src="img/news-thumbs/3.jpg"></a></div>
+                  <div class="pic"><a href="#"><img src="{{ new.imagem }}"/></a></div>
                   <div class="title"><a href="#">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
                   <p>{{ new.descripcion }}</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.titulo }}</span></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
                   <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
@@ -125,6 +126,7 @@
                   </ul>
                 </div>
               </li>
+
             </ul>
           </div>
         </div>
@@ -132,16 +134,16 @@
           <div class="container">
             <h2 class="date"><i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014</h2>
             <ul>
-              <li ng-repeat="new in newsb" class="element">
+               <li class="element" ng-repeat="new in newsb" >
                 <header class="cf">
-                  <div class="pic"><a href="#"><img src="img/news-thumbs/2.jpg"></a></div>
+                  <div class="pic"><a href="#"><img src="{{ new.imagem }}"/></a></div>
                   <div class="title"><a href="#">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
                   <p>{{ new.descripcion }}</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.titulo }}</span></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
                   <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
@@ -159,23 +161,23 @@
           <div class="container">
             <h2 class="date"><i class='fa fa-calendar'></i><span>Anteriores</span></h2>
             <ul>
-              <li ng-repeat="new in newsc" class="element">
+               <li class="element" ng-repeat="new in newsc" >
                 <header class="cf">
-                  <div class="pic"><a href="#"><img src="img/news-thumbs/1.jpg"></a></div>
+                  <div class="pic"><a href="#"><img src="{{ new.imagem }}"/></a></div>
                   <div class="title"><a href="#">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
                   <p>{{ new.descripcion }}</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.titulo }}</span></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
                   <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
                     <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
                     <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General				</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
                   </ul>
                 </div>
               </li>

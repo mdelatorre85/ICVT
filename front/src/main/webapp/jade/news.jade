@@ -4,7 +4,7 @@ html.no-js
 
 	include includes/head
 
-	body
+	body(ng-app="sampleApp" ng-controller='NewsController')
 
 		.main-wrapper
 			include includes/header
@@ -114,26 +114,106 @@ html.no-js
 					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, 24 de Septiembre 2014
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
+						li(ng-repeat='new in newsb').element
+							header.cf
+								
+								.pic
+									a(href='#')
+										img(src='img/news-thumbs/3.jpg')
+								.title
+									a(href='#') {{ new.titulo }}
+
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.titulo }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li
+										a(href='#').tag-cat-line.green Finanzas
+									li
+										a(href='#').tag-cat-line.orange Comercio
+									li
+										a(href='#').tag-cat-line.blue General
 
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
+						li(ng-repeat='new in newsb').element
+							header.cf
+								
+								.pic
+									a(href='#')
+										img(src='img/news-thumbs/2.jpg')
+								.title
+									a(href='#') {{ new.titulo }}
+
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.titulo }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li
+										a(href='#').tag-cat-line.green Finanzas
+									li
+										a(href='#').tag-cat-line.orange Comercio
+									li
+										a(href='#').tag-cat-line.blue General
 
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar'></i><span>Anteriores</span>
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
-				
+						li(ng-repeat='new in newsc').element
+							header.cf
+								
+								.pic
+									a(href='#')
+										img(src='img/news-thumbs/1.jpg')
+								.title
+									a(href='#') {{ new.titulo }}
+
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.titulo }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li
+										a(href='#').tag-cat-line.green Finanzas
+									li
+										a(href='#').tag-cat-line.orange Comercio
+									li
+										a(href='#').tag-cat-line.blue General				
 	
 
 			aside.main-notification
