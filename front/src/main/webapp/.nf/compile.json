@@ -1,7 +1,7 @@
 {
- "compilerOptions": {
- "jade": { 
- "pretty": true
- }
- }
+	"compilerOptions": {
+ 		"jade": { 
+ 			"pretty": true
+ 		}
+ 	}
 }
