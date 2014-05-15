@@ -52,18 +52,18 @@ public class DBTweet {
     }
 
     public DBTweet(Tweet tweet) {
-        this.setTexto(tweet.getText());
-        this.setUrl(tweet.getUrl());
-        this.setFechaPublicacion(tweet.getPubDate());
-        this.setUrl(tweet.getUrl());
-        this.setLatitud(tweet.getLatitude());
-        this.setLongitud(tweet.getLongitude());
-        this.setNumeroRetweets(tweet.getRetweetCount());
-        this.setNumeroFavoritos(tweet.getFavoriteCount());
-        this.setId(tweet.getUserID());
-        this.setAliasUsuario(tweet.getUserScreenName());
-        this.setNombreUsuario(tweet.getUserName());
-        this.setUrlPerfilUsuario(tweet.getUserProfileUrl());
+        this.id = tweet.getId();
+        this.texto = tweet.getText();
+        this.url = tweet.getUrl();
+        this.fechaPublicacion = tweet.getPubDate();
+        this.latitud = tweet.getLatitude();
+        this.longitud = tweet.getLongitude();
+        this.numeroRetweets = tweet.getRetweetCount();
+        this.numeroFavoritos = tweet.getFavoriteCount();
+        this.idUsuario = tweet.getUserID();
+        this.aliasUsuario = tweet.getUserScreenName();
+        this.nombreUsuario = tweet.getUserName();
+        this.urlPerfilUsuario = tweet.getUserProfileUrl();
 
         this.extracciones = new LinkedList<ExtraccionTweets>();
     }
