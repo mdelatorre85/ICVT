@@ -5,6 +5,10 @@ public class Respuesta {
     private Long id;
     private Long userId;
     private Long unidadEconomicaId;
+    /**
+     * En caso de que la respuesta sea abierta el texto de la respuesta, en caso de que sea de selección multiple los
+     * números de la opciónes separados por | en caso de que sea de opción única el número de la opción
+     */
     private String textoRespuesta;
     private String tipoDeRespuesta;
 

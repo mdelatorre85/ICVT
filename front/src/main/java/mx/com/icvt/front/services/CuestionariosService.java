@@ -1,6 +1,7 @@
 package mx.com.icvt.front.services;
 
 import mx.com.icvt.front.presenters.cuestionarios.Cuestionario;
+import mx.com.icvt.front.presenters.cuestionarios.CuestionariosAgrupados;
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -17,7 +18,7 @@ public class CuestionariosService {
     @POST
     @Path("/agrupadas")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public Cuestionario[] getCuestionario(@FormParam("numeroNoticias") int unidadEconomicaId){
+    public CuestionariosAgrupados getCuestionario(@FormParam("numeroNoticias") long unidadEconomicaId){
         return null;
     }
 

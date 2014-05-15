@@ -1,13 +1,26 @@
 package mx.com.icvt.front.presenters.cuestionarios;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pregunta {
 
     private Long id;
     private String tipoDePregunta;
-    private String opcionesPosibles;
+    private List<String> opcionesPosibles;
     private String textoPregunta;
-
     private Respuesta respuesta;
+
+    public Pregunta(){
+        opcionesPosibles = new ArrayList<String>();
+    }
+
+    public Pregunta(Long id, TipoDePregunta tipoDePregunta, String textoPregunta){
+        opcionesPosibles = new ArrayList<String>();
+        this.id = id;
+        this.tipoDePregunta = tipoDePregunta.getName();
+        this.textoPregunta = textoPregunta;
+    }
 
     public String getTipoDePregunta() {
         return tipoDePregunta;
@@ -17,11 +30,11 @@ public class Pregunta {
         this.tipoDePregunta = tipoDePregunta.getName();
     }
 
-    public String getOpcionesPosibles() {
+    public List<String> getOpcionesPosibles() {
         return opcionesPosibles;
     }
 
-    public void setOpcionesPosibles(String opcionesPosibles) {
+    public void setOpcionesPosibles(List<String> opcionesPosibles) {
         this.opcionesPosibles = opcionesPosibles;
     }
 

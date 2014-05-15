@@ -1,11 +1,17 @@
 package mx.com.icvt.front.presenters.cuestionarios;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cuestionario {
 
     private Long id;
     private String titulo;
+    private List<Tema> temas;
 
-    private Tema[] temas;
+    public Cuestionario(){
+        temas = new ArrayList<Tema>();
+    }
 
     public Long getId() {
         return id;
@@ -15,12 +21,11 @@ public class Cuestionario {
         this.id = id;
     }
 
-    public Tema[] getTemas() {
+    public List<Tema> getTemas() {
         return temas;
     }
 
-    public void setTemas(Tema[] temas) {
+    public void setTemas(List<Tema> temas) {
         this.temas = temas;
     }
-
 }
