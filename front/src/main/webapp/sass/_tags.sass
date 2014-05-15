@@ -1,0 +1,429 @@
+// tags
+
+$t-green: #8CC63F
+$t-green-dark: #009245
+$t-lime: #FCEE21
+$t-lime-dark: #D9E021
+$t-orange: #F7931E
+$t-orange-dark: #F15A24
+$t-red: #ED1C24
+$t-red-dark: #C1272D
+$t-pink: #ED1E79
+$t-pink-dark: #D4145A
+$t-brown: #A67C52
+$t-brown-dark: #603813
+$t-purple: #93278F
+$t-purple-dark: #662D91
+$t-blue: #29ABE2
+$t-blue-dark: #2E3192
+$t-gray: #999999
+$t-gray-dark: #4D4D4D
+
+
+// tags
+.tags-array
+	ul
+
+	li
+		float: left
+		margin-right: 3px
+
+
+
+.tag-cat
+	+fx
+	background-color: $gray
+	color: white !important
+	display: inline-block
+	font-family: Helvetica, Arial, sans-serif
+	font-size: 10px
+	padding: 3px
+	text-shadow: 1px 1px rgba(black, 0.2)
+
+	&:hover
+		background-color: darken($gray, 10%)
+
+
+	&.green
+		background-color: $t-green
+		&:hover
+			background-color: darken($t-green, 10%)
+
+	&.green-dark
+		background-color: $t-green-dark
+		&:hover
+			background-color: darken($t-green-dark, 10%)
+
+	&.lime
+		background-color: $t-lime
+		&:hover
+			background-color: darken($t-lime, 10%)
+
+	&.lime-dark
+		background-color: $t-lime-dark
+		&:hover
+			background-color: darken($t-lime-dark, 10%)
+
+	&.orange
+		background-color: $t-orange
+		&:hover
+			background-color: darken($t-orange, 10%)
+
+	&.orange-dark
+		background-color: $t-orange-dark
+		&:hover
+			background-color: darken($t-orange-dark, 10%)
+
+	&.red
+		background-color: $t-red
+		&:hover
+			background-color: darken($t-red, 10%)
+
+	&.red-dark
+		background-color: $t-red-dark
+		&:hover
+			background-color: darken($t-red-dark, 10%)
+
+	&.pink
+		background-color: $t-pink
+		&:hover
+			background-color: darken($t-pink, 10%)
+
+	&.pink-dark
+		background-color: $t-pink-dark
+		&:hover
+			background-color: darken($t-pink-dark, 10%)
+
+	&.brown
+		background-color: $t-brown
+		&:hover
+			background-color: darken($t-brown, 10%)
+
+	&.brown-dark
+		background-color: $t-brown-dark
+		&:hover
+			background-color: darken($t-brown-dark, 10%)
+
+	&.purple
+		background-color: $t-purple
+		&:hover
+			background-color: darken($t-purple, 10%)
+
+	&.purple-dark
+		background-color: $t-purple-dark
+		&:hover
+			background-color: darken($t-purple-dark, 10%)
+
+	&.blue
+		background-color: $t-blue
+		&:hover
+			background-color: darken($t-blue, 10%)
+
+	&.blue-dark
+		background-color: $t-blue-dark
+		&:hover
+			background-color: darken($t-blue-dark, 10%)
+	
+	&.gray
+		background-color: $t-gray
+		&:hover
+			background-color: darken($t-gray, 10%)
+
+	&.gray-dark
+		background-color: $t-gray-dark
+		&:hover
+			background-color: darken($t-gray-dark, 10%)
+
+
+
+.tag-cat-line
+	+fx
+	display: inline-block
+	font-family: Helvetica, Arial, sans-serif
+	font-size: 10px
+	padding: 3px
+	margin-bottom: 3px
+	border-bottom: 2px solid $gray
+
+
+	&:hover
+		border-bottom-color: darken($gray, 10%)
+
+
+	&.green
+		border-bottom-color: $t-green
+		&:hover
+			border-bottom-color: darken($t-green, 10%)
+
+	&.green-dark
+		border-bottom-color: $t-green-dark
+		&:hover
+			border-bottom-color: darken($t-green-dark, 10%)
+
+	&.lime
+		border-bottom-color: $t-lime
+		&:hover
+			border-bottom-color: darken($t-lime, 10%)
+
+	&.lime-dark
+		border-bottom-color: $t-lime-dark
+		&:hover
+			border-bottom-color: darken($t-lime-dark, 10%)
+
+	&.orange
+		border-bottom-color: $t-orange
+		&:hover
+			border-bottom-color: darken($t-orange, 10%)
+
+	&.orange-dark
+		border-bottom-color: $t-orange-dark
+		&:hover
+			border-bottom-color: darken($t-orange-dark, 10%)
+
+	&.red
+		border-bottom-color: $t-red
+		&:hover
+			border-bottom-color: darken($t-red, 10%)
+
+	&.red-dark
+		border-bottom-color: $t-red-dark
+		&:hover
+			border-bottom-color: darken($t-red-dark, 10%)
+
+	&.pink
+		border-bottom-color: $t-pink
+		&:hover
+			border-bottom-color: darken($t-pink, 10%)
+
+	&.pink-dark
+		border-bottom-color: $t-pink-dark
+		&:hover
+			border-bottom-color: darken($t-pink-dark, 10%)
+
+	&.brown
+		border-bottom-color: $t-brown
+		&:hover
+			border-bottom-color: darken($t-brown, 10%)
+
+	&.brown-dark
+		border-bottom-color: $t-brown-dark
+		&:hover
+			border-bottom-color: darken($t-brown-dark, 10%)
+
+	&.purple
+		border-bottom-color: $t-purple
+		&:hover
+			border-bottom-color: darken($t-purple, 10%)
+
+	&.purple-dark
+		border-bottom-color: $t-purple-dark
+		&:hover
+			border-bottom-color: darken($t-purple-dark, 10%)
+
+	&.blue
+		border-bottom-color: $t-blue
+		&:hover
+			border-bottom-color: darken($t-blue, 10%)
+
+	&.blue-dark
+		border-bottom-color: $t-blue-dark
+		&:hover
+			border-bottom-color: darken($t-blue-dark, 10%)
+	
+	&.gray
+		border-bottom-color: $t-gray
+		&:hover
+			border-bottom-color: darken($t-gray, 10%)
+
+	&.gray-dark
+		border-bottom-color: $t-gray-dark
+		&:hover
+			border-bottom-color: darken($t-gray-dark, 10%)
+
+
+
+
+.tag-cat-option
+	
+
+	input[type='checkbox']
+		+reset-appearance
+		display: none
+
+		&:checked ~ label
+			color: white
+			background-color: $t-gray
+
+	label
+		+fx
+		display: block
+		padding: 7px
+		cursor: pointer
+		margin-bottom: 2px
+		border: 1px solid transparent
+
+		&:hover
+			border: 1px solid $t-gray
+
+
+	&.green
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-green
+
+		label
+			&:hover
+				border: 1px solid $t-green
+
+	&.green-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-green-dark
+
+		label
+			&:hover
+				border: 1px solid $t-green-dark
+
+	&.lime
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-lime
+
+		label
+			&:hover
+				border: 1px solid $t-lime
+
+	&.lime-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-lime-dark
+
+		label
+			&:hover
+				border: 1px solid $t-lime-dark
+
+	&.orange
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-orange
+
+		label
+			&:hover
+				border: 1px solid $t-orange
+
+	&.orange-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-orange-dark
+
+		label
+			&:hover
+				border: 1px solid $t-orange-dark
+
+	&.red
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-red
+
+		label
+			&:hover
+				border: 1px solid $t-red
+
+	&.red-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-red-dark
+
+		label
+			&:hover
+				border: 1px solid $t-red-dark
+
+	&.pink
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-pink
+
+		label
+			&:hover
+				border: 1px solid $t-pink
+
+	&.pink-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-pink-dark
+
+		label
+			&:hover
+				border: 1px solid $t-pink-dark
+
+	&.brown
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-brown
+
+		label
+			&:hover
+				border: 1px solid $t-brown
+
+	&.brown-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-brown-dark
+
+		label
+			&:hover
+				border: 1px solid $t-brown-dark
+
+	&.purple
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-purple
+
+		label
+			&:hover
+				border: 1px solid $t-purple
+
+	&.purple-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-purple-dark
+
+		label
+			&:hover
+				border: 1px solid $t-purple-dark
+
+	&.blue
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-blue
+
+		label
+			&:hover
+				border: 1px solid $t-blue
+
+	&.blue-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-blue-dark
+
+		label
+			&:hover
+				border: 1px solid $t-blue-dark
+	
+	&.gray
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-gray
+
+		label
+			&:hover
+				border: 1px solid $t-gray
+
+	&.gray-dark
+		input[type='checkbox']
+			&:checked ~ label
+				background-color: $t-gray-dark
+
+		label
+			&:hover
+				border: 1px solid $t-gray-dark

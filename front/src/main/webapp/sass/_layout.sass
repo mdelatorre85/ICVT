@@ -1,0 +1,203 @@
+// measures :)
+$main-nav-width: 180px
+$main-nav-height: 45px
+
+.main-wrapper
+	overflow-x: hidden
+	position: relative
+
+
+.main-header
+	background-color: $blue
+	color: white
+	height: $main-nav-height
+	text-align: center
+	position: fixed
+	width: 100%
+	z-index: 100
+
+
+.main-logo
+	position: fixed
+	left: 50%
+	margin-left: -26px
+	top: 8px
+	a
+		+imgr
+		+use-sprite('logo')
+		display: block
+
+
+.main-nav
+	+fx
+	color: white
+	background-color: $black
+	width: $main-nav-width
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	overflow-y: scroll
+	
+	.nav-listing
+		font-size: 0.9em
+		
+		li
+			border-top: 1px solid rgba(white, 0.1)
+			border-bottom: 1px solid darken($black, 3%)
+			display: block
+			@extend %cf
+
+
+			&.selected
+				border-left: 5px solid $green
+
+		a
+			+fx
+			height: 30px
+			padding: 10px
+			display: block
+
+			&:hover
+				background-color: rgba(white, .05)
+
+			&:active
+				background-color: rgba(white, .1)
+
+
+		span.icon
+			float: left
+			height: 30px
+			width: 30px
+			margin-right: 5px
+			background-color: lightgray
+
+		span.tag
+			
+			display: table-cell
+			height: 30px
+			vertical-align: middle
+		
+
+
+
+
+.main-container
+	+bx
+	+fx
+	bottom: 0
+	left: $main-nav-width
+	padding: 10px
+	right: 0
+	top: 0
+	overflow-y: scroll
+	-webkit-overflow-scrolling: touch
+
+
+.container
+	width: 1000px
+	margin: 0 auto
+	@extend %cf
+
+
+.main-notification
+	+fx
+	display: none
+	font-size: 0.9em
+	top: 0
+	right: 0
+	background-color: white
+	border: 1px solid gray
+
+	dl
+		
+		border-bottom: 1px solid $lightgray
+		padding: $spacer/4
+		margin: $spacer/4
+
+	dt
+		+bariol-bold
+
+
+.main-nav, .main-container, .main-notification
+	top: $main-nav-height
+	position: fixed
+
+
+// menu toggler via CSS
+.activate-menu
+	display: none
+
+	&:checked ~ .main-nav
+		left: 0
+
+	&:checked ~ .main-container
+		left: $main-nav-width
+
+	&:checked ~ .main-container .main-container-overlay
+		visibility: visible
+		opacity: 100
+		height: 100%
+		width: 100%
+		position: fixed
+		top: 0
+		left: $main-nav-width
+		right: 0
+		bottom: 0
+		z-index: 200
+		cursor: pointer
+		background-color: rgba(white,0.5)	
+
+.btn-activate-menu
+	display: none
+	position: fixed
+	top: 7px
+	left: 7px
+	z-index: 110
+
+
+.btn-activate-alerts
+	z-index: 120
+	position: fixed
+	top: 7px
+	right: 7px
+
+
+.half
+	@extend %cf
+
+	.left, .right
+		float: left
+		width: 50%
+		+bx()
+
+	
+
+	.left
+		padding-right: 5px
+	
+	.right
+		padding-left: 5px
+
+
+// mobile
+
+@media screen and (max-width: 640px)
+	.container
+		max-width: 640px
+		width: 100%
+
+	.btn-activate-menu
+		display: block
+
+	.main-nav
+		left: -$main-nav-width
+
+	.main-container
+		left: 0
+		width: 100%
+
+
+	.activate-menu
+		&:checked ~ .main-container
+			overflow: hidden

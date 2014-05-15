@@ -1,27 +1,49 @@
 include mixins
 doctype html
 html.no-js
-	
+
 	include includes/head
 
 	body
-		
-		include includes/header
-		include includes/nav
-		
 
-		.panel-header-summary
-			.container
-				.row
-					.profile-info.g4.cf
-						.profile-pic
-							img(src='http://placehold.it/80x80')
-						.title
-							h1 Textiles y acabados de México SA de CV
+		.main-wrapper
+			include includes/header			
+			
+			nav.main-nav
+				ul.nav-listing
+					li.selected: a(href='#')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='#')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='#')
+						span.icon
+						span.tag Perfil
+					li: a(href='#')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='#')
+						span.icon
+						span.tag Inteligencia comercial
+					li: a(href='#')
+						span.icon
+						span.tag Inteligencia social
+					
 
-					.summary.g8
-						.row
-							.g3
+			section.main-container
+				.main-container-overlay
+
+				.panel-header-summary
+					.container
+						.profile-info
+							.profile-pic
+								img(src='http://placehold.it/80x80')
+							.title
+								h1 Textiles y acabados de México SA de CV
+
+						.summary
+							.col.location
 								h3
 									i.fa.fa-map-marker
 									| Locación
@@ -29,21 +51,19 @@ html.no-js
 									li Estado de Hidalgo
 									li Tula de Allende
 									li San Miguel Vindho
-
-							.g3
+							.col.ue-info
 								h3
 									i.fa.fa-circle-o
 									| Unidad económica
 								ul
 									li [314991] Confección, bordado y deshilado de productos textiles
-							.g3
+							.col.employees
 								h3
 									i.fa.fa-users
 									| Número de empleados
 								ul
 									li De 10 a 50 empleados
-
-							.g3.profile-chart-container
+							.col.profile-chart-container
 								h3
 									i.fa.fa-tasks
 									| Perfil
@@ -53,75 +73,54 @@ html.no-js
 										span.number.js-profileChartHomePercentage 100%
 										span.tag Completado
 
-									canvas#profileChartHome(height='70', width='70')
-		
-		.panel-widget-container
-			.container
-				.row
-					.widget.widget-news.g4
-						h2
-							a(href='#') Actualidad en la industria
+									canvas#profileChartHome(height='60', width='60')
 
-						ul
-							- for(i=0 ; i<4 ; i++) {
-							li.element
-								.content.cf
-									.pic
-										a(href='#')
-											img(src='http://placehold.it/80x80.gif')
-									.title
-										a(href='#') Crecimiento de Inditex se frena en 2013 por tipos de cambio.
-									
-								footer.info.cf
-									ul
-										li.source
+
+				.panel-widget-container
+					.container
+						.widget.widget-news
+							h2
+								a(href='#') Actualidad en la industria
+
+							ul
+								- for(i=0 ; i<4 ; i++) {
+								li.element
+									.content.cf
+										.pic
 											a(href='#')
-												i.fa.fa-rss
-												| El Financiero
-										li.date 10-Feb-2014
-								
-							- }
-
-						footer.action
-							a(href='#').link Ver más
-								i.fa.fa-arrow-right
-
-
-					.widget.widget-alerts.g4
-						h2
-							a(href='#') Alertas y notifiaciones
-
-						ul
-							- for(i=0 ; i<4 ; i++) {
-							li.element
-								.content.cf
-									.title
-										a(href='#') Se prevee una alza en los precios de los materiales textiles para el primer trimestre del 2015.
+												img(src='http://placehold.it/80x80.gif')
+										.title
+											a(href='#') Crecimiento de Inditex se frena en 2013 por tipos de cambio.
+										
+									footer.info.cf
+										ul
+											li.source
+												a(href='#')
+													i.fa.fa-rss
+													| El Financiero
+											li.date 10-Feb-2014
 									
-								footer.info.cf
-									ul
-										li.date 20-Feb-2014
-								
-							- }
+								- }
 
-						footer.action
-							a(href='#').link Ver más
-								i.fa.fa-arrow-right
+							footer.action
+								a(href='#').link Ver más
+									i.fa.fa-arrow-right
 
-					.g4
-						
+	
 
-
-
-		include includes/footer
-
+			aside.main-notification
+				- for(i=1 ; i<=5 ; i++){
+				dl
+					dt Notification #{i}
+					dd Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.
+				- }
 
 		#data
 			#profileChartHomeAnswered 80
 			#profileChartHomeNoAnswered 10
 
-		
 		include includes/scripts
+
 
 		script.
 
@@ -160,6 +159,3 @@ html.no-js
 
 				var profileChartHome = new Chart(document.getElementById("profileChartHome").getContext("2d")).Doughnut(profileChartHomeData, profileChartHomeConfig);
 			});
-			
-			
-			

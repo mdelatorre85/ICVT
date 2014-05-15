@@ -1,5 +1,4 @@
-
-<!-- aquí los mixines--><!DOCTYPE html>
+<!DOCTYPE html>
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -14,41 +13,36 @@
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
   </head>
   <body>
-    <header id="main-header" class="cf">
-      <div class="left">
-        <div class="logo"><a href="index.html">Site</a></div>
-      </div>
-      <div class="right">
-        <div class="header-menu-container">
-          <ul class="btn-link-continer">
-            <li><a href="#" class="btn-link"><i class="fa fa-bell"></i>Alertas</a></li>
-            <li><a href="#" class="btn-link"><i class="fa fa-user"></i>Usuario</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
-    <nav id="main-nav">
-      <div class="container">
-        <ul class="row">
-          <li class="g2"><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
-          <li class="g2"><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad en la industria</span></a></li>
-          <li class="g2"><a href="social.html"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
-          <li class="g2"><a href="comercial.html"><span class="icon"></span><span class="tag">Inteligencial comercial</span></a></li>
+    <div class="main-wrapper">
+      <header class="main-header">
+        <div class="main-logo"><a href="index.html">site</a></div>
+      </header>
+      <label for="activate-menu" class="btn-alpha btn-activate-menu"><i class="fa fa-bars"></i>Menú</label>
+      <label for="activate-alerts" class="btn-alpha btn-activate-alerts"><i class="fa fa-bell-o"></i>Alertas</label>
+      <input type="checkbox" id="activate-menu" class="activate-menu">
+      <input type="checkbox" id="activate-alerts" class="activate-alerts">
+      <nav class="main-nav">
+        <ul class="nav-listing">
+          <li class="selected"><a href="#"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Perfil</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
         </ul>
-      </div>
-    </nav>
-    <div class="panel-header-summary">
-      <div class="container">
-        <div class="row">
-          <div class="profile-info g4 cf">
-            <div class="profile-pic"><img src="http://placehold.it/80x80"></div>
-            <div class="title">
-              <h1>Textiles y acabados de México SA de CV</h1>
+      </nav>
+      <section class="main-container">
+        <div class="main-container-overlay"></div>
+        <div class="panel-header-summary">
+          <div class="container">
+            <div class="profile-info">
+              <div class="profile-pic"><img src="http://placehold.it/80x80"></div>
+              <div class="title">
+                <h1>Textiles y acabados de México SA de CV</h1>
+              </div>
             </div>
-          </div>
-          <div class="summary g8">
-            <div class="row">
-              <div class="g3">
+            <div class="summary">
+              <div class="col location">
                 <h3><i class="fa fa-map-marker"></i>Locación</h3>
                 <ul>
                   <li>Estado de Hidalgo</li>
@@ -56,138 +50,110 @@
                   <li>San Miguel Vindho</li>
                 </ul>
               </div>
-              <div class="g3">
+              <div class="col ue-info">
                 <h3><i class="fa fa-circle-o"></i>Unidad económica</h3>
                 <ul>
                   <li>[314991] Confección, bordado y deshilado de productos textiles</li>
                 </ul>
               </div>
-              <div class="g3">
+              <div class="col employees">
                 <h3><i class="fa fa-users"></i>Número de empleados</h3>
                 <ul>
                   <li>De 10 a 50 empleados</li>
                 </ul>
               </div>
-              <div class="g3 profile-chart-container">
+              <div class="col profile-chart-container">
                 <h3><i class="fa fa-tasks"></i>Perfil</h3>
                 <div class="chart cf">
                   <div class="percentage"><span class="number js-profileChartHomePercentage">100%</span><span class="tag">Completado</span></div>
-                  <canvas id="profileChartHome" height="70" width="70"></canvas>
+                  <canvas id="profileChartHome" height="60" width="60"></canvas>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="panel-widget-container">
-      <div class="container">
-        <div class="row">
-          <div class="widget widget-news g4">
-            <h2><a href="#">Actualidad en la industria</a></h2>
-            <ul>
-              <li class="element">
-                <div class="content cf">
-                  <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
-                  <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
-                    <li class="date">10-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-              <li class="element">
-                <div class="content cf">
-                  <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
-                  <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
-                    <li class="date">10-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-              <li class="element">
-                <div class="content cf">
-                  <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
-                  <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
-                    <li class="date">10-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-              <li class="element">
-                <div class="content cf">
-                  <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
-                  <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
-                    <li class="date">10-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-            </ul>
-            <footer class="action"><a href="#" class="link">Ver más<i class="fa fa-arrow-right"></i></a></footer>
+        <div class="panel-widget-container">
+          <div class="container">
+            <div class="widget widget-news">
+              <h2><a href="#">Actualidad en la industria</a></h2>
+              <ul>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
+                    <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
+                    <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
+                    <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="#"><img src="http://placehold.it/80x80.gif"></a></div>
+                    <div class="title"><a href="#">Crecimiento de Inditex se frena en 2013 por tipos de cambio.</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i>El Financiero</a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+              </ul>
+              <footer class="action"><a href="#" class="link">Ver más<i class="fa fa-arrow-right"></i></a></footer>
+            </div>
           </div>
-          <div class="widget widget-alerts g4">
-            <h2><a href="#">Alertas y notifiaciones</a></h2>
-            <ul>
-              <li class="element">
-                <div class="content cf">
-                  <div class="title"><a href="#">Se prevee una alza en los precios de los materiales textiles para el primer trimestre del 2015.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="date">20-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-              <li class="element">
-                <div class="content cf">
-                  <div class="title"><a href="#">Se prevee una alza en los precios de los materiales textiles para el primer trimestre del 2015.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="date">20-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-              <li class="element">
-                <div class="content cf">
-                  <div class="title"><a href="#">Se prevee una alza en los precios de los materiales textiles para el primer trimestre del 2015.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="date">20-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-              <li class="element">
-                <div class="content cf">
-                  <div class="title"><a href="#">Se prevee una alza en los precios de los materiales textiles para el primer trimestre del 2015.</a></div>
-                </div>
-                <footer class="info cf">
-                  <ul>
-                    <li class="date">20-Feb-2014</li>
-                  </ul>
-                </footer>
-              </li>
-            </ul>
-            <footer class="action"><a href="#" class="link">Ver más<i class="fa fa-arrow-right"></i></a></footer>
-          </div>
-          <div class="g4"></div>
         </div>
-      </div>
+      </section>
+      <aside class="main-notification">
+        <dl>
+          <dt>Notification 1</dt>
+          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
+        </dl>
+        <dl>
+          <dt>Notification 2</dt>
+          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
+        </dl>
+        <dl>
+          <dt>Notification 3</dt>
+          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
+        </dl>
+        <dl>
+          <dt>Notification 4</dt>
+          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
+        </dl>
+        <dl>
+          <dt>Notification 5</dt>
+          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
+        </dl>
+      </aside>
     </div>
-    <footer id="main-footer"><span>2014 Todos los derechos reservados</span></footer>
     <div id="data">
       <div id="profileChartHomeAnswered">80</div>
       <div id="profileChartHomeNoAnswered">10</div>
@@ -198,6 +164,9 @@
     <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
     <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers.js"></script>
     <script>
       $(window).bind("load", function() {
       
