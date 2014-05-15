@@ -28,4 +28,12 @@ public class Cuestionario {
     public void setTemas(List<Tema> temas) {
         this.temas = temas;
     }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 }
