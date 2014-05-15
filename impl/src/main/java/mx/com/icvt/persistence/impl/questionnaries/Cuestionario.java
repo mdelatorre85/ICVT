@@ -18,6 +18,7 @@ public class Cuestionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "titulo", columnDefinition = "text")
     private String titulo;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "cuestionario")

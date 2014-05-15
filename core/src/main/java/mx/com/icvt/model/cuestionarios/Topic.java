@@ -10,6 +10,7 @@ public class Topic {
     private Long id;
     private Long questionaryId;
     private ArrayList<Question> questions;
+    private String tittle;
 
     private Questionary questionary;
 
@@ -91,5 +92,13 @@ public class Topic {
 
     public void removeQuestion(int index) {
         questions.remove(index);
+    }
+
+    public String getTittle() {
+        return tittle;
+    }
+
+    public void setTittle(String tittle) {
+        this.tittle = tittle;
     }
 }

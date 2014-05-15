@@ -7,6 +7,8 @@ import javax.persistence.*;
 /**
  * Created by miguelangeldelatorre on 13/05/14.
  */
+@Entity
+@Table(name = "Respuestas")
 public class Respuesta {
 
     @Id
@@ -17,13 +19,13 @@ public class Respuesta {
     @JoinColumn(name = "id_pregunta")
     private Pregunta pregunta;
 
-    @Column(name = "id_user")
+    @Column(name = "id_usuario")
     private Long userId;
 
     @Column(name = "id_unidad_economica")
     private Long unidadEconomicaId;
 
-    @Column(name = "texto_respuesta")
+    @Column(name = "texto_respuesta", columnDefinition = "text")
     private String textoRespuesta;
 
     @Column(name = "tipo_de_respuesta")

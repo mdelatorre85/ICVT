@@ -26,6 +26,8 @@ public class Tema {
     @JoinColumn(name = "id_cuestionario")
     private Cuestionario cuestionario;
 
+    @Column(name = "titulo", columnDefinition = "text")
+    private String titulo;
 
     public Tema(Topic topic) {
         this.id = topic.getId();
@@ -33,6 +35,7 @@ public class Tema {
         for (Question q : topic.getQuestions()) {
             preguntas.add(new Pregunta(q));
         }
+        titulo = topic.getTittle();
     }
 
     public Tema() {
@@ -69,6 +72,15 @@ public class Tema {
         for (Pregunta p : preguntas) {
             retorno.getQuestions().add(p.toQuestion());
         }
+        retorno.setTittle(titulo);
         return retorno;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 }

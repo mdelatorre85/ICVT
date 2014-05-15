@@ -22,10 +22,10 @@ public class Pregunta {
     @Column(name = "tipo_de_pregunta")
     private String tipoDePregunta;
 
-    @Column(name = "opciones_posibles")
+    @Column(name = "opciones_posibles", columnDefinition = "text")
     private String opcionesPosibles;
 
-    @Column(name = "texto_pregunta")
+    @Column(name = "texto_pregunta", columnDefinition = "text")
     private String textoPregunta;
 
     @ManyToOne(fetch = FetchType.EAGER)
