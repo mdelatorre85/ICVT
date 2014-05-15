@@ -103,7 +103,7 @@
         </div>
         <div class="panel-news-listing">
           <div class="container">
-            <h2 class="date"><i class='fa fa-calendar-o'></i><span>Hoy</span>, 24 de Septiembre 2014</h2>
+            <h2 class="date"><i class='fa fa-calendar-o'></i><span>Hoy</span>, {{ newsaDay }} de {{ newsaMonth }} {{ newsaYear }}</h2>
             <ul>
               <li ng-repeat="new in newsa" class="element">
                 <header class="cf">
@@ -146,9 +146,7 @@
                 </footer>
                 <div class="tags-array cf">
                   <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}</a></li>
                   </ul>
                 </div>
               </li>
