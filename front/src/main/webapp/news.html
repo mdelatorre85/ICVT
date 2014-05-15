@@ -107,14 +107,14 @@
             <ul>
               <li ng-repeat="new in newsa" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="#"><img src="img/news-thumbs/3.jpg"></a></div>
-                  <div class="title"><a href="#">{{ new.titulo }}</a></div>
+                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
+                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
                   <p>{{ new.descripcion }}</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.titulo }}</span></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
                   <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
@@ -132,14 +132,14 @@
             <ul>
               <li ng-repeat="new in newsb" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="#"><img src="img/news-thumbs/2.jpg"></a></div>
-                  <div class="title"><a href="#">{{ new.titulo }}</a></div>
+                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/2.jpg"></a></div>
+                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
                   <p>{{ new.descripcion }}</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.titulo }}</span></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
                   <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
@@ -157,14 +157,14 @@
             <ul>
               <li ng-repeat="new in newsc" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="#"><img src="img/news-thumbs/1.jpg"></a></div>
-                  <div class="title"><a href="#">{{ new.titulo }}</a></div>
+                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/1.jpg"></a></div>
+                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
                   <p>{{ new.descripcion }}</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.titulo }}</span></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
                   <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
