@@ -1,8 +1,8 @@
 package mx.com.icvt.front.services;
 
+import mx.com.icvt.front.presenters.noticias.Etiqueta;
 import mx.com.icvt.front.presenters.noticias.GrupoNoticias;
 import mx.com.icvt.front.presenters.noticias.Noticia;
-import mx.com.icvt.front.presenters.noticias.Etiqueta;
 import mx.com.icvt.front.presenters.noticias.NoticiasAgrupadas;
 import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.impl.news.NewsDataRetriever;
@@ -21,8 +21,8 @@ import java.util.List;
 
 @Path("/noticias")
 public class NoticiasService {
-    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd");
     public static final int NUMERO_MAXIMO_NOTICIAS = 6;
+    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     @POST
     @Path("/agrupadas")

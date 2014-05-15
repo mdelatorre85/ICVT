@@ -46,11 +46,15 @@ public class News implements Serializable, Comparable<News> {
             throw new IllegalArgumentException("Argument pubDateString cannot be null or empty.");
         }
         this.pubDateString = pubDateString;
+        if (title.contains("-")){
+            title=title.substring(0,title.lastIndexOf('-')).trim();
+        }
         this.title = title;
         this.description = description;
 
-        if (image != null)
-            this.image = image;
+        if (image != null && image.length()>0){
+            this.image = "http:".concat(image);
+        }
 
         SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
                 Locale.ENGLISH);

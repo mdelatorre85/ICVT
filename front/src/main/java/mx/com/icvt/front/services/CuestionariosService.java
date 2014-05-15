@@ -20,7 +20,7 @@ public class CuestionariosService {
     @POST
     @Path("/todos")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public CuestionariosAgrupados getCuestionario(@FormParam("unidadEconomicaId") long unidadEconomicaId){
+    public CuestionariosAgrupados getCuestionario(@FormParam("unidadEconomicaId") long unidadEconomicaId) {
         //TODO Quitar la implementación Dummy por la real.
 
         CuestionariosAgrupados retorno = new CuestionariosAgrupados();
