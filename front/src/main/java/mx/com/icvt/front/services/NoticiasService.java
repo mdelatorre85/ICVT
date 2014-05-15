@@ -1,8 +1,9 @@
 package mx.com.icvt.front.services;
 
-import mx.com.icvt.front.presenters.GrupoNoticias;
-import mx.com.icvt.front.presenters.Noticia;
-import mx.com.icvt.front.presenters.NoticiasAgrupadas;
+import mx.com.icvt.front.presenters.noticias.GrupoNoticias;
+import mx.com.icvt.front.presenters.noticias.Noticia;
+import mx.com.icvt.front.presenters.noticias.Etiqueta;
+import mx.com.icvt.front.presenters.noticias.NoticiasAgrupadas;
 import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.impl.news.NewsDataRetriever;
 
@@ -158,7 +159,7 @@ public class NoticiasService {
 
         List<News.Etiqueta> etiquetas = news.getEtiquetas();
         for (News.Etiqueta etiqueta : etiquetas) {
-            noticia.getEtiquetas().add(new mx.com.icvt.front.presenters.Etiqueta(etiqueta));
+            noticia.getEtiquetas().add(new Etiqueta(etiqueta));
         }
 
         return noticia;
