@@ -9,6 +9,20 @@ import java.util.List;
 
 @Entity
 @Table(name = "Tweets")
+@NamedQueries({
+        @NamedQuery(
+                name = "getTweetsByDate",
+                query = "SELECT t FROM DBTweet t " +
+                        "WHERE t.fechaPublicacion >= :inicio " +
+                        "AND t.fechaPublicacion <= :fin " +
+                        "ORDER BY t.fechaPublicacion DESC"),
+        @NamedQuery(
+                name = "getRecentTweets",
+                query = "SELECT t FROM DBTweet t " +
+                        "ORDER BY t.fechaPublicacion DESC"
+        )
+})
+
 public class DBTweet {
     @Id
     private Long id;
