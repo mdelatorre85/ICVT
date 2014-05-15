@@ -31,7 +31,7 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
         this.id = id;
     }
 
-    void setOrder(Order order) {
+    public void setOrder(Order order) {
         this.order = order;
     }
 
@@ -47,7 +47,7 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
         return language;
     }
 
-    void setLanguage(Language language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
@@ -55,7 +55,7 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
         return source;
     }
 
-    void setSource(String source) {
+    public void setSource(String source) {
         this.source = source.replace(' ', '+');
     }
 
@@ -86,7 +86,6 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
     }
 
     public enum Language {
-
         EN("hl=en"), ES("hl=es"), DE("hl=de"), FR("hl=fr"), IT("hl=it"), PL("hl=pl");
         //TODO agregar CN JP PT y KR
 
@@ -99,23 +98,17 @@ public class NewsExtractorConfiguration implements Serializable, ExtractorConfig
         public String getName() {
             return name;
         }
-
     }
 
     public enum Order {
-
         RELEVANCE("scoring=r"), DATEDESC("scoring=n"), DATEASC("scoring=o");
-
 
         Order(String name) {
             this.name = name;
         }
-
         private String name;
-
         public String getName() {
             return name;
         }
-
     }
 }
