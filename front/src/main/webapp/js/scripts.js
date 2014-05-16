@@ -8,6 +8,9 @@
       $('.js-filters-listing').toggle();
       return false;
     });
+    $('.js-main-container-overlay').click(function() {
+      return $('.activate-menu').attr('checked', false);
+    });
   };
 
   $(function() {

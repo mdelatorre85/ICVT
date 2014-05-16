@@ -7,6 +7,10 @@ init = ->
         return false
 
 
+    $('.js-main-container-overlay').click ->
+        $('.activate-menu').attr 'checked', false
+
+
     return
 
 $ ->
