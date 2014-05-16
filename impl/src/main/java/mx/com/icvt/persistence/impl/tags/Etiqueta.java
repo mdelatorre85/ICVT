@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "Etiquetas")
+@Table(name = "etiquetas")
 public class Etiqueta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
