@@ -18,6 +18,7 @@ sampleApp.controller('loginController', function($scope,$http,$window) {
       .error(function (data) {
         //data = JSON.parse(data)
         $scope.error = "Usuario o contraseña incorrectos"
+        $scope.load="off"
         //TODO: Mandar mensajes de error.
       });
     };
