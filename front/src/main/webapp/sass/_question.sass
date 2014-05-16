@@ -1,0 +1,66 @@
+.panel-question-bar
+	padding: $spacer 0
+	.left
+		.btn
+			display: inline-block
+	.right
+		text-align: right
+
+
+.panel-question-tabs
+	padding: $spacer 0
+
+
+	ol
+		counter-reset: li
+
+	li
+		+span(1/6)
+		display: block
+		+bx
+		padding: 5px !important
+		font-size: 0.9em
+		position: relative
+
+		&.selected
+			color: $green
+		
+
+		&:before
+			content: counter(li) !important
+			counter-increment: li
+			position: absolute
+			+bariol-bold
+			font-size: 1.5em
+			left: 5px
+			top: 50%
+			margin-top: -10px
+
+
+	a
+		display: block
+		+bx
+		width: 100%
+		padding: 10px 10px 10px 16px
+		//outline: 1px dotted lightgray
+		border-top: 2px solid $green
+
+	span
+		height: 30px
+		vertical-align: middle
+		display: table-cell
+
+
+
+
+.panel-question-container
+	h2
+		font-size: 1.5em
+		margin-bottom: $spacer
+
+
+@media screen and (max-width: 640px)
+	.panel-question-tabs
+		li
+			+span(1/3)
+			font-size: 0.7em
