@@ -24,3 +24,4 @@ front/target/
 *.sassc
 *.scssc
 *.codekit
+front/src/main/webapp/.sass-cache/

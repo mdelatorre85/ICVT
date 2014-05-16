@@ -4,7 +4,7 @@ html.no-js
 
 	include includes/head
 
-	body
+	body(ng-app="sampleApp" ng-controller='NewsController')
 
 		.main-wrapper
 			include includes/header
@@ -32,7 +32,7 @@ html.no-js
 					
 
 			section.main-container
-				.main-container-overlay
+				+container-overlay
 
 				.panel-title: .container
 					h1 Actualidad en la industria
@@ -109,32 +109,99 @@ html.no-js
 						p Estos son los resultados de noticias: del <span class='date'>28 de Abril</span> al <span class='date'>12 de Mayo</span> del <span class='date'>2014</span> y de las categorías: <span class='tag-cat-line green'>Finanzas</span><span class='tag-cat-line orange'>Comercio</span>
 
 
-
 				.panel-news-listing: .container
-					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, 24 de Septiembre 2014
+					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, {{ newsaDay }} de {{ newsaMonth }} {{ newsaYear }}
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
+						li(ng-repeat='new in newsa').element
+							header.cf
+								
+								.pic
+									a(href='{{ new.url }}')
+										img(src='img/news-thumbs/3.jpg')
+								.title
+									a(href='{{ new.url }}') {{ new.titulo }}
+
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.fuente }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li(ng-repeat='etiqueta in new.etiquetas')
+										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
 
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
+						li(ng-repeat='new in newsb').element
+							header.cf
+								
+								.pic
+									a(href='{{ new.url }}')
+										img(src='img/news-thumbs/2.jpg')
+								.title
+									a(href='{{ new.url }}') {{ new.titulo }}
 
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.fuente }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li(ng-repeat='etiqueta in new.etiquetas')
+										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
+									
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar'></i><span>Anteriores</span>
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
-				
-	
+						li(ng-repeat='new in newsc').element
+							header.cf
+								
+								.pic
+									a(href='{{ new.url }}')
+										img(src='img/news-thumbs/1.jpg')
+								.title
+									a(href='{{ new.url }}') {{ new.titulo }}
+
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.fuente }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li(ng-repeat='etiqueta in new.etiquetas')
+										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}				
+
 
 			aside.main-notification
 				- for(i=1 ; i<=5 ; i++){

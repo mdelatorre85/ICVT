@@ -40,8 +40,8 @@
         <servlet-class>mx.com.icvt.front.ConfiguracionExtraccionServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ExtraerNoticias</servlet-name>
-        <servlet-class>mx.com.icvt.front.ExtraerNoticiasServlet</servlet-class>
+        <servlet-name>EjecutarExtraccion</servlet-name>
+        <servlet-class>mx.com.icvt.front.EjecutarExtraccionServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>jersey-servlet</servlet-name>
@@ -64,11 +64,12 @@
         <url-pattern>/configuracionExtraccion</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ExtraerNoticias</servlet-name>
-        <url-pattern>/extraerNoticias</url-pattern>
+        <servlet-name>EjecutarExtraccion</servlet-name>
+        <url-pattern>/ejecutarExtraccion</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>UserRestServlet</servlet-name>
-        <url-pattern>/api/v1/users</url-pattern>
+        <url-pattern>/api/v1/users/*</url-pattern>
     </servlet-mapping>
 </web-app>

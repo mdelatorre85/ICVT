@@ -1,0 +1,49 @@
+.question
+	margin-bottom: $spacer*2
+	dt
+		margin-bottom: $spacer
+		font-size: 1.2em
+		+bariol-light
+		line-height: 1.2
+
+
+	li
+		margin-bottom: $spacer/4
+		
+
+	.answers
+		label
+			+fx
+			padding: 17px
+			display: block
+			cursor: pointer
+			border: 1px solid $lightgray
+			
+		
+			&:hover
+				background-color: rgba($lightgray,0.3)
+
+		li
+			display: block
+
+
+	input[type='radio'], input[type='checkbox']
+		+fx
+		+reset-appearance
+		display: none
+
+		&:checked ~ label
+			color: white
+			background-color: rgba($blue,0.8)
+			border: 1px solid $blue
+
+	input[type='text']
+		padding: 10px 5px
+
+		&:focus
+			border-color: $gray
+
+
+.input-radio
+
+.input-checkbox

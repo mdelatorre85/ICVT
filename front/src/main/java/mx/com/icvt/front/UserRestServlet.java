@@ -24,8 +24,8 @@ public class UserRestServlet extends HttpServlet {
 
     private class RestRequest {
 
-        private Pattern regExAllPattern = Pattern.compile("/user/");
-        private Pattern regExIdPattern = Pattern.compile("/user/([0-9a-z]*)");
+        private Pattern regExAllPattern = Pattern.compile("/users/");
+        private Pattern regExIdPattern = Pattern.compile("/users/([0-9a-z]*)");
         private String id;
 
         public RestRequest(String pathInfo) throws ServletException {
@@ -60,7 +60,7 @@ public class UserRestServlet extends HttpServlet {
         out.println("GET request handling");
         out.println(request.getPathInfo());
         out.println(request.getParameterMap());
-        // out.println(thedigest);
+         out.println("hollaa");
 
         try {
             RestRequest resourceValues = new RestRequest(request.getPathInfo());
