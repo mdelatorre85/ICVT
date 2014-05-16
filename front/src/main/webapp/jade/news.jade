@@ -109,7 +109,6 @@ html.no-js
 						p Estos son los resultados de noticias: del <span class='date'>28 de Abril</span> al <span class='date'>12 de Mayo</span> del <span class='date'>2014</span> y de las categorías: <span class='tag-cat-line green'>Finanzas</span><span class='tag-cat-line orange'>Comercio</span>
 
 
-
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, {{ newsaDay }} de {{ newsaMonth }} {{ newsaYear }}
 					
@@ -172,7 +171,6 @@ html.no-js
 									li(ng-repeat='etiqueta in new.etiquetas')
 										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
 									
-
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar'></i><span>Anteriores</span>
 					
@@ -203,7 +201,7 @@ html.no-js
 								ul
 									li(ng-repeat='etiqueta in new.etiquetas')
 										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}				
-	
+
 
 			aside.main-notification
 				- for(i=1 ; i<=5 ; i++){
