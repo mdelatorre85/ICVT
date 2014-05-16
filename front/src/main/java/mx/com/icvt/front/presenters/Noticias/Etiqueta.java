@@ -1,4 +1,4 @@
-package mx.com.icvt.front.presenters;
+package mx.com.icvt.front.presenters.noticias;
 
 import mx.com.icvt.model.News;
 
