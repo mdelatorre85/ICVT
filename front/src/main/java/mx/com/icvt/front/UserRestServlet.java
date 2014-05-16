@@ -92,7 +92,8 @@ public class UserRestServlet extends HttpServlet {
             List<User> listUser = obj.login();
 
             if(listUser==null){
-                response(response,"{errors:\"Username or password incorrect.\"}"+obj.getPassword());
+                response.setStatus(HttpServletResponse.SC_NON_AUTHORITATIVE_INFORMATION);
+                response(response,"{errors:\"Username or password incorrect.\"}");
             }else{
                 listUser.get(0).setPassword("");
                 // listUser.remove();
