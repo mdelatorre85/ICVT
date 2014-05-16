@@ -79,8 +79,31 @@ public class UserRestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String action="";
-        PrintWriter out = response.getWriter();
+
+       //  if(action.equals("login")){
+            UserResultData obj = new UserResultData();
+            User us = new User();
+            String user = request.getParameter("identity");
+            String pass = request.getParameter("password");
+            us.setIdentity(user);
+            us.setPassword(pass);
+            obj.user=us;
+
+            List<User> listUser = obj.login();
+
+            if(listUser==null){
+                response(response,"{errors:\"Username or password incorrect.\"}"+obj.getPassword());
+            }else{
+                listUser.get(0).setPassword("");
+                // listUser.remove();
+                JSONArray array = JSONArray.fromObject(listUser);
+                response(response,array.toString());
+            }
+       // }
+
+
+/*
+
 
         try {
             RestRequest resourceValues = new RestRequest(request.getPathInfo());
@@ -149,7 +172,7 @@ public class UserRestServlet extends HttpServlet {
             e.printStackTrace();
             out.println(e.toString());
         }
-
+        */
     }
 
 
@@ -157,6 +180,7 @@ public class UserRestServlet extends HttpServlet {
     private void response(HttpServletResponse resp, String msg)
             throws IOException {
         PrintWriter out = resp.getWriter();
+
         out.println(msg);
     }
 
