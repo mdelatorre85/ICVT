@@ -2,7 +2,9 @@ sampleApp.controller('loginController', function($scope,$http,$window) {
        
     $scope.formData = {};
     $scope.error=""
+    $scope.load="off"
     $scope.login = function() {
+      $scope.load="on"
       $http({
         method  : 'POST',
         url     : '/api/v1/users',
