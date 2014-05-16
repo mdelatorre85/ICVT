@@ -22,6 +22,7 @@ public class ProcesoExtraccionNoticias {
         for (ConfiguracionExtraccionNoticias configuracion : configuraciones){
             cfg = new NewsExtractorConfiguration(configuracion.getTerminoBusqueda());
             cfg.setId(configuracion.getId());
+            cfg.setLanguage(NewsExtractorConfiguration.Language.ES);
             results.add(extractor.extract(cfg));
         }
 

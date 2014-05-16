@@ -4,46 +4,60 @@ import mx.com.icvt.extraction.impl.twitter.TwitterResultData;
 import mx.com.icvt.model.Tweet;
 import mx.com.icvt.persistence.DataResultPersister;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
-import java.util.ArrayList;
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
 public class TweetsDataPersister implements DataResultPersister<TwitterResultData> {
-    @Override
-    public void persist(TwitterResultData rs) {
-        List<DBTweet> tweets = new LinkedList<DBTweet>();
-        List<Tweet> results = rs.getResults();
-
-        for (Tweet tweet : results) {
-            tweets.add(new DBTweet(tweet));
-        }
+    public boolean persist(ConfiguracionExtraccionTweets configuracion) {
+        boolean success = false;
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         manager.getTransaction().begin();
 
-        for (DBTweet tweet : tweets) {
-            manager.persist(tweet);
+        try {
+            manager.persist(configuracion);
+            success = true;
+        } catch (EntityExistsException ignored) {
+        } catch (PersistenceException ignored) {
         }
 
         manager.getTransaction().commit();
         manager.close();
+
+        return success;
     }
 
-    public List<Tweet> getAllPersisted() {
-        List<Tweet> tweets = new ArrayList<Tweet>();
+    @Override
+    public void persist(TwitterResultData rs) {
+        DBTweet tweet;
 
+        ExtraccionTweets extraccionTweets;
+        ConfiguracionExtraccionTweets configuracion;
+        List<Tweet> results;
+
+        results = rs.getResults();
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("SELECT t FROM DBTweet t");
-        List<DBTweet> list = query.getResultList();
-        for (DBTweet dbTweet : list) {
-            tweets.add(dbTweet.getTweet());
+        manager.getTransaction().begin();
+
+        configuracion = manager.find(ConfiguracionExtraccionTweets.class, rs.getConfiguration().getId());
+        assert configuracion != null;
+        extraccionTweets = new ExtraccionTweets(rs.getStartDate(), rs.getEndDate(), configuracion);
+
+        for (Tweet t : results) {
+            tweet = manager.find(DBTweet.class, t.getId());
+
+            if (tweet == null) {
+                tweet = new DBTweet(t);
+                manager.persist(tweet);
+            }
+
+            extraccionTweets.getTweets().add(tweet);
         }
 
+        manager.persist(extraccionTweets);
+        manager.getTransaction().commit();
         manager.close();
-        return tweets;
     }
 
     public Long deleteAllPersisted() {
