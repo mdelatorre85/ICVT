@@ -40,7 +40,7 @@ html.no-js
 				.panel-filters
 					.container
 						.filter-bar
-							form(action='#')
+							form(ng-submit='filter()')
 								.filter-link
 									a(href='#').btn-outline.js-open-filters
 										i.fa.fa-filter
@@ -56,11 +56,11 @@ html.no-js
 										.half
 											.left
 												label de:
-												input(type='text').js-date-from
+												input(type='text',name='fechaInicio',ng-model="formData.fechaInicio").js-date-from
 
 											.right
 												label hasta:
-												input(type='text').js-date-to
+												input(type='text',name='fechaFin',ng-model="formData.fechaFin").js-date-to
 								
 									.categories-container
 										h3
@@ -71,23 +71,23 @@ html.no-js
 										ul.categories-listing
 											
 											li.tag-cat-option.blue
-												input(type='checkbox', id='tag-general')
+												input(type='checkbox', id='tag-general',ng-model="formData.tagGeneral")
 												label(for='tag-general') General
 
 											li.tag-cat-option.green
-												input(type='checkbox', id='tag-finanzas')
+												input(type='checkbox', id='tag-finanzas',ng-model="formData.tagFinanzas")
 												label(for='tag-finanzas') Finanzas
 
 											li.tag-cat-option.orange
-												input(type='checkbox', id='tag-comercio')
+												input(type='checkbox', id='tag-comercio',ng-model="formData.tagComercio")
 												label(for='tag-comercio') Comercio
 
 											li.tag-cat-option.pink
-												input(type='checkbox', id='tag-exportaciones')
+												input(type='checkbox', id='tag-exportaciones',ng-model="formData.tagExportaciones")
 												label(for='tag-exportaciones') Exportaciones
 
 											li.tag-cat-option.lime-dark
-												input(type='checkbox', id='tag-importaciones')
+												input(type='checkbox', id='tag-importaciones',ng-model="formData.tagImportaciones")
 												label(for='tag-importaciones') Importaciones
 											
 										
@@ -106,8 +106,35 @@ html.no-js
 
 				.panel-verbose-results
 					.container
-						p Estos son los resultados de noticias: del <span class='date'>28 de Abril</span> al <span class='date'>12 de Mayo</span> del <span class='date'>2014</span> y de las categorías: <span class='tag-cat-line green'>Finanzas</span><span class='tag-cat-line orange'>Comercio</span>
+						p(ng-bind-html-unsafe='resultText')
+				.panel-news-listing: .container
+					ul
+						li(ng-repeat='new in newsresult').element
+							header.cf
+								
+								.pic
+									a(href='{{ new.url }}')
+										img(src='img/news-thumbs/3.jpg')
+								.title
+									a(href='{{ new.url }}') {{ new.titulo }}
 
+							.content
+								p {{ new.descripcion }}
+								
+							footer.cf
+								.source
+									a(href='#')
+										i.fa.fa-rss
+										span {{ new.fuente }}
+
+								.source-link
+									a(href='{{ new.url }}').link Ver nota
+										i.fa.fa-arrow-right
+
+							.tags-array.cf
+								ul
+									li(ng-repeat='etiqueta in new.etiquetas')
+										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
 
 				.panel-news-listing: .container
 					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, {{ newsaDay }} de {{ newsaMonth }} {{ newsaYear }}
@@ -213,6 +240,3 @@ html.no-js
 		
 
 		include includes/scripts
-
-
-		

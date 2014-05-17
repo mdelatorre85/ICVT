@@ -717,7 +717,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
         else {
             name = [
                 typeof SETTINGS.hiddenPrefix == 'string' ? SETTINGS.hiddenPrefix : '',
-                typeof SETTINGS.hiddenSuffix == 'string' ? SETTINGS.hiddenSuffix : '_submit'
+                typeof SETTINGS.hiddenSuffix == 'string' ? SETTINGS.hiddenSuffix : ''
             ]
             name = id = name[0] + ELEMENT.name + name[1]
         }
@@ -728,7 +728,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
 
             // Create the name and ID by using the original
             // input’s with a prefix and suffix.
-            'name="' + name + '"' +
+            'name="' + name + '"  '+ 'ng-model="formData.'+name+'"'+
             'id="' + id + '"' +
 
             // If the element has a value, set the hidden value as well.
