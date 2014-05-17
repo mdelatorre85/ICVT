@@ -6,7 +6,7 @@ $main-nav-height: 45px
 	overflow-x: hidden
 	position: relative
 
-
+// top blue header
 .main-header
 	background-color: $blue
 	color: white
@@ -27,7 +27,26 @@ $main-nav-height: 45px
 		+use-sprite('logo')
 		display: block
 
+// main content container
+.main-container
+	+bx
+	+fx
+	bottom: 0
+	left: $main-nav-width
+	padding: 10px
+	right: 0
+	top: 0
+	overflow-y: scroll
+	-webkit-overflow-scrolling: touch
 
+// centered layout
+.container
+	width: 1000px
+	margin: 0 auto
+	@extend %cf
+
+
+// left black menu
 .main-nav
 	+fx
 	color: white
@@ -70,7 +89,7 @@ $main-nav-height: 45px
 			height: 30px
 			width: 30px
 			margin-right: 5px
-			background-color: lightgray
+			+use-sprite('icon-menu')
 
 		span.tag
 			
@@ -81,44 +100,62 @@ $main-nav-height: 45px
 
 
 
-
-.main-container
-	+bx
-	+fx
-	bottom: 0
-	left: $main-nav-width
-	padding: 10px
-	right: 0
-	top: 0
-	overflow-y: scroll
-	-webkit-overflow-scrolling: touch
-
-
-.container
-	width: 1000px
-	margin: 0 auto
-	@extend %cf
-
-
+// right notifications
 .main-notification
 	+fx
-	display: none
-	font-size: 0.9em
-	top: 0
-	right: 0
+	@extend %box-shadow-medium
 	background-color: white
-	border: 1px solid gray
+	border: 1px $lightgray solid
+	font-size: 0.9em
+	padding: $spacer/2
+	right: -110%
+	width: 300px
+	
+	.action
+		margin-bottom: $spacer/2
+		a
+			width: 100%
+			+bx
+			text-align: center
+			padding: 10px
 
-	dl
-		
-		border-bottom: 1px solid $lightgray
-		padding: $spacer/4
-		margin: $spacer/4
+	
+	.alert-listing-aside
 
-	dt
-		+bariol-bold
+		ul li:last-of-type a
+			border-bottom: none
 
 
+		li
+			display: block
+			position: relative
+
+			&.new
+				+bariol-bold
+				&:after
+					content: ''
+					position: absolute
+					color: $red
+					height: 5px
+					width: 5px
+					display: block
+					background-color: $red
+					border-radius: 500px
+					top: 50%
+					margin-top: -3px
+					left: 0
+
+		a
+			display: block
+			
+			border-bottom: 1px solid $lightgray
+			padding: $spacer/2
+
+			&:hover
+				color: $blue
+
+
+// shared settings
 .main-nav, .main-container, .main-notification
 	top: $main-nav-height
 	position: fixed
@@ -127,6 +164,7 @@ $main-nav-height: 45px
 // menu toggler via CSS
 .activate-menu
 	display: none
+	left: 100                  
 
 	&:checked ~ .main-nav
 		left: 0
@@ -149,6 +187,8 @@ $main-nav-height: 45px
 		background-color: rgba(white,0.5)	
 
 .btn-activate-menu
+	+no-select
+	cursor: pointer
 	display: none
 	position: fixed
 	top: 7px
@@ -156,11 +196,44 @@ $main-nav-height: 45px
 	z-index: 110
 
 
-.btn-activate-alerts
+.btn-back
+	+no-select
+	cursor: pointer
+	position: fixed
+	top: 7px
+	left: 7px
+	z-index: 110
+	color: white !important
+
+
+// notification toggler via CSS
+.activate-notification
+	display: none
+
+	&:checked ~ .main-notification
+		right: 0
+
+
+.btn-activate-notification
+	+no-select
+	cursor: pointer
 	z-index: 120
 	position: fixed
 	top: 7px
 	right: 7px
+
+	.count
+		color: white
+		background-color: red
+		position: absolute
+		left: 6%
+		bottom: 3px
+		border-radius: 2px
+		font-size: 0.5em
+		
+		padding: 3px
+		display: block
+		text-align: center
 
 
 .half
@@ -169,9 +242,7 @@ $main-nav-height: 45px
 	.left, .right
 		float: left
 		width: 50%
-		+bx()
-
-	
+		+bx()	
 
 	.left
 		padding-right: 5px
@@ -188,6 +259,7 @@ $main-nav-height: 45px
 		width: 100%
 
 	.btn-activate-menu
+		+no-select
 		display: block
 
 	.main-nav

@@ -7,23 +7,23 @@ html.no-js
 	body
 
 		.main-wrapper
-			include includes/header			
+			include includes/header
 			
 			nav.main-nav
 				ul.nav-listing
-					li.selected: a(href='#')
+					li.selected: a(href='index.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li: a(href='#')
+					li: a(href='actualidad.html')
 						span.icon
 						span.tag Actualidad de la industria
-					li: a(href='#')
+					li: a(href='question.html')
 						span.icon
 						span.tag Perfil
-					li: a(href='#')
+					li: a(href='alerts.html')
 						span.icon
 						span.tag Alertas y notifiaciones
-					li: a(href='#')
+					li: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
 					li: a(href='#')
@@ -38,7 +38,7 @@ html.no-js
 					.container
 						.profile-info
 							.profile-pic
-								img(src='http://placehold.it/80x80')
+								img(src='img/logo.jpg')
 							.title
 								h1 Textiles y acabados de México SA de CV
 
@@ -70,8 +70,9 @@ html.no-js
 								
 								.chart.cf
 									.percentage
-										span.number.js-profileChartHomePercentage 100%
-										span.tag Completado
+										a(href='question.html')
+											span.number.js-profileChartHomePercentage 82%
+											span.tag Completado
 
 									canvas#profileChartHome(height='60', width='60')
 
@@ -84,40 +85,49 @@ html.no-js
 
 							ul
 								- for(i=0 ; i<4 ; i++) {
-								li.element
-									.content.cf
-										.pic
-											a(href='#')
-												img(src='http://placehold.it/80x80.gif')
-										.title
-											a(href='#') Crecimiento de Inditex se frena en 2013 por tipos de cambio.
-										
-									footer.info.cf
-										ul
-											li.source
-												a(href='#')
-													i.fa.fa-rss
-													| El Financiero
-											li.date 10-Feb-2014
+								+get-new-widget
 									
 								- }
 
 							footer.action
-								a(href='#').link Ver más
+								a(href='actualidad.html').link Ver más
+									i.fa.fa-arrow-right
+
+						.widget.widget-news
+							h2
+								br
+
+							ul
+								- for(i=0 ; i<4 ; i++) {
+								+get-new-widget
+									
+								- }
+
+							footer.action
+								a(href='actualidad.html').link Ver más
+									i.fa.fa-arrow-right
+
+						.widget.widget-news
+							h2
+								br
+
+							ul
+								- for(i=0 ; i<4 ; i++) {
+								+get-new-widget
+									
+								- }
+
+							footer.action
+								a(href='actualidad.html').link Ver más
 									i.fa.fa-arrow-right
 
 	
 
-			aside.main-notification
-				- for(i=1 ; i<=5 ; i++){
-				dl
-					dt Notification #{i}
-					dd Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.
-				- }
+			include includes/notifications
 
 		#data
-			#profileChartHomeAnswered 80
-			#profileChartHomeNoAnswered 10
+			#profileChartHomeAnswered 82
+			#profileChartHomeNoAnswered 18
 
 		include includes/scripts
 

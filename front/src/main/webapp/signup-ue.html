@@ -25,7 +25,7 @@
         <ul class="nav-listing">
           <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
           <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
-          <li class="selected"><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
+          <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
           <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
           <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
           <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
@@ -35,7 +35,7 @@
         <div class="main-container-overlay js-main-container-overlay"></div>
         <div class="panel-title">
           <div class="container">
-            <h1>Cuestionario</h1>
+            <h1>Registro de Unidad Económica</h1>
           </div>
         </div>
         <div class="panel-question-bar">
@@ -48,70 +48,82 @@
             </div>
           </div>
         </div>
-        <div class="panel-question-tabs">
-          <div class="container">
-            <ol>
-              <li class="selected"><a href="question.html"><span>Economía</span></a></li>
-              <li><a href="question-2.html"><span>Producción</span></a></li>
-              <li><a href="#"><span>Comercial</span></a></li>
-              <li><a href="#"><span>Innovación y Tecnología</span></a></li>
-              <li><a href="#"><span>Administración</span></a></li>
-              <li><a href="#"><span>Tecnologías de la Información</span></a></li>
-            </ol>
-          </div>
-        </div>
         <div class="panel-question-all-blocks-container">
           <div class="container">
             <div class="panel-question-container">
-              <header>
-                <h2>Economía</h2>
-                <p>12 de 13 preguntas contestadas</p>
-              </header>
               <fieldset>
                 <dl class="question">
                   <dt>
-                    <label>¿Cónoce el significado de los principales indicadores económicos de su industria?</label>
+                    <label>Municipio</label>
                   </dt>
                   <dd class="answers">
                     <ul>
-                      <li class="input-radio">
-                        <input type="radio" id="q1-a1" name="q1">
-                        <label for="q1-a1">Sí</label>
-                      </li>
-                      <li class="input-radio">
-                        <input type="radio" id="q1-a2" name="q1">
-                        <label for="q1-a2">No</label>
+                      <li class="input-select">
+                        <select>
+                          <option>Selecciona tu Municipio</option>
+                          <option>Pachuca de Soto</option>
+                        </select>
                       </li>
                     </ul>
                   </dd>
                 </dl>
                 <dl class="question">
                   <dt>
-                    <label>¿En qué tipo de noticias de la industria está interesado?</label>
+                    <label>Localidad</label>
                   </dt>
                   <dd class="answers">
                     <ul>
-                      <li class="input-checkbox">
-                        <input type="checkbox" id="q2-a1" name="q2">
-                        <label for="q2-a1">Negocios</label>
-                      </li>
-                      <li class="input-checkbox">
-                        <input type="checkbox" id="q2-a2" name="q2">
-                        <label for="q2-a2">Tecnología</label>
-                      </li>
-                      <li class="input-checkbox">
-                        <input type="checkbox" id="q2-a3" name="q2">
-                        <label for="q2-a3">Acerca de sus clientes</label>
+                      <li class="input-select">
+                        <select>
+                          <option>Selecciona tu Localidad</option>
+                          <option>Pachuca de Soto</option>
+                        </select>
                       </li>
                     </ul>
                   </dd>
                 </dl>
                 <dl class="question">
                   <dt>
-                    <label>¿Cuales son sus principales productos o servicios?</label>
+                    <label>Calle</label>
                   </dt>
                   <dd class="answers">
-                    <ul>											
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Colonia</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Número exterior</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Númerio interior</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
                       <li class="input-text">
                         <input type="text">
                       </li>
@@ -123,7 +135,9 @@
             <div class="action">
               <div class="half">
                 <div class="left"><br></div>
-                <div class="right"><a href="question-2.html" class="btn">Siguiente <i class='fa fa-chevron-right'></i></a></div>
+                <div class="right">
+                  <button type="submit" class="btn"><i class='fa fa-save'></i> Guardar</button>
+                </div>
               </div>
             </div>
           </div>

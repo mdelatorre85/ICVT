@@ -1,0 +1,47 @@
+include mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='index.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li.selected: a(href='#')
+						span.icon
+						span.tag Inteligencia comercial
+					li: a(href='#')
+						span.icon
+						span.tag Inteligencia social
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-dummy-image
+					.container
+						a(href='ic.html')
+							img(src='img/site-ic-2.png')
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts

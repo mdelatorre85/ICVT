@@ -1,0 +1,134 @@
+include mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='index.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+					li: a(href='#')
+						span.icon
+						span.tag Inteligencia social
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-title: .container
+					h1 Registro de Unidad Económica
+
+				.panel-question-bar
+					.container
+						.half
+							.left
+								br
+								
+							.right
+								button(type='submit').btn <i class='fa fa-save'></i> Guardar
+				
+
+				.panel-question-all-blocks-container
+					.container
+						.panel-question-container
+							
+
+							fieldset
+
+								dl.question
+									dt
+										label Municipio
+
+									dd.answers
+										ul
+											li.input-select
+												select
+													option Selecciona tu Municipio
+													option Pachuca de Soto
+
+
+								dl.question
+									dt
+										label Localidad
+
+									dd.answers
+										ul
+											li.input-select
+												select
+													option Selecciona tu Localidad
+													option Pachuca de Soto
+
+
+								dl.question
+									dt
+										label Calle
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+								dl.question
+									dt
+										label Colonia
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+								dl.question
+									dt
+										label Número exterior
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Númerio interior
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+
+						.action
+							.half
+								.left
+									br
+
+								.right
+									button(type='submit').btn <i class='fa fa-save'></i> Guardar
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts

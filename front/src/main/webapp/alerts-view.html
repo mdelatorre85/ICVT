@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
   </head>
-  <body ng-app="sampleApp" ng-controller="NewsController">
+  <body>
     <div class="main-wrapper">
       <header class="main-header">
         <div class="main-logo"><a href="index.html">site</a></div>
@@ -23,10 +23,10 @@
       <input type="checkbox" id="activate-notification" class="activate-notification">
       <nav class="main-nav">
         <ul class="nav-listing">
-          <li class="selected"><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
           <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
           <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
-          <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
+          <li class="selected"><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
           <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
           <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
         </ul>
@@ -35,7 +35,7 @@
         <div class="main-container-overlay js-main-container-overlay"></div>
         <div class="panel-title">
           <div class="container">
-            <h1>Actualidad en la industria</h1>
+            <h1>Alertas y Notificaciones</h1>
           </div>
         </div>
         <div class="panel-filters">
@@ -96,108 +96,52 @@
             </div>
           </div>
         </div>
-        <div class="panel-verbose-results">
+        <div class="panel-alerts">
           <div class="container">
-            <p>Estos son los resultados de noticias: del <span class='date'>28 de Abril</span> al <span class='date'>12 de Mayo</span> del <span class='date'>2014</span> y de las categorías: <span class='tag-cat-line green'>Finanzas</span><span class='tag-cat-line orange'>Comercio</span></p>
-          </div>
-        </div>
-        <div class="panel-news-listing">
-          <div class="container">
-            <h2 class="date"><i class='fa fa-calendar-o'></i><span>Hoy</span>, {{ newsaDay }} de {{ newsaMonth }} {{ newsaYear }}</h2>
-            <ul>
-              <li ng-repeat="new in newsa" class="element">
-                <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
-                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
-                </header>
-                <div class="content">
-                  <p>{{ new.descripcion }}</p>
+            <div class="alert-listing">
+              <ul>
+                <li><a href="alerts.html">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+                <li class="selected"><a href="#">Congreso de la industria textil 2014.</a></li>
+                <li class="new"><a href="#">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+                <li><a href="#">Taller gratuito de tecnologías de la información para PyMES.</a></li>
+                <li><a href="#">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+              </ul>
+            </div>
+            <div class="alert-content">
+              <div class="content">
+                <div class="date"><span><i class='fa fa-calendar-o'></i> Lunes, 22 de Octubre 2014</span></div>
+                <div class="block">
+                  <h2>Congreso de la industria textil 2014.</h2>
+                  <p>Datos de la Dirección de Planeación, Análisis y Proyectos Estratégicos de la Sefoe y cifras preliminares de la Administración General de Aduanas revelan que en 2013 las exportaciones del sector textil y confección sumaron 339 millones 802 mil 984.17 dólares, siendo el segundo con mayor porcentaje de participación en el total de Yucatán, representando el 23.25 por ciento.</p>
+                  <p>Las exportaciones provinieron de 52 empresas, y los principales destinos fueron Luxemburgo, Estados Unidos, Macao, Islas Caimán y Canadá; mientras que los productos más demandados fueron trajes, ternos, pantalones, vestidos, filamentos sintéticos o artificiales, guata, fieltro y tela no tejida.</p>
                 </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
-                  <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}</a></li>
-                  </ul>
+                <div class="action"><a href="#" class="btn">Solicitar más información <i class="fa fa-chevron-right"></i></a></div>
+                <div class="categories-listing">
+                  <div class="tags-array cf">
+                    <h3>Categorías:</h3>
+                    <ul>
+                      <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                      <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                      <li><a href="#" class="tag-cat-line blue">General</a></li>
+                    </ul>
+                  </div>
                 </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="panel-news-listing">
-          <div class="container">
-            <h2 class="date"><i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014</h2>
-            <ul>
-              <li ng-repeat="new in newsb" class="element">
-                <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/2.jpg"></a></div>
-                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
-                </header>
-                <div class="content">
-                  <p>{{ new.descripcion }}</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
-                  <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="panel-news-listing">
-          <div class="container">
-            <h2 class="date"><i class='fa fa-calendar'></i><span>Anteriores</span></h2>
-            <ul>
-              <li ng-repeat="new in newsc" class="element">
-                <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/1.jpg"></a></div>
-                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
-                </header>
-                <div class="content">
-                  <p>{{ new.descripcion }}</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
-                  <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}				</a></li>
-                  </ul>
-                </div>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
       <aside class="main-notification">
-        <dl>
-          <dt>Notification 1</dt>
-          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
-        </dl>
-        <dl>
-          <dt>Notification 2</dt>
-          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
-        </dl>
-        <dl>
-          <dt>Notification 3</dt>
-          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
-        </dl>
-        <dl>
-          <dt>Notification 4</dt>
-          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
-        </dl>
-        <dl>
-          <dt>Notification 5</dt>
-          <dd>Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.</dd>
-        </dl>
+        <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i class='fa fa-chevron-right'></i></a></div>
+        <div class="alert-listing-aside">
+          <ul>
+            <li class="selected"><a href="alerts.html">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+            <li class="new"><a href="alerts-view.html">Congreso de la industria textil 2014.</a></li>
+            <li class="new"><a href="alerts.html">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+            <li><a href="alerts.html">Taller gratuito de tecnologías de la información para PyMES.</a></li>
+            <li><a href="alerts.html">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+          </ul>
+        </div>
       </aside>
     </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>

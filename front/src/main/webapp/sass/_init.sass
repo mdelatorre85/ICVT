@@ -45,6 +45,11 @@ $rss: #FF6600
 @mixin fx
 	+transition(all, 0.3s)
 
+@mixin no-select
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+
 
 @mixin all-inputs
 	input[type='text'], input[type='email'], input[type='password']
@@ -124,6 +129,9 @@ button
 
 
 
+::selection
+	background-color: rgba($blue,0.5)
+	color: white
 
 // auxiliar classes
 
