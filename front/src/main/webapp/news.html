@@ -60,31 +60,15 @@
                   <div class="categories-container">
                     <h3><i class="fa fa-tag"></i> Categorías</h3>
                     <ul class="categories-listing">
-                      <li class="tag-cat-option blue">
-                        <input type="checkbox" id="tag-general" ng-model="formData.tagGeneral">
-                        <label for="tag-general">General</label>
-                      </li>
-                      <li class="tag-cat-option green">
-                        <input type="checkbox" id="tag-finanzas" ng-model="formData.tagFinanzas">
-                        <label for="tag-finanzas">Finanzas</label>
-                      </li>
-                      <li class="tag-cat-option orange">
-                        <input type="checkbox" id="tag-comercio" ng-model="formData.tagComercio">
-                        <label for="tag-comercio">Comercio</label>
-                      </li>
-                      <li class="tag-cat-option pink">
-                        <input type="checkbox" id="tag-exportaciones" ng-model="formData.tagExportaciones">
-                        <label for="tag-exportaciones">Exportaciones</label>
-                      </li>
-                      <li class="tag-cat-option lime-dark">
-                        <input type="checkbox" id="tag-importaciones" ng-model="formData.tagImportaciones">
-                        <label for="tag-importaciones">Importaciones</label>
+                      <li ng-repeat="tag in tags" class="tag-cat-option {{ tag.color }}">
+                        <input type="checkbox" id="tag-{{ tag.id }}" ng-model="formData.tagsc[tag.id]" ng-true-value="{{tag.id}}" ng-false-value="false">
+                        <label for="tag-{{ tag.id }}">{{ tag.value }}</label>
                       </li>
                     </ul>
                   </div>
                   <div class="half action">
                     <div class="left">
-                      <button type="reset" class="btn alt">Borrar</button>
+                      <button type="reset" ng-click="reset()" class="btn alt">Borrar</button>
                     </div>
                     <div class="right">
                       <button type="submit" class="btn">Buscar <i class="fa fa-search"></i></button>
@@ -153,7 +137,7 @@
         </div>
         <div class="panel-news-listing">
           <div class="container">
-            <h2 class="date"><i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014</h2>
+            <h2 class="date"><i class='fa fa-calendar-o'></i><span>Ayer</span>, {{ newsbDay }} de {{ newsbMonth }} {{ newsbYear }}</h2>
             <ul>
               <li ng-repeat="new in newsb" class="element">
                 <header class="cf">

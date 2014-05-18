@@ -70,30 +70,13 @@ html.no-js
 										
 										ul.categories-listing
 											
-											li.tag-cat-option.blue
-												input(type='checkbox', id='tag-general',ng-model="formData.tagGeneral")
-												label(for='tag-general') General
-
-											li.tag-cat-option.green
-												input(type='checkbox', id='tag-finanzas',ng-model="formData.tagFinanzas")
-												label(for='tag-finanzas') Finanzas
-
-											li.tag-cat-option.orange
-												input(type='checkbox', id='tag-comercio',ng-model="formData.tagComercio")
-												label(for='tag-comercio') Comercio
-
-											li.tag-cat-option.pink
-												input(type='checkbox', id='tag-exportaciones',ng-model="formData.tagExportaciones")
-												label(for='tag-exportaciones') Exportaciones
-
-											li.tag-cat-option.lime-dark
-												input(type='checkbox', id='tag-importaciones',ng-model="formData.tagImportaciones")
-												label(for='tag-importaciones') Importaciones
-											
+											li(ng-repeat='tag in tags', class='tag-cat-option {{ tag.color }}')
+												input(type='checkbox',id='tag-{{ tag.id }}',ng-model='formData.tagsc[tag.id]',ng-true-value='{{tag.id}}',ng-false-value='false')
+												label(for='tag-{{ tag.id }}') {{ tag.value }}
 										
 									.half.action
 										.left
-											button(type='reset').btn.alt Borrar
+											button(type='reset',ng-click='reset()').btn.alt Borrar
 										.right
 											button(type='submit').btn
 												| Buscar 
@@ -171,7 +154,7 @@ html.no-js
 										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
 
 				.panel-news-listing: .container
-					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014
+					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, {{ newsbDay }} de {{ newsbMonth }} {{ newsbYear }}
 					
 					ul
 						li(ng-repeat='new in newsb').element
