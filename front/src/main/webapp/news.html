@@ -23,7 +23,7 @@
       <input type="checkbox" id="activate-alerts" class="activate-alerts">
       <nav class="main-nav">
         <ul class="nav-listing">
-          <li><a href="#"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
           <li class="selected"><a href="#"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
           <li><a href="#"><span class="icon"></span><span class="tag">Perfil</span></a></li>
           <li><a href="#"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
@@ -49,11 +49,11 @@
                     <div class="half">
                       <div class="left">
                         <label>de:</label>
-                        <input type="text" name="fechaInicio" ng-model="formData.fechaInicio" class="js-date-from">
+                        <input type="text" pick-a-date="fechaInicio" max-date="fechaFin">
                       </div>
                       <div class="right">
                         <label>hasta:</label>
-                        <input type="text" name="fechaFin" ng-model="formData.fechaFin" class="js-date-to">
+                        <input type="text" pick-a-date="fechaFin" min-date="fechaInicio">
                       </div>
                     </div>
                   </div>
@@ -101,6 +101,7 @@
             <p ng-bind-html-unsafe="resultText"></p>
           </div>
         </div>
+        <div pickadate ng-model="date" class="an"></div>
         <div class="panel-news-listing">
           <div class="container">
             <ul>

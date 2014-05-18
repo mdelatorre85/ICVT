@@ -11,7 +11,7 @@ html.no-js
 			
 			nav.main-nav
 				ul.nav-listing
-					li: a(href='#')
+					li: a(href='index.html')
 						span.icon
 						span.tag Dashboard de inicio
 					li.selected: a(href='#')
@@ -56,11 +56,11 @@ html.no-js
 										.half
 											.left
 												label de:
-												input(type='text',name='fechaInicio',ng-model="formData.fechaInicio").js-date-from
+												input(type='text',pick-a-date="fechaInicio",max-date="fechaFin")
 
 											.right
 												label hasta:
-												input(type='text',name='fechaFin',ng-model="formData.fechaFin").js-date-to
+												input(type='text',pick-a-date="fechaFin",min-date="fechaInicio")
 								
 									.categories-container
 										h3
@@ -107,6 +107,9 @@ html.no-js
 				.panel-verbose-results
 					.container
 						p(ng-bind-html-unsafe='resultText')
+
+				.an(pickadate,ng-model="date")
+		
 				.panel-news-listing: .container
 					ul
 						li(ng-repeat='new in newsresult').element
