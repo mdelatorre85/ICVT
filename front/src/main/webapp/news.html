@@ -23,11 +23,11 @@
       <input type="checkbox" id="activate-notification" class="activate-notification">
       <nav class="main-nav">
         <ul class="nav-listing">
-          <li class="selected"><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
-          <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
-          <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
-          <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
-          <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+          <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li class="selected"><a href="#"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Perfil</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
           <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
         </ul>
       </nav>
@@ -41,7 +41,7 @@
         <div class="panel-filters">
           <div class="container">
             <div class="filter-bar">
-              <form action="#">
+              <form ng-submit="filter()">
                 <div class="filter-link"><a href="#" class="btn-outline js-open-filters"><i class="fa fa-filter"></i>Filtrar</a></div>
                 <div class="filters-listing js-filters-listing">
                   <div class="datepicker-container">
@@ -49,11 +49,11 @@
                     <div class="half">
                       <div class="left">
                         <label>de:</label>
-                        <input type="text" class="js-date-from">
+                        <input type="text" pick-a-date="fechaInicio" max-date="fechaFin">
                       </div>
                       <div class="right">
                         <label>hasta:</label>
-                        <input type="text" class="js-date-to">
+                        <input type="text" pick-a-date="fechaFin" min-date="fechaInicio">
                       </div>
                     </div>
                   </div>
@@ -61,23 +61,23 @@
                     <h3><i class="fa fa-tag"></i> Categorías</h3>
                     <ul class="categories-listing">
                       <li class="tag-cat-option blue">
-                        <input type="checkbox" id="tag-general">
+                        <input type="checkbox" id="tag-general" ng-model="formData.tagGeneral">
                         <label for="tag-general">General</label>
                       </li>
                       <li class="tag-cat-option green">
-                        <input type="checkbox" id="tag-finanzas">
+                        <input type="checkbox" id="tag-finanzas" ng-model="formData.tagFinanzas">
                         <label for="tag-finanzas">Finanzas</label>
                       </li>
                       <li class="tag-cat-option orange">
-                        <input type="checkbox" id="tag-comercio">
+                        <input type="checkbox" id="tag-comercio" ng-model="formData.tagComercio">
                         <label for="tag-comercio">Comercio</label>
                       </li>
                       <li class="tag-cat-option pink">
-                        <input type="checkbox" id="tag-exportaciones">
+                        <input type="checkbox" id="tag-exportaciones" ng-model="formData.tagExportaciones">
                         <label for="tag-exportaciones">Exportaciones</label>
                       </li>
                       <li class="tag-cat-option lime-dark">
-                        <input type="checkbox" id="tag-importaciones">
+                        <input type="checkbox" id="tag-importaciones" ng-model="formData.tagImportaciones">
                         <label for="tag-importaciones">Importaciones</label>
                       </li>
                     </ul>
@@ -98,7 +98,32 @@
         </div>
         <div class="panel-verbose-results">
           <div class="container">
-            <p>Estos son los resultados de noticias: del <span class='date'>28 de Abril</span> al <span class='date'>12 de Mayo</span> del <span class='date'>2014</span> y de las categorías: <span class='tag-cat-line green'>Finanzas</span><span class='tag-cat-line orange'>Comercio</span></p>
+            <p ng-bind-html-unsafe="resultText"></p>
+          </div>
+        </div>
+        <div pickadate ng-model="date" class="an"></div>
+        <div class="panel-news-listing">
+          <div class="container">
+            <ul>
+              <li ng-repeat="new in newsresult" class="element">
+                <header class="cf">
+                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
+                  <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
+                </header>
+                <div class="content">
+                  <p>{{ new.descripcion }}</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>{{ new.fuente }}</span></a></div>
+                  <div class="source-link"><a href="{{ new.url }}" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li ng-repeat="etiqueta in new.etiquetas"><a href="#" class="tag-cat-line {{ etiqueta.color }}">{{ etiqueta.valor }}</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="panel-news-listing">

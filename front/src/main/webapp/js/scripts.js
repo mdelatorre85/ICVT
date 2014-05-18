@@ -12,15 +12,7 @@
       return $('.activate-menu').attr('checked', false);
     });
   };
-
-  $(function() {
-    return $('.js-date-from, .js-date-to').pickadate({
-      today: '',
-      format: 'dd mmm yy',
-      max: 'true'
-    });
-  });
-
+  
   $(document).on('ready', init);
 
 }).call(this);

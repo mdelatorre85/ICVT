@@ -162,7 +162,7 @@ public class NewsDataRetriever {
         System.out.printf("Ids to search: %s\n", ids);
 
         StringBuilder select = new StringBuilder();
-        select.append("select * from Noticias where id in ");
+        select.append("select * from noticias where id in ");
         select.append("(select distinct(ne.id_noticia) from noticia_tiene_etiquetas ne, etiquetas e ");
         select.append("where ne.id_etiqueta = e.id and e.id in (");
         select.append(ids);
@@ -197,7 +197,7 @@ public class NewsDataRetriever {
         System.out.printf("Ids to search: %s\n", ids);
 
         StringBuilder select = new StringBuilder();
-        select.append("select * from Noticias where id in ");
+        select.append("select * from noticias where id in ");
         select.append("(select distinct(ne.id_noticia) from noticia_tiene_etiquetas ne, etiquetas e ");
         select.append("where ne.id_etiqueta = e.id and e.id in (");
         select.append(ids);

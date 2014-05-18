@@ -24,8 +24,8 @@ public class UserRestServlet extends HttpServlet {
 
     private class RestRequest {
 
-        private Pattern regExAllPattern = Pattern.compile("/user/");
-        private Pattern regExIdPattern = Pattern.compile("/user/([0-9a-z]*)");
+        private Pattern regExAllPattern = Pattern.compile("/users/");
+        private Pattern regExIdPattern = Pattern.compile("/users/([0-9a-z]*)");
         private String id;
 
         public RestRequest(String pathInfo) throws ServletException {
@@ -60,7 +60,7 @@ public class UserRestServlet extends HttpServlet {
         out.println("GET request handling");
         out.println(request.getPathInfo());
         out.println(request.getParameterMap());
-        // out.println(thedigest);
+         out.println("hollaa");
 
         try {
             RestRequest resourceValues = new RestRequest(request.getPathInfo());
@@ -79,8 +79,32 @@ public class UserRestServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String action="";
-        PrintWriter out = response.getWriter();
+
+       //  if(action.equals("login")){
+            UserResultData obj = new UserResultData();
+            User us = new User();
+            String user = request.getParameter("identity");
+            String pass = request.getParameter("password");
+            us.setIdentity(user);
+            us.setPassword(pass);
+            obj.user=us;
+
+            List<User> listUser = obj.login();
+
+            if(listUser==null){
+                response.setStatus(HttpServletResponse.SC_NON_AUTHORITATIVE_INFORMATION);
+                response(response,"{errors:\"Username or password incorrect.\"}");
+            }else{
+                listUser.get(0).setPassword("");
+                // listUser.remove();
+                JSONArray array = JSONArray.fromObject(listUser);
+                response(response,array.toString());
+            }
+       // }
+
+
+/*
+
 
         try {
             RestRequest resourceValues = new RestRequest(request.getPathInfo());
@@ -149,7 +173,7 @@ public class UserRestServlet extends HttpServlet {
             e.printStackTrace();
             out.println(e.toString());
         }
-
+        */
     }
 
 
@@ -157,6 +181,7 @@ public class UserRestServlet extends HttpServlet {
     private void response(HttpServletResponse resp, String msg)
             throws IOException {
         PrintWriter out = resp.getWriter();
+
         out.println(msg);
     }
 

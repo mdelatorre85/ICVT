@@ -75,6 +75,12 @@ public class UserResultData {
         return null;
     }
 
+    public String getPassword(){
+
+        String generatedSecuredPasswordHash = BCrypt.hashpw("lamisma00", BCrypt.gensalt(12));
+        return generatedSecuredPasswordHash;
+    }
+
     public void updateAccesToken() {
         factory = Persistence.createEntityManagerFactory("SITE");
         EntityManager em = factory.createEntityManager();

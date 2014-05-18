@@ -8,6 +8,7 @@ public abstract class Answer {
     private Long id;
     private Long questionId;
     private Long userId;
+    private Long economicUnitId;
 
     private Question question;
 
@@ -36,7 +37,7 @@ public abstract class Answer {
         return questionId;
     }
 
-    public void setQuetionId(Long quetionId) {
+    public void setQuestionId(Long quetionId) {
         this.questionId = quetionId;
     }
 
@@ -58,5 +59,13 @@ public abstract class Answer {
         }
         this.question = question;
         questionId = question.getId();
+    }
+
+    public Long getEconomicUnitId() {
+        return economicUnitId;
+    }
+
+    public void setEconomicUnitId(Long economicUnitId) {
+        this.economicUnitId = economicUnitId;
     }
 }

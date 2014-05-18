@@ -67,6 +67,7 @@
         <servlet-name>EjecutarExtraccion</servlet-name>
         <url-pattern>/ejecutarExtraccion</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>UserRestServlet</servlet-name>
         <url-pattern>/api/v1/users</url-pattern>

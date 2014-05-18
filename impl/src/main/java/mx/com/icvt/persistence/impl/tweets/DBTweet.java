@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "Tweets")
+@Table(name = "tweets")
 @NamedQueries({
         @NamedQuery(
                 name = "getTweetsByDate",
