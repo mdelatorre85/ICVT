@@ -1,39 +1,37 @@
 include mixins
 doctype html
-html(ng-app)
+html
 
 	include includes/head
 
-
-	body
+	body(ng-app='sampleApp')
 		.login-head
 			
-			h1 site
+			h1 aie
 			h2 Sistema de Inteligencia y Tecnología Empresarial
 
 		.login-form
 			
 			.title
 				h3 Bienvenido
-
-			form(action='http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login', method='POST')
+			form(ng-controller='loginController',ng-submit='login()')
 				fieldset.wi
-					input(type='text', name='identity', placeholder='Nombre de Usuario')
+					input(type='text', ng-model='formData.identity', placeholder='Nombre de Usuario')
 					i.fa.fa-user
 				
 				fieldset.wi
-					input(type='password', name='password', placeholder='Contraseña')
+					input(type='password', ng-model='formData.password', placeholder='Contraseña')
 					i.fa.fa-lock
 
-				fieldset.loader.on
+				fieldset.loader.{{ load }}
 					i.fa.fa-spinner.fa-spin
 
 				fieldset.action
-					button(type='submit').btn Ingresar al SITE
-						i.fa.fa-chevron-right
-
+					button(type='submit').btn Ingresar
 				fieldset.error
-					span Nombre del error
-
+					span{{ error }}
+					
 		script(src='bower_components/jquery/dist/jquery.js')
-		script(src='bower_components/angular/angular.min.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js')
+		script(src='js/main.js')
+		script(src='js/loginController.js')

@@ -11,19 +11,19 @@ html.no-js
 			
 			nav.main-nav
 				ul.nav-listing
-					li: a(href='#')
+					li: a(href='index.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li: a(href='#')
+					li: a(href='actualidad.html')
 						span.icon
 						span.tag Actualidad de la industria
-					li.selected: a(href='#')
+					li.selected: a(href='question.html')
 						span.icon
 						span.tag Perfil
-					li: a(href='#')
+					li: a(href='alerts.html')
 						span.icon
 						span.tag Alertas y notifiaciones
-					li: a(href='#')
+					li: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
 					li: a(href='#')
@@ -41,7 +41,7 @@ html.no-js
 					.container
 						.half
 							.left
-								a(href='#').btn.alt <i class='fa fa-chevron-left'></i> Atrás
+								br
 								
 							.right
 								button(type='submit').btn <i class='fa fa-save'></i> Guardar
@@ -50,8 +50,8 @@ html.no-js
 				.panel-question-tabs
 					.container
 						ol
-							li.selected: a(href='#'): span Economía
-							li: a(href='#'): span Producción
+							li.selected: a(href='question.html'): span Economía
+							li: a(href='question-2.html'): span Producción
 							li: a(href='#'): span Comercial
 							li: a(href='#'): span Innovación y Tecnología
 							li: a(href='#'): span Administración
@@ -60,7 +60,9 @@ html.no-js
 				.panel-question-all-blocks-container
 					.container
 						.panel-question-container
-							h2 Economía
+							header
+								h2 Economía
+								p 12 de 13 preguntas contestadas
 
 							fieldset
 								dl.question
@@ -100,22 +102,22 @@ html.no-js
 										label ¿Cuales son sus principales productos o servicios?
 
 									dd.answers
-										ul
-											li
-												li.input-text
-													input(type='text')
+										ul											
+											li.input-text
+												input(type='text')
 
 
 
+						.action
+							.half
+								.left
+									br
 
+								.right
+									a(href='question-2.html').btn Siguiente <i class='fa fa-chevron-right'></i>
 	
 
-			aside.main-notification
-				- for(i=1 ; i<=5 ; i++){
-				dl
-					dt Notification #{i}
-					dd Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.
-				- }
+			include includes/notifications
 
 		
 

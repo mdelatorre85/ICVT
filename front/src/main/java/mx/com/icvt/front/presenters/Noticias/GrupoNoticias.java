@@ -1,4 +1,4 @@
-package mx.com.icvt.front.presenters;
+package mx.com.icvt.front.presenters.noticias;
 
 import java.util.LinkedList;
 import java.util.List;

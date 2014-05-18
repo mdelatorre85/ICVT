@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name = "Extraccion_noticias")
+@Table(name = "extraccion_noticias")
 public class ExtraccionNoticias {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
