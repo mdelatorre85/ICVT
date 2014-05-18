@@ -117,13 +117,17 @@ angular.module('ng').directive('pickATime', function () {
 });
 
 sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
+  
   var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  $scope.tags = [{id:1,value:"general",color:"blue"},{id:2,value:"finanzas",color:"green"},{id:3,value:"comercio",color:"orange"},{id:4,value:"exportaciones",color:"pink"},{id:5,value:"importaciones",color:"lime-dark"}]
+  $scope.formData.tagsc = {};
   $scope.formData = {};
 	$scope.newsa = null;
 	$scope.newsb = null;	
 	$scope.newsc = null;
   $scope.newsresult = null;
   $scope.resultText = "";
+  $scope.formData.tagGeneral = 1;
 
 	$http({
     method  : 'POST',
@@ -133,46 +137,74 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
     tracker : $scope.loadingTracker
   })
   .success(function(data, status, headers, config) {
-		datea = data.noticias[0].fecha.split('-')
-		$scope.newsaDay = datea[2]
-		$scope.newsaMonth = datea[1]
-		$scope.newsaYear = datea[0]
-  	$scope.newsa = data.noticias[0].noticias;
-  	$scope.newsb = data.noticias[1].noticias;
-  	$scope.newsc = data.noticias[2].noticias;
+    
+    datea             = data.noticias[0].fecha.split('-')
+    dateb             = data.noticias[1].fecha.split('-')
+    $scope.newsaDay   = datea[2]
+		$scope.newsaMonth = meses[datea[1]-1]
+		$scope.newsaYear  = datea[0]
+    $scope.newsbDay   = dateb[2]
+    $scope.newsbMonth = meses[dateb[1]-1]
+    $scope.newsbYear  = dateb[0]
+  	$scope.newsa      = data.noticias[0].noticias;
+  	$scope.newsb      = data.noticias[1].noticias;
+  	$scope.newsc      = data.noticias[2].noticias;
+  
   });
 
   $scope.filter = function() {
-    
-    var fechaInicio = dateFilter($scope.fechaInicio, 'yyyy-MM-dd');
-    var fechaFin    = dateFilter($scope.fechaFin, 'yyyy-MM-dd');
-    var dateInit    = fechaInicio.split("-");
-    var dateFin     = fechaFin.split("-");
+
+    var tags       = ""
+    var fechaInicio= ""
+    var fechaFin   = ""
+    var filterDate = false;
+    var filterTags = false;
+    var dateInit   = null;
+    var dateFin    = null;
+
+    for(key in $scope.formData.tagsc) {
+      tags += key+",";
+    }
+
+    if (tags.length > 0) {
+      filterTags = true;
+      tags = tags.substr(0,tags.length-1)
+    }
+
+    filterDate = $scope.fechaInicio != null && $scope.fechaFin != null;
+  
+    if (filterDate) {
+       fechaInicio = dateFilter($scope.fechaInicio, 'yyyy-MM-dd');
+       fechaFin    = dateFilter($scope.fechaFin, 'yyyy-MM-dd');
+       dateInit    = fechaInicio.split("-");
+       dateFin     = fechaFin.split("-");
+    }
 
     $http({
       method  : 'POST',
       url     : '/api/v1/rest/noticias/agrupadas',
-      data    : "fechaInicio="+fechaInicio+"&fechaFin="+fechaFin,
+      data    : "fechaInicio="+fechaInicio+"&fechaFin="+fechaFin+"&etiquetas="+tags,
       headers : { 'Content-Type': 'application/x-www-form-urlencoded'},
       tracker : $scope.loadingTracker
     })
     .success(function(data, status, headers, config) {
+      
+      var existNews = data.noticias[0].noticias.length > 0 
+      $scope.newsresult = data.noticias[0].noticias;
 
-      if ( $scope.formData.fechaInicio != "" &&  $scope.formData.fechaFin != "" ){
-        $scope.newsresult = data.noticias[0].noticias;
+      if (!existNews) {
+        $scope.resultText = "No se encontraron resultados: " 
+      }else{
         $scope.resultText = "Estos son los resultados de noticias:"; 
+      }
+
+      if (filterDate) {
         $scope.resultText += " del <span class='date'>"+dateInit[2] +" de "+ meses[dateInit[1]-1];
         $scope.resultText += "</span> al <span class='date'>"+ dateFin[2]; 
         $scope.resultText += " de "+ meses[dateFin[1]-1]+"</span> del <span class='date'>"+dateFin[0] +"</span>"
       }
       
-      var existEtiquetas = $scope.formData.tagGeneral  || 
-        $scope.formData.tagFinanzas      || 
-        $scope.formData.tagComercio || 
-        $scope.formData.tagExportaciones || 
-        $scope.formData.tagImportaciones ;
-           
-      if(existEtiquetas) {
+      if(filterTags) {
         $scope.resultText += " y de las categorías:"
         if ($scope.formData.tagGeneral) {
           $scope.resultText += "<span class='tag-cat-line blue'>General</span>";
@@ -190,12 +222,18 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
           $scope.resultText += "<span class='tag-cat-line lime-dark'>Importaciones</span>";
         }  
       }
+
     })
     .error(function (data) {
-      $scope.load="off"
-      $scope.error = "Usuario o contraseña incorrectos"
+      // $scope.load="off"
+      // $scope.error = "Usuario o contraseña incorrectos"
       //TODO: Mandar mensajes de error.
     }); 
   };
 
+  $scope.reset = function() {
+      $scope.formData.tagsc = {};
+      $scope.fechaInicio    = "";
+      $scope.fechaFin       = "";
+  }
 });
