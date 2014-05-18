@@ -1,5 +1,7 @@
 package mx.com.icvt.front.services;
 
+import mx.com.icvt.front.services.filters.DateFilter;
+import mx.com.icvt.front.services.filters.FilterConstructor;
 import mx.com.icvt.model.Tweet;
 import mx.com.icvt.persistence.impl.tweets.TweetsDataRetriever;
 
@@ -8,15 +10,11 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Path("/tweets")
 public class TweetsService {
     private static final int NUMERO_TWEETS = 12;
-    private static final SimpleDateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd");
 
     @POST
     @Path("/retrieve")
@@ -34,7 +32,7 @@ public class TweetsService {
             }
         }
 
-        DateFilter filter = getDateFilter(fechaInicioParam, fechaFinParam);
+        DateFilter filter = new FilterConstructor().getDateFilter(fechaInicioParam, fechaFinParam);
         TweetsDataRetriever retriever = new TweetsDataRetriever();
         List<Tweet> retrieved;
 
@@ -45,40 +43,5 @@ public class TweetsService {
         }
 
         return retrieved;
-    }
-
-
-    private DateFilter getDateFilter(String fechaInicioParam, String fechaFinParam) {
-        DateFilter filter = null;
-
-        if (fechaInicioParam != null && fechaFinParam != null) {
-            try {
-                Date fechaInicio = FORMAT.parse(fechaInicioParam);
-                Date fechaFin = FORMAT.parse(fechaFinParam);
-                filter = new DateFilter(fechaInicio, fechaFin);
-            } catch (ParseException e) {
-                System.err.println("Las fechas proporcionadas no tiene el formato correcto");
-            }
-        }
-
-        return filter;
-    }
-
-    private class DateFilter {
-        private Date fechaInicio;
-        private Date fechaFin;
-
-        private DateFilter(Date fechaInicio, Date fechaFin) {
-            this.fechaInicio = fechaInicio;
-            this.fechaFin = fechaFin;
-        }
-
-        public Date getFechaInicio() {
-            return fechaInicio;
-        }
-
-        public Date getFechaFin() {
-            return fechaFin;
-        }
     }
 }

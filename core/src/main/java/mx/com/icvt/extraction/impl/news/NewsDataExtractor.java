@@ -34,6 +34,13 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
             for (Element e : doc.select("item")) {
 
                 String tittle = e.select("title").text();
+                int indexOf = tittle.lastIndexOf("-");
+
+                //Remove source
+                if (indexOf != -1 ){
+                    tittle = tittle.substring(0, indexOf).trim();
+                }
+
                 String guid = e.select("guid").text();
                 guid = guid.substring(guid.indexOf("cluster=") + 8);
                 String pubdate = e.select("pubdate").text();
@@ -41,6 +48,11 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
                 Document dd = Jsoup.parse(e.select("description").text());
                 String description = dd.select(".lh").text();
                 String image = dd.select("img").attr("src");
+
+                //Add protocol
+                if (image.startsWith("//")){
+                    image = "http:" + image;
+                }
 
                 try {
                     retorno.getResults().add(new News(tittle, guid, pubdate, description, image));
@@ -68,6 +80,5 @@ public class NewsDataExtractor implements DataExtractor<NewsExtractorConfigurati
         config.setLanguage(NewsExtractorConfiguration.Language.ES);
         config.setSource("El Financiero");
         new NewsDataExtractor().extract(config);
-
     }
 }

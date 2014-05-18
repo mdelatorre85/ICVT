@@ -42,9 +42,9 @@ public class TweetsDataRetriever {
         return tweets;
     }
 
-    public List<Tweet> getByDate(Date inicio, Date fin, int límite) {
-        if (límite < 0) {
-            throw new IllegalArgumentException("El parámetro límite no puede ser menor de 0");
+    public List<Tweet> getByDate(Date inicio, Date fin, int limite) {
+        if (limite < 0) {
+            throw new IllegalArgumentException("El par\u00e1metro l\u00edmite no puede ser menor de 0");
         }
 
         List<Tweet> tweets = new LinkedList<Tweet>();
@@ -53,7 +53,7 @@ public class TweetsDataRetriever {
         Query query = manager.createNamedQuery("getTweetsByDate");
         query.setParameter("inicio", inicio);
         query.setParameter("fin", fin);
-        query.setMaxResults(límite);
+        query.setMaxResults(limite);
         List<DBTweet> results = query.getResultList();
         for (DBTweet t : results) {
             tweets.add(t.getTweet());

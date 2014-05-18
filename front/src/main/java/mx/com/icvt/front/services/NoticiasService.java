@@ -1,9 +1,12 @@
 package mx.com.icvt.front.services;
 
-import mx.com.icvt.front.presenters.noticias.Etiqueta;
+import mx.com.icvt.front.presenters.commons.Etiqueta;
 import mx.com.icvt.front.presenters.noticias.GrupoNoticias;
 import mx.com.icvt.front.presenters.noticias.Noticia;
 import mx.com.icvt.front.presenters.noticias.NoticiasAgrupadas;
+import mx.com.icvt.front.services.filters.DateFilter;
+import mx.com.icvt.front.services.filters.FilterConstructor;
+import mx.com.icvt.front.services.filters.LabelFilter;
 import mx.com.icvt.model.News;
 import mx.com.icvt.persistence.impl.news.NewsDataRetriever;
 
@@ -12,11 +15,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 @Path("/noticias")
@@ -30,42 +31,16 @@ public class NoticiasService {
     public NoticiasAgrupadas getNews(@FormParam("numeroNoticias") int numeroNoticias,
                                      @FormParam("fechaInicio") String fechaInicio,
                                      @FormParam("fechaFin") String fechaFin,
-                                     @FormParam("etiquetas") String etiquetas) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-
+                                     @FormParam("etiquetas") String etiquetasParam) {
         System.out.printf("Número de noticias solicitadas por grupo: %s \n", numeroNoticias);
         System.out.printf("Fecha inicio: %s\n", fechaInicio);
         System.out.printf("Fecha fin: %s\n", fechaFin);
-        System.out.printf("Etiquetas seleccionadas: %s\n", etiquetas);
+        System.out.printf("Etiquetas seleccionadas: %s\n", etiquetasParam);
 
-        Date inicio = null;
-        Date fin = null;
-        List<Long> idEtiquetas = null;
+        FilterConstructor filterConstructor = new FilterConstructor();
 
-        if (fechaInicio == null || fechaFin == null) {
-            System.out.println("No se proporcionó fecha de búsqueda. Se realizará búsqueda por default");
-        } else {
-            try {
-                inicio = format.parse(fechaInicio);
-                fin = format.parse(fechaFin);
-            } catch (ParseException e) {
-                inicio = null;
-                fin = null;
-                System.out.println("Los parámetros de fecha de búsqueda son incorrectos. Se realizará búsqueda por default");
-            }
-        }
-
-        if (etiquetas != null && !etiquetas.isEmpty()) {
-            idEtiquetas = new LinkedList<Long>();
-            String[] temp = etiquetas.split(",");
-            for (String t : temp) {
-                try {
-                    idEtiquetas.add(Long.parseLong(t));
-                } catch (NumberFormatException e) {
-                    System.err.printf("No se pudo parsear el valor %s\n", t);
-                }
-            }
-        }
+        DateFilter dateFilter = filterConstructor.getDateFilter(fechaInicio, fechaFin);
+        LabelFilter labelFilter = filterConstructor.getLabelFilter(etiquetasParam);
 
         NoticiasAgrupadas noticiasAgrupadas = new NoticiasAgrupadas();
         NewsDataRetriever retriever = new NewsDataRetriever();
@@ -73,7 +48,7 @@ public class NoticiasService {
 
         Calendar calendar = Calendar.getInstance();
         List<News> retrieved;
-        if (!esFiltradoPorFecha(inicio, fin) && !esFiltradoPorEtiquetas(idEtiquetas)) {
+        if (dateFilter == null && labelFilter == null) {
             System.out.printf("Realizando búsqueda por default");
             Date current = new Date();
             calendar.setTime(current);
@@ -102,17 +77,17 @@ public class NoticiasService {
             grupoNoticias = crearGrupoNoticias(ayer, retrieved);
             noticiasAgrupadas.getNoticias().add(grupoNoticias);
         } else {
-            if (esFiltradoPorFecha(inicio, fin) && esFiltradoPorEtiquetas(idEtiquetas)) {
+            if (dateFilter != null && labelFilter != null) {
                 System.out.println("Realizando búsqueda por fechas y etiquetas");
-                System.out.printf("Buscando noticias entre %s y %s\n", FORMAT.format(inicio), FORMAT.format(fin));
-                retrieved = retriever.getAllEnabledByLabelsAndDate(idEtiquetas, inicio, fin);
-            } else if (esFiltradoPorFecha(inicio, fin)) {
+                System.out.printf("Buscando noticias entre %s y %s\n", FORMAT.format(dateFilter.getFechaInicio()), FORMAT.format(dateFilter.getFechaFin()));
+                retrieved = retriever.getAllEnabledByLabelsAndDate(labelFilter.getEtiquetas(), dateFilter.getFechaInicio(), dateFilter.getFechaFin());
+            } else if (dateFilter != null) {
                 System.out.println("Realizando búsqueda por fechas");
-                System.out.printf("Buscando noticias entre %s y %s\n", FORMAT.format(inicio), FORMAT.format(fin));
-                retrieved = retriever.getAllEnabledByDate(inicio, fin);
+                System.out.printf("Buscando noticias entre %s y %s\n", FORMAT.format(dateFilter.getFechaInicio()), FORMAT.format(dateFilter.getFechaFin()));
+                retrieved = retriever.getAllEnabledByDate(dateFilter.getFechaInicio(), dateFilter.getFechaFin());
             } else {
                 System.out.println("Realizando búsqueda por etiquetas");
-                retrieved = retriever.getAllEnabledByLabels(idEtiquetas);
+                retrieved = retriever.getAllEnabledByLabels(labelFilter.getEtiquetas());
             }
             System.out.printf("Se encontraron %d noticias\n", retrieved.size());
             grupoNoticias = crearGrupoNoticias(new Date(), retrieved);
@@ -122,16 +97,7 @@ public class NoticiasService {
         return noticiasAgrupadas;
     }
 
-    private boolean esFiltradoPorFecha(Date fechaInicio, Date fechaFin) {
-        return fechaInicio != null && fechaFin != null;
-    }
-
-    private boolean esFiltradoPorEtiquetas(List<Long> idEtiquetas) {
-        return idEtiquetas != null && !idEtiquetas.isEmpty();
-    }
-
     private GrupoNoticias crearGrupoNoticias(Date fecha, List<News> noticias) {
-
         GrupoNoticias grupoNoticias = new GrupoNoticias();
         grupoNoticias.setFecha(FORMAT.format(fecha));
 
