@@ -1,0 +1,39 @@
+include mixins
+doctype html
+html(ng-app)
+
+	include includes/head
+
+
+	body
+		.login-head
+			
+			h1 site
+			h2 Sistema de Inteligencia y Tecnología Empresarial
+
+		.login-form
+			
+			.title
+				h3 Bienvenido
+
+			form(action='http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login', method='POST')
+				fieldset.wi
+					input(type='text', name='identity', placeholder='Nombre de Usuario')
+					i.fa.fa-user
+				
+				fieldset.wi
+					input(type='password', name='password', placeholder='Contraseña')
+					i.fa.fa-lock
+
+				fieldset.loader.on
+					i.fa.fa-spinner.fa-spin
+
+				fieldset.action
+					button(type='submit').btn Ingresar al SITE
+						i.fa.fa-chevron-right
+
+				fieldset.error
+					span Nombre del error
+
+		script(src='bower_components/jquery/dist/jquery.js')
+		script(src='bower_components/angular/angular.min.js')

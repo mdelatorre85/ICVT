@@ -7,14 +7,13 @@ html
 	body(ng-app='sampleApp')
 		.login-head
 			
-			h1 site
+			h1 aie
 			h2 Sistema de Inteligencia y Tecnología Empresarial
 
 		.login-form
 			
 			.title
 				h3 Bienvenido
-
 			form(ng-controller='loginController',ng-submit='login()')
 				fieldset.wi
 					input(type='text', ng-model='formData.identity', placeholder='Nombre de Usuario')
@@ -28,12 +27,10 @@ html
 					i.fa.fa-spinner.fa-spin
 
 				fieldset.action
-					button(type='submit').btn Ingresar al SITE
-						i.fa.fa-chevron-right
-
+					button(type='submit').btn Ingresar
 				fieldset.error
 					span{{ error }}
-
+					
 		script(src='bower_components/jquery/dist/jquery.js')
 		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js')
 		script(src='js/main.js')

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SITE</title>
+    <meta name="description" content="">
+    <!-- link(rel='shortcut icon', href='favicon.ico')-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header class="main-header">
+        <div class="main-logo"><a href="index.html">site</a></div>
+      </header>
+      <label for="activate-menu" class="btn-alpha btn-activate-menu"><i class="fa fa-bars"></i>Menú</label>
+      <label for="activate-notification" class="btn-alpha btn-activate-notification"><i class="fa fa-bell-o"></i>Alertas<span class="count">2</span></label>
+      <input type="checkbox" id="activate-menu" class="activate-menu">
+      <input type="checkbox" id="activate-notification" class="activate-notification">
+      <nav class="main-nav">
+        <ul class="nav-listing">
+          <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
+          <li class="selected"><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
+          <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
+        </ul>
+      </nav>
+      <section class="main-container">
+        <div class="main-container-overlay js-main-container-overlay"></div>
+        <div class="panel-title">
+          <div class="container">
+            <h1>Alertas y Notificaciones</h1>
+          </div>
+        </div>
+        <div class="panel-filters">
+          <div class="container">
+            <div class="filter-bar">
+              <form action="#">
+                <div class="filter-link"><a href="#" class="btn-outline js-open-filters"><i class="fa fa-filter"></i>Filtrar</a></div>
+                <div class="filters-listing js-filters-listing">
+                  <div class="datepicker-container">
+                    <h3><i class="fa fa-calendar-o"></i> Fecha</h3>
+                    <div class="half">
+                      <div class="left">
+                        <label>de:</label>
+                        <input type="text" class="js-date-from">
+                      </div>
+                      <div class="right">
+                        <label>hasta:</label>
+                        <input type="text" class="js-date-to">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="categories-container">
+                    <h3><i class="fa fa-tag"></i> Categorías</h3>
+                    <ul class="categories-listing">
+                      <li class="tag-cat-option blue">
+                        <input type="checkbox" id="tag-general">
+                        <label for="tag-general">General</label>
+                      </li>
+                      <li class="tag-cat-option green">
+                        <input type="checkbox" id="tag-finanzas">
+                        <label for="tag-finanzas">Finanzas</label>
+                      </li>
+                      <li class="tag-cat-option orange">
+                        <input type="checkbox" id="tag-comercio">
+                        <label for="tag-comercio">Comercio</label>
+                      </li>
+                      <li class="tag-cat-option pink">
+                        <input type="checkbox" id="tag-exportaciones">
+                        <label for="tag-exportaciones">Exportaciones</label>
+                      </li>
+                      <li class="tag-cat-option lime-dark">
+                        <input type="checkbox" id="tag-importaciones">
+                        <label for="tag-importaciones">Importaciones</label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="half action">
+                    <div class="left">
+                      <button type="reset" class="btn alt">Borrar</button>
+                    </div>
+                    <div class="right">
+                      <button type="submit" class="btn">Buscar <i class="fa fa-search"></i></button>
+                    </div>
+                  </div>
+                  <div class="window-options"><a href="#" class="js-close-filters"><i class="fa fa-times-circle"></i></a></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="panel-alerts">
+          <div class="container">
+            <div class="alert-listing">
+              <ul>
+                <li class="selected"><a href="#">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+                <li class="new"><a href="alerts-view.html">Congreso de la industria textil 2014.</a></li>
+                <li class="new"><a href="#">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+                <li><a href="#">Taller gratuito de tecnologías de la información para PyMES.</a></li>
+                <li><a href="#">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+              </ul>
+            </div>
+            <div class="alert-content">
+              <div class="content">
+                <div class="date"><span><i class='fa fa-calendar-o'></i> Martes, 23 de Octubre 2014</span></div>
+                <div class="block">
+                  <h2>Se espera un incremento del 5% en los costos de manufactura en la región.</h2>
+                  <p>Por ello, explica, en 2011 buscaremos acercar a los productores nacionales con cadenas comerciales nacionales y extranjeras, principalmente de Estados Unidos (EU), las cuales han mostrado un creciente interés de abastecerse con proveedores regionales, como una estrategia para hacer frente al crecimiento de los costos en China y la incertidumbre generada por el significativo incremento en las materias primas, como el algodón.</p>
+                  <p>Como parte de la estrategia, comenta García, hemos trabajado con la Asociación Nacional de Tiendas de Autoservicio y Departamentales (Antad) con el fin de identificar las necesidades específicas de proveeduría que tiene este sector y a partir de esto detectamos que nuestras áreas de oportunidad están en el diseño, las tallas, la calidad de los materiales y las costuras, y los precios.</p>
+                  <p>A la fecha, tiendas departamentales como Suburbia y Liverpool, y de autoservicio como Comercial Mexicana y Soriana, consumen productos de las distintas marcas mexicanas que agrupa Mexico Fits, como Kaltex, Yale y Cannon, entre otras. Mientras que marcas americanas como Tommy Hilfiger, Levi's, Pepe Jeans, Perry Ellis, Calvin Klein y Dockers, ya son clientes de proveedores nacionales.</p>
+                  <p>En 2010 se registró un incremento de 43% en las exportaciones de la industria textil y de 5% en las de la confección en comparación con 2009. Pantalones de mezclilla, trajes de lana, calcetines y camisetas son los principales productos que México vende al exterior, comenta el presidente de la Canaintex.</p>
+                </div>
+                <div class="categories-listing">
+                  <div class="tags-array cf">
+                    <h3>Categorías:</h3>
+                    <ul>
+                      <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                      <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                      <li><a href="#" class="tag-cat-line blue">General</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <aside class="main-notification">
+        <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i class='fa fa-chevron-right'></i></a></div>
+        <div class="alert-listing-aside">
+          <ul>
+            <li class="selected"><a href="alerts.html">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+            <li class="new"><a href="alerts-view.html">Congreso de la industria textil 2014.</a></li>
+            <li class="new"><a href="alerts.html">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+            <li><a href="alerts.html">Taller gratuito de tecnologías de la información para PyMES.</a></li>
+            <li><a href="alerts.html">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers.js"></script>
+  </body>
+</html>
