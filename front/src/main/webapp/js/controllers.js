@@ -221,7 +221,8 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
         }
         if ($scope.formData.tagImportaciones) {
           $scope.resultText += "<span class='tag-cat-line lime-dark'>Importaciones</span>";
-        }  
+        }
+        $('.js-filters-listing').toggle();  
       }
 
     })
