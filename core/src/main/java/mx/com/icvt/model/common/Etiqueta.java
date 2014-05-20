@@ -1,16 +1,14 @@
-package mx.com.icvt.front.presenters.commons;
-
-import mx.com.icvt.model.News;
+package mx.com.icvt.model.common;
 
 public class Etiqueta {
     private Long id;
     private String valor;
     private String color;
 
-    public Etiqueta(News.Etiqueta etiqueta) {
-        this.id = etiqueta.getId();
-        this.valor = etiqueta.getValor();
-        this.color = etiqueta.getColor();
+    public Etiqueta(Long id, String valor, String color) {
+        this.id = id;
+        this.valor = valor;
+        this.color = color;
     }
 
     public Long getId() {

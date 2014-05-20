@@ -13,7 +13,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class NewsDataRetriever {
-    public List<ConfiguracionExtraccionNoticias> getAllConfigurations(){
+    public List<ConfiguracionExtraccionNoticias> getAllConfigurations() {
         List<ConfiguracionExtraccionNoticias> configuraciones;
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
@@ -107,7 +107,7 @@ public class NewsDataRetriever {
         return news;
     }
 
-    public List<News> getAllEnabledByDate(Date endDate){
+    public List<News> getAllEnabledByDate(Date endDate) {
         assert endDate != null;
         List<News> news = new ArrayList<News>();
 
@@ -129,16 +129,16 @@ public class NewsDataRetriever {
         return news;
     }
 
-    public List<News> getAllEnabledByLabel(Long labelId){
+    public List<News> getAllEnabledByLabel(Long labelId) {
         List<News> news = new LinkedList<News>();
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         Etiqueta etiqueta = manager.find(Etiqueta.class, labelId);
 
-        if (etiqueta != null){
+        if (etiqueta != null) {
             List<Noticia> noticias = etiqueta.getNoticias();
 
-            for (Noticia noticia : noticias){
+            for (Noticia noticia : noticias) {
                 news.add(noticia.getNews());
             }
         }
@@ -148,13 +148,13 @@ public class NewsDataRetriever {
         return news;
     }
 
-    public List<News> getAllEnabledByLabels(List<Long> idLabels){
+    public List<News> getAllEnabledByLabels(List<Long> idLabels) {
         assert !idLabels.isEmpty();
 
         List<News> news = new LinkedList<News>();
         String ids = "";
 
-        for (Long id : idLabels){
+        for (Long id : idLabels) {
             ids += id + ",";
         }
 
@@ -172,7 +172,7 @@ public class NewsDataRetriever {
         Query query = manager.createNativeQuery(select.toString(), Noticia.class);
         List<Noticia> resultList = query.getResultList();
 
-        for (Noticia n : resultList){
+        for (Noticia n : resultList) {
             news.add(n.getNews());
         }
 
@@ -181,7 +181,7 @@ public class NewsDataRetriever {
         return news;
     }
 
-    public List<News> getAllEnabledByLabelsAndDate(List<Long> idLabels, Date inicio, Date fin){
+    public List<News> getAllEnabledByLabelsAndDate(List<Long> idLabels, Date inicio, Date fin) {
         assert !idLabels.isEmpty();
         assert inicio != null;
         assert fin != null;
@@ -189,7 +189,7 @@ public class NewsDataRetriever {
         List<News> news = new LinkedList<News>();
         String ids = "";
 
-        for (Long id : idLabels){
+        for (Long id : idLabels) {
             ids += id + ",";
         }
 
@@ -209,7 +209,7 @@ public class NewsDataRetriever {
         query.setParameter(2, fin);
         List<Noticia> resultList = query.getResultList();
 
-        for (Noticia n : resultList){
+        for (Noticia n : resultList) {
             news.add(n.getNews());
         }
 

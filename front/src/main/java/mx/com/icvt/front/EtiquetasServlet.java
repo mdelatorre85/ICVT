@@ -38,7 +38,7 @@ public class EtiquetasServlet extends HttpServlet {
         }
 
         EtiquetaRetriever retriever = new EtiquetaRetriever();
-        List<Etiqueta> etiquetas = retriever.getAllPersisted();
+        List<mx.com.icvt.model.common.Etiqueta> etiquetas = retriever.getAllPersisted();
         request.setAttribute("etiquetas", etiquetas);
         RequestDispatcher dispatcher = request.getRequestDispatcher("etiquetas.jsp");
         dispatcher.forward(request, response);

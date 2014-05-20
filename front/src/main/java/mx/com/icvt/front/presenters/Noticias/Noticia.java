@@ -1,6 +1,6 @@
 package mx.com.icvt.front.presenters.noticias;
 
-import mx.com.icvt.front.presenters.commons.Etiqueta;
+import mx.com.icvt.model.common.Etiqueta;
 
 import java.util.LinkedList;
 import java.util.List;
