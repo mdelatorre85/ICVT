@@ -195,4 +195,12 @@ public class DBTweet {
 
         return tweet;
     }
+
+    public List<ExtraccionTweets> getExtracciones() {
+        return extracciones;
+    }
+
+    public void setExtracciones(List<ExtraccionTweets> extracciones) {
+        this.extracciones = extracciones;
+    }
 }
