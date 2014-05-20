@@ -1,0 +1,110 @@
+include mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='index.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li.selected: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+					li: a(href='is.html')
+						span.icon
+						span.tag Inteligencia social
+					
+
+			section.main-container
+				.main-container-overlay
+
+				.panel-title: .container
+					h1 Actualidad en la industria
+
+				.panel-filters
+					.container
+						.filter-bar
+							.half
+								.left
+									.menu-select
+										ul
+											li: a(href='actualidad.html').btn-outline
+												i.fa.fa-globe
+												span Noticias
+											li.selected: a(href='actualidad-tweets.html').btn-outline
+												i.fa.fa-twitter
+												span Tweets
+											li: a(href='actualidad-patentes.html').btn-outline
+												i.fa.fa-book
+												span Patentes
+
+								.right
+									form(action='actualidad-results.html')
+										.filter-link
+											a(href='#').btn-outline.js-open-filters
+												i.fa.fa-filter
+												| Filtrar
+
+										.filters-listing.js-filters-listing
+
+											.datepicker-container
+												h3
+													i.fa.fa-calendar-o
+													|  Fecha
+
+												.half
+													.left
+														label de:
+														input(type='text').js-date-from
+
+													.right
+														label hasta:
+														input(type='text').js-date-to
+										
+											
+													
+												
+											.half.action
+												.left
+													button(type='reset').btn.alt Borrar
+												.right
+													button(type='submit').btn
+														| Buscar 
+														i.fa.fa-search
+											
+											.window-options
+												a(href='#').js-close-filters
+													i.fa.fa-times-circle
+
+
+				.panel-news-listing: .container
+					h2.date Tweets
+					
+					ul
+						- for(i=0 ; i<12 ; i++) {
+						+get-tweet()
+						- }
+				
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts
