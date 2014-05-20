@@ -31,7 +31,7 @@ public class PersistenciaEtiquetasTest {
             persister.persist(etiqueta);
         }
 
-        List<Etiqueta> persisted = retriever.getAllPersisted();
+        List<mx.com.icvt.model.common.Etiqueta> persisted = retriever.getAllPersisted();
         assertEquals(etiquetas.size(), persisted.size());
         cleanDataStore();
     }
@@ -62,7 +62,7 @@ public class PersistenciaEtiquetasTest {
             persister.persist(etiqueta);
         }
 
-        List<Etiqueta> persisted = retriever.getAllPersisted();
+        List<mx.com.icvt.model.common.Etiqueta> persisted = retriever.getAllPersisted();
         Long id = persisted.get(0).getId();
         Etiqueta etiqueta = retriever.getById(id);
         assertEquals(persisted.get(0).getValor(), etiqueta.getValor());

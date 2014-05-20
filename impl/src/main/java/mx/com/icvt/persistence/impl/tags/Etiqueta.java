@@ -26,7 +26,7 @@ public class Etiqueta {
         patentes = new ArrayList<DBPatent>();
     }
 
-    public Etiqueta(Long id, String valor, String color){
+    public Etiqueta(Long id, String valor, String color) {
         this.id = id;
         this.valor = valor;
         this.color = color;
@@ -34,7 +34,7 @@ public class Etiqueta {
         this.patentes = new LinkedList<DBPatent>();
     }
 
-    public Etiqueta(String valor, String color){
+    public Etiqueta(String valor, String color) {
         noticias = new ArrayList<Noticia>();
         patentes = new ArrayList<DBPatent>();
         this.valor = valor;
@@ -79,5 +79,9 @@ public class Etiqueta {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public mx.com.icvt.model.common.Etiqueta getEtiqueta() {
+        return new mx.com.icvt.model.common.Etiqueta(this.id, this.valor, this.color);
     }
 }
