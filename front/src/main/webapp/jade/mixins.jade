@@ -18,7 +18,7 @@ mixin get-new
 				a(href='view-new.html')
 					img(src='img/news-thumbs/#{newIndex}.jpg')
 			.title
-				a(href='#')= newsTitles[newIndex]
+				a(href='view-new.html')= newsTitles[newIndex]
 
 		.content
 			p= newsDesc[newIndex]
@@ -30,7 +30,7 @@ mixin get-new
 					span= newSources[newSourceIndex]
 
 			.source-link
-				a(href='#').link Ver nota
+				a(href='view-new.html').link Ver nota
 					i.fa.fa-arrow-right
 
 		.tags-array.cf
@@ -55,7 +55,7 @@ mixin get-tweet
 		header.cf
 			
 			.pic
-				a(href='view-new.html')
+				a(href='#')
 					img(src='img/twitter-thumbs/#{newIndex}.jpg')
 
 
