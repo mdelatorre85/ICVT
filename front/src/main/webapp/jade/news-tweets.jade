@@ -44,10 +44,10 @@ html.no-js
 								.left
 									.menu-select
 										ul
-											li.selected: a(href='actualidad.html').btn-outline
+											li: a(href='actualidad.html').btn-outline
 												i.fa.fa-globe
 												span Noticias
-											li: a(href='actualidad-tweets.html').btn-outline
+											li.selected: a(href='actualidad-tweets.html').btn-outline
 												i.fa.fa-twitter
 												span Tweets
 											li: a(href='actualidad-patentes.html').btn-outline
@@ -77,33 +77,7 @@ html.no-js
 														label hasta:
 														input(type='text').js-date-to
 										
-											.categories-container
-												h3
-													i.fa.fa-tag
-													|  Categorías
-
-												
-												ul.categories-listing
-													
-													li.tag-cat-option.blue
-														input(type='checkbox', id='tag-general')
-														label(for='tag-general') General
-
-													li.tag-cat-option.green
-														input(type='checkbox', id='tag-finanzas')
-														label(for='tag-finanzas') Finanzas
-
-													li.tag-cat-option.orange
-														input(type='checkbox', id='tag-comercio')
-														label(for='tag-comercio') Comercio
-
-													li.tag-cat-option.pink
-														input(type='checkbox', id='tag-exportaciones')
-														label(for='tag-exportaciones') Exportaciones
-
-													li.tag-cat-option.lime-dark
-														input(type='checkbox', id='tag-importaciones')
-														label(for='tag-importaciones') Importaciones
+											
 													
 												
 											.half.action
@@ -120,27 +94,11 @@ html.no-js
 
 
 				.panel-news-listing: .container
-					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, 24 de Septiembre 2014
+					h2.date Tweets
 					
 					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
-
-				.panel-news-listing: .container
-					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014
-					
-					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
-						- }
-
-				.panel-news-listing: .container
-					h2.date: <i class='fa fa-calendar'></i><span>Anteriores</span>
-					
-					ul
-						- for(i=0 ; i<6 ; i++) {
-						+get-new()
+						- for(i=0 ; i<12 ; i++) {
+						+get-tweet()
 						- }
 				
 	

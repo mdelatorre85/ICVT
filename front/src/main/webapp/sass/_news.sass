@@ -8,6 +8,17 @@
 		a
 			margin-right: 10px
 
+
+	.menu-select
+		li
+			float: left
+			margin-right: 5px
+
+			&.selected
+				a
+					background-color: $gray
+					color: white
+
 	form
 		float: right
 		position: relative
@@ -137,12 +148,11 @@
 		line-height: 1.2
 
 
+
 	footer
 		font-size: 0.8em
 		color: $gray
-		border-bottom: 1px solid $lightgray
-		margin-bottom: $spacer/3
-		padding-bottom: $spacer/3
+		
 		
 		li
 			float: left
@@ -164,6 +174,12 @@
 			text-align: right
 			i
 				margin-left: 5px
+
+
+	.tags-array
+		border-top: 1px solid $lightgray
+		margin-top: $spacer/3
+		padding-top: $spacer/3
 		
 
 	.fa-rss
@@ -200,3 +216,16 @@
 
 		.filters-listing
 			width: 300px
+
+		.menu-select
+			span
+				display: none
+
+		.half
+			.left
+				width: 60%
+
+				i
+					margin-right: 0
+			.right
+				width: 40%

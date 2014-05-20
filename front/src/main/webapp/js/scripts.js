@@ -12,7 +12,18 @@
       return $('.activate-menu').attr('checked', false);
     });
   };
-  
+
+  $(function() {
+    $('.js-date-from, .js-date-to').pickadate({
+      today: '',
+      format: 'dd mmm yy',
+      max: 'true'
+    });
+    $('.lb-alert-contact').fancybox({
+      padding: 0
+    });
+  });
+
   $(document).on('ready', init);
 
 }).call(this);

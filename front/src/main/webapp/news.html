@@ -9,8 +9,11 @@
     <!-- link(rel='shortcut icon', href='favicon.ico')-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <!-- pickadate-->
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
+    <!-- fancybox-->
+    <link rel="stylesheet" href="css/fancybox.css">
   </head>
   <body ng-app="sampleApp" ng-controller="NewsController">
     <div class="main-wrapper">
@@ -41,42 +44,55 @@
         <div class="panel-filters">
           <div class="container">
             <div class="filter-bar">
-              <form ng-submit="filter()">
-                <div class="filter-link"><a href="#" class="btn-outline js-open-filters"><i class="fa fa-filter"></i>Filtrar</a></div>
-                <div class="filters-listing js-filters-listing">
-                  <div class="datepicker-container">
-                    <h3><i class="fa fa-calendar-o"></i> Fecha</h3>
-                    <div class="half">
-                      <div class="left">
-                        <label>de:</label>
-                        <input type="text" pick-a-date="fechaInicio" max-date="fechaFin">
-                      </div>
-                      <div class="right">
-                        <label>hasta:</label>
-                        <input type="text" pick-a-date="fechaFin" min-date="fechaInicio">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="categories-container">
-                    <h3><i class="fa fa-tag"></i> Categorías</h3>
-                    <ul class="categories-listing">
-                      <li ng-repeat="tag in tags" class="tag-cat-option {{ tag.color }}">
-                        <input type="checkbox" id="tag-{{ tag.id }}" ng-model="formData.tagsc[tag.id]" ng-true-value="{{tag.id}}" ng-false-value="false">
-                        <label for="tag-{{ tag.id }}">{{ tag.value }}</label>
-                      </li>
+              <div class="half">
+                <div class="left">
+                  <div class="menu-select">
+                    <ul>
+                      <li class="selected"><a href="actualidad.html" class="btn-outline"><i class="fa fa-globe"></i><span>Noticias</span></a></li>
+                      <li><a href="actualidad-tweets.html" class="btn-outline"><i class="fa fa-twitter"></i><span>Tweets</span></a></li>
+                      <li><a href="actualidad-patentes.html" class="btn-outline"><i class="fa fa-book"></i><span>Patentes</span></a></li>
                     </ul>
                   </div>
-                  <div class="half action">
-                    <div class="left">
-                      <button type="reset" ng-click="reset()" class="btn alt">Borrar</button>
-                    </div>
-                    <div class="right">
-                      <button type="submit" class="btn">Buscar <i class="fa fa-search"></i></button>
-                    </div>
-                  </div>
-                  <div class="window-options"><a href="#" class="js-close-filters"><i class="fa fa-times-circle"></i></a></div>
                 </div>
-              </form>
+                <div class="right">
+                  <form ng-submit="filter()">
+                    <div class="filter-link"><a href="#" class="btn-outline js-open-filters"><i class="fa fa-filter"></i>Filtrar</a></div>
+                    <div class="filters-listing js-filters-listing">
+                      <div class="datepicker-container">
+                        <h3><i class="fa fa-calendar-o"></i> Fecha</h3>
+                        <div class="half">
+                          <div class="left">
+                            <label>de:</label>
+                            <input type="text" pick-a-date="fechaInicio" max-date="fechaFin">
+                          </div>
+                          <div class="right">
+                            <label>hasta:</label>
+                            <input type="text" pick-a-date="fechaFin" min-date="fechaInicio">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="categories-container">
+                        <h3><i class="fa fa-tag"></i> Categorías</h3>
+                        <ul class="categories-listing">
+                          <li ng-repeat="tag in tags" class="tag-cat-option {{ tag.color }}">
+                            <input type="checkbox" id="tag-{{ tag.id }}" ng-model="formData.tagsc[tag.id]" ng-true-value="{{tag.id}}" ng-false-value="false">
+                            <label for="tag-{{ tag.id }}">{{ tag.value }}</label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="half action">
+                        <div class="left">
+                          <button type="reset" ng-click="reset()" class="btn alt">Borrar</button>
+                        </div>
+                        <div class="right">
+                          <button type="submit" class="btn">Buscar <i class="fa fa-search"></i></button>
+                        </div>
+                      </div>
+                      <div class="window-options"><a href="#" class="js-close-filters"><i class="fa fa-times-circle"></i></a></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -214,6 +230,7 @@
     <script src="bower_components/pickadate/lib/compressed/picker.js"></script>
     <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
     <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
     <script src="js/scripts.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/main.js"></script>

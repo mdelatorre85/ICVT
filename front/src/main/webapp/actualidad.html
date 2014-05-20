@@ -9,8 +9,11 @@
     <!-- link(rel='shortcut icon', href='favicon.ico')-->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <!-- pickadate-->
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
+    <!-- fancybox-->
+    <link rel="stylesheet" href="css/fancybox.css">
   </head>
   <body>
     <div class="main-wrapper">
@@ -28,11 +31,11 @@
           <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
           <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
           <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
-          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
+          <li><a href="is.html"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
         </ul>
       </nav>
       <section class="main-container">
-        <div class="main-container-overlay"></div>
+        <div class="main-container-overlay js-main-container-overlay"></div>
         <div class="panel-title">
           <div class="container">
             <h1>Actualidad en la industria</h1>
@@ -41,58 +44,71 @@
         <div class="panel-filters">
           <div class="container">
             <div class="filter-bar">
-              <form action="actualidad-results.html">
-                <div class="filter-link"><a href="#" class="btn-outline js-open-filters"><i class="fa fa-filter"></i>Filtrar</a></div>
-                <div class="filters-listing js-filters-listing">
-                  <div class="datepicker-container">
-                    <h3><i class="fa fa-calendar-o"></i> Fecha</h3>
-                    <div class="half">
-                      <div class="left">
-                        <label>de:</label>
-                        <input type="text" class="js-date-from">
-                      </div>
-                      <div class="right">
-                        <label>hasta:</label>
-                        <input type="text" class="js-date-to">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="categories-container">
-                    <h3><i class="fa fa-tag"></i> Categorías</h3>
-                    <ul class="categories-listing">
-                      <li class="tag-cat-option blue">
-                        <input type="checkbox" id="tag-general">
-                        <label for="tag-general">General</label>
-                      </li>
-                      <li class="tag-cat-option green">
-                        <input type="checkbox" id="tag-finanzas">
-                        <label for="tag-finanzas">Finanzas</label>
-                      </li>
-                      <li class="tag-cat-option orange">
-                        <input type="checkbox" id="tag-comercio">
-                        <label for="tag-comercio">Comercio</label>
-                      </li>
-                      <li class="tag-cat-option pink">
-                        <input type="checkbox" id="tag-exportaciones">
-                        <label for="tag-exportaciones">Exportaciones</label>
-                      </li>
-                      <li class="tag-cat-option lime-dark">
-                        <input type="checkbox" id="tag-importaciones">
-                        <label for="tag-importaciones">Importaciones</label>
-                      </li>
+              <div class="half">
+                <div class="left">
+                  <div class="menu-select">
+                    <ul>
+                      <li class="selected"><a href="actualidad.html" class="btn-outline"><i class="fa fa-globe"></i><span>Noticias</span></a></li>
+                      <li><a href="actualidad-tweets.html" class="btn-outline"><i class="fa fa-twitter"></i><span>Tweets</span></a></li>
+                      <li><a href="actualidad-patentes.html" class="btn-outline"><i class="fa fa-book"></i><span>Patentes</span></a></li>
                     </ul>
                   </div>
-                  <div class="half action">
-                    <div class="left">
-                      <button type="reset" class="btn alt">Borrar</button>
-                    </div>
-                    <div class="right">
-                      <button type="submit" class="btn">Buscar <i class="fa fa-search"></i></button>
-                    </div>
-                  </div>
-                  <div class="window-options"><a href="#" class="js-close-filters"><i class="fa fa-times-circle"></i></a></div>
                 </div>
-              </form>
+                <div class="right">
+                  <form action="actualidad-results.html">
+                    <div class="filter-link"><a href="#" class="btn-outline js-open-filters"><i class="fa fa-filter"></i>Filtrar</a></div>
+                    <div class="filters-listing js-filters-listing">
+                      <div class="datepicker-container">
+                        <h3><i class="fa fa-calendar-o"></i> Fecha</h3>
+                        <div class="half">
+                          <div class="left">
+                            <label>de:</label>
+                            <input type="text" class="js-date-from">
+                          </div>
+                          <div class="right">
+                            <label>hasta:</label>
+                            <input type="text" class="js-date-to">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="categories-container">
+                        <h3><i class="fa fa-tag"></i> Categorías</h3>
+                        <ul class="categories-listing">
+                          <li class="tag-cat-option blue">
+                            <input type="checkbox" id="tag-general">
+                            <label for="tag-general">General</label>
+                          </li>
+                          <li class="tag-cat-option green">
+                            <input type="checkbox" id="tag-finanzas">
+                            <label for="tag-finanzas">Finanzas</label>
+                          </li>
+                          <li class="tag-cat-option orange">
+                            <input type="checkbox" id="tag-comercio">
+                            <label for="tag-comercio">Comercio</label>
+                          </li>
+                          <li class="tag-cat-option pink">
+                            <input type="checkbox" id="tag-exportaciones">
+                            <label for="tag-exportaciones">Exportaciones</label>
+                          </li>
+                          <li class="tag-cat-option lime-dark">
+                            <input type="checkbox" id="tag-importaciones">
+                            <label for="tag-importaciones">Importaciones</label>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="half action">
+                        <div class="left">
+                          <button type="reset" class="btn alt">Borrar</button>
+                        </div>
+                        <div class="right">
+                          <button type="submit" class="btn">Buscar <i class="fa fa-search"></i></button>
+                        </div>
+                      </div>
+                      <div class="window-options"><a href="#" class="js-close-filters"><i class="fa fa-times-circle"></i></a></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -102,15 +118,35 @@
             <ul>
               <li class="element">
                 <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Tepeji del Río, potencia textilera</a></div>
+                </header>
+                <div class="content">
+                  <p>Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>terra.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
-                  <div class="title"><a href="#">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
+                  <div class="title"><a href="view-new.html">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
                 </header>
                 <div class="content">
                   <p>Hay recursos por alrededor de 70 mdp.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -123,54 +159,14 @@
               <li class="element">
                 <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/1.jpg"/></a></div>
-                  <div class="title"><a href="#">Competencia desleal genera pérdidas de 60% a industria textil</a></div>
+                  <div class="title"><a href="view-new.html">Competencia desleal genera pérdidas de 60% a industria textil</a></div>
                 </header>
                 <div class="content">
                   <p>Algunos talleres que hace cinco o seis años tenían 20 empleados, hoy tienen la mitad.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/3.jpg"/></a></div>
-                  <div class="title"><a href="#">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
-                </header>
-                <div class="content">
-                  <p>Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/3.jpg"/></a></div>
-                  <div class="title"><a href="#">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
-                </header>
-                <div class="content">
-                  <p>Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -183,14 +179,14 @@
               <li class="element">
                 <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
-                  <div class="title"><a href="#">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                  <div class="title"><a href="view-new.html">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
                 </header>
                 <div class="content">
                   <p>El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -202,15 +198,35 @@
               </li>
               <li class="element">
                 <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/1.jpg"/></a></div>
-                  <div class="title"><a href="#">Competencia desleal genera pérdidas de 60% a industria textil</a></div>
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
                 </header>
                 <div class="content">
-                  <p>Algunos talleres que hace cinco o seis años tenían 20 empleados, hoy tienen la mitad.</p>
+                  <p>Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
+                </header>
+                <div class="content">
+                  <p>Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>terra.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -229,95 +245,35 @@
             <ul>
               <li class="element">
                 <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
-                  <div class="title"><a href="#">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/3.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
                 </header>
                 <div class="content">
-                  <p>Hay recursos por alrededor de 70 mdp.</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
-                  <div class="title"><a href="#">Universidades, respuesta a necesidades regionales</a></div>
-                </header>
-                <div class="content">
-                  <p>Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
-                  <div class="title"><a href="#">Tepeji del Río, potencia textilera</a></div>
-                </header>
-                <div class="content">
-                  <p>Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
-                  <div class="title"><a href="#">Universidades, respuesta a necesidades regionales</a></div>
-                </header>
-                <div class="content">
-                  <p>Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.</p>
-                </div>
-                <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
-                  <div class="title"><a href="#">Tepeji del Río, potencia textilera</a></div>
-                </header>
-                <div class="content">
-                  <p>Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.</p>
+                  <p>Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                </header>
+                <div class="content">
+                  <p>El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>terra.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -330,14 +286,74 @@
               <li class="element">
                 <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/3.jpg"/></a></div>
-                  <div class="title"><a href="#">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
+                  <div class="title"><a href="view-new.html">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
                 </header>
                 <div class="content">
                   <p>Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>terra.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Tepeji del Río, potencia textilera</a></div>
+                </header>
+                <div class="content">
+                  <p>Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
+                </header>
+                <div class="content">
+                  <p>Hay recursos por alrededor de 70 mdp.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                </header>
+                <div class="content">
+                  <p>El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -357,14 +373,14 @@
               <li class="element">
                 <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
-                  <div class="title"><a href="#">Universidades, respuesta a necesidades regionales</a></div>
+                  <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
                 </header>
                 <div class="content">
                   <p>Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -377,14 +393,14 @@
               <li class="element">
                 <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
-                  <div class="title"><a href="#">Universidades, respuesta a necesidades regionales</a></div>
+                  <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
                 </header>
                 <div class="content">
                   <p>Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -396,15 +412,15 @@
               </li>
               <li class="element">
                 <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
-                  <div class="title"><a href="#">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
                 </header>
                 <div class="content">
-                  <p>El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.</p>
+                  <p>Hay recursos por alrededor de 70 mdp.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -416,15 +432,35 @@
               </li>
               <li class="element">
                 <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
-                  <div class="title"><a href="#">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/1.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Competencia desleal genera pérdidas de 60% a industria textil</a></div>
                 </header>
                 <div class="content">
-                  <p>El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.</p>
+                  <p>Algunos talleres que hace cinco o seis años tenían 20 empleados, hoy tienen la mitad.</p>
                 </div>
                 <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                </footer>
+                <div class="tags-array cf">
+                  <ul>
+                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
+                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
+                    <li><a href="#" class="tag-cat-line blue">General</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="element">
+                <header class="cf">
+                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
+                  <div class="title"><a href="view-new.html">Tepeji del Río, potencia textilera</a></div>
+                </header>
+                <div class="content">
+                  <p>Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.</p>
+                </div>
+                <footer class="cf">
+                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -437,34 +473,14 @@
               <li class="element">
                 <header class="cf">
                   <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/3.jpg"/></a></div>
-                  <div class="title"><a href="#">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
+                  <div class="title"><a href="view-new.html">Repartirá Concurso Artesanal Textil 215 mil pesos en premios</a></div>
                 </header>
                 <div class="content">
                   <p>Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso</p>
                 </div>
                 <footer class="cf">
-                  <div class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
-                </footer>
-                <div class="tags-array cf">
-                  <ul>
-                    <li><a href="#" class="tag-cat-line green">Finanzas</a></li>
-                    <li><a href="#" class="tag-cat-line orange">Comercio</a></li>
-                    <li><a href="#" class="tag-cat-line blue">General</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="element">
-                <header class="cf">
-                  <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
-                  <div class="title"><a href="#">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
-                </header>
-                <div class="content">
-                  <p>El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.</p>
-                </div>
-                <footer class="cf">
                   <div class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></div>
-                  <div class="source-link"><a href="#" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
+                  <div class="source-link"><a href="view-new.html" class="link">Ver nota<i class="fa fa-arrow-right"></i></a></div>
                 </footer>
                 <div class="tags-array cf">
                   <ul>
@@ -496,6 +512,7 @@
     <script src="bower_components/pickadate/lib/compressed/picker.js"></script>
     <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
     <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
     <script src="js/scripts.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/main.js"></script>

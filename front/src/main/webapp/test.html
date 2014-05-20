@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,35 +15,20 @@
     <!-- fancybox-->
     <link rel="stylesheet" href="css/fancybox.css">
   </head>
-  <body ng-app="sampleApp">
-    <div class="login-head">
-      <h1>aie</h1>
-      <h2>Sistema de Inteligencia y Tecnología Empresarial</h2>
-    </div>
-    <div class="login-form">
-      <div class="title">
-        <h3>Bienvenido</h3>
-      </div>
-      <form ng-controller="loginController" ng-submit="login()">
-        <fieldset class="wi">
-          <input type="text" ng-model="formData.identity" placeholder="Nombre de Usuario"><i class="fa fa-user"></i>
-        </fieldset>
-        <fieldset class="wi">
-          <input type="password" ng-model="formData.password" placeholder="Contraseña"><i class="fa fa-lock"></i>
-        </fieldset>
-        <fieldset class="loader">
-          i.fa.fa-spinner.fa-spin
-          
-        </fieldset>
-        <fieldset class="action">
-          <button type="submit" class="btn">Ingresar</button>
-        </fieldset>
-        <fieldset class="error"><span>{{ error }}</span></fieldset>
-      </form>
+  <body>
+    <div class="action"><a href="#alert-contact" class="lb-alert-contact btn">Solicitar más información </a></div>
+    <div id="alert-contact">
+      <p>lololol</p>
     </div>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/scripts.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/loginController.js"></script>
+    <script src="js/controllers.js"></script>
   </body>
 </html>

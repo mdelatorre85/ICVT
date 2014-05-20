@@ -18,7 +18,7 @@ mixin get-new
 				a(href='view-new.html')
 					img(src='img/news-thumbs/#{newIndex}.jpg')
 			.title
-				a(href='#')= newsTitles[newIndex]
+				a(href='view-new.html')= newsTitles[newIndex]
 
 		.content
 			p= newsDesc[newIndex]
@@ -30,7 +30,7 @@ mixin get-new
 					span= newSources[newSourceIndex]
 
 			.source-link
-				a(href='#').link Ver nota
+				a(href='view-new.html').link Ver nota
 					i.fa.fa-arrow-right
 
 		.tags-array.cf
@@ -41,6 +41,36 @@ mixin get-new
 					a(href='#').tag-cat-line.orange Comercio
 				li
 					a(href='#').tag-cat-line.blue General
+
+
+mixin get-tweet
+	-var newIndex = Math.floor((Math.random() * 5) + 1);
+	-var newsTweet = { 1: '#LoMásLeído: @SE_mx evalúa la posibilidad de bajar los aranceles del sector textil, vestido y calzado para 2014  http://bit.ly/19w3D6U ', 2: '#Noticias. Avanza Centro de Innovación Textil de  corte nacional http://bit.ly/1pWmKLy', 3: 'La industria textil estima crecer en 2014 sólo 1% o 2%', 4: 'Gigantes occidentales del textil apoyan acuerdos para seguridad del trabajo en Bangladesh http://mile.io/11DmJpR', 5: 'Universidades, respuesta a necesidades regionales'}
+	
+	
+	-var newSourceIndex = Math.floor((Math.random() * 4) + 1);
+	-var newSources = { 1: '@ElFinanciero_Mx', 2: '@eleconomista', 3: '@eluniversal', 4: '@Milenio', 5: '@terra'}
+
+	li.element.tweet
+		header.cf
+			
+			.pic
+				a(href='#')
+					img(src='img/twitter-thumbs/#{newIndex}.jpg')
+
+
+			.content
+				p= newsTweet[newIndex]
+			
+		footer.cf
+			.source
+				a(href='#')
+					i.fa.fa-twitter
+					span= newSources[newSourceIndex]
+
+			.source-link
+				a(href='#').link Ver tweet
+					i.fa.fa-arrow-right
 
 
 mixin get-new-widget

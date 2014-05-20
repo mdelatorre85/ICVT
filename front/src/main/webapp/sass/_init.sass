@@ -99,7 +99,7 @@ h1, h2, h3, h4, h5, h6
 button, input:focus, textarea:focus, isindex:focus, keygen:focus, select:focus
 	outline: 0
 
-input[type='text'], input[type='email'], input[type='password']
+input[type='text'], input[type='email'], input[type='password'], textarea
 	+reset-appearance
 	background-color: white
 	font-size: inherit
@@ -114,6 +114,7 @@ input[type='text'], input[type='email'], input[type='password']
 	border: 1px solid $lightgray
 	width: 100%
 	padding: 3px
+	resize: none
 
 
 
@@ -146,6 +147,11 @@ button
 	-moz-box-sizing: border-box
 	-webkit-box-sizing: border-box
 	box-sizing: border-box
+
+.lb
+	display: none
+	padding: $spacer
+	max-width: 640px
 
 
 #data

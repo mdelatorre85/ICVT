@@ -40,51 +40,67 @@ html.no-js
 				.panel-filters
 					.container
 						.filter-bar
-							form(ng-submit='filter()')
-								.filter-link
-									a(href='#').btn-outline.js-open-filters
-										i.fa.fa-filter
-										| Filtrar
+							.half
+								.left
+									.menu-select
+										ul
+											li.selected: a(href='actualidad.html').btn-outline
+												i.fa.fa-globe
+												span Noticias
+											li: a(href='actualidad-tweets.html').btn-outline
+												i.fa.fa-twitter
+												span Tweets
+											li: a(href='actualidad-patentes.html').btn-outline
+												i.fa.fa-book
+												span Patentes
 
-								.filters-listing.js-filters-listing
+								.right
 
-									.datepicker-container
-										h3
-											i.fa.fa-calendar-o
-											|  Fecha
+									form(ng-submit='filter()')
+										.filter-link
+											a(href='#').btn-outline.js-open-filters
+												i.fa.fa-filter
+												| Filtrar
 
-										.half
-											.left
-												label de:
-												input(type='text',pick-a-date="fechaInicio",max-date="fechaFin")
+										.filters-listing.js-filters-listing
 
-											.right
-												label hasta:
-												input(type='text',pick-a-date="fechaFin",min-date="fechaInicio")
-								
-									.categories-container
-										h3
-											i.fa.fa-tag
-											|  Categorías
+											.datepicker-container
+												h3
+													i.fa.fa-calendar-o
+													|  Fecha
 
+												.half
+													.left
+														label de:
+														input(type='text',pick-a-date="fechaInicio",max-date="fechaFin")
+
+													.right
+														label hasta:
+														input(type='text',pick-a-date="fechaFin",min-date="fechaInicio")
 										
-										ul.categories-listing
+											.categories-container
+												h3
+													i.fa.fa-tag
+													|  Categorías
+
+												
+												ul.categories-listing
+													
+													li(ng-repeat='tag in tags', class='tag-cat-option {{ tag.color }}')
+														input(type='checkbox',id='tag-{{ tag.id }}',ng-model='formData.tagsc[tag.id]',ng-true-value='{{tag.id}}',ng-false-value='false')
+														label(for='tag-{{ tag.id }}') {{ tag.value }}
+												
+											.half.action
+												.left
+													button(type='reset',ng-click='reset()').btn.alt Borrar
+												.right
+													button(type='submit').btn
+														| Buscar 
+														i.fa.fa-search
 											
-											li(ng-repeat='tag in tags', class='tag-cat-option {{ tag.color }}')
-												input(type='checkbox',id='tag-{{ tag.id }}',ng-model='formData.tagsc[tag.id]',ng-true-value='{{tag.id}}',ng-false-value='false')
-												label(for='tag-{{ tag.id }}') {{ tag.value }}
-										
-									.half.action
-										.left
-											button(type='reset',ng-click='reset()').btn.alt Borrar
-										.right
-											button(type='submit').btn
-												| Buscar 
-												i.fa.fa-search
-									
-									.window-options
-										a(href='#').js-close-filters
-											i.fa.fa-times-circle
+											.window-options
+												a(href='#').js-close-filters
+													i.fa.fa-times-circle
 
 
 				.panel-verbose-results
