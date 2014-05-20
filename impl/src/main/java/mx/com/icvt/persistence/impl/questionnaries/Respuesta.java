@@ -45,11 +45,11 @@ public class Respuesta {
             SingleOptionAnswer soa = (SingleOptionAnswer) answer;
             textoRespuesta = soa.getAnswer().toString();
             tipoDeRespuesta = TipoDeRespuesta.RESPUESTAAOPCIONUNICA.getName();
-        }else if (answer instanceof MultipleOptionAnswer) {
+        } else if (answer instanceof MultipleOptionAnswer) {
             MultipleOptionAnswer moa = (MultipleOptionAnswer) answer;
-            StringBuilder sb= new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             tipoDeRespuesta = TipoDeRespuesta.RESPUESTAAOPCIONMULTIPLE.getName();
-            for (Integer aanswer: moa.getAnswers()){
+            for (Integer aanswer : moa.getAnswers()) {
                 sb.append(aanswer);
                 sb.append("|");
             }
@@ -59,12 +59,12 @@ public class Respuesta {
 
     }
 
-    public void setTipoDeRespuesta(TipoDeRespuesta tipoDeRespuesta) {
-        this.tipoDeRespuesta = tipoDeRespuesta.getName();
-    }
-
     public String getTipoDeRespuesta() {
         return tipoDeRespuesta;
+    }
+
+    public void setTipoDeRespuesta(TipoDeRespuesta tipoDeRespuesta) {
+        this.tipoDeRespuesta = tipoDeRespuesta.getName();
     }
 
     public Long getId() {
@@ -99,6 +99,37 @@ public class Respuesta {
         this.unidadEconomicaId = unidadEconomicaId;
     }
 
+    public Answer toAnswer() {
+
+        if (tipoDeRespuesta.equals(TipoDeRespuesta.RESPUESTAAPREGUNTAABIERTA.getName())) {
+            OpenTextAnswer ota = new OpenTextAnswer(userId, (OpenTextQuestion) pregunta.toQuestion(), textoRespuesta);
+            ota.setEconomicUnitId(unidadEconomicaId);
+            ota.setId(id);
+            ota.setQuestionId(pregunta.getId());
+            ota.setAnswer(textoRespuesta);
+            return ota;
+        } else if (tipoDeRespuesta.equals(TipoDeRespuesta.RESPUESTAAOPCIONUNICA.getName())) {
+            SingleOptionAnswer soa = new SingleOptionAnswer(userId, (SingleOptionQuestion) pregunta.toQuestion());
+            soa.setAnswer(Integer.parseInt(textoRespuesta));
+            soa.setId(id);
+            soa.setEconomicUnitId(unidadEconomicaId);
+            soa.setQuestionId(pregunta.getId());
+            return soa;
+        } else if (tipoDeRespuesta.equals(TipoDeRespuesta.RESPUESTAAOPCIONMULTIPLE.getName())) {
+            MultipleOptionAnswer moa = new MultipleOptionAnswer(userId, (MultipleOptionQuestion) pregunta.toQuestion());
+            moa.setQuestionId(pregunta.getId());
+            moa.setEconomicUnitId(unidadEconomicaId);
+            moa.setQuestionId(pregunta.getId());
+            String[] respuestas = textoRespuesta.split("|");
+            for (int i = 0; i < respuestas.length; i++) {
+                moa.getAnswers().add(Integer.parseInt(respuestas[i]));
+            }
+            return moa;
+        }
+
+        throw new InternalError("The Answer has a mistaken TipoDeRespuesta");
+    }
+
     public enum TipoDeRespuesta {
         RESPUESTAAPREGUNTAABIERTA("preguntaAbierta"), RESPUESTAAOPCIONMULTIPLE("opcionMultiple"), RESPUESTAAOPCIONUNICA("opcionUnica"),;
         private String name;
@@ -110,36 +141,5 @@ public class Respuesta {
         public String getName() {
             return name;
         }
-    }
-
-    public Answer toAnswer(){
-
-        if (tipoDeRespuesta.equals(TipoDeRespuesta.RESPUESTAAPREGUNTAABIERTA.getName())){
-            OpenTextAnswer ota = new OpenTextAnswer(userId, (OpenTextQuestion)pregunta.toQuestion(),textoRespuesta);
-            ota.setEconomicUnitId(unidadEconomicaId);
-            ota.setId(id);
-            ota.setQuestionId(pregunta.getId());
-            ota.setAnswer(textoRespuesta);
-            return ota;
-        }else if (tipoDeRespuesta.equals(TipoDeRespuesta.RESPUESTAAOPCIONUNICA.getName())){
-            SingleOptionAnswer soa = new SingleOptionAnswer(userId,(SingleOptionQuestion)pregunta.toQuestion());
-            soa.setAnswer(Integer.parseInt(textoRespuesta));
-            soa.setId(id);
-            soa.setEconomicUnitId(unidadEconomicaId);
-            soa.setQuestionId(pregunta.getId());
-            return soa;
-        } else if (tipoDeRespuesta.equals(TipoDeRespuesta.RESPUESTAAOPCIONMULTIPLE.getName())){
-            MultipleOptionAnswer moa = new MultipleOptionAnswer(userId,(MultipleOptionQuestion)pregunta.toQuestion());
-            moa.setQuestionId(pregunta.getId());
-            moa.setEconomicUnitId(unidadEconomicaId);
-            moa.setQuestionId(pregunta.getId());
-            String[] respuestas = textoRespuesta.split("|");
-            for(int i = 0; i<respuestas.length;i++){
-                moa.getAnswers().add(Integer.parseInt(respuestas[i]));
-            }
-            return moa;
-        }
-
-        throw new InternalError("The Answer has a mistaken TipoDeRespuesta");
     }
 }

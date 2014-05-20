@@ -52,11 +52,7 @@ public class Topic {
     }
 
     public ArrayList<Question> getQuestions() {
-        ArrayList<Question> retorno = new ArrayList<Question>();
-        for (Question q : questions) {
-            retorno.add(q);
-        }
-        return retorno;
+        return questions;
     }
 
     public int questionsSize() {
