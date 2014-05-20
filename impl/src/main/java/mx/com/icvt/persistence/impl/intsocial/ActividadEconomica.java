@@ -1,26 +1,24 @@
 package mx.com.icvt.persistence.impl.intsocial;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
+@Table(name = "actividad_economica")
 public class ActividadEconomica {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int actividad_economica;
+    private int descripcion;
+
+    @OneToMany(mappedBy = "actividadEconomica")
+    private List<CensosEconomicos> censosEconomicos;
 
     public ActividadEconomica() {
-    }
-
-    public int getActividad_economica() {
-        return actividad_economica;
-    }
-
-    public void setActividad_economica(int actividad_economica) {
-        this.actividad_economica = actividad_economica;
+        this.censosEconomicos = new LinkedList<CensosEconomicos>();
     }
 
     public int getId() {
@@ -31,4 +29,19 @@ public class ActividadEconomica {
         this.id = id;
     }
 
+    public int getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(int descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public List<CensosEconomicos> getCensosEconomicos() {
+        return censosEconomicos;
+    }
+
+    public void setCensosEconomicos(List<CensosEconomicos> censosEconomicos) {
+        this.censosEconomicos = censosEconomicos;
+    }
 }

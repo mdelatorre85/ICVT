@@ -17,17 +17,21 @@
         <class>mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.ClaseActividad</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.Municipio</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.Localidad</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.EntidadFederativa</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.PersonalOcupado</class>
         <class>mx.com.icvt.persistence.impl.intsocial.CensosEconomicos</class>
         <class>mx.com.icvt.persistence.impl.intsocial.CensosEducacion</class>
         <class>mx.com.icvt.persistence.impl.intsocial.CensosPoblacion</class>
+        <class>mx.com.icvt.persistence.impl.intsocial.ActividadEconomica</class>
         <class>mx.com.icvt.persistence.impl.user.User</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ICVT" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ICVT"/>
             <!--  <property name="javax.persistence.jdbc.user" value="root" /> -->
             <!-- <property name="javax.persistence.jdbc.password" value="" /> -->
-            <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="lamisma00" />
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="javax.persistence.jdbc.password" value="lamisma00"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
         </properties>
     </persistence-unit>

@@ -1,5 +1,7 @@
 package mx.com.icvt.persistence.impl.intsocial;
 
+import mx.com.icvt.persistence.impl.vocaciones.Municipio;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,14 +10,31 @@ public class CensosPoblacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int cve_mun;
+
+    @Column(name = "id_municipio")
     private int total;
+
+    @Column(name = "hombres")
     private int hombres;
+
+    @Column(name = "mujeres")
     private int mujeres;
-    private int relacion_hm;
+
+    @Column(name = "relacion_hm")
+    private int relacionHombresMujeres;
+
+    @Column(name = "superficie")
     private int superficie;
+
+    @Column(name = "densidad")
     private int densidad;
-    private int anno;
+
+    @Column(name = "anio")
+    private int anio;
+
+    @ManyToOne
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
 
     public CensosPoblacion() {
     }
@@ -26,14 +45,6 @@ public class CensosPoblacion {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getCve_mun() {
-        return cve_mun;
-    }
-
-    public void setCve_mun(int cve_mun) {
-        this.cve_mun = cve_mun;
     }
 
     public int getTotal() {
@@ -60,12 +71,12 @@ public class CensosPoblacion {
         this.mujeres = mujeres;
     }
 
-    public int getRelacion_hm() {
-        return relacion_hm;
+    public int getRelacionHombresMujeres() {
+        return relacionHombresMujeres;
     }
 
-    public void setRelacion_hm(int relacion_hm) {
-        this.relacion_hm = relacion_hm;
+    public void setRelacionHombresMujeres(int relacionHombresMujeres) {
+        this.relacionHombresMujeres = relacionHombresMujeres;
     }
 
     public int getSuperficie() {
@@ -84,11 +95,19 @@ public class CensosPoblacion {
         this.densidad = densidad;
     }
 
-    public int getAnno() {
-        return anno;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setAnno(int anno) {
-        this.anno = anno;
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 }

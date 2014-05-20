@@ -31,7 +31,7 @@ public class UnidadEconomicaModel {
 
         unidadE = LunidadE.get(0);
 
-        this.setClase_act(unidadE.getClase_act());
+//        this.setClase_act(unidadE.getClase_act());
         this.setTipoIndustriaProceso();
 
         return unidadE;
