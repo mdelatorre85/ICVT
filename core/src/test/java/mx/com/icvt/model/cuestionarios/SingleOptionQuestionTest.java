@@ -1,5 +1,6 @@
 package mx.com.icvt.model.cuestionarios;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertNotNull;
@@ -21,6 +22,7 @@ public class SingleOptionQuestionTest {
         assertNotNull(question);
     }
 
+    @Ignore
     @Test(expected = IllegalArgumentException.class)
     public void testWrongSetAnswerNullAnswer(){
         SingleOptionQuestion question = new SingleOptionQuestion("If man evolved from apes why do we still have apes?");

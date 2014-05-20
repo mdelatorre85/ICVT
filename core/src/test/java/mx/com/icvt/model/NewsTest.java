@@ -1,5 +1,6 @@
 package mx.com.icvt.model;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -82,6 +83,7 @@ public class NewsTest {
         assertFalse(news1.equals(news2));
     }
 
+    @Ignore
     @Test
     public void  testCompare() throws MalformedURLException, ParseException {
         News news1 = new News("", "http://www.google.com", "Wed, 26 Mar 2014 17:34:34 GMT", "", "");
