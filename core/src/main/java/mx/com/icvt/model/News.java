@@ -1,5 +1,7 @@
 package mx.com.icvt.model;
 
+import mx.com.icvt.model.common.Etiqueta;
+
 import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -46,13 +48,13 @@ public class News implements Serializable, Comparable<News> {
             throw new IllegalArgumentException("Argument pubDateString cannot be null or empty.");
         }
         this.pubDateString = pubDateString;
-        if (title.contains("-")){
-            title=title.substring(0,title.lastIndexOf('-')).trim();
+        if (title.contains("-")) {
+            title = title.substring(0, title.lastIndexOf('-')).trim();
         }
         this.title = title;
         this.description = description;
 
-        if (image != null && image.length()>0){
+        if (image != null && image.length() > 0) {
             this.image = "http:".concat(image);
         }
 
@@ -236,41 +238,5 @@ public class News implements Serializable, Comparable<News> {
 
     public List<Etiqueta> getEtiquetas() {
         return this.etiquetas;
-    }
-
-    public class Etiqueta {
-        private Long id;
-        private String valor;
-        private String color;
-
-        private Etiqueta(Long id, String valor, String color) {
-            this.id = id;
-            this.valor = valor;
-            this.color = color;
-        }
-
-        public Long getId() {
-            return id;
-        }
-
-        public void setId(Long id) {
-            this.id = id;
-        }
-
-        public String getValor() {
-            return valor;
-        }
-
-        public void setValor(String valor) {
-            this.valor = valor;
-        }
-
-        public String getColor() {
-            return color;
-        }
-
-        public void setColor(String color) {
-            this.color = color;
-        }
     }
 }

@@ -1,6 +1,5 @@
 package mx.com.icvt.front.services;
 
-import mx.com.icvt.front.presenters.commons.Etiqueta;
 import mx.com.icvt.front.presenters.noticias.GrupoNoticias;
 import mx.com.icvt.front.presenters.noticias.Noticia;
 import mx.com.icvt.front.presenters.noticias.NoticiasAgrupadas;
@@ -122,11 +121,7 @@ public class NoticiasService {
         noticia.setUrl(news.getUrl());
         noticia.setFuente(news.getSource());
         noticia.setImagen(news.getImage());
-
-        List<News.Etiqueta> etiquetas = news.getEtiquetas();
-        for (News.Etiqueta etiqueta : etiquetas) {
-            noticia.getEtiquetas().add(new Etiqueta(etiqueta));
-        }
+        noticia.setEtiquetas(news.getEtiquetas());
 
         return noticia;
     }
