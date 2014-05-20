@@ -119,15 +119,16 @@ angular.module('ng').directive('pickATime', function () {
 sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
   
   var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-  $scope.tags = [{id:1,value:"general",color:"blue"},{id:2,value:"finanzas",color:"green"},{id:3,value:"comercio",color:"orange"},{id:4,value:"exportaciones",color:"pink"},{id:5,value:"importaciones",color:"lime-dark"}]
-  $scope.formData.tagsc = {};
+  $scope.tags = [{id:1,value:"general",color:"blue"},{id:2,value:"finanzas",color:"green"},{id:3,value:"comercio",color:"orange"},{id:4,value:"exportaciones",color:"pink"},{id:5,value:"importaciones",color:"lime-dark"}];
   $scope.formData = {};
+  $scope.formData.tagsc = {};
 	$scope.newsa = null;
 	$scope.newsb = null;	
 	$scope.newsc = null;
   $scope.newsresult = null;
   $scope.resultText = "";
   $scope.formData.tagGeneral = 1;
+
 
 	$http({
     method  : 'POST',
@@ -220,7 +221,8 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
         }
         if ($scope.formData.tagImportaciones) {
           $scope.resultText += "<span class='tag-cat-line lime-dark'>Importaciones</span>";
-        }  
+        }
+        $('.js-filters-listing').toggle();  
       }
 
     })
@@ -229,6 +231,8 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
       // $scope.error = "Usuario o contraseña incorrectos"
       //TODO: Mandar mensajes de error.
     }); 
+
+
   };
 
   $scope.reset = function() {
