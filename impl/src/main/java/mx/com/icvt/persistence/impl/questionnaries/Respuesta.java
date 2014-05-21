@@ -31,6 +31,8 @@ public class Respuesta {
     @Column(name = "tipo_de_respuesta")
     private String tipoDeRespuesta;
 
+    public Respuesta(){}
+
     public Respuesta(Answer answer) {
         id = answer.getId();
         userId = answer.getUserId();
