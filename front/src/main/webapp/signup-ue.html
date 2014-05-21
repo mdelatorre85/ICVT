@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
     <!-- fancybox-->
     <link rel="stylesheet" href="css/fancybox.css">
+    <!-- google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
   </head>
   <body>
     <div class="main-wrapper">
@@ -46,25 +48,217 @@
             <div class="half">
               <div class="left"><br></div>
               <div class="right">
-                <button type="submit" class="btn"><i class='fa fa-save'></i> Guardar</button>
+                <button type="submit" class="btn"><i class='fa fa-save'></i> Guardar			</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="panel-question-all-blocks-container">
+        <div class="panel-signup">
           <div class="container">
-            <div class="panel-question-container">
+            <form action="#" class="form">
               <fieldset>
+                <legend>Información de la empresa</legend>
                 <dl class="question">
                   <dt>
-                    <label>Municipio</label>
+                    <label>Nombre de la Unidad Económica:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Razón social:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Código de la clase de actividad SCIAN:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Personal ocupado:</label>
                   </dt>
                   <dd class="answers">
                     <ul>
                       <li class="input-select">
                         <select>
-                          <option>Selecciona tu Municipio</option>
+                          <option disabled selected>Seleciona el personal ocupado en la empresa</option>
+                          <option>0 a 5 personas</option>
+                          <option>6 a 10 personas</option>
+                          <option>11 a 30 personas</option>
+                          <option>31 a 50 personas</option>
+                          <option>51 a 100 personas</option>
+                          <option>101 a 250 personas</option>
+                          <option>251 y más personas</option>
+                        </select>
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+              </fieldset>
+              <fieldset>
+                <legend>Dirección / Ubicación</legend>
+                <dl class="question">
+                  <dt>
+                    <label>Calle:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Número exterior:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Número interior:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Colonia:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Municipio:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-select">
+                        <select>													
+                          <option disabled selected>Seleciona tu municipio</option>
+                          <option>Acatlán</option>
+                          <option>Acaxochitlán</option>
+                          <option>Actopan</option>
+                          <option>Agua Blanca de Iturbide</option>
+                          <option>Ajacuba</option>
+                          <option>Alfajayucan</option>
+                          <option>Almoloya</option>
+                          <option>Apan</option>
+                          <option>El Arenal</option>
+                          <option>Atitalaquia</option>
+                          <option>Atlapexco</option>
+                          <option>Atotonilco el Grande</option>
+                          <option>Atotonilco de Tula</option>
+                          <option>Calnali</option>
+                          <option>Cardonal</option>
+                          <option>Cuautepec de Hinojosa</option>
+                          <option>Chapantongo</option>
+                          <option>Chapulhuacán</option>
+                          <option>Chilcuautla</option>
+                          <option>Eloxochitlán</option>
+                          <option>Emiliano Zapata</option>
+                          <option>Epazoyucan</option>
+                          <option>Francisco I. Madero</option>
+                          <option>Huasca de Ocampo</option>
+                          <option>Huautla</option>
+                          <option>Huazalingo</option>
+                          <option>Huehuetla</option>
+                          <option>Huejutla de Reyes</option>
+                          <option>Huichapan</option>
+                          <option>Ixmiquilpan</option>
+                          <option>Jacala de Ledezma</option>
+                          <option>Jaltocán</option>
+                          <option>Juárez Hidalgo</option>
+                          <option>Lolotla</option>
+                          <option>Metepec</option>
+                          <option>San Agustín Metzquititlán</option>
+                          <option>Metztitlán</option>
+                          <option>Mineral del Chico</option>
+                          <option>Mineral del Monte</option>
+                          <option>La Misión</option>
+                          <option>Mixquiahuala de Juárez</option>
+                          <option>Molango de Escamilla</option>
+                          <option>Nicolás Flores</option>
+                          <option>Nopala de Villagrán</option>
+                          <option>Omitlán de Juárez</option>
+                          <option>San Felipe Orizatlán</option>
+                          <option>Pacula</option>
                           <option>Pachuca de Soto</option>
+                          <option>Pisaflores</option>
+                          <option>Progreso de Obregón</option>
+                          <option>Mineral de la Reforma</option>
+                          <option>San Agustín Tlaxiaca</option>
+                          <option>San Bartolo Tutotepec</option>
+                          <option>San Salvador</option>
+                          <option>Santiago de Anaya</option>
+                          <option>Santiago Tulantepec de Lugo Guerrero</option>
+                          <option>Singuilucan</option>
+                          <option>Tasquillo</option>
+                          <option>Tecozautla</option>
+                          <option>Tenango de Doria</option>
+                          <option>Tepeapulco</option>
+                          <option>Tepehuacán de Guerrero</option>
+                          <option>Tepeji del Río de Ocampo</option>
+                          <option>Tepetitlán</option>
+                          <option>Tetepango</option>
+                          <option>Villa de Tezontepec</option>
+                          <option>Tezontepec de Aldama</option>
+                          <option>Tianguistengo</option>
+                          <option>Tizayuca</option>
+                          <option>Tlahuelilpan</option>
+                          <option>Tlahuiltepa</option>
+                          <option>Tlanalapa</option>
+                          <option>Tlanchinol</option>
+                          <option>Tlaxcoapan</option>
+                          <option>Tolcayuca</option>
+                          <option>Tula de Allende</option>
+                          <option>Tulancingo de Bravo</option>
+                          <option>Xochiatipan</option>
+                          <option>Xochicoatlán</option>
+                          <option>Yahualica</option>
+                          <option>Zacualtipán de Ángeles</option>
+                          <option>Zapotlán de Juárez</option>
+                          <option>Zempoala</option>
+                          <option>Zimapán</option>
                         </select>
                       </li>
                     </ul>
@@ -72,22 +266,7 @@
                 </dl>
                 <dl class="question">
                   <dt>
-                    <label>Localidad</label>
-                  </dt>
-                  <dd class="answers">
-                    <ul>
-                      <li class="input-select">
-                        <select>
-                          <option>Selecciona tu Localidad</option>
-                          <option>Pachuca de Soto</option>
-                        </select>
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="question">
-                  <dt>
-                    <label>Calle</label>
+                    <label>Código Postal</label>
                   </dt>
                   <dd class="answers">
                     <ul>
@@ -99,7 +278,7 @@
                 </dl>
                 <dl class="question">
                   <dt>
-                    <label>Colonia</label>
+                    <label>Latitud:</label>
                   </dt>
                   <dd class="answers">
                     <ul>
@@ -111,19 +290,7 @@
                 </dl>
                 <dl class="question">
                   <dt>
-                    <label>Número exterior</label>
-                  </dt>
-                  <dd class="answers">
-                    <ul>
-                      <li class="input-text">
-                        <input type="text">
-                      </li>
-                    </ul>
-                  </dd>
-                </dl>
-                <dl class="question">
-                  <dt>
-                    <label>Númerio interior</label>
+                    <label>Longitud:</label>
                   </dt>
                   <dd class="answers">
                     <ul>
@@ -134,15 +301,103 @@
                   </dd>
                 </dl>
               </fieldset>
-            </div>
-            <div class="action">
-              <div class="half">
-                <div class="left"><br></div>
-                <div class="right">
-                  <button type="submit" class="btn"><i class='fa fa-save'></i> Guardar</button>
+              <fieldset>
+                <legend>Datos de contacto</legend>
+                <dl class="question">
+                  <dt>
+                    <label>Nombre del representante:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Teléfono:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Extensión:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Correo electrónico:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Sitio web:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Facebook:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="question">
+                  <dt>
+                    <label>Twitter:</label>
+                  </dt>
+                  <dd class="answers">
+                    <ul>
+                      <li class="input-text">
+                        <input type="text">
+                      </li>
+                    </ul>
+                  </dd>
+                </dl>
+              </fieldset>
+              <div class="error"><span>Mensaje de error</span></div>
+              <div class="action">
+                <div class="half">
+                  <div class="left"><br></div>
+                  <div class="right">
+                    <button type="submit" class="btn"><i class='fa fa-save'></i> Guardar</button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>

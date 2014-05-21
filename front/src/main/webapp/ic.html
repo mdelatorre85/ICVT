@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
     <!-- fancybox-->
     <link rel="stylesheet" href="css/fancybox.css">
+    <!-- google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
   </head>
   <body>
     <div class="main-wrapper">
@@ -30,15 +32,16 @@
           <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
           <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
           <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
-          <li class="selected"><a href="#"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
-          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
+          <li class="selected"><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+          <li><a href="is.html"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
         </ul>
       </nav>
       <section class="main-container">
         <div class="main-container-overlay js-main-container-overlay"></div>
-        <div class="panel-dummy-image">
-          <div class="container"><a href="ic-2.html"><img src="img/site-ic.png"></a></div>
+        <div class="panel-title">
+          <h1>Inteligencia Comercial</h1>
         </div>
+        <div id="main-map"></div>
       </section>
       <aside class="main-notification">
         <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i class='fa fa-chevron-right'></i></a></div>
@@ -63,5 +66,6 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/controllers.js"></script>
+    <script src="js/icApp.js"></script>
   </body>
 </html>
