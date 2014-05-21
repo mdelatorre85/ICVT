@@ -11,8 +11,7 @@ var backend = {};
 
 function initMap() {
 
-
-	// JSON
+	// json
 	$.ajax({
 		type: "GET",
 		url: "js/ic-ue.json",
@@ -29,7 +28,7 @@ function initMap() {
 	howManyDistribuidores = backend.distribuidores.length;
 
 
-	// INICIALIZAR MAPA
+	// map init
 	
 	var mapOptions = {
 		center: ueLatLng,
@@ -46,7 +45,7 @@ function initMap() {
 
 	var map = new google.maps.Map(document.getElementById('main-map'), mapOptions);
 
-	// MARCADOR INICIAL (Se supone debe ser la UE de donde se consulta el módulo)
+	// marcador inicial de la ue
 	var marker = new google.maps.Marker({
 		position: ueLatLng,
 		map: map,
@@ -54,9 +53,15 @@ function initMap() {
 		
 	});
 
-	// MARCADORES PARA COMPETENCIA
+
+	// init infowindow
+	var infoWindow = new google.maps.InfoWindow();
+
+	// iterador para competencia
 	for(i = 0 ; i < howManyCompetencia ; i++){
 		var data = backend.competencia[i];
+
+		var contentString = data.nombre
 		
 		var currentLatLng = new google.maps.LatLng(data.lat, data.lng);
 
@@ -75,9 +80,28 @@ function initMap() {
 
 			}
 		});
+
+
+		// generador de infowindow y evento click
+		(function (currentMarker, data){
+
+			var contentString = '<div class="infowindow competencia">'+
+								'<header>'+
+								'<div>' + data.nombre + '</div>' +
+								'</header>'+
+								'<div><i class="fa fa-dot-circle-o"></i> ' + data.scian + '</div>' +
+								'<div><i class="fa fa-users"></i> ' + data.estrato + '</div>'+
+								'</div>';
+
+			google.maps.event.addListener(currentMarker, 'click', function (e){
+				infoWindow.setContent(contentString);
+				infoWindow.open(map, currentMarker);
+			});
+		})(currentMarker, data);
+
 	}
 
-	// MARCADORES PARA PROVEEDORES
+	// iterador para proveedores
 	for(i = 0 ; i < howManyProveedores ; i++){
 		var data = backend.proveedores[i];
 		
@@ -98,10 +122,27 @@ function initMap() {
 
 			}
 		});
+
+		// generador de infowindow y evento click
+		(function (currentMarker, data){
+
+			var contentString = '<div class="infowindow proveedores">'+
+								'<header>'+
+								'<div><strong>' + data.nombre + '</strong></div>' +
+								'</header>'+
+								'<div><i class="fa fa-dot-circle-o"></i> ' + data.scian + '</div>' +
+								'<div><i class="fa fa-users"></i> ' + data.estrato + '</div>'+
+								'</div>';
+
+			google.maps.event.addListener(currentMarker, 'click', function (e){
+				infoWindow.setContent(contentString);
+				infoWindow.open(map, currentMarker);
+			});
+		})(currentMarker, data);
 	}
 
 
-	// MARCADORES PARA DISTRIBUIDORES
+	// iterador para distribuidores
 	for(i = 0 ; i < howManyDistribuidores ; i++){
 		var data = backend.distribuidores[i];
 		
@@ -122,12 +163,29 @@ function initMap() {
 
 			}
 		});
+
+		// generador de infowindow y evento click
+		(function (currentMarker, data){
+
+			var contentString = '<div class="infowindow distribuidores">'+
+								'<header>'+
+								'<div><strong>' + data.nombre + '</strong></div>' +
+								'</header>'+
+								'<div><i class="fa fa-dot-circle-o"></i> ' + data.scian + '</div>' +
+								'<div><i class="fa fa-users"></i> ' + data.estrato + '</div>'+
+								'</div>';
+
+			google.maps.event.addListener(currentMarker, 'click', function (e){
+				infoWindow.setContent(contentString);
+				infoWindow.open(map, currentMarker);
+			});
+		})(currentMarker, data);
 	}
 	
 
-	// POLÍGONO
-	
+	// polígono de pachuca	
 	var pachucaBoundary;
+	
 	// definimos latitudes y longitudes del polígono
 	var pachucaCoords = [
 		new google.maps.LatLng(21.162328, -98.826431),
@@ -1366,10 +1424,6 @@ function initMap() {
 	});
 
 	pachucaBoundary.setMap(map);
-
-
-
-	
 
 }
 

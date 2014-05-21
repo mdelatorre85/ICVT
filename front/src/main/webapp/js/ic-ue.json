@@ -1,54 +1,1358 @@
 {
-	"competencia": [
-		{
-			"claseActividad": "Actividad de Competencia 1",
-			"estrato": "251 y más personas",
-			"lat": 21.16548938,
-			"lng": -98.66265116,
-			"nombre": "Competencia 1 LOL",
-			"razon": "Razón social de la UE",
-			"scian": 315229
-		},
-        {
-			"claseActividad": "Actividad de Competencia 2",
-			"estrato": "251 y más personas",
-			"lat": 20.12631571,
-			"lng": -98.74378728,
-			"nombre": "Competencia 2 LOL",
-			"razon": "Razón social de la UE",
-			"scian": 315229
-		},
-		{
-			"claseActividad": "Actividad de Competencia 3",
-			"estrato": "251 y más personas",
-			"lat": 20.12925218,
-			"lng": -99.23130772,
-			"nombre": "Competencia 3 LOL",
-			"razon": "Razón social de la UE",
-			"scian": 315229
-		}
-	],
-	"proveedores": [
-		{
-			"claseActividad": "Confección en serie de otra ropa exterior de materiales textiles",
-			"estrato": "251 y más personas",
-			"lat": 23.345632,
-			"lng": -98.7642404,
-			"nombre": "Nombre de la UE",
-			"razon": "Razón social de la UE",
-			"scian": 315229
-		}
-	],
-	"distribuidores": [
-		{
-			"claseActividad": "Confección en serie de otra ropa exterior de materiales textiles",
-			"estrato": "251 y más personas",
-			"lat": 24.345632,
-			"lng": -98.7642404,
-			"nombre": "Nombre de la UE",
-			"razon": "Razón social de la UE",
-			"scian": 315229
-		}
-	]
-
+  "competencia": [
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.03539486,
+      "lng": -98.36028363,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.01899037,
+      "lng": -98.30274967,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08745714,
+      "lng": -98.36629535,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.03370393,
+      "lng": -98.7872988,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.14969712,
+      "lng": -98.42684823,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "6 a 10 personas",
+      "lat": 0.2708148,
+      "lng": -98.96318166,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.03182963,
+      "lng": -98.28417395,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.15589068,
+      "lng": -98.90196339,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 0.1120501,
+      "lng": -98.75126846,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "11 a 30 personas",
+      "lat": 20.26712392,
+      "lng": -98.94922357,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.77347893,
+      "lng": -98.57571702,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.16548938,
+      "lng": -98.66265116,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12891602,
+      "lng": -99.339575,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.75791841,
+      "lng": -98.5713973,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.06205851,
+      "lng": -99.3465633,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "11 a 30 personas",
+      "lat": 20.11003722,
+      "lng": -98.35279355,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.03297402,
+      "lng": -98.84033123,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 9.7584206,
+      "lng": -98.57139514,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.03291036,
+      "lng": -98.31259794,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.69935003,
+      "lng": -98.39238434,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.16588646,
+      "lng": -98.66334977,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.11173331,
+      "lng": -98.78292326,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08668416,
+      "lng": -98.36588638,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.89756371,
+      "lng": -98.58757798,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.06477197,
+      "lng": -99.23722109,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.75970559,
+      "lng": -98.58548298,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.09473879,
+      "lng": -98.37347556,
+      "nombre": "CONFECCION DE PRENDAS DE VESTIR SOBRE MEDIDA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.11721881,
+      "lng": -98.74132861,
+      "nombre": "CONFECCION DE PRENDAS Y MERCERIA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12393898,
+      "lng": -98.75094926,
+      "nombre": "CONFECCION DE ROPA",
+      "razon": "CONFECCION DE ROPA",
+      "scian": 15225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.47926544,
+      "lng": -99.22901404,
+      "nombre": "CONFECCIONES DE ROPA AURA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12088949,
+      "lng": -98.73315113,
+      "nombre": "CONFECCIONES LORE",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.12410203,
+      "lng": -98.54223717,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.12419459,
+      "lng": -98.5443482,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05124059,
+      "lng": -99.35125614,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.17203069,
+      "lng": -98.59831588,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.12679298,
+      "lng": -98.54403708,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.10631627,
+      "lng": -98.35994855,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.12884762,
+      "lng": -98.53989105,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.16627788,
+      "lng": -98.6568707,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08352953,
+      "lng": -99.22302442,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.17044846,
+      "lng": -98.65704083,
+      "nombre": "COSTURERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.12772223,
+      "lng": -98.54075143,
+      "nombre": "COSTURERA DE ROPA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 21.13010023,
+      "lng": -98.53948013,
+      "nombre": "COSTURERAS ARTESANAS",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.95910779,
+      "lng": -98.92135242,
+      "nombre": "COSTURERO",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 20.11607813,
+      "lng": -98.76767693,
+      "nombre": "COSTUTERA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "11 a 30 personas",
+      "lat": 20.05626804,
+      "lng": -99.34047633,
+      "nombre": "DISEÑOS MOURIÑO",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 1.1374704,
+      "lng": -98.5353984,
+      "nombre": "ELABORACION DE PRENDAS DE VESTIR",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "6 a 10 personas",
+      "lat": 20.11601696,
+      "lng": -98.71466543,
+      "nombre": "MANIFACTURAS GELES",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.89141825,
+      "lng": -98.80421448,
+      "nombre": "MAQUILA DE ROPA",
+      "razon": "",
+      "scian": 315225
+    },
+    {
+      "claseActividad": "Confección de prendas de vestir sobre medida",
+      "estrato": "0 a 5 personas",
+      "lat": 19.90114075,
+      "lng": -99.33095345,
+      "nombre": "MAQUILA DE ROPA",
+      "razon": "",
+      "scian": 315225
+    }
+  ],
+  "proveedores": [
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "0 a 5 personas",
+      "lat": 20.2457204,
+      "lng": -99.18751055,
+      "nombre": "ARTE CERIGRAFICO LUFRAN",
+      "razon": "",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "0 a 5 personas",
+      "lat": 20.07801928,
+      "lng": -98.36619197,
+      "nombre": "ARTESANIAS",
+      "razon": "",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas de punto",
+      "estrato": "0 a 5 personas",
+      "lat": 20.10789067,
+      "lng": -98.76228393,
+      "nombre": "ARTICULOS DE ESTAMBRE",
+      "razon": "",
+      "scian": 313240
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "101 a 250 personas",
+      "lat": 20.08027778,
+      "lng": -98.39916667,
+      "nombre": "ASOCAD SA DE CV",
+      "razon": "SWIFT DENIM HIDALGO S DE RL DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas de punto",
+      "estrato": "0 a 5 personas",
+      "lat": 19.8220871,
+      "lng": -98.60684186,
+      "nombre": "CARPETAS",
+      "razon": "",
+      "scian": 313240
+    },
+    {
+      "claseActividad": "Preparación e hilado de fibras blandas naturales",
+      "estrato": "251 y m‡s personas",
+      "lat": 20.1126349,
+      "lng": -98.36457991,
+      "nombre": "COLOMER SA DE CV",
+      "razon": "COLOMER SA DE CV",
+      "scian": 313112
+    },
+    {
+      "claseActividad": "Fabricación de hilos para coser y bordar",
+      "estrato": "0 a 5 personas",
+      "lat": 20.07394974,
+      "lng": -98.35131007,
+      "nombre": "COLOMER SA DE CV",
+      "razon": "COLOMER SA DE CV",
+      "scian": 313113
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05560231,
+      "lng": -99.21995129,
+      "nombre": "CREACIONES MARY",
+      "razon": "",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "6 a 10 personas",
+      "lat": 19.9675,
+      "lng": -99.39444445,
+      "nombre": "DISTRIBUIDORA ROPA VIVA SA DE CV",
+      "razon": "SALMITEX SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas de punto",
+      "estrato": "0 a 5 personas",
+      "lat": 19.81980844,
+      "lng": -98.60697674,
+      "nombre": "ELABORACION DE CARPETAS",
+      "razon": "",
+      "scian": 313240
+    },
+    {
+      "claseActividad": "Preparación e hilado de fibras duras naturales",
+      "estrato": "0 a 5 personas",
+      "lat": 21.13103602,
+      "lng": -98.5402039,
+      "nombre": "ELABORACION DE HILO PARA CUETE",
+      "razon": "",
+      "scian": 313111
+    },
+    {
+      "claseActividad": "Preparación e hilado de fibras duras naturales",
+      "estrato": "0 a 5 personas",
+      "lat": 20.61610814,
+      "lng": -99.1189566,
+      "nombre": "ELABORACION DE IXTLE",
+      "razon": "",
+      "scian": 313111
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "101 a 250 personas",
+      "lat": 20.05647258,
+      "lng": -98.33665057,
+      "nombre": "ENTRETEX SA DE CV",
+      "razon": "ENTRETEX SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "0 a 5 personas",
+      "lat": 20.15788526,
+      "lng": -98.20092777,
+      "nombre": "ENTRETEX SA DE CV",
+      "razon": "ENTRETEX SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "11 a 30 personas",
+      "lat": 20.09006144,
+      "lng": -98.37492319,
+      "nombre": "FABRICA BLANCA NOVA",
+      "razon": "",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de hilos para coser y bordar",
+      "estrato": "31 a 50 personas",
+      "lat": 19.90359698,
+      "lng": -99.34482507,
+      "nombre": "FABRICA DE HILADOS Y TEJIDOS PUENTE SIERRA SA DE CV",
+      "razon": "FABRICA DE HILADOS Y TEJIDOS PUENTE SIERRA SA DE CV",
+      "scian": 313113
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "6 a 10 personas",
+      "lat": 20.15896227,
+      "lng": -98.20498141,
+      "nombre": "FABRICA SAN LUIS",
+      "razon": "SANTA BLANCA SA DE CV",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "6 a 10 personas",
+      "lat": 20.1521088,
+      "lng": -98.20942855,
+      "nombre": "FABRICA SAN LUIS",
+      "razon": "SANTA BLANCA SA DE CV",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas de punto",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08295846,
+      "lng": -98.36457913,
+      "nombre": "FABRICACION DE TELAS DE PUNTO",
+      "razon": "",
+      "scian": 313240
+    },
+    {
+      "claseActividad": "Fabricación de hilos para coser y bordar",
+      "estrato": "101 a 250 personas",
+      "lat": 20.09902793,
+      "lng": -98.74645818,
+      "nombre": "FABRICAS HILATURAS EL AGUILA SA DE CV",
+      "razon": "HILATURAS EL AGUILA SA DE CV",
+      "scian": 313113
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "0 a 5 personas",
+      "lat": 20.01877648,
+      "lng": -98.84014563,
+      "nombre": "FUCIONADORA GONZALEZ",
+      "razon": "",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "0 a 5 personas",
+      "lat": 20.02243128,
+      "lng": -98.84516266,
+      "nombre": "FUSIONADORA DE TELA",
+      "razon": "",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de hilos para coser y bordar",
+      "estrato": "51 a 100 personas",
+      "lat": 20.08908846,
+      "lng": -98.36975425,
+      "nombre": "HILATUL",
+      "razon": "HILATUL SA DE CV",
+      "scian": 313113
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "31 a 50 personas",
+      "lat": 20.0610913,
+      "lng": -98.34075445,
+      "nombre": "HILATURAS GENISA SA DE CV",
+      "razon": "HILATURAS GENISA SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "101 a 250 personas",
+      "lat": 20.08534267,
+      "lng": -98.36970017,
+      "nombre": "HILATURAS HIDALGO Y LA AURORA SA DE CV",
+      "razon": "HILATURAS HIDALGO Y LA AURORA SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08519791,
+      "lng": -98.36973745,
+      "nombre": "HILATURAS HIDALGO Y LA AURORA SA DE CV BODEGA",
+      "razon": "HILATURAS HIDALGO Y LA AURORA SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "11 a 30 personas",
+      "lat": 20.06361111,
+      "lng": -98.74222222,
+      "nombre": "LAVAMODA",
+      "razon": "LAVAMODA",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "11 a 30 personas",
+      "lat": 19.78074164,
+      "lng": -98.57205793,
+      "nombre": "LAVANDERIA",
+      "razon": "",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas no tejidas (comprimidas)",
+      "estrato": "0 a 5 personas",
+      "lat": 20.01952922,
+      "lng": -98.83675511,
+      "nombre": "LOCAL DE MAQUILA FUSION DE PEYON",
+      "razon": "",
+      "scian": 313230
+    },
+    {
+      "claseActividad": "Fabricación de telas recubiertas",
+      "estrato": "0 a 5 personas",
+      "lat": 20.59055714,
+      "lng": -98.76394323,
+      "nombre": "LONAS ARCANGEL",
+      "razon": "",
+      "scian": 313320
+    },
+    {
+      "claseActividad": "Fabricación de telas recubiertas",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05132092,
+      "lng": -98.78875047,
+      "nombre": "LONAS SAN ANTONIO",
+      "razon": "",
+      "scian": 313320
+    },
+    {
+      "claseActividad": "Fabricación de telas recubiertas",
+      "estrato": "0 a 5 personas",
+      "lat": 19.77827001,
+      "lng": -98.57750944,
+      "nombre": "LONAS Y CARPAS",
+      "razon": "",
+      "scian": 313320
+    },
+    {
+      "claseActividad": "Fabricación de telas recubiertas",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08960418,
+      "lng": -98.35977589,
+      "nombre": "LOTOLUM",
+      "razon": "",
+      "scian": 313320
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "0 a 5 personas",
+      "lat": 19.95548807,
+      "lng": -98.9261194,
+      "nombre": "MANUALIDADES",
+      "razon": "",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "251 y m‡s personas",
+      "lat": 19.92857148,
+      "lng": -99.33942632,
+      "nombre": "MANUFACTURAS KALTEX SA DE CV",
+      "razon": "MANUFACTURAS KALTEX SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "251 y m‡s personas",
+      "lat": 19.96527778,
+      "lng": -99.37472222,
+      "nombre": "MANUFACTURAS KALTEX SA DE CV",
+      "razon": "MANUFACTURAS KALTEX SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "11 a 30 personas",
+      "lat": 19.92656992,
+      "lng": -99.34070846,
+      "nombre": "MAQUILAS TEPEJI",
+      "razon": "MAQUILAS TEPEJI SA DE CV",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "31 a 50 personas",
+      "lat": 20.07515786,
+      "lng": -98.36368145,
+      "nombre": "NOVALAN SA DE CV",
+      "razon": "NOVALAN SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "11 a 30 personas",
+      "lat": 20.08496778,
+      "lng": -98.37370701,
+      "nombre": "NOVOTEX SA DE CV",
+      "razon": "NOVOTEX SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08982406,
+      "lng": -99.21991402,
+      "nombre": "PUBLICIDAD BRES",
+      "razon": "",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "251 y m‡s personas",
+      "lat": 20.04009986,
+      "lng": -98.34847328,
+      "nombre": "SANTIAGO TEXTIL SA DE CV",
+      "razon": "SANTIAGO TEXTIL SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "0 a 5 personas",
+      "lat": 20.03901192,
+      "lng": -98.35294814,
+      "nombre": "TALLER DE MAQUILA TEJIDO DE PUNTO",
+      "razon": "",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Fabricación de telas anchas de trama",
+      "estrato": "0 a 5 personas",
+      "lat": 19.82310875,
+      "lng": -98.97494794,
+      "nombre": "TARLATANAS Y FIBRAS",
+      "razon": "TARLATANAS Y FIBRAA SA DE CV",
+      "scian": 313210
+    },
+    {
+      "claseActividad": "Preparación e hilado de fibras blandas naturales",
+      "estrato": "0 a 5 personas",
+      "lat": 19.85138889,
+      "lng": -99.28194444,
+      "nombre": "TEXTILES ELECTRONICAS SA DE CV",
+      "razon": "TEXTILES ELECTRONICAS SA DE CV",
+      "scian": 313112
+    },
+    {
+      "claseActividad": "Fabricación de telas de punto",
+      "estrato": "0 a 5 personas",
+      "lat": 19.91022096,
+      "lng": -99.33524081,
+      "nombre": "TEXTILES NYLZON SA DE CV",
+      "razon": "TEXTILES NYLZON SA DE CV",
+      "scian": 313240
+    },
+    {
+      "claseActividad": "Acabado de productos textiles",
+      "estrato": "11 a 30 personas",
+      "lat": 19.82564504,
+      "lng": -98.96899897,
+      "nombre": "TEXTILES Y ACABADOS DE MEXICO SA DE CV",
+      "razon": "TEXTILES Y ACABADOS DE MEXICO SA DE CV",
+      "scian": 313310
+    },
+    {
+      "claseActividad": "Fabricación de telas de punto",
+      "estrato": "251 y m‡s personas",
+      "lat": 19.81532109,
+      "lng": -98.9724733,
+      "nombre": "TIZAYUCA TEXTIL VUVA SA DE CV",
+      "razon": "TIZAYUCA TEXTIL VUVA SA DE CV",
+      "scian": 313240
+    },
+    {
+      "claseActividad": "Preparación e hilado de fibras blandas naturales",
+      "estrato": "0 a 5 personas",
+      "lat": 20.03780523,
+      "lng": -98.30777548,
+      "nombre": "UNIDAD ARZAFIL SA DE CV",
+      "razon": "UNIDAD ARZAFIL SA DE CV",
+      "scian": 313112
+    },
+    {
+      "claseActividad": "Preparación e hilado de fibras blandas naturales",
+      "estrato": "0 a 5 personas",
+      "lat": 19.88770597,
+      "lng": -99.34182129,
+      "nombre": "ZAGIS SA DE CV",
+      "razon": "ZAGIS SA DE CV",
+      "scian": 313112
+    },
+    {
+      "claseActividad": "Comercio al por mayor de fibras, hilos y telas",
+      "estrato": "11 a 30 personas",
+      "lat": 20.08436161,
+      "lng": -98.3811045,
+      "nombre": "CORPORACION MAYOL SA DE CV",
+      "razon": "CORPORACION MAYOL SA DE CV",
+      "scian": 432111
+    }
+  ],
+  "distribuidores": [
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12438305,
+      "lng": -98.73524783,
+      "nombre": "ANGELES",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 21.10415166,
+      "lng": -98.58478568,
+      "nombre": "BODEGA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12310941,
+      "lng": -98.7407141,
+      "nombre": "BONETERIA CHUY",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 19.71082848,
+      "lng": -98.44715175,
+      "nombre": "BOUTIQUE ANAMON",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05925883,
+      "lng": -98.76655668,
+      "nombre": "BOUTIQUE C Y S",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05742745,
+      "lng": -99.22177378,
+      "nombre": "BOUTIQUE LOPEZ",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12378815,
+      "lng": -98.73843148,
+      "nombre": "BUTIQUE SCORRPION",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.09649199,
+      "lng": -98.76961963,
+      "nombre": "COMERCIALIZADORA SPOT SA DE CV",
+      "razon": "COMERCIALIZADORA SPOT SA DE CV",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.23819598,
+      "lng": -98.32116721,
+      "nombre": "COPUSI",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 19.70690838,
+      "lng": -98.45656934,
+      "nombre": "CREACIONES GAMA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "6 a 10 personas",
+      "lat": 20.12285388,
+      "lng": -98.74058722,
+      "nombre": "DEPORTES ACOSTA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12491635,
+      "lng": -98.73485968,
+      "nombre": "MARIA ANTONIETA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.11645047,
+      "lng": -98.72789189,
+      "nombre": "MARIANA BOUTIQUE",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12438305,
+      "lng": -98.73524783,
+      "nombre": "MODA Y NOVIAS VIANEY",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12034929,
+      "lng": -98.73688041,
+      "nombre": "TEXTILES DOMI SA DE CV",
+      "razon": "TEXTILES DOMI SA DE CV",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.55149408,
+      "lng": -99.31232387,
+      "nombre": "TIENDA DE ROPA DE DEPORTES HIDALGO",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08202173,
+      "lng": -98.37069462,
+      "nombre": "UNIFORMES ALIMAR",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.73622949,
+      "lng": -99.38313032,
+      "nombre": "UNIFORMES CHELA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.48227296,
+      "lng": -99.21787107,
+      "nombre": "UNIFORMES DEPERTIVOS",
+      "razon": "COMERCIAL TEXTIL",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.37209877,
+      "lng": -99.8154987,
+      "nombre": "UNIFORMES DEPORTIVOS VILLEDA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.0560621,
+      "lng": -98.76688898,
+      "nombre": "UNIFORMES ESCOLARES",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.0569498,
+      "lng": -99.22276134,
+      "nombre": "UNIFORMES ESCOLARES TINA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.07414844,
+      "lng": -98.7746293,
+      "nombre": "UNIFORMES ISSSTE",
+      "razon": "UNIFORMES ISSSTE",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12342007,
+      "lng": -98.7701109,
+      "nombre": "VENTA (MAYOR) DE ROPA, BISUTERIA Y ACCESORIOS DE VESTIR",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 20.27546051,
+      "lng": -98.94175016,
+      "nombre": "VENTA DE ROPA",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+      "estrato": "0 a 5 personas",
+      "lat": 21.13679169,
+      "lng": -98.40634348,
+      "nombre": "VENTA DE UNIFORMES DEPORTIVOS GONY SPORT",
+      "razon": "",
+      "scian": 432120
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05699999,
+      "lng": -99.33698283,
+      "nombre": "8 SEGUNDOS",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12726205,
+      "lng": -98.73309447,
+      "nombre": "ABERCOMBIE BOUTIQUE",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 19.96554444,
+      "lng": -98.51973327,
+      "nombre": "ACCESORIOS DE ROPA DE DAMA",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.48675873,
+      "lng": -99.21049482,
+      "nombre": "ACCESORIOS DEYRA",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 19.96481539,
+      "lng": -98.51904427,
+      "nombre": "ACCESORIOS PARA DAMA",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.11627449,
+      "lng": -98.74986491,
+      "nombre": "ACCESORIZE BOUTIQUE",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08369185,
+      "lng": -98.37114781,
+      "nombre": "ADAS",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.64596831,
+      "lng": -98.65439837,
+      "nombre": "ALCER VENTA DE ROPA",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "6 a 10 personas",
+      "lat": 20.09649199,
+      "lng": -98.76961963,
+      "nombre": "ALDO CONTI",
+      "razon": "27 MICRAS INTERNACIONAL SA DE CV",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "6 a 10 personas",
+      "lat": 20.11329169,
+      "lng": -98.7460947,
+      "nombre": "ALDO CONTI",
+      "razon": "27 MICRAS INTERNACIONAL SA DE CV",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "6 a 10 personas",
+      "lat": 20.09865259,
+      "lng": -98.76164869,
+      "nombre": "ALDO CONTI",
+      "razon": "27 MICRAS INTERNACIONAL SA DE CV",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.0805797,
+      "lng": -98.37101882,
+      "nombre": "ALEX FAXION BOUTIQUE",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.05511391,
+      "lng": -99.33997314,
+      "nombre": "ALEXAS BOUTIQUE",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.11753606,
+      "lng": -98.74085894,
+      "nombre": "ALEXS FASHION",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 21.13770139,
+      "lng": -98.40942278,
+      "nombre": "ALFADY",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08312779,
+      "lng": -98.36869546,
+      "nombre": "ALIZZEE",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.08333495,
+      "lng": -98.3664359,
+      "nombre": "ALMACEN KALCETERO",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "6 a 10 personas",
+      "lat": 19.77547883,
+      "lng": -98.58042885,
+      "nombre": "ALMACENES GINOD DSA DSB",
+      "razon": "ALMACENES GHINOS SA DE CV",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.10784239,
+      "lng": -98.74600429,
+      "nombre": "ALTA MODA INTERNACIONAL",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.12950659,
+      "lng": -98.7310983,
+      "nombre": "ALTERNATIVO FASHION",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 19.90529739,
+      "lng": -99.33945471,
+      "nombre": "ALUMINIOS Y VIDRIOS",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 19.70828482,
+      "lng": -98.45091477,
+      "nombre": "AMARKIA",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 19.71803001,
+      "lng": -98.44944433,
+      "nombre": "AMERICAN EAGLE",
+      "razon": "",
+      "scian": 463211
+    },
+    {
+      "claseActividad": "Comercio al por menor de ropa, excepto de bebé y lencería",
+      "estrato": "0 a 5 personas",
+      "lat": 20.122082,
+      "lng": -98.73824491,
+      "nombre": "AMERICAN EAGLE OUTFITTERS",
+      "razon": "",
+      "scian": 463211
+    }
+  ]
 }

@@ -22,8 +22,13 @@
       <h1>aie</h1>
       <h2>Sistema de Inteligencia y Tecnología Empresarial</h2>
     </div>
-    <div class="login-form">
-      <div id="altContent"></div>
+    <div class="login-select">
+      <div class="title">
+        <h3>Bienvenido</h3>
+      </div>
+      <div class="qr-container">
+        <div id="altContent"></div>
+      </div>
     </div>
     <script src="js/qr/swfobject.js"></script>
     <script>
@@ -43,7 +48,7 @@
       };
       swfobject.embedSWF(
        "js/qr/QR.swf", 
-       "altContent", 300, 180, "10.0.0", 
+       "altContent", 272, 272, "10.0.0", 
        "expressInstall.swf", 
        flashvars, 
        params, 
@@ -53,11 +58,11 @@
       function actQR( msg ){
        // msg comes null if no code were detected
        if( msg === null ){ //expect a lot of nulls
-        console.log("no QR were read at this time")
+        // console.log("no QR were read at this time")
        } else {
         // a valid QR reading, do something with it
-        console.log(msg)
-        window.location.href="/news.html";
+        // console.log(msg)
+        window.location.href="/dashboard.html";
         // ask flash to stop parsing, this saves processing as webcam reading stop
         QR.stop()
        }
@@ -78,7 +83,11 @@
         // third is an signature for callback if something goes wrong, aka, user has no Webcam (default: null)
         QR.start( "actQR", 200, "noWebcam" )
        }
+<<<<<<< HEAD:front/src/main/webapp/loginqr.html
       }, 2000)
+=======
+      }, 500)
+>>>>>>> f3d51f278a76d47dd21e779a43545ed8ea8d2a5c:front/src/main/webapp/login-qr.html
     </script>
   </body>
 </html>
