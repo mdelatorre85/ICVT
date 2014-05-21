@@ -901,6 +901,39 @@ legend {
     font-size: 0.8em;
     text-align: center; }
 
+.login-select {
+  margin: 0 auto;
+  padding: 24px;
+  max-width: 500px; }
+  .login-select h3 {
+    display: inline-block;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    font-size: 2em;
+    border-bottom: 2px solid #e6e6e6; }
+  .login-select p {
+    margin-bottom: 48px; }
+  .login-select ul {
+    display: block;
+    margin: 0 auto; }
+  .login-select li {
+    display: block;
+    margin-bottom: 24px; }
+  .login-select a {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.3em; }
+
+.qr-container {
+  margin: 0 auto; }
+  .qr-container object {
+    margin: 0 auto; }
+
 .panel-header-summary {
   border-bottom: 1px solid #e6e6e6;
   padding-top: 24px;
@@ -1314,12 +1347,8 @@ legend {
     width: 300px; }
   .panel-filters .menu-select span {
     display: none; }
-  .panel-filters .half .left {
-    width: 60%; }
-    .panel-filters .half .left i {
-      margin-right: 0; }
-  .panel-filters .half .right {
-    width: 40%; } }
+  .panel-filters .half .left i {
+    margin-right: 0; } }
 .panel-question-bar {
   padding: 24px 0; }
   .panel-question-bar .left .btn {
@@ -1572,10 +1601,7 @@ legend {
       margin-bottom: 24px; }
 
   .alert-listing li.selected a:before, .alert-listing li.selected a:after {
-    display: none; }
-
-  .right {
-    text-align: center; } }
+    display: none; } }
 .panel-signup fieldset {
   margin-bottom: 36px; }
 .panel-signup legend {
@@ -1606,10 +1632,86 @@ legend {
   height: 500px;
   width: 100%; }
 
+.infowindow {
+  width: 180px; }
+  .infowindow header {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #b3b3b3; }
+  .infowindow.competencia header {
+    border-bottom-color: #ed1c24; }
+  .infowindow.proveedores header {
+    border-bottom-color: #29abe2; }
+  .infowindow.distribuidores header {
+    border-bottom-color: #8cc63f; }
+
+.panel-map-infographic {
+  padding: 24px; }
+  .panel-map-infographic .col {
+    clear: both;
+    float: left;
+    display: inline;
+    clear: none;
+    text-align: inherit;
+    padding-left: 0;
+    padding-right: 0;
+    width: 32.0%;
+    margin-left: 0%;
+    margin-right: 2%; }
+    .panel-map-infographic .col:before, .panel-map-infographic .col:after {
+      content: " ";
+      display: table; }
+    .panel-map-infographic .col:after {
+      clear: both; }
+    .panel-map-infographic .col:last-child {
+      margin-right: 0%; }
+  .panel-map-infographic .item header {
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #b3b3b3; }
+    .panel-map-infographic .item header span {
+      font-size: 0.8em; }
+  .panel-map-infographic .item h3 {
+    font-family: "bariol-light";
+    font-size: 2.5em; }
+  .panel-map-infographic .item dl {
+    font-size: 0.9em; }
+    .panel-map-infographic .item dl dt {
+      font-family: "bariol-bold";
+      margin-bottom: 6px; }
+  .panel-map-infographic .item ol {
+    list-style-type: decimal;
+    list-style-position: inside; }
+  .panel-map-infographic .item.prov header {
+    border-bottom-color: #29abe2; }
+  .panel-map-infographic .item.prov h3 {
+    color: #29abe2; }
+  .panel-map-infographic .item.comp header {
+    border-bottom-color: #ed1c24; }
+  .panel-map-infographic .item.comp h3 {
+    color: #ed1c24; }
+  .panel-map-infographic .item.dist header {
+    border-bottom-color: #8cc63f; }
+  .panel-map-infographic .item.dist h3 {
+    color: #8cc63f; }
+
 @media screen and (max-width: 640px) {
   #main-map {
     height: 50%;
-    width: 100%; } }
+    width: 100%; }
+
+  .panel-map-infographic .col {
+    display: block;
+    clear: both;
+    float: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px; }
+    .panel-map-infographic .col:first-child {
+      margin-left: auto; }
+    .panel-map-infographic .col:last-child {
+      margin-right: auto; } }
 .panel-title {
   padding-top: 24px;
   padding-bottom: 24px; }

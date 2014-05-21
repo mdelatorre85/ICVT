@@ -1,4 +1,4 @@
-include mixins
+include includes/mixins
 doctype html
 html.no-js
 
@@ -11,10 +11,10 @@ html.no-js
 			
 			nav.main-nav
 				ul.nav-listing
-					li: a(href='index.html')
+					li: a(href='dashboard.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li.selected: a(href='actualidad.html')
+					li.selected: a(href='news.html')
 						span.icon
 						span.tag Actualidad de la industria
 					li: a(href='question.html')
@@ -26,9 +26,7 @@ html.no-js
 					li: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
-					li: a(href='is.html')
-						span.icon
-						span.tag Inteligencia social
+
 					
 
 			section.main-container
@@ -44,7 +42,7 @@ html.no-js
 								.left
 									.menu-select
 										ul
-											li.selected: a(href='actualidad.html').btn-outline
+											li.selected: a(href='news.html').btn-outline
 												i.fa.fa-globe
 												span Noticias
 											li: a(href='actualidad-tweets.html').btn-outline

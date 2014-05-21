@@ -1,4 +1,4 @@
-include mixins
+include includes/mixins
 doctype html
 html.no-js
 
@@ -11,10 +11,10 @@ html.no-js
 			
 			nav.main-nav
 				ul.nav-listing
-					li: a(href='index.html')
+					li: a(href='dashboard.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li: a(href='actualidad.html')
+					li: a(href='news.html')
 						span.icon
 						span.tag Actualidad de la industria
 					li: a(href='question.html')
@@ -26,9 +26,7 @@ html.no-js
 					li.selected: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
-					li: a(href='is.html')
-						span.icon
-						span.tag Inteligencia social
+
 					
 
 			section.main-container
@@ -36,6 +34,48 @@ html.no-js
 				.panel-title
 					h1 Inteligencia Comercial
 				#main-map
+
+
+				.panel-map-infographic
+					.container
+						.col
+							.item.prov
+								header
+									h3 163
+									span UE proveedores
+								dl
+									dt Top 3
+									dd
+										ol
+											li Tulancingo de Bravo
+											li Pachuca de Soto
+											li Ixquimilmpan
+
+						.col
+							.item.comp
+								header
+									h3 232
+									span UE competidoras
+								dl
+									dt Top 3
+									dd
+										ol
+											li Pachuca de Soto
+											li Tulancingo de Bravo
+											li Jaltocán
+
+						.col
+							.item.dist
+								header
+									h3 2991
+									span UE distribuidoras
+								dl
+									dt Top 3
+									dd
+										ol
+											li Pachuca de Soto
+											li Tulancingo de Bravo
+											li Huejutla de Reyes
 				
 	
 

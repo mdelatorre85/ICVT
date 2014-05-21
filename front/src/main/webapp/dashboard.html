@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SITE</title>
+    <meta name="description" content="">
+    <!-- link(rel='shortcut icon', href='favicon.ico')-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <!-- pickadate-->
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
+    <!-- fancybox-->
+    <link rel="stylesheet" href="css/fancybox.css">
+    <!-- google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header class="main-header">
+        <div class="main-logo"><a href="dashboard.html">site</a></div>
+      </header>
+      <label for="activate-menu" class="btn-alpha btn-activate-menu"><i class="fa fa-bars"></i>Menú</label>
+      <label for="activate-notification" class="btn-alpha btn-activate-notification"><i class="fa fa-bell-o"></i>Alertas<span class="count">2</span></label>
+      <input type="checkbox" id="activate-menu" class="activate-menu">
+      <input type="checkbox" id="activate-notification" class="activate-notification">
+      <nav class="main-nav">
+        <ul class="nav-listing">
+          <li class="selected"><a href="dashboard.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li><a href="news.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
+          <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
+          <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+        </ul>
+      </nav>
+      <section class="main-container">
+        <div class="main-container-overlay js-main-container-overlay"></div>
+        <div class="panel-header-summary">
+          <div class="container">
+            <div class="profile-info">
+              <div class="profile-pic"><img src="img/logo.jpg"></div>
+              <div class="title">
+                <h1>Textiles y acabados de México SA de CV</h1>
+              </div>
+            </div>
+            <div class="summary">
+              <div class="col location">
+                <h3><i class="fa fa-map-marker"></i>Locación</h3>
+                <ul>
+                  <li>Estado de Hidalgo</li>
+                  <li>Tula de Allende</li>
+                  <li>San Miguel Vindho</li>
+                </ul>
+              </div>
+              <div class="col ue-info">
+                <h3><i class="fa fa-circle-o"></i>Unidad económica</h3>
+                <ul>
+                  <li>[314991] Confección, bordado y deshilado de productos textiles</li>
+                </ul>
+              </div>
+              <div class="col employees">
+                <h3><i class="fa fa-users"></i>Número de empleados</h3>
+                <ul>
+                  <li>De 10 a 50 empleados</li>
+                </ul>
+              </div>
+              <div class="col profile-chart-container">
+                <h3><i class="fa fa-tasks"></i>Perfil</h3>
+                <div class="chart cf">
+                  <div class="percentage"><a href="question.html"><span class="number js-profileChartHomePercentage">82%</span><span class="tag">Completado</span></a></div>
+                  <canvas id="profileChartHome" height="60" width="60"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-widget-container">
+          <div class="container">
+            <div class="widget widget-news">
+              <h2><a href="#">Actualidad en la industria</a></h2>
+              <ul>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+              </ul>
+              <footer class="action"><a href="news.html" class="link">Ver más<i class="fa fa-arrow-right"></i></a></footer>
+            </div>
+            <div class="widget widget-news">
+              <h2><br></h2>
+              <ul>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Tepeji del Río, potencia textilera</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>eluniversal.com.mx</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/1.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Competencia desleal genera pérdidas de 60% a industria textil</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/4.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>terra.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+              </ul>
+              <footer class="action"><a href="news.html" class="link">Ver más<i class="fa fa-arrow-right"></i></a></footer>
+            </div>
+            <div class="widget widget-news">
+              <h2><br></h2>
+              <ul>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/2.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Tepeji del Río, potencia textilera</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>terra.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/5.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Universidades, respuesta a necesidades regionales</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>milenio.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>eleconomista.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+                <li class="element">
+                  <div class="content cf">
+                    <div class="pic"><a href="view-new.html"><img src="img/news-thumbs/6.jpg"/></a></div>
+                    <div class="title"><a href="view-new.html">Inversión se concentra en Pachuca, Zempoala y Tula</a></div>
+                  </div>
+                  <footer class="info cf">
+                    <ul>
+                      <li class="source"><a href="#"><i class="fa fa-rss"></i><span>elfinanciero.com</span></a></li>
+                      <li class="date">10-Feb-2014</li>
+                    </ul>
+                  </footer>
+                </li>
+              </ul>
+              <footer class="action"><a href="news.html" class="link">Ver más<i class="fa fa-arrow-right"></i></a></footer>
+            </div>
+          </div>
+        </div>
+      </section>
+      <aside class="main-notification">
+        <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i class='fa fa-chevron-right'></i></a></div>
+        <div class="alert-listing-aside">
+          <ul>
+            <li class="selected"><a href="alerts.html">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+            <li class="new"><a href="alerts-view.html">Congreso de la industria textil 2014.</a></li>
+            <li class="new"><a href="alerts.html">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+            <li><a href="alerts.html">Taller gratuito de tecnologías de la información para PyMES.</a></li>
+            <li><a href="alerts.html">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <div id="data">
+      <div id="profileChartHomeAnswered">82</div>
+      <div id="profileChartHomeNoAnswered">18</div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers.js"></script>
+    <script>
+      $(window).bind("load", function() {
+      
+       profileChartHomeAnsweredValue = parseInt($('#profileChartHomeAnswered').text());
+       profileChartHomeNoAnsweredValue = parseInt($('#profileChartHomeNoAnswered').text());
+       
+       console.log(profileChartHomeAnsweredValue);
+       console.log(profileChartHomeNoAnsweredValue);
+       
+       var profileChartHomeData = [
+        {
+         value: profileChartHomeAnsweredValue,
+         color: "#8CC63F"
+        },
+        {
+         value : profileChartHomeNoAnsweredValue,
+         color : "#E6E6E6"
+        }
+        
+       ];
+       
+       
+       var profileChartHomeConfig = {
+        segmentShowStroke : false,
+        percentageInnerCutout : 70,
+        animationSteps : 100,
+        animationEasing : "easeOutCirc",
+        animateRotate : true,
+        animateScale : false,
+        onAnimationComplete : null
+       }
+       
+       
+       var profileChartHome = new Chart(document.getElementById("profileChartHome").getContext("2d")).Doughnut(profileChartHomeData, profileChartHomeConfig);
+      });
+    </script>
+  </body>
+</html>

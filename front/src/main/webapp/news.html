@@ -20,7 +20,7 @@
   <body ng-app="sampleApp" ng-controller="NewsController">
     <div ng-hide="noticiaVisible" class="main-wrapper">
       <header class="main-header">
-        <div class="main-logo"><a href="index.html">site</a></div>
+        <div class="main-logo"><a href="dashboard.html">site</a></div>
       </header><a ng-click="regresa()" class="btn-alpha btn-back"><i class="fa fa-chevron-left"></i> Regresar</a>
       <div class="iframe-container">
         <iframe width="100%" height="2000px" ng-src="{{urlNoticia}}"></iframe>
@@ -28,7 +28,7 @@
     </div>
     <div ng-hide="panelVisible" class="main-wrapper">
       <header class="main-header">
-        <div class="main-logo"><a href="index.html">site</a></div>
+        <div class="main-logo"><a href="dashboard.html">site</a></div>
       </header>
       <label for="activate-menu" class="btn-alpha btn-activate-menu"><i class="fa fa-bars"></i>Menú</label>
       <label for="activate-notification" class="btn-alpha btn-activate-notification"><i class="fa fa-bell-o"></i>Alertas<span class="count">2</span></label>
@@ -36,12 +36,11 @@
       <input type="checkbox" id="activate-notification" class="activate-notification">
       <nav class="main-nav">
         <ul class="nav-listing">
-          <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
-          <li><a href="news.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="dashboard.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li class="selected"><a href="news.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
           <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
           <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
           <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
-          <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
         </ul>
       </nav>
       <section class="main-container">
@@ -58,9 +57,8 @@
                 <div class="left">
                   <div class="menu-select">
                     <ul>
-                      <li class="selected"><a href="actualidad.html" class="btn-outline"><i class="fa fa-globe"></i><span>Noticias</span></a></li>
+                      <li class="selected"><a href="news.html" class="btn-outline"><i class="fa fa-globe"></i><span>Noticias</span></a></li>
                       <li><a href="news-tweets.html" class="btn-outline"><i class="fa fa-twitter"></i><span>Tweets</span></a></li>
-                      <li><a href="#" class="btn-outline"><i class="fa fa-book"></i><span>Patentes</span></a></li>
                     </ul>
                   </div>
                 </div>

@@ -1,4 +1,4 @@
-include mixins
+include includes/mixins
 doctype html
 html.no-js
 
@@ -9,7 +9,7 @@ html.no-js
 		div(ng-hide="noticiaVisible").main-wrapper
 			header.main-header
 				.main-logo
-					a(href='index.html') site
+					a(href='dashboard.html') site
 
 			a(ng-click="regresa()", class='btn-alpha btn-back')
 				i.fa.fa-chevron-left
@@ -24,10 +24,10 @@ html.no-js
 			
 			nav.main-nav
 				ul.nav-listing
-					li: a(href='index.html')
+					li: a(href='dashboard.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li: a(href='news.html')
+					li.selected: a(href='news.html')
 						span.icon
 						span.tag Actualidad de la industria
 					li: a(href='question.html')
@@ -39,9 +39,7 @@ html.no-js
 					li: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
-					li: a(href='#')
-						span.icon
-						span.tag Inteligencia social
+
 					
 
 			section.main-container
@@ -55,15 +53,16 @@ html.no-js
 								.left
 									.menu-select
 										ul
-											li.selected: a(href='actualidad.html').btn-outline
+											li.selected: a(href='news.html').btn-outline
 												i.fa.fa-globe
 												span Noticias
 											li: a(href='news-tweets.html').btn-outline
 												i.fa.fa-twitter
 												span Tweets
-											li: a(href='#').btn-outline
-												i.fa.fa-book
-												span Patentes
+											//-
+												li: a(href='#').btn-outline
+													i.fa.fa-book
+													span Patentes
 
 								.right
 
