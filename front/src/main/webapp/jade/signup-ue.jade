@@ -88,7 +88,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-select
-												select
+												select(name='segmentoPersonalOcupado')
 													option(disabled selected) Seleciona el personal ocupado en la empresa
 													option(value='1') 0 a 5 personas
 													option(value='2') 6 a 10 personas
@@ -109,7 +109,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='calle')
 
 								dl.question
 									dt
@@ -118,7 +118,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='numeroExterior')
 
 								dl.question
 									dt
@@ -127,7 +127,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='numeroInterior')
 
 								dl.question
 									dt
@@ -136,7 +136,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='colonia')
 
 
 								dl.question
@@ -146,7 +146,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-select
-												select
+												select(name='municipio')
 													option(disabled selected) Seleciona tu municipio
 													option(value='1') Acatlán
 													option(value='2') Acaxochitlán
