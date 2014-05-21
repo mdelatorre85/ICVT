@@ -276,7 +276,6 @@ sampleApp.controller('tweetsController', function($scope,$http,dateFilter) {
     var fechaInicio= ""
     var fechaFin   = ""
     var filterDate = false;
-    var filterTags = false;
     var dateInit   = null;
     var dateFin    = null;
 
@@ -294,12 +293,13 @@ sampleApp.controller('tweetsController', function($scope,$http,dateFilter) {
     $http({
       method  : 'POST',
       url     : '/api/v1/rest/tweets/retrieve',
-      data    : "fechaInicio="+fechaInicio+"&fechaFin="+fechaFin+"&etiquetas="+tags,
+      data    : "fechaInicio="+fechaInicio+"&fechaFin="+fechaFin,
       headers : { 'Content-Type': 'application/x-www-form-urlencoded'},
       tracker : $scope.loadingTracker
     })
     .success(function(data, status, headers, config) {
-      $scope.tweets = data;      
+      $scope.tweets = data;
+      $('.js-filters-listing').toggle();  
     })
     .error(function (data) {
       // $scope.load="off"
