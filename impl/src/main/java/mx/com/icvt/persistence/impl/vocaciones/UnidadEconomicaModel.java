@@ -96,7 +96,7 @@ public class UnidadEconomicaModel {
             this.queryProceso = "";
         }
 
-        // Fabricaci��n de calzado
+        // Fabricación de calzado
 
         if (this.proceso.equals("3162")) {
             this.queryProceso = " where clase_act.startsWith(\"3161\")";

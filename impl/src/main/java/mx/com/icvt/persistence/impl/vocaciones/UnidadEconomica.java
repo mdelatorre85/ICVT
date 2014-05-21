@@ -1,6 +1,11 @@
 package mx.com.icvt.persistence.impl.vocaciones;
 
+import mx.com.icvt.model.EconomicUnit;
+import mx.com.icvt.persistence.impl.questionnaries.Cuestionario;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "unidad_economica")
@@ -77,7 +82,11 @@ public class UnidadEconomica {
     @JoinColumn(name = "id_clase_actividad")
     private ClaseActividad claseActividad;
 
+    @ManyToMany(mappedBy = "unidadEconomicas")
+    private List<Cuestionario> cuestionarios;
+
     public UnidadEconomica() {
+        cuestionarios = new ArrayList<Cuestionario>();
     }
 
     public Long getId() {
@@ -86,6 +95,49 @@ public class UnidadEconomica {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public UnidadEconomica(int cve_ent, int cve_num, int cve_loc) {
+        cuestionarios = new ArrayList<Cuestionario>();
+//        this.cve_ent = cve_ent;
+//        this.cve_loc = cve_num;
+//        this.cve_loc = cve_loc;
+    }
+
+    public UnidadEconomica(EconomicUnit economicUnit) {
+        cuestionarios = new ArrayList<Cuestionario>();
+
+//        this.d_llave = economicUnit.getD_llave();
+//        this.cve_ent = economicUnit.getCve_ent();
+//        this.cve_mun = economicUnit.getCve_mun();
+//        this.cve_loc = economicUnit.getCve_loc();
+//        this.manzana = economicUnit.getManzana();
+//        this.nom_estab = economicUnit.getNom_estab();
+//        this.nom_propie = economicUnit.getNom_propie();
+//        this.direccion = economicUnit.getDireccion();
+//        this.calle = economicUnit.getCalle();
+//        this.numero_ext = economicUnit.getNumero_ext();
+//        this.numero_int = economicUnit.getNumero_int();
+//        this.colonia = economicUnit.getColonia();
+//        this.cod_postal = economicUnit.getCod_postal();
+//        this.telefono1 = economicUnit.getTelefono1();
+//        this.ext_tel1 = economicUnit.getExt_tel1();
+//        this.clase_act = economicUnit.getClase_act();
+//        this.num_local = economicUnit.getNum_local();
+//        this.correoelec = economicUnit.getCorreoelec();
+//        this.www = economicUnit.getWww();
+//        this.tipo_estab = economicUnit.getTipo_estab();
+//        this.tipo_ue = economicUnit.getTipo_ue();
+//        this.est_perocu = economicUnit.getEst_perocu();
+        this.estatus = economicUnit.getEstatus();
+        this.alta = economicUnit.getAlta();
+        this.longitud = economicUnit.getLongitud();
+        this.latitud = economicUnit.getLatitud();
+
+    }
+
+    public void setD_llave(int d_llave) {
+//        this.d_llave = d_llave;
     }
 
     public int getNumeroDenue() {
@@ -278,5 +330,14 @@ public class UnidadEconomica {
 
     public void setClaseActividad(ClaseActividad claseActividad) {
         this.claseActividad = claseActividad;
+    }
+
+
+    public List<Cuestionario> getCuestionarios() {
+        return cuestionarios;
+    }
+
+    public void setCuestionarios(List<Cuestionario> cuestionarios) {
+        this.cuestionarios = cuestionarios;
     }
 }
