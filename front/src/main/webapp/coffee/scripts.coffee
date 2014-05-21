@@ -1,6 +1,4 @@
 init = ->
-  console.log 'start!'
-
 
   $('.js-open-filters, .js-close-filters').click ->
     $('.js-filters-listing').toggle()

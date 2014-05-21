@@ -15,6 +15,7 @@
         <class>mx.com.icvt.persistence.impl.patents.ExtraccionPatentes</class>
         <class>mx.com.icvt.persistence.impl.tags.Etiqueta</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica</class>
+        <class>mx.com.icvt.persistence.impl.vocaciones.UnidadEconomicaModel</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.ClaseActividad</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.Municipio</class>
         <class>mx.com.icvt.persistence.impl.vocaciones.Localidad</class>

@@ -3,7 +3,6 @@
   var init;
 
   init = function() {
-    console.log('start!');
     $('.js-open-filters, .js-close-filters').click(function() {
       $('.js-filters-listing').toggle();
       return false;

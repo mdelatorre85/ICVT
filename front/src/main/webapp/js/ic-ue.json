@@ -1,0 +1,54 @@
+{
+	"competencia": [
+		{
+			"claseActividad": "Actividad de Competencia 1",
+			"estrato": "251 y más personas",
+			"lat": 21.16548938,
+			"lng": -98.66265116,
+			"nombre": "Competencia 1 LOL",
+			"razon": "Razón social de la UE",
+			"scian": 315229
+		},
+        {
+			"claseActividad": "Actividad de Competencia 2",
+			"estrato": "251 y más personas",
+			"lat": 20.12631571,
+			"lng": -98.74378728,
+			"nombre": "Competencia 2 LOL",
+			"razon": "Razón social de la UE",
+			"scian": 315229
+		},
+		{
+			"claseActividad": "Actividad de Competencia 3",
+			"estrato": "251 y más personas",
+			"lat": 20.12925218,
+			"lng": -99.23130772,
+			"nombre": "Competencia 3 LOL",
+			"razon": "Razón social de la UE",
+			"scian": 315229
+		}
+	],
+	"proveedores": [
+		{
+			"claseActividad": "Confección en serie de otra ropa exterior de materiales textiles",
+			"estrato": "251 y más personas",
+			"lat": 23.345632,
+			"lng": -98.7642404,
+			"nombre": "Nombre de la UE",
+			"razon": "Razón social de la UE",
+			"scian": 315229
+		}
+	],
+	"distribuidores": [
+		{
+			"claseActividad": "Confección en serie de otra ropa exterior de materiales textiles",
+			"estrato": "251 y más personas",
+			"lat": 24.345632,
+			"lng": -98.7642404,
+			"nombre": "Nombre de la UE",
+			"razon": "Razón social de la UE",
+			"scian": 315229
+		}
+	]
+
+}
