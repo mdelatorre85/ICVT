@@ -55,7 +55,9 @@ public class News implements Serializable, Comparable<News> {
         this.description = description;
 
         if (image != null && image.length() > 0) {
-            this.image = "http:".concat(image);
+            if (!this.image.startsWith("http:")){
+                this.image = "http:".concat(image);
+            }
         }
 
         SimpleDateFormat df = new SimpleDateFormat("EEE, dd MMM yyyy kk:mm:ss z",
