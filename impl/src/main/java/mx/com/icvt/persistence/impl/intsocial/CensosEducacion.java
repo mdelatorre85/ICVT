@@ -1,5 +1,7 @@
 package mx.com.icvt.persistence.impl.intsocial;
 
+import mx.com.icvt.persistence.impl.vocaciones.Municipio;
+
 import javax.persistence.*;
 
 /**
@@ -12,14 +14,31 @@ public class CensosEducacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int cve_mun;
+
+    @Column(name = "total")
     private int total;
-    private int sin_escolaridad;
+
+    @Column(name = "sin_escolaridad")
+    private int sinEscolaridad;
+
+    @Column(name = "basica")
     private int basica;
-    private int media_superior;
+
+    @Column(name = "media_superior")
+    private int mediaSuperior;
+
+    @Column(name = "superior")
     private int superior;
-    private int no_especificado;
-    private int anno;
+
+    @Column(name = "no_especificado")
+    private int noEspecificado;
+
+    @Column(name = "anio")
+    private int anio;
+
+    @ManyToOne
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
 
     public CensosEducacion() {
     }
@@ -32,14 +51,6 @@ public class CensosEducacion {
         this.id = id;
     }
 
-    public int getCve_mun() {
-        return cve_mun;
-    }
-
-    public void setCve_mun(int cve_mun) {
-        this.cve_mun = cve_mun;
-    }
-
     public int getTotal() {
         return total;
     }
@@ -48,12 +59,12 @@ public class CensosEducacion {
         this.total = total;
     }
 
-    public int getSin_escolaridad() {
-        return sin_escolaridad;
+    public int getSinEscolaridad() {
+        return sinEscolaridad;
     }
 
-    public void setSin_escolaridad(int sin_escolaridad) {
-        this.sin_escolaridad = sin_escolaridad;
+    public void setSinEscolaridad(int sinEscolaridad) {
+        this.sinEscolaridad = sinEscolaridad;
     }
 
     public int getBasica() {
@@ -64,12 +75,12 @@ public class CensosEducacion {
         this.basica = basica;
     }
 
-    public int getMedia_superior() {
-        return media_superior;
+    public int getMediaSuperior() {
+        return mediaSuperior;
     }
 
-    public void setMedia_superior(int media_superior) {
-        this.media_superior = media_superior;
+    public void setMediaSuperior(int mediaSuperior) {
+        this.mediaSuperior = mediaSuperior;
     }
 
     public int getSuperior() {
@@ -80,19 +91,27 @@ public class CensosEducacion {
         this.superior = superior;
     }
 
-    public int getNo_especificado() {
-        return no_especificado;
+    public int getNoEspecificado() {
+        return noEspecificado;
     }
 
-    public void setNo_especificado(int no_especificado) {
-        this.no_especificado = no_especificado;
+    public void setNoEspecificado(int noEspecificado) {
+        this.noEspecificado = noEspecificado;
     }
 
-    public int getAnno() {
-        return anno;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setAnno(int anno) {
-        this.anno = anno;
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 }

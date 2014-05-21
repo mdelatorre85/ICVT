@@ -14,15 +14,8 @@ public class SingleOptionQuestion extends Question {
         possibleOptions = new ArrayList<String>();
     }
 
-    /**
-     * @return a Copy of the arraylist of possible options. To modify the options you must use this object methods
-     */
     public ArrayList<String> getPossibleOptions() {
-        ArrayList<String> retorno = new ArrayList<String>();
-        for (String s : possibleOptions) {
-            retorno.add(s.trim());
-        }
-        return retorno;
+            return possibleOptions;
     }
 
     public int posibleOptionsSize() {

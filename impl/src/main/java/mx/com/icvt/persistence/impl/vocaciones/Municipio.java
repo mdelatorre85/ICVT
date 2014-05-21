@@ -1,7 +1,12 @@
 package mx.com.icvt.persistence.impl.vocaciones;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import mx.com.icvt.persistence.impl.intsocial.CensosEconomicos;
+import mx.com.icvt.persistence.impl.intsocial.CensosEducacion;
+import mx.com.icvt.persistence.impl.intsocial.CensosPoblacion;
+
+import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,24 +15,92 @@ import javax.persistence.Id;
  * Time: 18:32
  */
 @Entity
+@Table(name = "municipio")
 public class Municipio {
     @Id
-    private int cve_mun;
-    private String municipio;
+    @Column(name = "id")
+    private int id;
 
-    public int getCve_mun() {
-        return cve_mun;
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_entidad")
+    private EntidadFederativa entidad;
+
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
+    private List<UnidadEconomica> unidadesEconomicas;
+
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
+    private List<CensosEducacion> censosEducacion;
+
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
+    private List<CensosPoblacion> censosPoblacion;
+
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
+    private List<CensosEconomicos> censosEconomicos;
+
+    public Municipio() {
+        this.unidadesEconomicas = new LinkedList<UnidadEconomica>();
+        this.censosEducacion = new LinkedList<CensosEducacion>();
+        this.censosPoblacion = new LinkedList<CensosPoblacion>();
+        this.censosEconomicos = new LinkedList<CensosEconomicos>();
     }
 
-    public void setCve_mun(int cve_mun) {
-        this.cve_mun = cve_mun;
+    public int getId() {
+        return id;
     }
 
-    public String getMunicipio() {
-        return municipio;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setMunicipio(String municipio) {
-        this.municipio = municipio;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public EntidadFederativa getEntidad() {
+        return entidad;
+    }
+
+    public void setEntidad(EntidadFederativa entidad) {
+        this.entidad = entidad;
+    }
+
+    public List<UnidadEconomica> getUnidadesEconomicas() {
+        return unidadesEconomicas;
+    }
+
+    public void setUnidadesEconomicas(List<UnidadEconomica> unidadesEconomicas) {
+        this.unidadesEconomicas = unidadesEconomicas;
+    }
+
+    public List<CensosEducacion> getCensosEducacion() {
+        return censosEducacion;
+    }
+
+    public void setCensosEducacion(List<CensosEducacion> censosEducacion) {
+        this.censosEducacion = censosEducacion;
+    }
+
+    public List<CensosPoblacion> getCensosPoblacion() {
+        return censosPoblacion;
+    }
+
+    public void setCensosPoblacion(List<CensosPoblacion> censosPoblacion) {
+        this.censosPoblacion = censosPoblacion;
+    }
+
+    public List<CensosEconomicos> getCensosEconomicos() {
+        return censosEconomicos;
+    }
+
+    public void setCensosEconomicos(List<CensosEconomicos> censosEconomicos) {
+        this.censosEconomicos = censosEconomicos;
     }
 }

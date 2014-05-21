@@ -1,5 +1,11 @@
 package mx.com.icvt.persistence.impl.vocaciones;
 
+import mx.com.icvt.persistence.impl.intsocial.CensosEconomicosModel;
+import mx.com.icvt.persistence.impl.intsocial.CensosEconomicos;
+import mx.com.icvt.persistence.impl.intsocial.CensosEducacion;
+import mx.com.icvt.persistence.impl.intsocial.CensosEducacionModel;
+import mx.com.icvt.persistence.impl.intsocial.CensosPoblacionModel;
+import mx.com.icvt.persistence.impl.intsocial.CensosPoblacion;
 import mx.com.icvt.persistence.impl.user.User;
 import mx.com.icvt.persistence.impl.user.UserResultData;
 
@@ -12,16 +18,16 @@ public class TestJDO {
 
     public static void main(String args[]) {
 
+       /*
         UserResultData urd = new UserResultData();
         User us = new User();
-
         // Add User
         System.out.println("Add user:");
         us.setIdentity("dev.lnx1337@gmail.com");
         us.setPassword("lamisma00");
         us.setRole_site_id(1);
         us.setRole_social_id(1);
-        us.setUnidad_economica_id(1453);
+        us.setUnidad_economica_id(1453l);
         us.setName("Jair");
         us.setFirst_name("Peña");
         us.setLast_name("Trejo");
@@ -55,8 +61,8 @@ public class TestJDO {
             User u = responseLogin.next();
             System.out.println("identity: " + u.getName() + "  password:" + u.getAvatar());
         }
+        */
 
-       /*
        UnidadEconomicaModel obj = new UnidadEconomicaModel("12168");
 
        // get info unidad economica
@@ -72,7 +78,7 @@ public class TestJDO {
 
         System.out.println(unidadEconomica.getNom_estab());
 
-
+/*
        // getCensosEconomicos 1999 2009
 
        System.out.println("CensosEconomicos:");
@@ -82,7 +88,7 @@ public class TestJDO {
        censoEconomico.setCve_mun(unidadEconomica.getCve_mun());
        censoEconomico.setCve_actividad_economica(obj.getClase_act().substring(0, 3));
 
-       list<CensosEconomicos> censoEc=null;
+       List<CensosEconomicos> censoEc=null;
        censoEc = censoEconomico.getCensoEconomico();
 
        Iterator<CensosEconomicos> prov = censoEc.iterator();
@@ -101,7 +107,7 @@ public class TestJDO {
         censoPoblacion.setAnno("2000");
         censoPoblacion.setCve_mun(unidadEconomica.getCve_mun());
 
-        list<CensosPoblacion> censoPob = null;
+        List<CensosPoblacion> censoPob = null;
         censoPob = censoPoblacion.getCensoPoblacion();
 
         Iterator<CensosPoblacion> ListCenPob = censoPob.iterator();
@@ -119,7 +125,7 @@ public class TestJDO {
         censoEducacion.setAnno("2000");
         censoEducacion.setCve_mun(unidadEconomica.getCve_mun());
 
-        list<CensosEducacion> censoEdu = null;
+        List<CensosEducacion> censoEdu = null;
         censoEdu = censoEducacion.getCensoEducacion();
 
         Iterator <CensosEducacion> ListCenEdu = censoEdu.iterator();
@@ -137,7 +143,7 @@ public class TestJDO {
 
         System.out.println("Unidad Economica Proveedores");
 
-        list<UnidadEconomica> proveedores = null;
+        List<UnidadEconomica> proveedores = null;
         proveedores = obj.getProveedores();
 
         if (proveedores != null) {
@@ -150,8 +156,7 @@ public class TestJDO {
 
 
 
-        list<UnidadEconomica> demo = null;
-        demo =obj.test();
+        List<UnidadEconomica> demo = null;
 
         Iterator<UnidadEconomica> p=demo.iterator();
 
@@ -166,7 +171,7 @@ public class TestJDO {
         // get competencias unidad economica
 
         System.out.println("Unidad economica Competencias: ");
-        list<UnidadEconomica> competencias = null;
+        List<UnidadEconomica> competencias = null;
         competencias = obj.getCompetencias();
         Iterator<UnidadEconomica> comp = competencias.iterator();
 
@@ -179,7 +184,7 @@ public class TestJDO {
         // get clientes unidad economica
 
         System.out.println("Unidad economica Clientes: ");
-        list<UnidadEconomica> clientes = null;
+        List<UnidadEconomica> clientes = null;
         clientes = obj.getClientes();
 
         if (clientes != null) {
@@ -191,7 +196,7 @@ public class TestJDO {
                 System.out.println(cliente.getNom_estab());
             }
         }
-        */
+    */
     }
 
 }

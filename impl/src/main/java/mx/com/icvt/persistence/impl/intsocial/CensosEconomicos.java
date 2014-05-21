@@ -1,24 +1,44 @@
 package mx.com.icvt.persistence.impl.intsocial;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import mx.com.icvt.persistence.impl.vocaciones.Municipio;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "censos_economicos")
 public class CensosEconomicos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String actividad_economica_id;
-    private int cve_mun;
-    private int unidades_economicas;
-    private int activos_fijos;
-    private int prod_bruta_total;
-    private int personal_ocupado;
-    private int valagreg_censalbruto;
-    private int total_renumeraciones;
-    private int anno;
+
+    @Column(name = "unidades_economicas")
+    private int unidadesEconomicas;
+
+    @Column(name = "activos_fijos")
+    private int activosFijos;
+
+    @Column(name = "prod_bruta_total")
+    private int produccionBrutaTotal;
+
+    @Column(name = "personal_ocupado")
+    private int personalOcupado;
+
+    @Column(name = "valagreg_censalbruto")
+    private int valorAgregadoCensalBruto;
+
+    @Column(name = "total_renumeraciones")
+    private int totalRemuneraciones;
+
+    @Column(name = "anio")
+    private int anio;
+
+    @ManyToOne
+    @JoinColumn(name = "id_activdad_economica")
+    private ActividadEconomica actividadEconomica;
+
+    @ManyToOne
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
 
     public CensosEconomicos() {
     }
@@ -31,76 +51,75 @@ public class CensosEconomicos {
         this.id = id;
     }
 
-    public String getActividad_economica_id() {
-        return actividad_economica_id;
+    public int getUnidadesEconomicas() {
+        return unidadesEconomicas;
     }
 
-    public void setActividad_economica_id(String actividad_economica_id) {
-        this.actividad_economica_id = actividad_economica_id;
+    public void setUnidadesEconomicas(int unidadesEconomicas) {
+        this.unidadesEconomicas = unidadesEconomicas;
     }
 
-    public int getCve_mun() {
-        return cve_mun;
+    public int getActivosFijos() {
+        return activosFijos;
     }
 
-    public void setCve_mun(int cve_mun) {
-        this.cve_mun = cve_mun;
+    public void setActivosFijos(int activosFijos) {
+        this.activosFijos = activosFijos;
     }
 
-    public int getUnidades_economicas() {
-        return unidades_economicas;
+    public int getProduccionBrutaTotal() {
+        return produccionBrutaTotal;
     }
 
-    public void setUnidades_economicas(int unidades_economicas) {
-        this.unidades_economicas = unidades_economicas;
+    public void setProduccionBrutaTotal(int produccionBrutaTotal) {
+        this.produccionBrutaTotal = produccionBrutaTotal;
     }
 
-    public int getActivos_fijos() {
-        return activos_fijos;
+    public int getPersonalOcupado() {
+        return personalOcupado;
     }
 
-    public void setActivos_fijos(int activos_fijos) {
-        this.activos_fijos = activos_fijos;
+    public void setPersonalOcupado(int personalOcupado) {
+        this.personalOcupado = personalOcupado;
     }
 
-    public int getProd_bruta_total() {
-        return prod_bruta_total;
+    public int getValorAgregadoCensalBruto() {
+        return valorAgregadoCensalBruto;
     }
 
-    public void setProd_bruta_total(int prod_bruta_total) {
-        this.prod_bruta_total = prod_bruta_total;
+    public void setValorAgregadoCensalBruto(int valorAgregadoCensalBruto) {
+        this.valorAgregadoCensalBruto = valorAgregadoCensalBruto;
     }
 
-    public int getPersonal_ocupado() {
-        return personal_ocupado;
+    public int getTotalRemuneraciones() {
+        return totalRemuneraciones;
     }
 
-    public void setPersonal_ocupado(int personal_ocupado) {
-        this.personal_ocupado = personal_ocupado;
+    public void setTotalRemuneraciones(int totalRemuneraciones) {
+        this.totalRemuneraciones = totalRemuneraciones;
     }
 
-    public int getValagreg_censalbruto() {
-        return valagreg_censalbruto;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setValagreg_censalbruto(int valagreg_censalbruto) {
-        this.valagreg_censalbruto = valagreg_censalbruto;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
-    public int getTotal_renumeraciones() {
-        return total_renumeraciones;
+    public ActividadEconomica getActividadEconomica() {
+        return actividadEconomica;
     }
 
-    public void setTotal_renumeraciones(int total_renumeraciones) {
-        this.total_renumeraciones = total_renumeraciones;
+    public void setActividadEconomica(ActividadEconomica actividadEconomica) {
+        this.actividadEconomica = actividadEconomica;
     }
 
-    public int getAnno() {
-        return anno;
+    public Municipio getMunicipio() {
+        return municipio;
     }
 
-    public void setAnno(int anno) {
-        this.anno = anno;
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
-
 }

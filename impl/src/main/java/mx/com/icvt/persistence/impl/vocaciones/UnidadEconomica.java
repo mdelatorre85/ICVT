@@ -1,75 +1,162 @@
 package mx.com.icvt.persistence.impl.vocaciones;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import mx.com.icvt.model.EconomicUnit;
+import mx.com.icvt.persistence.impl.questionnaries.Cuestionario;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "unidad_economica")
 public class UnidadEconomica {
     @Id
-    private int d_llave;
-    private int cve_ent;
-    private int cve_mun;
-    private int cve_loc;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "numero_denue")
+    private int numeroDenue;
+
     private String manzana;
-    private String nom_estab;
-    private String nom_propie;
+
+    @Column(name = "razon_social")
+    private String razonSocial;
+
+    @Column(name = "nombre_establecimiento")
+    private String nombreEstablecimiento;
+
+    @Column(name = "nombre_propietario")
+    private String nombrePropietario;
+
     private String direccion;
+
     private String calle;
-    private String numero_ext;
-    private String numero_int;
+
+    @Column(name = "numero_exterior")
+    private String numeroExterior;
+
+    @Column(name = "numero_interior")
+    private String numeroInterior;
+
     private String colonia;
-    private String cod_postal;
-    private String telefono1;
-    private String ext_tel1;
-    private String clase_act;
-    private String num_local;
-    private String correoelec;
-    private String www;
-    private String tipo_estab;
-    private String tipo_ue;
-    private long est_perocu;
+
+    @Column(name = "codigo_postal")
+    private String codigoPostal;
+
+    @Column(name = "telefono")
+    private String telefono;
+
+    @Column(name = "extension_telefono")
+    private String extensionTelefono;
+
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
+
+    @Column(name = "url")
+    private String url;
+
+    @Column(name = "tipo_establecimiento")
+    private String tipoEstablecimiento;
+
+    @Column(name = "tipo_unidad_economica")
+    private String tipoUnidadEconomica;
+
     private String estatus;
+
     private String alta;
+
     private Double longitud;
+
     private Double latitud;
 
+    @Column(name = "facebook")
+    private String facebook;
+
+    @Column(name = "twitter")
+    private String twitter;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_municipio")
+    private Municipio municipio;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_localidad")
+    private Localidad localidad;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_personal_ocupado")
+    private PersonalOcupado personalOcupado;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_clase_actividad")
+    private ClaseActividad claseActividad;
+
+    @ManyToMany(mappedBy = "unidadEconomicas")
+    private List<Cuestionario> cuestionarios;
+
     public UnidadEconomica() {
+        cuestionarios = new ArrayList<Cuestionario>();
     }
 
-    public UnidadEconomica(int cve_ent, int cve_num, int cve_loc) {
-        this.cve_ent = cve_ent;
-        this.cve_loc = cve_num;
-        this.cve_loc = cve_loc;
+    public UnidadEconomica(EconomicUnit economicUnit) {
+        this.cuestionarios = new ArrayList<Cuestionario>();
+
+        this.numeroDenue = economicUnit.getD_llave();
+        this.manzana = economicUnit.getManzana();
+        this.nombreEstablecimiento = economicUnit.getNom_estab();
+        this.nombrePropietario = economicUnit.getNom_propie();
+        this.direccion = economicUnit.getDireccion();
+        this.calle = economicUnit.getCalle();
+        this.numeroExterior = economicUnit.getNumero_ext();
+        this.numeroInterior = economicUnit.getNumero_int();
+        this.colonia = economicUnit.getColonia();
+        this.codigoPostal = economicUnit.getCod_postal();
+        this.telefono = economicUnit.getTelefono1();
+        this.extensionTelefono = economicUnit.getExt_tel1();
+        this.correoElectronico = economicUnit.getCorreoelec();
+        this.url = economicUnit.getWww();
+        this.tipoEstablecimiento = economicUnit.getTipo_estab();
+        this.tipoUnidadEconomica = economicUnit.getTipo_ue();
+        this.estatus = economicUnit.getEstatus();
+        this.alta = economicUnit.getAlta();
+        this.longitud = economicUnit.getLongitud();
+        this.latitud = economicUnit.getLatitud();
+        /**
+         * Municipio, localidad, estrato personal ocupado, clase actividad son objetos,
+         * no ids
+         */
     }
 
-    public void setD_llave(int d_llave) {
-        this.d_llave = d_llave;
+    public Long getId() {
+        return id;
     }
 
-    public int getCve_ent() {
-        return cve_ent;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setCve_ent(int cve_ent) {
-        this.cve_ent = cve_ent;
+    public int getNumeroDenue() {
+        return numeroDenue;
     }
 
-    public int getCve_mun() {
-        return cve_mun;
+    public void setNumeroDenue(int numeroDenue) {
+        this.numeroDenue = numeroDenue;
     }
 
-    public void setCve_mun(int cve_mun) {
-        this.cve_mun = cve_mun;
+    public Municipio getMunicipio() {
+        return municipio;
     }
 
-    public int getCve_loc() {
-        return cve_loc;
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 
-    public void setCve_loc(int cve_loc) {
-        this.cve_loc = cve_loc;
+    public Localidad getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(Localidad localidad) {
+        this.localidad = localidad;
     }
 
     public String getManzana() {
@@ -80,20 +167,28 @@ public class UnidadEconomica {
         this.manzana = manzana;
     }
 
-    public String getNom_estab() {
-        return nom_estab;
+    public String getNombreEstablecimiento() {
+        return nombreEstablecimiento;
     }
 
-    public void setNom_estab(String nom_estab) {
-        this.nom_estab = nom_estab;
+    public void setNombreEstablecimiento(String nombreEstablecimiento) {
+        this.nombreEstablecimiento = nombreEstablecimiento;
     }
 
-    public String getNom_propie() {
-        return nom_propie;
+    public String getNombrePropietario() {
+        return nombrePropietario;
     }
 
-    public void setNom_propie(String nom_propie) {
-        this.nom_propie = nom_propie;
+    public void setNombrePropietario(String nombrePropietario) {
+        this.nombrePropietario = nombrePropietario;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getCalle() {
@@ -104,20 +199,20 @@ public class UnidadEconomica {
         this.calle = calle;
     }
 
-    public String getNumero_ext() {
-        return numero_ext;
+    public String getNumeroExterior() {
+        return numeroExterior;
     }
 
-    public void setNumero_ext(String numero_ext) {
-        this.numero_ext = numero_ext;
+    public void setNumeroExterior(String numeroExterior) {
+        this.numeroExterior = numeroExterior;
     }
 
-    public String getNumero_int() {
-        return numero_int;
+    public String getNumeroInterior() {
+        return numeroInterior;
     }
 
-    public void setNumero_int(String numero_int) {
-        this.numero_int = numero_int;
+    public void setNumeroInterior(String numeroInterior) {
+        this.numeroInterior = numeroInterior;
     }
 
     public String getColonia() {
@@ -128,76 +223,60 @@ public class UnidadEconomica {
         this.colonia = colonia;
     }
 
-    public String getCod_postal() {
-        return cod_postal;
+    public String getCodigoPostal() {
+        return codigoPostal;
     }
 
-    public void setCod_postal(String cod_postal) {
-        this.cod_postal = cod_postal;
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
 
-    public String getTelefono1() {
-        return telefono1;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setTelefono1(String telefono1) {
-        this.telefono1 = telefono1;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
-    public String getClase_act() {
-        return clase_act;
+    public String getExtensionTelefono() {
+        return extensionTelefono;
     }
 
-    public void setClase_act(String clase_act) {
-        this.clase_act = clase_act;
+    public void setExtensionTelefono(String extensionTelefono) {
+        this.extensionTelefono = extensionTelefono;
     }
 
-    public String getNum_local() {
-        return num_local;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setNum_local(String num_local) {
-        this.num_local = num_local;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
-    public String getCorreoelec() {
-        return correoelec;
+    public String getUrl() {
+        return url;
     }
 
-    public void setCorreoelec(String correoelec) {
-        this.correoelec = correoelec;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getWww() {
-        return www;
+    public String getTipoEstablecimiento() {
+        return tipoEstablecimiento;
     }
 
-    public void setWww(String www) {
-        this.www = www;
+    public void setTipoEstablecimiento(String tipoEstablecimiento) {
+        this.tipoEstablecimiento = tipoEstablecimiento;
     }
 
-    public String getTipo_estab() {
-        return tipo_estab;
+    public String getTipoUnidadEconomica() {
+        return tipoUnidadEconomica;
     }
 
-    public void setTipo_estab(String tipo_estab) {
-        this.tipo_estab = tipo_estab;
-    }
-
-    public String getTipo_ue() {
-        return tipo_ue;
-    }
-
-    public void setTipo_ue(String tipo_ue) {
-        this.tipo_ue = tipo_ue;
-    }
-
-    public long getEst_perocu() {
-        return est_perocu;
-    }
-
-    public void setEst_perocu(long est_perocu) {
-        this.est_perocu = est_perocu;
+    public void setTipoUnidadEconomica(String tipoUnidadEconomica) {
+        this.tipoUnidadEconomica = tipoUnidadEconomica;
     }
 
     public String getEstatus() {
@@ -216,41 +295,67 @@ public class UnidadEconomica {
         this.alta = alta;
     }
 
-    public void setLongitud(Double longitud) {
-        this.longitud = longitud;
-    }
-
-    public void setLatitud(Double latitud) {
-        this.latitud = latitud;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getExt_tel1() {
-        return ext_tel1;
-    }
-
-    public void setExt_tel1(String ext_tel1) {
-        this.ext_tel1 = ext_tel1;
-    }
-
-    public int getD_llave() {
-        return d_llave;
-    }
-
     public Double getLongitud() {
         return longitud;
+    }
+
+    public void setLongitud(Double longitud) {
+        this.longitud = longitud;
     }
 
     public Double getLatitud() {
         return latitud;
     }
 
+    public void setLatitud(Double latitud) {
+        this.latitud = latitud;
+    }
 
+    public PersonalOcupado getPersonalOcupado() {
+        return personalOcupado;
+    }
+
+    public void setPersonalOcupado(PersonalOcupado personalOcupado) {
+        this.personalOcupado = personalOcupado;
+    }
+
+    public ClaseActividad getClaseActividad() {
+        return claseActividad;
+    }
+
+    public void setClaseActividad(ClaseActividad claseActividad) {
+        this.claseActividad = claseActividad;
+    }
+
+    public List<Cuestionario> getCuestionarios() {
+        return cuestionarios;
+    }
+
+    public void setCuestionarios(List<Cuestionario> cuestionarios) {
+        this.cuestionarios = cuestionarios;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
 }

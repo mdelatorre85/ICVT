@@ -1,6 +1,7 @@
 package mx.com.icvt.persistence.impl.vocaciones;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
@@ -17,6 +18,8 @@ public class UnidadEconomicaModel {
     public String proceso;
     public String queryProceso;
     public List<UnidadEconomica> proveedores;
+    private static EntityManagerFactory factory;
+
 
     public UnidadEconomica getUnidadEconomica() {
 
@@ -26,12 +29,13 @@ public class UnidadEconomicaModel {
         this.queryProceso = " WHERE d_llave==" + getD_llave();
 
         LunidadE = this.execQueryCondition();
+        System.out.println(LunidadE);
 
         if (LunidadE.size() == 0) return null;
 
         unidadE = LunidadE.get(0);
 
-        this.setClase_act(unidadE.getClase_act());
+//        this.setClase_act(unidadE.getClase_act());
         this.setTipoIndustriaProceso();
 
         return unidadE;
@@ -96,7 +100,7 @@ public class UnidadEconomicaModel {
             this.queryProceso = "";
         }
 
-        // Fabricaci��n de calzado
+        // Fabricación de calzado
 
         if (this.proceso.equals("3162")) {
             this.queryProceso = " where clase_act.startsWith(\"3161\")";
@@ -237,12 +241,14 @@ public class UnidadEconomicaModel {
     }
 
     public List<UnidadEconomica> execQueryCondition() {
-        List<UnidadEconomica> proveedores;
 
-        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("SELECT u FROM UnidadEconomica u ORDER BY u.nom_estab ASC");
+        List<UnidadEconomica> proveedores;
+        factory = Persistence.createEntityManagerFactory("SITE");
+        EntityManager em = factory.createEntityManager();
+        Query query = em.createQuery("SELECT u FROM UnidadEconomica u ORDER BY u.nom_estab ASC");
         proveedores = query.getResultList();
-        manager.close();
+        em.close();
+
         return proveedores;
     }
 
