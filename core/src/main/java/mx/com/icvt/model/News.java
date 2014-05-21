@@ -55,7 +55,7 @@ public class News implements Serializable, Comparable<News> {
         this.description = description;
 
         if (image != null && image.length() > 0) {
-            if (!this.image.startsWith("http:")){
+            if (!image.startsWith("http:")){
                 this.image = "http:".concat(image);
             }
         }
