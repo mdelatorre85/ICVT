@@ -9,7 +9,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int unidad_economica_id;
+    private Long unidad_economica_id;
     private int role_site_id;
     private int role_social_id;
     private String identity;
@@ -34,11 +34,11 @@ public class User {
         this.id = id;
     }
 
-    public int getUnidad_economica_id() {
+    public Long getUnidad_economica_id() {
         return unidad_economica_id;
     }
 
-    public void setUnidad_economica_id(int unidad_economica_id) {
+    public void setUnidad_economica_id(Long unidad_economica_id) {
         this.unidad_economica_id = unidad_economica_id;
     }
 

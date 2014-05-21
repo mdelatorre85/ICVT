@@ -1,6 +1,9 @@
 package mx.com.icvt.model.cuestionarios;
 
+import mx.com.icvt.model.EconomicUnit;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by miguelangeldelatorre on 27/04/14.
@@ -8,11 +11,13 @@ import java.util.ArrayList;
 public class Questionary {
 
     private Long id;
-    private ArrayList<Topic> topics;
+    private List<Topic> topics;
+    private List<EconomicUnit> economicUnits;
     private String tittle;
 
     public Questionary() {
         topics = new ArrayList<Topic>();
+        economicUnits = new ArrayList<EconomicUnit>();
     }
 
     public Long getId() {
@@ -23,7 +28,7 @@ public class Questionary {
         this.id = id;
     }
 
-    public ArrayList<Topic> getTopics() {
+    public List<Topic> getTopics() {
         ArrayList<Topic> retorno = new ArrayList<Topic>();
         for (Topic topic : topics) {
             retorno.add(topic);
@@ -68,5 +73,13 @@ public class Questionary {
 
     public void setTittle(String tittle) {
         this.tittle = tittle;
+    }
+
+    public List<EconomicUnit> getEconomicUnits() {
+        return economicUnits;
+    }
+
+    public void setEconomicUnits(List<EconomicUnit> economicUnits) {
+        this.economicUnits = economicUnits;
     }
 }

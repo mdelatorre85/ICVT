@@ -19,10 +19,10 @@ public class Tema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "tema")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "tema")
     private List<Pregunta> preguntas;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cuestionario")
     private Cuestionario cuestionario;
 
@@ -33,7 +33,9 @@ public class Tema {
         this.id = topic.getId();
         preguntas = new ArrayList<Pregunta>();
         for (Question q : topic.getQuestions()) {
-            preguntas.add(new Pregunta(q));
+            Pregunta pregunta = new Pregunta(q);
+            pregunta.setTema(this);
+            preguntas.add(pregunta);
         }
         titulo = topic.getTittle();
     }

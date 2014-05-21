@@ -27,7 +27,7 @@ public class TestJDO {
         us.setPassword("lamisma00");
         us.setRole_site_id(1);
         us.setRole_social_id(1);
-        us.setUnidad_economica_id(1453);
+        us.setUnidad_economica_id(1453l);
         us.setName("Jair");
         us.setFirst_name("Peña");
         us.setLast_name("Trejo");

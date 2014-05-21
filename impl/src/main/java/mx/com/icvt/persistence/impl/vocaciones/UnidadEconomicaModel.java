@@ -31,10 +31,12 @@ public class UnidadEconomicaModel {
         LunidadE = this.execQueryCondition();
         System.out.println(LunidadE);
 
-        //if (LunidadE.size() == 0) return null;
-        //unidadE = LunidadE.get(0);
-        //this.setClase_act(unidadE.getClase_act());
-        // this.setTipoIndustriaProceso();
+        if (LunidadE.size() == 0) return null;
+
+        unidadE = LunidadE.get(0);
+
+//        this.setClase_act(unidadE.getClase_act());
+        this.setTipoIndustriaProceso();
 
         return unidadE;
     }
@@ -98,7 +100,7 @@ public class UnidadEconomicaModel {
             this.queryProceso = "";
         }
 
-        // Fabricaci��n de calzado
+        // Fabricación de calzado
 
         if (this.proceso.equals("3162")) {
             this.queryProceso = " where clase_act.startsWith(\"3161\")";
