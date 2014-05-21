@@ -6,7 +6,20 @@ html.no-js
 
 	body(ng-app="sampleApp" ng-controller='NewsController')
 
-		.main-wrapper
+		div(ng-hide="noticiaVisible").main-wrapper
+			header.main-header
+				.main-logo
+					a(href='index.html') site
+
+			a(ng-click="regresa()", class='btn-alpha btn-back')
+				i.fa.fa-chevron-left
+				|  Regresar
+
+			.iframe-container
+				iframe(width='100%', height='2000px', ng-src="{{urlNoticia}}")
+
+
+		div(ng-hide="panelVisible").main-wrapper
 			include includes/header
 			
 			nav.main-nav
@@ -33,10 +46,8 @@ html.no-js
 
 			section.main-container
 				+container-overlay
-
 				.panel-title: .container
 					h1 Actualidad en la industria
-
 				.panel-filters
 					.container
 						.filter-bar
@@ -130,7 +141,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(href='{{ new.url }}').link Ver nota
+									a(ng-click="muestra({{ new.url }})",href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf
@@ -161,7 +172,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(href='{{ new.url }}').link Ver nota
+									a(ng-click="muestra(new.url)",href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf
@@ -192,7 +203,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(href='{{ new.url }}').link Ver nota
+									a(ng-click="muestra(new.url)",href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf
@@ -223,7 +234,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(href='{{ new.url }}').link Ver nota
+									a(ng-click="muestra(new.url)",href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf

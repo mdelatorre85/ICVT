@@ -128,7 +128,9 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
   $scope.newsresult = null;
   $scope.resultText = "";
   $scope.formData.tagGeneral = 1;
-
+  $scope.noticiaVisible = true;
+  $scope.panelVisible = false;
+  $scope.urlNoticia="";
 
 	$http({
     method  : 'POST',
@@ -239,6 +241,18 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
       $scope.fechaInicio    = "";
       $scope.fechaFin       = "";
   }
+
+  $scope.muestra = function ($url) {
+    $scope.noticiaVisible = false;
+    $scope.panelVisible   = true;
+    $scope.urlNoticia = $url;
+  }
+
+  $scope.regresa = function() {
+    $scope.noticiaVisible = true;
+    $scope.panelVisible   = false;
+  };
+
 });
 
 
