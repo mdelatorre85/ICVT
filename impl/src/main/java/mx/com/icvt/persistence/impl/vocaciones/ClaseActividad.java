@@ -11,7 +11,7 @@ import java.util.List;
 public class ClaseActividad {
     @Id
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -27,11 +27,11 @@ public class ClaseActividad {
         unidadEconomicas = new LinkedList<UnidadEconomica>();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

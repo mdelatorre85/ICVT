@@ -9,7 +9,7 @@ import java.util.List;
 public class PersonalOcupado {
     @Id
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -21,11 +21,11 @@ public class PersonalOcupado {
         this.unidadesEconomicas = new LinkedList<UnidadEconomica>();
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
