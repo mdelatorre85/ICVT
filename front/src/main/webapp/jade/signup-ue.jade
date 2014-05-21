@@ -8,7 +8,7 @@ html.no-js
 
 		.main-wrapper
 			include includes/header
-			
+
 			nav.main-nav
 				ul.nav-listing
 					li: a(href='index.html')
@@ -29,7 +29,7 @@ html.no-js
 					li: a(href='#')
 						span.icon
 						span.tag Inteligencia social
-					
+
 
 			section.main-container
 				+container-overlay
@@ -41,13 +41,13 @@ html.no-js
 					.container
 						.half
 							.left
-								br								
+								br
 							.right
-								button(type='submit').btn <i class='fa fa-save'></i> Guardar			
+								button(type='submit').btn <i class='fa fa-save'></i> Guardar
 
 				.panel-signup
 					.container
-						form(action='#').form
+						form(action='unidadEconomica', method='post').form
 
 							fieldset
 								legend Información de la empresa
@@ -59,7 +59,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='nombre')
 
 
 								dl.question
@@ -69,7 +69,7 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='razonSocial')
 
 								dl.question
 									dt
@@ -78,9 +78,9 @@ html.no-js
 									dd.answers
 										ul
 											li.input-text
-												input(type='text')
+												input(type='text', name='claseActividad')
 
-								
+
 								dl.question
 									dt
 										label Personal ocupado:
@@ -90,13 +90,13 @@ html.no-js
 											li.input-select
 												select
 													option(disabled selected) Seleciona el personal ocupado en la empresa
-													option 0 a 5 personas
-													option 6 a 10 personas
-													option 11 a 30 personas
-													option 31 a 50 personas
-													option 51 a 100 personas
-													option 101 a 250 personas
-													option 251 y más personas
+													option(value='1') 0 a 5 personas
+													option(value='2') 6 a 10 personas
+													option(value='3') 11 a 30 personas
+													option(value='4') 31 a 50 personas
+													option(value='5') 51 a 100 personas
+													option(value='6') 101 a 250 personas
+													option(value='7') 251 y más personas
 
 
 							fieldset
@@ -146,92 +146,92 @@ html.no-js
 									dd.answers
 										ul
 											li.input-select
-												select													
+												select
 													option(disabled selected) Seleciona tu municipio
-													option Acatlán
-													option Acaxochitlán
-													option Actopan
-													option Agua Blanca de Iturbide
-													option Ajacuba
-													option Alfajayucan
-													option Almoloya
-													option Apan
-													option El Arenal
-													option Atitalaquia
-													option Atlapexco
-													option Atotonilco el Grande
-													option Atotonilco de Tula
-													option Calnali
-													option Cardonal
-													option Cuautepec de Hinojosa
-													option Chapantongo
-													option Chapulhuacán
-													option Chilcuautla
-													option Eloxochitlán
-													option Emiliano Zapata
-													option Epazoyucan
-													option Francisco I. Madero
-													option Huasca de Ocampo
-													option Huautla
-													option Huazalingo
-													option Huehuetla
-													option Huejutla de Reyes
-													option Huichapan
-													option Ixmiquilpan
-													option Jacala de Ledezma
-													option Jaltocán
-													option Juárez Hidalgo
-													option Lolotla
-													option Metepec
-													option San Agustín Metzquititlán
-													option Metztitlán
-													option Mineral del Chico
-													option Mineral del Monte
-													option La Misión
-													option Mixquiahuala de Juárez
-													option Molango de Escamilla
-													option Nicolás Flores
-													option Nopala de Villagrán
-													option Omitlán de Juárez
-													option San Felipe Orizatlán
-													option Pacula
-													option Pachuca de Soto
-													option Pisaflores
-													option Progreso de Obregón
-													option Mineral de la Reforma
-													option San Agustín Tlaxiaca
-													option San Bartolo Tutotepec
-													option San Salvador
-													option Santiago de Anaya
-													option Santiago Tulantepec de Lugo Guerrero
-													option Singuilucan
-													option Tasquillo
-													option Tecozautla
-													option Tenango de Doria
-													option Tepeapulco
-													option Tepehuacán de Guerrero
-													option Tepeji del Río de Ocampo
-													option Tepetitlán
-													option Tetepango
-													option Villa de Tezontepec
-													option Tezontepec de Aldama
-													option Tianguistengo
-													option Tizayuca
-													option Tlahuelilpan
-													option Tlahuiltepa
-													option Tlanalapa
-													option Tlanchinol
-													option Tlaxcoapan
-													option Tolcayuca
-													option Tula de Allende
-													option Tulancingo de Bravo
-													option Xochiatipan
-													option Xochicoatlán
-													option Yahualica
-													option Zacualtipán de Ángeles
-													option Zapotlán de Juárez
-													option Zempoala
-													option Zimapán
+													option(value='1') Acatlán
+													option(value='2') Acaxochitlán
+													option(value='3') Actopan
+													option(value='4') Agua Blanca de Iturbide
+													option(value='5') Ajacuba
+													option(value='6') Alfajayucan
+													option(value='7') Almoloya
+													option(value='8') Apan
+													option(value='9') El Arenal
+													option(value='10') Atitalaquia
+													option(value='11') Atlapexco
+													option(value='12') Atotonilco el Grande
+													option(value='13') Atotonilco de Tula
+													option(value='14') Calnali
+													option(value='15') Cardonal
+													option(value='16') Cuautepec de Hinojosa
+													option(value='17') Chapantongo
+													option(value='18') Chapulhuacán
+													option(value='19') Chilcuautla
+													option(value='20') Eloxochitlán
+													option(value='21') Emiliano Zapata
+													option(value='22') Epazoyucan
+													option(value='23') Francisco I. Madero
+													option(value='24') Huasca de Ocampo
+													option(value='25') Huautla
+													option(value='26') Huazalingo
+													option(value='27') Huehuetla
+													option(value='28') Huejutla de Reyes
+													option(value='29') Huichapan
+													option(value='30') Ixmiquilpan
+													option(value='31') Jacala de Ledezma
+													option(value='32') Jaltocán
+													option(value='33') Juárez Hidalgo
+													option(value='34') Lolotla
+													option(value='35') Metepec
+													option(value='36') San Agustín Metzquititlán
+													option(value='37') Metztitlán
+													option(value='38') Mineral del Chico
+													option(value='39') Mineral del Monte
+													option(value='40') La Misión
+													option(value='41') Mixquiahuala de Juárez
+													option(value='42') Molango de Escamilla
+													option(value='43') Nicolás Flores
+													option(value='44') Nopala de Villagrán
+													option(value='45') Omitlán de Juárez
+													option(value='46') San Felipe Orizatlán
+													option(value='47') Pacula
+													option(value='48') Pachuca de Soto
+													option(value='49') Pisaflores
+													option(value='50') Progreso de Obregón
+													option(value='51') Mineral de la Reforma
+													option(value='52') San Agustín Tlaxiaca
+													option(value='53') San Bartolo Tutotepec
+													option(value='54') San Salvador
+													option(value='55') Santiago de Anaya
+													option(value='56') Santiago Tulantepec de Lugo Guerrero
+													option(value='57') Singuilucan
+													option(value='58') Tasquillo
+													option(value='59') Tecozautla
+													option(value='60') Tenango de Doria
+													option(value='61') Tepeapulco
+													option(value='62') Tepehuacán de Guerrero
+													option(value='63') Tepeji del Río de Ocampo
+													option(value='64') Tepetitlán
+													option(value='65') Tetepango
+													option(value='66') Villa de Tezontepec
+													option(value='67') Tezontepec de Aldama
+													option(value='68') Tianguistengo
+													option(value='69') Tizayuca
+													option(value='70') Tlahuelilpan
+													option(value='71') Tlahuiltepa
+													option(value='72') Tlanalapa
+													option(value='73') Tlanchinol
+													option(value='74') Tlaxcoapan
+													option(value='75') Tolcayuca
+													option(value='76') Tula de Allende
+													option(value='77') Tulancingo de Bravo
+													option(value='78') Xochiatipan
+													option(value='79') Xochicoatlán
+													option(value='80') Yahualica
+													option(value='81') Zacualtipán de Ángeles
+													option(value='82') Zapotlán de Juárez
+													option(value='83') Zempoala
+													option(value='84') Zimapán
 
 								dl.question
 									dt
@@ -260,11 +260,11 @@ html.no-js
 											li.input-text
 												input(type='text')
 
-								
+
 							fieldset
 
 								legend Datos de contacto
-								
+
 								dl.question
 									dt
 										label Nombre del representante:
@@ -340,10 +340,10 @@ html.no-js
 
 									.right
 										button(type='submit').btn <i class='fa fa-save'></i> Guardar
-	
+
 
 			include includes/notifications
 
-		
+
 
 		include includes/scripts
