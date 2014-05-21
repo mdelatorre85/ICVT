@@ -25,6 +25,10 @@
         <class>mx.com.icvt.persistence.impl.intsocial.CensosPoblacion</class>
         <class>mx.com.icvt.persistence.impl.intsocial.ActividadEconomica</class>
         <class>mx.com.icvt.persistence.impl.user.User</class>
+        <class>mx.com.icvt.persistence.impl.questionnaries.Cuestionario</class>
+        <class>mx.com.icvt.persistence.impl.questionnaries.Tema</class>
+        <class>mx.com.icvt.persistence.impl.questionnaries.Pregunta</class>
+        <class>mx.com.icvt.persistence.impl.questionnaries.Respuesta</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ICVT" />

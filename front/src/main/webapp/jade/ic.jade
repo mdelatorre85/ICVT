@@ -23,21 +23,20 @@ html.no-js
 					li: a(href='alerts.html')
 						span.icon
 						span.tag Alertas y notifiaciones
-					li.selected: a(href='#')
+					li.selected: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
-					li: a(href='#')
+					li: a(href='is.html')
 						span.icon
 						span.tag Inteligencia social
 					
 
 			section.main-container
 				+container-overlay
-
-				.panel-dummy-image
-					.container
-						a(href='ic-2.html')
-							img(src='img/site-ic.png')
+				.panel-title
+					h1 Inteligencia Comercial
+				#main-map
+				
 	
 
 			include includes/notifications
@@ -45,3 +44,4 @@ html.no-js
 		
 
 		include includes/scripts
+		script(src='js/icApp.js')

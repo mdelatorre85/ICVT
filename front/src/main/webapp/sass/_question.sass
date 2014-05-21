@@ -1,3 +1,12 @@
+.panel-question-bar
+	padding: $spacer 0
+	.left
+		.btn
+			display: inline-block
+	.right
+		text-align: right
+
+
 .panel-question-all-blocks-container
 	.action
 		padding: $spacer 0
@@ -9,13 +18,40 @@
 			text-align: right
 
 
-.panel-question-bar
-	padding: $spacer 0
-	.left
-		.btn
+.panel-question-container
+	header
+		margin-bottom: $spacer
+		h2
+			font-size: 1.6em
 			display: inline-block
-	.right
-		text-align: right
+			border-bottom: 2px solid $lightgray
+			padding-bottom: $spacer/4
+			margin-bottom: $spacer/2
+		p
+			font-size: 0.7em
+
+	// override generic class .question,
+	// in order to have specific style in questions,
+	// but using inherit styles previously declared
+	.question
+		margin-bottom: $spacer*2
+
+		dt
+			font-size: 1.2em
+			line-height: 1.2
+
+		.answers
+			label
+				padding: 17px
+
+
+			input[type='text']
+				padding: 10px 5px
+
+
+			select
+				padding: 10px 5px
+				font-size: 1.2em
 
 
 .panel-question-tabs
@@ -64,17 +100,7 @@
 
 
 
-.panel-question-container
-	header
-		margin-bottom: $spacer
-		h2
-			font-size: 1.6em
-			display: inline-block
-			border-bottom: 2px solid $lightgray
-			padding-bottom: $spacer/4
-			margin-bottom: $spacer/2
-		p
-			font-size: 0.7em
+
 
 
 @media screen and (max-width: 640px)

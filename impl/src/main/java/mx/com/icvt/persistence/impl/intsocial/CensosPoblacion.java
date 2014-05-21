@@ -11,7 +11,7 @@ public class CensosPoblacion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "id_municipio")
+    @Column(name = "total")
     private int total;
 
     @Column(name = "hombres")

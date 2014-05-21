@@ -1,11 +1,80 @@
-.question
-	margin-bottom: $spacer*2
-	dt
-		margin-bottom: $spacer
-		font-size: 1.2em
-		+bariol-light
-		line-height: 1.2
+// form elements reset
+button, input:focus, textarea:focus, isindex:focus, keygen:focus, select:focus
+	outline: 0
 
+input[type='text'], input[type='email'], input[type='password'], textarea, select
+	+reset-appearance
+	background-color: white
+	border-radius: 0
+	font-size: inherit
+	font-family: inherit
+	color: inherit
+	padding: 0 
+	margin: 0
+	border: 0
+
+	// basic styling
+	+bx
+	border: 1px solid $lightgray
+	width: 100%
+	padding: 3px
+	resize: none
+
+
+input[type='radio'], input[type='checkbox']
+	+fx
+	+reset-appearance
+	display: none
+
+	&:checked ~ label
+		color: white !important
+		background-color: rgba($blue, 0.8) !important
+		border: 1px solid $blue !important
+
+
+button
+	+reset-appearance
+	border: 0
+	margin: 0
+	padding: 0
+	font-size: inherit
+	font-family: inherit
+	color: inherit
+	background-color: transparent
+
+
+
+
+select
+	position: relative
+	
+	//-
+		&::before
+			content: "lol"
+			display: block
+			font-family: FontAwesome
+			font-style: normal
+			font-weight: normal
+			line-height: 1
+			-webkit-font-smoothing: antialiased
+			-moz-osx-font-smoothing: grayscale
+			position: absolute
+			right: 0
+			top: 0
+			z-index: 15
+			color: $gray
+
+
+legend
+	+bariol-bold
+	margin-bottom: $spacer
+
+// used in _questions.sass to edit specific styles
+.question
+	margin-bottom: $spacer
+	dt
+		+bariol-light		
+		margin-bottom: $spacer/2
 
 	li
 		margin-bottom: $spacer/4
@@ -14,7 +83,6 @@
 	.answers
 		label
 			+fx
-			padding: 17px
 			display: block
 			cursor: pointer
 			border: 1px solid $lightgray
@@ -27,32 +95,21 @@
 			display: block
 
 
-	input[type='radio'], input[type='checkbox']
-		+fx
-		+reset-appearance
-		display: none
-
-		&:checked ~ label
-			color: white
-			background-color: rgba($blue,0.8)
-			border: 1px solid $blue
-
 	input[type='text']
-		padding: 10px 5px
 
 		&:focus
 			border-color: $gray
 
 	select
 		+fx
-		+reset-appearance
-		border: 1px solid $lightgray
-		font-family: inherit
-		padding: 10px 5px
-		width: 100%
-		color: $gray
-		font-size: 1.2em
-		border-radius: 0
+		option
+			color: $gray
+		
+		
+.form
+	.action
+		.right
+			text-align: right
 
 
 .input-radio
