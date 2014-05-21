@@ -61,19 +61,25 @@ public class UnidadEconomica {
 
     private Double latitud;
 
-    @ManyToOne
+    @Column(name = "facebook")
+    private String facebook;
+
+    @Column(name = "twitter")
+    private String twitter;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_localidad")
     private Localidad localidad;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_personal_ocupado")
     private PersonalOcupado personalOcupado;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_clase_actividad")
     private ClaseActividad claseActividad;
 
@@ -278,5 +284,21 @@ public class UnidadEconomica {
 
     public void setClaseActividad(ClaseActividad claseActividad) {
         this.claseActividad = claseActividad;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
     }
 }
