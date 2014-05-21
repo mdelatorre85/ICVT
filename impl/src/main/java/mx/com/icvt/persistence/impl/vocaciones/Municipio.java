@@ -24,20 +24,20 @@ public class Municipio {
     @Column(name = "descripcion")
     private String descripcion;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_entidad")
     private EntidadFederativa entidad;
 
-    @OneToMany(mappedBy = "municipio")
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
     private List<UnidadEconomica> unidadesEconomicas;
 
-    @OneToMany(mappedBy = "municipio")
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
     private List<CensosEducacion> censosEducacion;
 
-    @OneToMany(mappedBy = "municipio")
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
     private List<CensosPoblacion> censosPoblacion;
 
-    @OneToMany(mappedBy = "municipio")
+    @OneToMany(mappedBy = "municipio", fetch = FetchType.LAZY)
     private List<CensosEconomicos> censosEconomicos;
 
     public Municipio() {

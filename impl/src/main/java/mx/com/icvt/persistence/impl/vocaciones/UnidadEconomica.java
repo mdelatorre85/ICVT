@@ -66,19 +66,25 @@ public class UnidadEconomica {
 
     private Double latitud;
 
-    @ManyToOne
+    @Column(name = "facebook")
+    private String facebook;
+
+    @Column(name = "twitter")
+    private String twitter;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_municipio")
     private Municipio municipio;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_localidad")
     private Localidad localidad;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_personal_ocupado")
     private PersonalOcupado personalOcupado;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_clase_actividad")
     private ClaseActividad claseActividad;
 
@@ -89,55 +95,41 @@ public class UnidadEconomica {
         cuestionarios = new ArrayList<Cuestionario>();
     }
 
+    public UnidadEconomica(EconomicUnit economicUnit) {
+        this.cuestionarios = new ArrayList<Cuestionario>();
+
+        this.numeroDenue = economicUnit.getD_llave();
+        this.manzana = economicUnit.getManzana();
+        this.nombreEstablecimiento = economicUnit.getNom_estab();
+        this.nombrePropietario = economicUnit.getNom_propie();
+        this.direccion = economicUnit.getDireccion();
+        this.calle = economicUnit.getCalle();
+        this.numeroExterior = economicUnit.getNumero_ext();
+        this.numeroInterior = economicUnit.getNumero_int();
+        this.colonia = economicUnit.getColonia();
+        this.codigoPostal = economicUnit.getCod_postal();
+        this.telefono = economicUnit.getTelefono1();
+        this.extensionTelefono = economicUnit.getExt_tel1();
+        this.correoElectronico = economicUnit.getCorreoelec();
+        this.url = economicUnit.getWww();
+        this.tipoEstablecimiento = economicUnit.getTipo_estab();
+        this.tipoUnidadEconomica = economicUnit.getTipo_ue();
+        this.estatus = economicUnit.getEstatus();
+        this.alta = economicUnit.getAlta();
+        this.longitud = economicUnit.getLongitud();
+        this.latitud = economicUnit.getLatitud();
+        /**
+         * Municipio, localidad, estrato personal ocupado, clase actividad son objetos,
+         * no ids
+         */
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public UnidadEconomica(int cve_ent, int cve_num, int cve_loc) {
-        cuestionarios = new ArrayList<Cuestionario>();
-//        this.cve_ent = cve_ent;
-//        this.cve_loc = cve_num;
-//        this.cve_loc = cve_loc;
-    }
-
-    public UnidadEconomica(EconomicUnit economicUnit) {
-        cuestionarios = new ArrayList<Cuestionario>();
-
-//        this.d_llave = economicUnit.getD_llave();
-//        this.cve_ent = economicUnit.getCve_ent();
-//        this.cve_mun = economicUnit.getCve_mun();
-//        this.cve_loc = economicUnit.getCve_loc();
-//        this.manzana = economicUnit.getManzana();
-//        this.nom_estab = economicUnit.getNom_estab();
-//        this.nom_propie = economicUnit.getNom_propie();
-//        this.direccion = economicUnit.getDireccion();
-//        this.calle = economicUnit.getCalle();
-//        this.numero_ext = economicUnit.getNumero_ext();
-//        this.numero_int = economicUnit.getNumero_int();
-//        this.colonia = economicUnit.getColonia();
-//        this.cod_postal = economicUnit.getCod_postal();
-//        this.telefono1 = economicUnit.getTelefono1();
-//        this.ext_tel1 = economicUnit.getExt_tel1();
-//        this.clase_act = economicUnit.getClase_act();
-//        this.num_local = economicUnit.getNum_local();
-//        this.correoelec = economicUnit.getCorreoelec();
-//        this.www = economicUnit.getWww();
-//        this.tipo_estab = economicUnit.getTipo_estab();
-//        this.tipo_ue = economicUnit.getTipo_ue();
-//        this.est_perocu = economicUnit.getEst_perocu();
-        this.estatus = economicUnit.getEstatus();
-        this.alta = economicUnit.getAlta();
-        this.longitud = economicUnit.getLongitud();
-        this.latitud = economicUnit.getLatitud();
-
-    }
-
-    public void setD_llave(int d_llave) {
-//        this.d_llave = d_llave;
     }
 
     public int getNumeroDenue() {
@@ -332,12 +324,27 @@ public class UnidadEconomica {
         this.claseActividad = claseActividad;
     }
 
-
     public List<Cuestionario> getCuestionarios() {
         return cuestionarios;
     }
 
     public void setCuestionarios(List<Cuestionario> cuestionarios) {
         this.cuestionarios = cuestionarios;
+    }
+
+    public String getFacebook() {
+        return facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        this.facebook = facebook;
+    }
+
+    public String getTwitter() {
+        return twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        this.twitter = twitter;
     }
 }
