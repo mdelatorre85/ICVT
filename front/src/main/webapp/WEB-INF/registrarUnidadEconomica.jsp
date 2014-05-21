@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html class="no-js">
     <head>
@@ -15,7 +17,22 @@
         <!-- fancybox-->
         <link rel="stylesheet" href="css/fancybox.css">
         <!-- google maps-->
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
+        <script type="text/javascript"
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
+        <%
+            if (request.getAttribute("exito") != null) {
+                boolean exito = (Boolean) request.getAttribute("exito");
+                if (exito) {
+        %>
+            <script type="text/javascript">
+                window.onload = function(){
+                    alert('Unidad econ\u00f3mica registrada exitosamente');
+                }
+            </script>
+        <%
+                }
+            }
+        %>
     </head>
     <body>
         <div class="main-wrapper">
@@ -23,16 +40,21 @@
                 <div class="main-logo"><a href="index.html">site</a></div>
             </header>
             <label for="activate-menu" class="btn-alpha btn-activate-menu"><i class="fa fa-bars"></i>Menú</label>
-            <label for="activate-notification" class="btn-alpha btn-activate-notification"><i class="fa fa-bell-o"></i>Alertas<span class="count">2</span></label>
+            <label for="activate-notification" class="btn-alpha btn-activate-notification"><i class="fa fa-bell-o"></i>Alertas<span
+                    class="count">2</span></label>
             <input type="checkbox" id="activate-menu" class="activate-menu">
             <input type="checkbox" id="activate-notification" class="activate-notification">
             <nav class="main-nav">
                 <ul class="nav-listing">
-                    <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
-                    <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+                    <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a>
+                    </li>
+                    <li><a href="actualidad.html"><span class="icon"></span><span
+                            class="tag">Actualidad de la industria</span></a></li>
                     <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
-                    <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
-                    <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+                    <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a>
+                    </li>
+                    <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a>
+                    </li>
                     <li><a href="#"><span class="icon"></span><span class="tag">Inteligencia social</span></a></li>
                 </ul>
             </nav>
@@ -101,8 +123,10 @@
                                     <dd class="answers">
                                         <ul>
                                             <li class="input-select">
-                                                <select>
-                                                    <option disabled selected>Seleciona el personal ocupado en la empresa</option>
+                                                <select name="segmentoPersonalOcupado">
+                                                    <option disabled selected>Seleciona el personal ocupado en la
+                                                        empresa
+                                                    </option>
                                                     <option value="1">0 a 5 personas</option>
                                                     <option value="2">6 a 10 personas</option>
                                                     <option value="3">11 a 30 personas</option>
@@ -125,7 +149,7 @@
                                     <dd class="answers">
                                         <ul>
                                             <li class="input-text">
-                                                <input type="text">
+                                                <input type="text" name="calle">
                                             </li>
                                         </ul>
                                     </dd>
@@ -137,7 +161,7 @@
                                     <dd class="answers">
                                         <ul>
                                             <li class="input-text">
-                                                <input type="text">
+                                                <input type="text" name="numeroExterior">
                                             </li>
                                         </ul>
                                     </dd>
@@ -149,7 +173,7 @@
                                     <dd class="answers">
                                         <ul>
                                             <li class="input-text">
-                                                <input type="text">
+                                                <input type="text" name="numeroInterior">
                                             </li>
                                         </ul>
                                     </dd>
@@ -161,7 +185,7 @@
                                     <dd class="answers">
                                         <ul>
                                             <li class="input-text">
-                                                <input type="text">
+                                                <input type="text" name="colonia">
                                             </li>
                                         </ul>
                                     </dd>
@@ -173,7 +197,7 @@
                                     <dd class="answers">
                                         <ul>
                                             <li class="input-select">
-                                                <select>
+                                                <select name="municipio">
                                                     <option disabled selected>Seleciona tu municipio</option>
                                                     <option value="1">Acatlán</option>
                                                     <option value="2">Acaxochitlán</option>
@@ -388,7 +412,24 @@
                                     </dd>
                                 </dl>
                             </fieldset>
-                            <div class="error"><span>Mensaje de error</span></div>
+                            <%
+                                if (request.getAttribute("errores") != null) {
+                                    List<String> errores = (List<String>) request.getAttribute("errores");
+                                    if (!errores.isEmpty()) {
+                            %>
+                            <div class="error">
+                                <%
+                                    for (String error : errores) {
+                                %>
+                                <span><%= error%></span>
+                                <%
+                                    }
+                                %>
+                            </div>
+                            <%
+                                    }
+                                }
+                            %>
                             <div class="action">
                                 <div class="half">
                                     <div class="left"><br></div>
@@ -402,14 +443,18 @@
                 </div>
             </section>
             <aside class="main-notification">
-                <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i class='fa fa-chevron-right'></i></a></div>
+                <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i
+                        class='fa fa-chevron-right'></i></a></div>
                 <div class="alert-listing-aside">
                     <ul>
-                        <li class="selected"><a href="alerts.html">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+                        <li class="selected"><a href="alerts.html">Se espera un incremento del 5% en los costos de
+                            manufactura en la región.</a></li>
                         <li class="new"><a href="alerts-view.html">Congreso de la industria textil 2014.</a></li>
-                        <li class="new"><a href="alerts.html">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+                        <li class="new"><a href="alerts.html">Propuesta de nueva ley en materia de comercio exterior
+                            podría beneficiar al sector textil en el norte</a></li>
                         <li><a href="alerts.html">Taller gratuito de tecnologías de la información para PyMES.</a></li>
-                        <li><a href="alerts.html">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+                        <li><a href="alerts.html">La importancia de tener un sitio web para la promoción de tus
+                            servicios a nivel global.</a></li>
                     </ul>
                 </div>
             </aside>
