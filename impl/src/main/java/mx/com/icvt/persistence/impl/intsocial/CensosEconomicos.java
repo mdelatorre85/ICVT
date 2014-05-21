@@ -33,7 +33,7 @@ public class CensosEconomicos {
     private int anio;
 
     @ManyToOne
-    @JoinColumn(name = "id_activdad_economica")
+    @JoinColumn(name = "id_actividad_economica")
     private ActividadEconomica actividadEconomica;
 
     @ManyToOne
