@@ -14,7 +14,7 @@ html.no-js
 					li: a(href='index.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li: a(href='actualidad.html')
+					li: a(href='news.html')
 						span.icon
 						span.tag Actualidad de la industria
 					li: a(href='question.html')
@@ -47,10 +47,10 @@ html.no-js
 											li.selected: a(href='actualidad.html').btn-outline
 												i.fa.fa-globe
 												span Noticias
-											li: a(href='actualidad-tweets.html').btn-outline
+											li: a(href='news-tweets.html').btn-outline
 												i.fa.fa-twitter
 												span Tweets
-											li: a(href='actualidad-patentes.html').btn-outline
+											li: a(href='#').btn-outline
 												i.fa.fa-book
 												span Patentes
 
@@ -114,7 +114,7 @@ html.no-js
 						li(ng-repeat='new in newsresult').element
 							header.cf
 								
-								.pic
+								div(ng-hide="!new.imagen").pic
 									a(href='{{ new.url }}')
 										img(src='img/news-thumbs/3.jpg')
 								.title
@@ -145,7 +145,7 @@ html.no-js
 						li(ng-repeat='new in newsa').element
 							header.cf
 								
-								.pic
+								div(ng-hide="!new.imagen").pic
 									a(href='{{ new.url }}')
 										img(src='img/news-thumbs/3.jpg')
 								.title
@@ -176,7 +176,7 @@ html.no-js
 						li(ng-repeat='new in newsb').element
 							header.cf
 								
-								.pic
+								div(ng-hide="!new.imagen").pic
 									a(href='{{ new.url }}')
 										img(src='img/news-thumbs/2.jpg')
 								.title
@@ -207,9 +207,9 @@ html.no-js
 						li(ng-repeat='new in newsc').element
 							header.cf
 								
-								.pic
+								div(ng-hide="!new.imagen").pic
 									a(href='{{ new.url }}')
-										img(src='img/news-thumbs/1.jpg')
+										img(src='{{ new.imagen }}')
 								.title
 									a(href='{{ new.url }}') {{ new.titulo }}
 

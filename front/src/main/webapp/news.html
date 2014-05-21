@@ -29,7 +29,7 @@
       <nav class="main-nav">
         <ul class="nav-listing">
           <li><a href="index.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
-          <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="news.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
           <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
           <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
           <li><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
@@ -51,8 +51,8 @@
                   <div class="menu-select">
                     <ul>
                       <li class="selected"><a href="actualidad.html" class="btn-outline"><i class="fa fa-globe"></i><span>Noticias</span></a></li>
-                      <li><a href="actualidad-tweets.html" class="btn-outline"><i class="fa fa-twitter"></i><span>Tweets</span></a></li>
-                      <li><a href="actualidad-patentes.html" class="btn-outline"><i class="fa fa-book"></i><span>Patentes</span></a></li>
+                      <li><a href="news-tweets.html" class="btn-outline"><i class="fa fa-twitter"></i><span>Tweets</span></a></li>
+                      <li><a href="#" class="btn-outline"><i class="fa fa-book"></i><span>Patentes</span></a></li>
                     </ul>
                   </div>
                 </div>
@@ -109,7 +109,7 @@
             <ul>
               <li ng-repeat="new in newsresult" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
+                  <div ng-hide="!new.imagen" class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
                   <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
@@ -134,7 +134,7 @@
             <ul>
               <li ng-repeat="new in newsa" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
+                  <div ng-hide="!new.imagen" class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/3.jpg"></a></div>
                   <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
@@ -159,7 +159,7 @@
             <ul>
               <li ng-repeat="new in newsb" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/2.jpg"></a></div>
+                  <div ng-hide="!new.imagen" class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/2.jpg"></a></div>
                   <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">
@@ -184,7 +184,7 @@
             <ul>
               <li ng-repeat="new in newsc" class="element">
                 <header class="cf">
-                  <div class="pic"><a href="{{ new.url }}"><img src="img/news-thumbs/1.jpg"></a></div>
+                  <div ng-hide="!new.imagen" class="pic"><a href="{{ new.url }}"><img src="{{ new.imagen }}"></a></div>
                   <div class="title"><a href="{{ new.url }}">{{ new.titulo }}</a></div>
                 </header>
                 <div class="content">

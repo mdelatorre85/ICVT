@@ -234,10 +234,76 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
 
 
   };
-
   $scope.reset = function() {
       $scope.formData.tagsc = {};
       $scope.fechaInicio    = "";
       $scope.fechaFin       = "";
   }
 });
+
+
+sampleApp.controller('tweetsController', function($scope,$http,dateFilter) {
+  
+  $scope.tweets = null;
+  $http({
+    method  : 'POST',
+    url     : '/api/v1/rest/tweets/retrieve',
+    data    :  "",
+    headers : { 'Content-Type': 'application/x-www-form-urlencoded'},
+    tracker : $scope.loadingTracker
+  })
+  .success(function(data, status, headers, config) {
+    $scope.tweets = data;      
+  });
+
+  $scope.filter = function() {
+
+    var fechaInicio= ""
+    var fechaFin   = ""
+    var filterDate = false;
+    var filterTags = false;
+    var dateInit   = null;
+    var dateFin    = null;
+
+    filterDate = $scope.fechaInicio != null && $scope.fechaFin != null;
+  
+    if (filterDate) {
+       fechaInicio = dateFilter($scope.fechaInicio, 'yyyy-MM-dd');
+       fechaFin    = dateFilter($scope.fechaFin, 'yyyy-MM-dd');
+       dateInit    = fechaInicio.split("-");
+       dateFin     = fechaFin.split("-");
+    }else{
+      return false;
+    }
+
+    $http({
+      method  : 'POST',
+      url     : '/api/v1/rest/tweets/retrieve',
+      data    : "fechaInicio="+fechaInicio+"&fechaFin="+fechaFin+"&etiquetas="+tags,
+      headers : { 'Content-Type': 'application/x-www-form-urlencoded'},
+      tracker : $scope.loadingTracker
+    })
+    .success(function(data, status, headers, config) {
+      $scope.tweets = data;      
+    })
+    .error(function (data) {
+      // $scope.load="off"
+      // $scope.error = "Usuario o contraseña incorrectos"
+      //TODO: Mandar mensajes de error.
+    }); 
+
+
+  };
+ 
+  $scope.reset = function() {
+      $scope.fechaInicio    = "";
+      $scope.fechaFin       = "";
+  }
+});
+
+
+
+
+
+
+
