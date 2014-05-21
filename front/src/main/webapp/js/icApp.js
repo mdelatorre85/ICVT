@@ -5,6 +5,8 @@ var ueLng = -98.754805;
 var ueLatLng = new google.maps.LatLng(ueLat, ueLng);
 var ueTitle = "Camisas Finas de Hidalgo SA de CV";
 
+var MAP_PIN = 'M0-165c-27.618 0-50 21.966-50 49.054C-50-88.849 0 0 0 0s50-88.849 50-115.946C50-143.034 27.605-165 0-165z';
+
 var backend = {};
 
 function initMap() {
@@ -23,7 +25,8 @@ function initMap() {
 
 
 	howManyCompetencia = backend.competencia.length;
-	console.log(howManyCompetencia);
+	howManyProveedores = backend.proveedores.length;
+	howManyDistribuidores = backend.distribuidores.length;
 
 
 	// INICIALIZAR MAPA
@@ -34,7 +37,7 @@ function initMap() {
 		zoomControlOptions: {
 			style:google.maps.ZoomControlStyle.SMALL
 		},
-		styles: [{"featureType":"water","stylers":[{"saturation":43},{"lightness":-11},{"hue":"#0088ff"}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"hue":"#ff0000"},{"saturation":-100},{"lightness":99}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"color":"#808080"},{"lightness":54}]},{"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"color":"#ece2d9"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#ccdca1"}]},{"featureType":"road","elementType":"labels.text.fill","stylers":[{"color":"#767676"}]},{"featureType":"road","elementType":"labels.text.stroke","stylers":[{"color":"#ffffff"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]},{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#b8cb93"}]},{"featureType":"poi.park","stylers":[{"visibility":"on"}]},{"featureType":"poi.sports_complex","stylers":[{"visibility":"on"}]},{"featureType":"poi.medical","stylers":[{"visibility":"on"}]},{"featureType":"poi.business","stylers":[{"visibility":"simplified"}]}],
+		styles: [{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"},{"saturation":-100},{"lightness":20}]},{"featureType":"road","elementType":"all","stylers":[{"visibility":"on"},{"saturation":-100},{"lightness":40}]},{"featureType":"water","elementType":"all","stylers":[{"visibility":"on"},{"saturation":-10},{"lightness":30}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"simplified"},{"saturation":-60},{"lightness":10}]},{"featureType":"landscape.natural","elementType":"all","stylers":[{"visibility":"simplified"},{"saturation":-60},{"lightness":60}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"},{"saturation":-100},{"lightness":60}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"},{"saturation":-100},{"lightness":60}]}],
 		panControl: false,
 		mapTypeControl: false,
 		streetViewControl: false,
@@ -47,12 +50,12 @@ function initMap() {
 	var marker = new google.maps.Marker({
 		position: ueLatLng,
 		map: map,
-		title: ueTitle
+		title: ueTitle,
+		
 	});
 
 	// MARCADORES PARA COMPETENCIA
 	for(i = 0 ; i < howManyCompetencia ; i++){
-		console.log(i);
 		var data = backend.competencia[i];
 		
 		var currentLatLng = new google.maps.LatLng(data.lat, data.lng);
@@ -60,9 +63,65 @@ function initMap() {
 		var currentMarker = new google.maps.Marker({
 			position: currentLatLng,
 			map: map,
-			title: data.nombre
-		});
+			title: data.nombre,
+			icon: {
+				path: MAP_PIN,
+				fillColor: '#ED1C24',
+				fillOpacity: 0.5,
+				strokeColor: '#ED1C24',
+				strokeWeight: 1,
+				strokeOpacity: 1,
+				scale: 1/10
 
+			}
+		});
+	}
+
+	// MARCADORES PARA PROVEEDORES
+	for(i = 0 ; i < howManyProveedores ; i++){
+		var data = backend.proveedores[i];
+		
+		var currentLatLng = new google.maps.LatLng(data.lat, data.lng);
+
+		var currentMarker = new google.maps.Marker({
+			position: currentLatLng,
+			map: map,
+			title: data.nombre,
+			icon: {
+				path: MAP_PIN,
+				fillColor: '#29ABE2',
+				fillOpacity: 0.5,
+				strokeColor: '#29ABE2',
+				strokeWeight: 1,
+				strokeOpacity: 1,
+				scale: 1/10
+
+			}
+		});
+	}
+
+
+	// MARCADORES PARA DISTRIBUIDORES
+	for(i = 0 ; i < howManyDistribuidores ; i++){
+		var data = backend.distribuidores[i];
+		
+		var currentLatLng = new google.maps.LatLng(data.lat, data.lng);
+
+		var currentMarker = new google.maps.Marker({
+			position: currentLatLng,
+			map: map,
+			title: data.nombre,
+			icon: {
+				path: MAP_PIN,
+				fillColor: '#8CC63F',
+				fillOpacity: 0.5,
+				strokeColor: '#8CC63F',
+				strokeWeight: 1,
+				strokeOpacity: 1,
+				scale: 1/10
+
+			}
+		});
 	}
 	
 
@@ -1299,7 +1358,7 @@ function initMap() {
 
 	pachucaBoundary = new google.maps.Polygon({
 		paths: pachucaCoords,
-		strokeColor: '#ED1C24',
+		strokeColor: '#666666',
 		strokeOpacity: 1,
 		strokeWeight: 2,
 		fillOpacity: 0
