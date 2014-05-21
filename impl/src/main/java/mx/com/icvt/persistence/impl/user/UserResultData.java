@@ -77,7 +77,7 @@ public class UserResultData {
 
     public String getPassword(){
 
-        String generatedSecuredPasswordHash = BCrypt.hashpw("lamisma00", BCrypt.gensalt(12));
+        String generatedSecuredPasswordHash = BCrypt.hashpw("clave00", BCrypt.gensalt(12));
         return generatedSecuredPasswordHash;
     }
 
