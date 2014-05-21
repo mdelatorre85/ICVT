@@ -249,6 +249,7 @@ sampleApp.controller('NewsController', function($scope,$http,dateFilter) {
   }
 
   $scope.regresa = function() {
+    $scope.urlNoticia = "";
     $scope.noticiaVisible = true;
     $scope.panelVisible   = false;
   };
