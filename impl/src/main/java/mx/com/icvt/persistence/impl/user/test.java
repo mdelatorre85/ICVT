@@ -1,5 +1,8 @@
 package mx.com.icvt.persistence.impl.user;
 
+import mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica;
+import mx.com.icvt.persistence.impl.vocaciones.UnidadEconomicaModel;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,7 +15,7 @@ public class test {
 
 
     public static void main(String args[]) {
-
+        /*
         UserResultData urd = new UserResultData();
         User us = new User();
 
@@ -32,7 +35,24 @@ public class test {
             User u = responseLogin.next();
             System.out.println("identity: "+u.getName()+"  password:"+u.getAvatar());
         }
+        */
+       // System.out.println("Login user");
 
+        UnidadEconomicaModel obj = new UnidadEconomicaModel("12168");
+
+        // get info unidad economica
+
+        System.out.println("Unidad economica clase: ");
+        UnidadEconomica unidadEconomica;
+        unidadEconomica = obj.getUnidadEconomica();
+
+        /*
+        if (unidadEconomica == null) {
+            System.out.println("No Existe unidad economica");
+            return;
+        }
+       */
+        // System.out.println(unidadEconomica.getNom_estab());
     }
 
 }
