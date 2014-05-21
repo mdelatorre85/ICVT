@@ -4,7 +4,7 @@ html.no-js
 
 	include includes/head
 
-	body
+	body(ng-app="sampleApp" ng-controller="tweetsController")
 
 		.main-wrapper
 			include includes/header
@@ -14,7 +14,7 @@ html.no-js
 					li: a(href='index.html')
 						span.icon
 						span.tag Dashboard de inicio
-					li.selected: a(href='actualidad.html')
+					li.selected: a(href='news.html')
 						span.icon
 						span.tag Actualidad de la industria
 					li: a(href='question.html')
@@ -44,18 +44,18 @@ html.no-js
 								.left
 									.menu-select
 										ul
-											li: a(href='actualidad.html').btn-outline
+											li: a(href='news.html').btn-outline
 												i.fa.fa-globe
 												span Noticias
-											li.selected: a(href='actualidad-tweets.html').btn-outline
+											li.selected: a(href='news-tweets.html').btn-outline
 												i.fa.fa-twitter
 												span Tweets
-											li: a(href='actualidad-patentes.html').btn-outline
+											li: a(href='#').btn-outline
 												i.fa.fa-book
 												span Patentes
 
 								.right
-									form(action='actualidad-results.html')
+									form(ng-submit='filter()')
 										.filter-link
 											a(href='#').btn-outline.js-open-filters
 												i.fa.fa-filter
@@ -71,18 +71,18 @@ html.no-js
 												.half
 													.left
 														label de:
-														input(type='text').js-date-from
+														input(type='text',pick-a-date="fechaInicio",max-date="fechaFin")
 
 													.right
 														label hasta:
-														input(type='text').js-date-to
+														input(type='text',pick-a-date="fechaFin",min-date="fechaInicio")
 										
 											
 													
 												
 											.half.action
 												.left
-													button(type='reset').btn.alt Borrar
+													button(type='reset',ng-click='reset()').btn.alt Borrar
 												.right
 													button(type='submit').btn
 														| Buscar 
@@ -97,9 +97,26 @@ html.no-js
 					h2.date Tweets
 					
 					ul
-						- for(i=0 ; i<12 ; i++) {
-						+get-tweet()
-						- }
+						li(ng-repeat='tweet in tweets').element.tweet
+							header.cf
+								
+								.pic
+									a(href='{{ tweet.userProfileUrl }}')
+										img(src='{{ tweet.userProfileUrl }}')
+
+
+								.content
+									p{{ tweet.text }}
+								
+							footer.cf
+								.source
+									a(href='{{ tweet.userProfileUrl }}')
+										i.fa.fa-twitter
+										span @{{ tweet.userScreenName }}
+
+								.source-link
+									a(href='{{ tweet.url }}').link Ver tweet
+										i.fa.fa-arrow-right
 				
 	
 
