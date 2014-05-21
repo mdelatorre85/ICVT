@@ -19,6 +19,9 @@ public class UnidadEconomica {
 
     private String manzana;
 
+    @Column(name = "razon_social")
+    private String razonSocial;
+
     @Column(name = "nombre_establecimiento")
     private String nombreEstablecimiento;
 
@@ -346,5 +349,13 @@ public class UnidadEconomica {
 
     public void setTwitter(String twitter) {
         this.twitter = twitter;
+    }
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
     }
 }
