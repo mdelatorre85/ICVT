@@ -26,7 +26,6 @@ html.no-js
 					li: a(href='ic.html')
 						span.icon
 						span.tag Inteligencia comercial
-
 					
 
 			section.main-container
@@ -38,7 +37,7 @@ html.no-js
 							.profile-pic
 								img(src='img/logo.jpg')
 							.title
-								h1 Textiles y acabados de México SA de CV
+								h1 Centro de Abastecimiento Total
 
 						.summary
 							.col.location
@@ -47,20 +46,20 @@ html.no-js
 									| Locación
 								ul
 									li Estado de Hidalgo
-									li Tula de Allende
-									li San Miguel Vindho
+									li Pachuca
+									li Pachuca de Soto
 							.col.ue-info
 								h3
 									i.fa.fa-circle-o
 									| Unidad económica
 								ul
-									li [314991] Confección, bordado y deshilado de productos textiles
+									li [315225] Confección de Uniformes Industriales y Prendas
 							.col.employees
 								h3
 									i.fa.fa-users
 									| Número de empleados
 								ul
-									li De 10 a 50 empleados
+									li 31 a 50 personas
 							.col.profile-chart-container
 								h3
 									i.fa.fa-tasks
@@ -69,7 +68,7 @@ html.no-js
 								.chart.cf
 									.percentage
 										a(href='question.html')
-											span.number.js-profileChartHomePercentage 82%
+											span.number.js-profileChartHomePercentage 92%
 											span.tag Completado
 
 									canvas#profileChartHome(height='60', width='60')
@@ -88,7 +87,7 @@ html.no-js
 								- }
 
 							footer.action
-								a(href='news.html').link Ver más
+								a(href='actualidad.html').link Ver más
 									i.fa.fa-arrow-right
 
 						.widget.widget-news
@@ -102,7 +101,7 @@ html.no-js
 								- }
 
 							footer.action
-								a(href='news.html').link Ver más
+								a(href='actualidad.html').link Ver más
 									i.fa.fa-arrow-right
 
 						.widget.widget-news
@@ -116,7 +115,7 @@ html.no-js
 								- }
 
 							footer.action
-								a(href='news.html').link Ver más
+								a(href='actualidad.html').link Ver más
 									i.fa.fa-arrow-right
 
 	
@@ -124,8 +123,8 @@ html.no-js
 			include includes/notifications
 
 		#data
-			#profileChartHomeAnswered 82
-			#profileChartHomeNoAnswered 18
+			#profileChartHomeAnswered 92
+			#profileChartHomeNoAnswered 8
 
 		include includes/scripts
 
@@ -136,9 +135,6 @@ html.no-js
 
 				profileChartHomeAnsweredValue = parseInt($('#profileChartHomeAnswered').text());
 				profileChartHomeNoAnsweredValue = parseInt($('#profileChartHomeNoAnswered').text());
-
-				console.log(profileChartHomeAnsweredValue);
-				console.log(profileChartHomeNoAnsweredValue);
 
 				var profileChartHomeData = [
 					{
