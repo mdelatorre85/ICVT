@@ -259,7 +259,7 @@ public class UnidadEconomicaModel {
         try {
             EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
             String queryString = "select * from unidad_economica " + condition;
-            Query query = manager.createNativeQuery(queryString);
+            Query query = manager.createNativeQuery(queryString, UnidadEconomica.class);
             unidades = query.getResultList();
             manager.close();
         } catch (Exception e){
