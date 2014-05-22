@@ -1,18 +1,14 @@
 package mx.com.icvt.front.services;
 
-import mx.com.icvt.front.services.filters.DateFilter;
-import mx.com.icvt.front.services.filters.FilterConstructor;
-import mx.com.icvt.model.Tweet;
-import mx.com.icvt.persistence.impl.tweets.TweetsDataRetriever;
 import mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica;
 import mx.com.icvt.persistence.impl.vocaciones.UnidadEconomicaModel;
-
 
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -39,23 +35,44 @@ public class UnidadEconomicaService {
     @POST
     @Path("/proveedores")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-    public List<UnidadEconomica> proveedores(@FormParam("numero_denue") String numero_denue) {
-
+    public List<mx.com.icvt.front.presenters.UnidadEconomica> proveedores(@FormParam("numero_denue") String numero_denue) {
+        List<mx.com.icvt.front.presenters.UnidadEconomica> unidadEconomicas;
+        unidadEconomicas = new LinkedList<mx.com.icvt.front.presenters.UnidadEconomica>();
+        mx.com.icvt.front.presenters.UnidadEconomica ue;
 
         UnidadEconomicaModel obj = new UnidadEconomicaModel(numero_denue);
-        System.out.println("numero_denue:"+numero_denue);
+        System.out.println("numero_denue:" + numero_denue);
         System.out.println("Unidad economica clase: ");
         UnidadEconomica unidadEconomica;
         unidadEconomica = obj.getUnidadEconomica();
+
         if (unidadEconomica == null) {
-            System.out.println("no se encontro numero");
-            return null;
+            System.out.println("No se encontro número de DENUE");
+        } else {
+            List<UnidadEconomica> proveedores;
+            proveedores = obj.getProveedores();
+            if (proveedores != null && !proveedores.isEmpty()){
+                for (UnidadEconomica u : proveedores){
+                    ue = new mx.com.icvt.front.presenters.UnidadEconomica();
+                    ue.setNombre(u.getNombreEstablecimiento());
+
+                    if (u.getLatitud() != null){
+                        u.setLatitud(u.getLatitud());
+                    } else {
+                        u.setLatitud(0d);
+                    }
+
+                    if (u.getLongitud() != null){
+                        u.setLongitud(u.getLongitud());
+                    } else {
+                        u.setLatitud(0d);
+                    }
+                }
+            }
+
         }
 
-        List<UnidadEconomica> proveedores = null;
-        proveedores = obj.getProveedores();
-
-        return proveedores;
+        return unidadEconomicas;
     }
 
 

@@ -1,7 +1,6 @@
 package mx.com.icvt.persistence.impl.vocaciones;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.LinkedList;
@@ -19,7 +18,6 @@ public class UnidadEconomicaModel {
     public String proceso;
     public String queryProceso;
     public List<UnidadEconomica> proveedores;
-    private static EntityManagerFactory factory;
 
 
     public UnidadEconomica getUnidadEconomica() {
@@ -31,6 +29,7 @@ public class UnidadEconomicaModel {
 
         LunidadE = this.execQueryCondition();
 
+        System.out.println("Número de unidades económicas develtas: " + LunidadE.size());
         if (LunidadE.size() == 0) return null;
 
         unidadE = LunidadE.get(0);
@@ -45,8 +44,7 @@ public class UnidadEconomicaModel {
         return unidadE;
     }
 
-    public  List<UnidadEconomica> getProveedores() {
-
+    public List<UnidadEconomica> getProveedores() {
         List<UnidadEconomica> proveedores = null;
 
 
@@ -54,46 +52,40 @@ public class UnidadEconomicaModel {
 
             this.setQueryParticularInsumos();
 
-            if (this.getQuery()!= ""){
+            if (!this.getQuery().equals("")) {
                 proveedores = this.execQueryCondition();
             }
 
             return proveedores;
-        }
-
-        if (getTipoIndustria().equals("314")) {
+        } else if (getTipoIndustria().equals("314")) {
 
             this.setQueryParticularConfeccionPT();
 
-            if (this.getQuery()!="") {
+            if (!this.getQuery().equals("")) {
                 proveedores = this.execQueryCondition();
             }
 
             return proveedores;
-        }
-
-        if (getTipoIndustria().equals("315")) {
+        } else if (getTipoIndustria().equals("315")) {
 
             this.setQueryProveedoresFabricacionPV();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery().equals("")) {
                 proveedores = this.execQueryCondition();
             }
             return proveedores;
-        }
-
-        if (getTipoIndustria().equals("316")) {
+        } else if (getTipoIndustria().equals("316")) {
 
             this.setQueryProveedoresFabricacionCPMS();
 
-            if (this.getQuery()!= "") {
+            if (this.getQuery().equals("")) {
                 proveedores = this.execQueryCondition();
             }
 
             return proveedores;
+        } else {
+            return null;
         }
-
-        return proveedores;
     }
 
     public void setQueryProveedoresFabricacionCPMS() {
@@ -107,7 +99,7 @@ public class UnidadEconomicaModel {
         // Fabricaci��n de calzado
 
         if (this.proceso.equals("3162")) {
-            this.queryProceso =" where id_clase_actividad like \"3161%\"";
+            this.queryProceso = " where id_clase_actividad like \"3161%\"";
         }
 
         // Fabricacion de otros
@@ -123,21 +115,21 @@ public class UnidadEconomicaModel {
         // Tejido
 
         if (this.proceso.equals("3151")) {
-            this.queryProceso=" where id_clase_actividad like \"3132%\" or  "+
+            this.queryProceso = " where id_clase_actividad like \"3132%\" or  " +
                     "id_clase_actividad like \"3133%\"";
         }
 
         // Confeccion prendas de vestir
 
         if (this.proceso.equals("3152")) {
-            this.queryProceso=" where id_clase_actividad like \"3132%\" or  "+
+            this.queryProceso = " where id_clase_actividad like \"3132%\" or  " +
                     "id_clase_actividad like \"3133%\" or id_clase_actividad like \"3161%\" ";
         }
 
         // Confeccion accesorios de vestir
 
         if (this.proceso.equals("3159")) {
-            this.queryProceso=" where id_clase_actividad like \"3132%\" or  "+
+            this.queryProceso = " where id_clase_actividad like \"3132%\" or  " +
                     "id_clase_actividad like \"3133%\" or id_clase_actividad like \"3131%\"";
         }
 
@@ -150,7 +142,6 @@ public class UnidadEconomicaModel {
     }
 
     public void setQueryParticularInsumos() {
-
         if (this.proceso.equals("3131")) {
             System.out.println("Proceso: Preparacion");
             this.queryProceso = "";
@@ -164,13 +155,13 @@ public class UnidadEconomicaModel {
         if (this.proceso.equals("3133")) {
 
             System.out.println("Proceso: Acabado Depende: Fabricacion-->Preparacion  332 331");
-            this.queryProceso = " where id_clase_actividad like \"3131%\" or "+
+            this.queryProceso = " where id_clase_actividad like \"3131%\" or " +
                     "id_clase_actividad like \"3132%\"";
         }
 
     }
 
-    public  List<UnidadEconomica> getClientes() {
+    public List<UnidadEconomica> getClientes() {
 
         List<UnidadEconomica> clientes = null;
 
@@ -178,7 +169,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryProcesoParticularClientesInsumos();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 clientes = this.execQueryCondition();
             }
 
@@ -189,7 +180,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryParticularConfeccionClientesPT();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 clientes = this.execQueryCondition();
             }
 
@@ -200,7 +191,7 @@ public class UnidadEconomicaModel {
 
             this.setQueryProcesoParticularClientesFabricacionCPMS();
 
-            if (this.getQuery()!="") {
+            if (this.getQuery() != "") {
                 clientes = this.execQueryCondition();
             }
 
@@ -247,22 +238,24 @@ public class UnidadEconomicaModel {
     public List<UnidadEconomica> getCompetencias() {
 
         List<UnidadEconomica> competencias;
-        this.queryProceso = " where id_clase_actividad="+this.getClase_act();
+        this.queryProceso = " where id_clase_actividad=" + this.getClase_act();
         competencias = this.execQueryCondition();
         return competencias;
 
     }
 
-    public List<UnidadEconomica> execQueryCondition(){
+    public List<UnidadEconomica> execQueryCondition() {
+        System.out.println("Ejecutando query sobre condición");
         List<UnidadEconomica> unidades;
 
         try {
             EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
             String queryString = "select * from unidad_economica " + this.queryProceso;
+            System.out.println("Executando query: " + queryString);
             Query query = manager.createNativeQuery(queryString, UnidadEconomica.class);
             unidades = query.getResultList();
             manager.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             System.err.printf("Ocurrió un error al ejecutar la consulta: %s\n", e.getMessage());
             unidades = new LinkedList<UnidadEconomica>();
         }
@@ -277,6 +270,9 @@ public class UnidadEconomicaModel {
     public void setTipoIndustriaProceso() {
         this.tipoIndustria = String.valueOf(this.getClase_act()).substring(0, 3);
         this.proceso = String.valueOf(this.getClase_act()).substring(0, 4);
+
+        System.out.println("Tipo de industria: " + this.tipoIndustria);
+        System.out.println("Proceso: " + this.proceso);
     }
 
     public String getTipoIndustria() {
