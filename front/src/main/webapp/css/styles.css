@@ -635,8 +635,7 @@ legend {
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0;
-  overflow-y: scroll; }
+  right: 0; }
   .main-nav .nav-listing {
     font-size: 0.9em; }
     .main-nav .nav-listing li {
@@ -817,13 +816,29 @@ legend {
     width: 100%; }
 
   .btn-activate-menu {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     display: block; }
 
   .main-nav {
-    left: -180px; }
+    left: -180px;
+    overflow-y: scroll; }
+
+  .main-container {
+    left: 0;
+    width: 100%; }
+
+  .activate-menu:checked ~ .main-container {
+    overflow: hidden; } }
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 768px;
+    width: 100%; }
+
+  .btn-activate-menu {
+    display: block; }
+
+  .main-nav {
+    left: -180px;
+    overflow-y: scroll; }
 
   .main-container {
     left: 0;
@@ -867,6 +882,8 @@ legend {
     clear: both; }
   .login-form .title {
     text-align: center; }
+    .login-form .title p {
+      margin-bottom: 24px; }
   .login-form h3 {
     display: inline-block;
     margin: 48px 0;
@@ -904,7 +921,8 @@ legend {
 .login-select {
   margin: 0 auto;
   padding: 24px;
-  max-width: 500px; }
+  max-width: 500px;
+  text-align: center; }
   .login-select h3 {
     display: inline-block;
     margin-bottom: 24px;
@@ -930,7 +948,8 @@ legend {
     font-size: 1.3em; }
 
 .qr-container {
-  margin: 0 auto; }
+  margin: 0 auto;
+  text-align: center; }
   .qr-container object {
     margin: 0 auto; }
 
@@ -1694,6 +1713,15 @@ legend {
     border-bottom-color: #8cc63f; }
   .panel-map-infographic .item.dist h3 {
     color: #8cc63f; }
+
+.gm-style .gm-style-iw, .gm-style .gm-style-iw a, .gm-style .gm-style-iw span, .gm-style .gm-style-iw label, .gm-style .gm-style-iw div {
+  max-height: 280px;
+  padding: 0px 10px 5px 5px;
+  overflow-y: scroll;
+  overflow-x: visible; }
+
+.gm-style-iw div {
+  overflow: visible !important; }
 
 @media screen and (max-width: 640px) {
   #main-map {
