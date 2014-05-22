@@ -13,6 +13,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -54,6 +55,14 @@ public class UnidadEconomicaService {
 
         List<UnidadEconomica> proveedores = null;
         proveedores = obj.getProveedores();
+
+        if (proveedores != null) {
+            Iterator<UnidadEconomica> pro = proveedores.iterator();
+            while (pro.hasNext()) {
+                UnidadEconomica pr = pro.next();
+                System.out.println(pr.getDireccion());
+            }
+        }
 
         return proveedores;
     }
