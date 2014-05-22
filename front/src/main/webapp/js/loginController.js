@@ -13,7 +13,7 @@ sampleApp.controller('loginController', function($scope,$http,$window) {
         tracker : $scope.loadingTracker
       })
       .success(function(data, status, headers, config) {
-        $window.location.href = '/index.html';
+        $window.location.href = '/dashboard.html';
       })
       .error(function (data) {
         $scope.load="off"
