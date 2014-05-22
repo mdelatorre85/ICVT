@@ -18,7 +18,7 @@ public class ActualidadIndustriaServlet extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         NewsDataRetriever retriever = new NewsDataRetriever();
-        List<mx.com.icvt.model.News> noticias = retriever.retrieveAllEnabled();
+        List<mx.com.icvt.model.News> noticias = retriever.getAllEnabled();
 
         request.setAttribute("noticias", noticias);
         RequestDispatcher dispatcher = request.getRequestDispatcher("actualidadIndustria.jsp");

@@ -24,10 +24,10 @@ public class NewsDataRetriever {
         return configuraciones;
     }
 
-    public List<News> retrieveAllEnabled() {
+    public List<News> getAllEnabled() {
         List<News> results = new ArrayList<News>();
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
-        Query query = manager.createQuery("SELECT n FROM Noticia n WHERE n.habilitada = true");
+        Query query = manager.createQuery("SELECT n FROM Noticia n WHERE n.habilitada = true ORDER BY n.fechaPublicacion DESC");
 
         List<Noticia> noticias = query.getResultList();
         for (Noticia noticia : noticias) {

@@ -47,6 +47,10 @@
         <servlet-name>UnidadEconomica</servlet-name>
         <servlet-class>mx.com.icvt.front.UnidadEconomicaServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdministrarNoticias</servlet-name>
+        <servlet-class>mx.com.icvt.front.AdministrarNoticiasServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>jersey-servlet</servlet-name>
         <url-pattern>/api/v1/rest/*</url-pattern>
@@ -74,6 +78,10 @@
     <servlet-mapping>
         <servlet-name>UnidadEconomica</servlet-name>
         <url-pattern>/unidadEconomica</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdministrarNoticias</servlet-name>
+        <url-pattern>/administrarNoticias</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UserRestServlet</servlet-name>

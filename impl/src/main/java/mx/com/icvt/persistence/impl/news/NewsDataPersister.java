@@ -145,4 +145,31 @@ public class NewsDataPersister implements DataResultPersister<NewsResultData> {
         manager.close();
         return etiquetas;
     }
+
+    public void deshabilitar(Long idNoticia){
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Noticia noticia = manager.find(Noticia.class, idNoticia);
+
+        if (noticia != null){
+            manager.getTransaction().begin();
+            noticia.setHabilitada(false);
+            manager.getTransaction().commit();
+        }
+
+        manager.close();
+    }
+
+    public void actualizar(Long id, String titulo, String descripcion){
+        EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+        Noticia temp = manager.find(Noticia.class, id);
+
+        if (temp != null){
+            manager.getTransaction().begin();
+            temp.setTituloMostrado(titulo);
+            temp.setDescripcionMostrada(descripcion);
+            manager.getTransaction().commit();
+        }
+
+        manager.close();
+    }
 }

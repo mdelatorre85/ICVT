@@ -37,7 +37,7 @@ public class NewsDataPersisterTest {
         dataPersister.persist(resultData);
         int originalSize = resultData.getResults().size();
 
-        List<News> persisted = dataRetriever.retrieveAllEnabled();
+        List<News> persisted = dataRetriever.getAllEnabled();
         assertTrue(originalSize == persisted.size());
 
         resultData = creaResulDataNoticias(6, 6);
@@ -45,7 +45,7 @@ public class NewsDataPersisterTest {
 
         originalSize += resultData.getResults().size();
 
-        persisted = dataRetriever.retrieveAllEnabled();
+        persisted = dataRetriever.getAllEnabled();
         assertTrue(originalSize == persisted.size());
 
         cleanDataStore();
@@ -90,7 +90,7 @@ public class NewsDataPersisterTest {
         resultData = creaResulDataNoticias(1, 5);
         dataPersister.persist(resultData);
 
-        List<News> allEnabled = dataRetriever.retrieveAllEnabled();
+        List<News> allEnabled = dataRetriever.getAllEnabled();
 
         List<Long> ids = new ArrayList<Long>();
         for (News n : allEnabled) {
@@ -207,7 +207,7 @@ public class NewsDataPersisterTest {
 
         dataPersister.persist(resultData);
 
-        List<News> persisted = dataRetriever.retrieveAllEnabled();
+        List<News> persisted = dataRetriever.getAllEnabled();
         assertTrue(resultData.getResults().size() == persisted.size());
 
         Long deleted = dataPersister.deleteAllPersisted();
