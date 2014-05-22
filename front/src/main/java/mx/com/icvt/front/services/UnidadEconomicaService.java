@@ -36,13 +36,14 @@ public class UnidadEconomicaService {
     @Path("/proveedores")
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public List<mx.com.icvt.front.presenters.UnidadEconomica> proveedores(@FormParam("numero_denue") String numero_denue) {
-        List<mx.com.icvt.front.presenters.UnidadEconomica> unidadEconomicas;
-        unidadEconomicas = new LinkedList<mx.com.icvt.front.presenters.UnidadEconomica>();
+        List<mx.com.icvt.front.presenters.UnidadEconomica> unidadesEconomicas;
+        unidadesEconomicas = new LinkedList<mx.com.icvt.front.presenters.UnidadEconomica>();
         mx.com.icvt.front.presenters.UnidadEconomica ue;
 
         UnidadEconomicaModel obj = new UnidadEconomicaModel(numero_denue);
         System.out.println("numero_denue:" + numero_denue);
         System.out.println("Unidad economica clase: ");
+
         UnidadEconomica unidadEconomica;
         unidadEconomica = obj.getUnidadEconomica();
 
@@ -56,23 +57,26 @@ public class UnidadEconomicaService {
                     ue = new mx.com.icvt.front.presenters.UnidadEconomica();
                     ue.setNombre(u.getNombreEstablecimiento());
 
+                    //Evita devolver null, devuelve 0 si no tiene latitud
                     if (u.getLatitud() != null){
-                        u.setLatitud(u.getLatitud());
+                        ue.setLatitud(u.getLatitud());
                     } else {
-                        u.setLatitud(0d);
+                        ue.setLatitud(0d);
                     }
 
+                    //Evita devolver null, devuelve 0 si no tiene longitud
                     if (u.getLongitud() != null){
-                        u.setLongitud(u.getLongitud());
+                        ue.setLongitud(u.getLongitud());
                     } else {
-                        u.setLatitud(0d);
+                        ue.setLatitud(0d);
                     }
+
+                    unidadesEconomicas.add(ue);
                 }
             }
-
         }
 
-        return unidadEconomicas;
+        return unidadesEconomicas;
     }
 
 
@@ -82,7 +86,7 @@ public class UnidadEconomicaService {
     public List<UnidadEconomica> competencias(@FormParam("numero_denue") String numero_denue) {
 
         UnidadEconomicaModel obj = new UnidadEconomicaModel(numero_denue);
-        System.out.println("Unidad economica clase: ");
+        System.out.println("Unidad economica : ");
         UnidadEconomica unidadEconomica;
         unidadEconomica = obj.getUnidadEconomica();
         if (unidadEconomica == null) {
