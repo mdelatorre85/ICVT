@@ -88,7 +88,8 @@ public class NewsDataRetriever {
         List<News> news = new ArrayList<News>();
 
         String sQuery = "SELECT n FROM Noticia n WHERE n.fechaPublicacion >= :beginDate ";
-        sQuery += "AND n.fechaPublicacion <= :endDate ORDER BY n.fechaPublicacion DESC";
+        sQuery += "AND n.fechaPublicacion <= :endDate AND n.habilitada = true ";
+        sQuery += "ORDER BY n.fechaPublicacion DESC";
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         Query query = manager.createQuery(sQuery);
@@ -97,9 +98,7 @@ public class NewsDataRetriever {
         List<Noticia> noticias = query.getResultList();
 
         for (Noticia noticia : noticias) {
-            if (noticia.isHabilitada()) {
-                news.add(noticia.getNews());
-            }
+            news.add(noticia.getNews());
         }
 
         manager.close();
@@ -111,7 +110,8 @@ public class NewsDataRetriever {
         assert endDate != null;
         List<News> news = new ArrayList<News>();
 
-        String sQuery = "SELECT n FROM Noticia n WHERE n.fechaPublicacion <= :endDate ORDER BY n.fechaPublicacion DESC";
+        String sQuery = "SELECT n FROM Noticia n WHERE n.fechaPublicacion <= :endDate AND n.habilitada = true ";
+        sQuery += "ORDER BY n.fechaPublicacion DESC";
 
         EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
         Query query = manager.createQuery(sQuery);
@@ -119,9 +119,7 @@ public class NewsDataRetriever {
         List<Noticia> noticias = query.getResultList();
 
         for (Noticia noticia : noticias) {
-            if (noticia.isHabilitada()) {
-                news.add(noticia.getNews());
-            }
+            news.add(noticia.getNews());
         }
 
         manager.close();
@@ -139,7 +137,9 @@ public class NewsDataRetriever {
             List<Noticia> noticias = etiqueta.getNoticias();
 
             for (Noticia noticia : noticias) {
-                news.add(noticia.getNews());
+                if (noticia.isHabilitada()) {
+                    news.add(noticia.getNews());
+                }
             }
         }
 
@@ -173,7 +173,9 @@ public class NewsDataRetriever {
         List<Noticia> resultList = query.getResultList();
 
         for (Noticia n : resultList) {
-            news.add(n.getNews());
+            if (n.isHabilitada()){
+                news.add(n.getNews());
+            }
         }
 
         manager.close();
@@ -210,7 +212,9 @@ public class NewsDataRetriever {
         List<Noticia> resultList = query.getResultList();
 
         for (Noticia n : resultList) {
-            news.add(n.getNews());
+            if(n.isHabilitada()){
+                news.add(n.getNews());
+            }
         }
 
         manager.close();
