@@ -41,11 +41,14 @@ public class UnidadEconomicaService {
     @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
     public List<UnidadEconomica> proveedores(@FormParam("numero_denue") String numero_denue) {
 
+
         UnidadEconomicaModel obj = new UnidadEconomicaModel(numero_denue);
+        System.out.println("numero_denue:"+numero_denue);
         System.out.println("Unidad economica clase: ");
         UnidadEconomica unidadEconomica;
         unidadEconomica = obj.getUnidadEconomica();
         if (unidadEconomica == null) {
+            System.out.println("no se encontro numero");
             return null;
         }
 
