@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -250,6 +251,23 @@ public class UnidadEconomicaModel {
         em.close();
 
         return proveedores;
+    }
+
+    public List<UnidadEconomica> executeQuery(String condition){
+        List<UnidadEconomica> unidades;
+
+        try {
+            EntityManager manager = Persistence.createEntityManagerFactory("SITE").createEntityManager();
+            String queryString = "Select * from unidades_economicas " + condition;
+            Query query = manager.createNativeQuery(queryString);
+            unidades = query.getResultList();
+            manager.close();
+        } catch (Exception e){
+            System.err.printf("Ocurrió un error al ejecutar la consulta: %s\n", e.getMessage());
+            unidades = new LinkedList<UnidadEconomica>();
+        }
+
+        return unidades;
     }
 
 
