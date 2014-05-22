@@ -125,10 +125,10 @@ html.no-js
 							header.cf
 								
 								div(ng-hide="!new.imagen").pic
-									a(href='{{ new.url }}')
-										img(src='img/news-thumbs/3.jpg')
+									a(ng-click="muestra(new.url)", href='#')
+										img(src='{{ new.imagen }}')
 								.title
-									a(href='{{ new.url }}') {{ new.titulo }}
+									a(ng-click="muestra(new.url)", href='#') {{ new.titulo }}
 
 							.content
 								p {{ new.descripcion }}
@@ -156,10 +156,10 @@ html.no-js
 							header.cf
 								
 								div(ng-hide="!new.imagen").pic
-									a(href='{{ new.url }}')
-										img(src='img/news-thumbs/3.jpg')
+									a(ng-click="muestra(new.url)", href='#')
+										img(src='{{ new.imagen }}')
 								.title
-									a(href='{{ new.url }}') {{ new.titulo }}
+									a(ng-click="muestra(new.url)", href='#') {{ new.titulo }}
 
 							.content
 								p {{ new.descripcion }}
@@ -171,7 +171,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(ng-click="muestra(new.url)",href='#').link Ver nota
+									a(ng-click="muestra(new.url)", href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf
@@ -187,10 +187,10 @@ html.no-js
 							header.cf
 								
 								div(ng-hide="!new.imagen").pic
-									a(href='{{ new.url }}')
-										img(src='img/news-thumbs/2.jpg')
+									a(ng-click="muestra(new.url)", href='#')
+										img(src='{{ new.imagen }}')
 								.title
-									a(href='{{ new.url }}') {{ new.titulo }}
+									a(ng-click="muestra(new.url)", href='#') {{ new.titulo }}
 
 							.content
 								p {{ new.descripcion }}
@@ -202,7 +202,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(ng-click="muestra(new.url)",href='#').link Ver nota
+									a(ng-click="muestra(new.url)", href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf
@@ -211,17 +211,17 @@ html.no-js
 										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}
 									
 				.panel-news-listing: .container
-					h2.date: <i class='fa fa-calendar'></i><span>Anteriores</span>
+					h2.date: <i class='fa fa-calendar'></i><span>Noticias pasadas:</span>
 					
 					ul
 						li(ng-repeat='new in newsc').element
 							header.cf
 								
 								div(ng-hide="!new.imagen").pic
-									a(href='{{ new.url }}')
+									a(ng-click="muestra(new.url)", href='#')
 										img(src='{{ new.imagen }}')
 								.title
-									a(href='{{ new.url }}') {{ new.titulo }}
+									a(ng-click="muestra(new.url)", href='#') {{ new.titulo }}
 
 							.content
 								p {{ new.descripcion }}
@@ -233,7 +233,7 @@ html.no-js
 										span {{ new.fuente }}
 
 								.source-link
-									a(ng-click="muestra(new.url)",href='#').link Ver nota
+									a(ng-click="muestra(new.url)", href='#').link Ver nota
 										i.fa.fa-arrow-right
 
 							.tags-array.cf
@@ -242,12 +242,7 @@ html.no-js
 										a(href='#',class='tag-cat-line {{ etiqueta.color }}') {{ etiqueta.valor }}				
 
 
-			aside.main-notification
-				- for(i=1 ; i<=5 ; i++){
-				dl
-					dt Notification #{i}
-					dd Et mollis nunc diam eget sapien. Nulla facilisi. Etiam feugiat imperdiet rhoncus.
-				- }
+			include includes/notifications
 
 		
 
