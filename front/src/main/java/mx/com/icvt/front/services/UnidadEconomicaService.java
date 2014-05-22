@@ -1,9 +1,5 @@
 package mx.com.icvt.front.services;
 
-import mx.com.icvt.front.services.filters.DateFilter;
-import mx.com.icvt.front.services.filters.FilterConstructor;
-import mx.com.icvt.model.Tweet;
-import mx.com.icvt.persistence.impl.tweets.TweetsDataRetriever;
 import mx.com.icvt.persistence.impl.vocaciones.UnidadEconomica;
 import mx.com.icvt.persistence.impl.vocaciones.UnidadEconomicaModel;
 
@@ -45,13 +41,15 @@ public class UnidadEconomicaService {
 
         UnidadEconomicaModel obj = new UnidadEconomicaModel(numero_denue);
         System.out.println("numero_denue:"+numero_denue);
-        System.out.println("Unidad economica clase: ");
+        System.out.println("Unidad economica proveedores: ");
         UnidadEconomica unidadEconomica;
         unidadEconomica = obj.getUnidadEconomica();
         if (unidadEconomica == null) {
             System.out.println("no se encontro numero");
             return null;
         }
+
+        System.out.println(unidadEconomica.getNombreEstablecimiento());
 
         List<UnidadEconomica> proveedores = null;
         proveedores = obj.getProveedores();
@@ -74,7 +72,7 @@ public class UnidadEconomicaService {
     public List<UnidadEconomica> competencias(@FormParam("numero_denue") String numero_denue) {
 
         UnidadEconomicaModel obj = new UnidadEconomicaModel(numero_denue);
-        System.out.println("Unidad economica clase: ");
+        System.out.println("Unidad economica : ");
         UnidadEconomica unidadEconomica;
         unidadEconomica = obj.getUnidadEconomica();
         if (unidadEconomica == null) {
