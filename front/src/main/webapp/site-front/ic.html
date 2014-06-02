@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SITE</title>
+    <meta name="description" content="">
+    <!-- link(rel='shortcut icon', href='favicon.ico')-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <!-- pickadate-->
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
+    <!-- fancybox-->
+    <link rel="stylesheet" href="css/fancybox.css">
+    <!-- google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <header class="main-header">
+        <div class="main-logo"><a href="dashboard.html">site</a></div>
+      </header>
+      <label for="activate-menu" class="btn-alpha btn-activate-menu"><i class="fa fa-bars"></i>Menú</label>
+      <label for="activate-notification" class="btn-alpha btn-activate-notification"><i class="fa fa-bell-o"></i>Alertas<span class="count">2</span></label>
+      <input type="checkbox" id="activate-menu" class="activate-menu">
+      <input type="checkbox" id="activate-notification" class="activate-notification">
+      <nav class="main-nav">
+        <ul class="nav-listing">
+          <li><a href="dashboard.html"><span class="icon"></span><span class="tag">Dashboard de inicio</span></a></li>
+          <li><a href="actualidad.html"><span class="icon"></span><span class="tag">Actualidad de la industria</span></a></li>
+          <li><a href="question.html"><span class="icon"></span><span class="tag">Perfil</span></a></li>
+          <li><a href="alerts.html"><span class="icon"></span><span class="tag">Alertas y notifiaciones</span></a></li>
+          <li class="selected"><a href="ic.html"><span class="icon"></span><span class="tag">Inteligencia comercial</span></a></li>
+        </ul>
+      </nav>
+      <section class="main-container">
+        <div class="main-container-overlay js-main-container-overlay"></div>
+        <div class="panel-title">
+          <h1>Inteligencia Comercial</h1>
+        </div>
+        <div id="main-map"></div>
+        <div class="panel-map-infographic">
+          <div class="container">
+            <div class="col">
+              <div class="item prov js-prov">
+                <header>
+                  <h3>163</h3><span>Proveedores</span>
+                </header>
+                <dl>
+                  <dt>Top 3</dt>
+                  <dd>
+                    <ol>
+                      <li>Tulancingo de Bravo</li>
+                      <li>Pachuca de Soto</li>
+                      <li>Ixmiquilpan</li>
+                    </ol>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="col">
+              <div class="item comp js-comp">
+                <header>
+                  <h3>232</h3><span>Competidores</span>
+                </header>
+                <dl>
+                  <dt>Top 3</dt>
+                  <dd>
+                    <ol>
+                      <li>Pachuca de Soto</li>
+                      <li>Tulancingo de Bravo</li>
+                      <li>Jaltocán</li>
+                    </ol>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+            <div class="col">
+              <div class="item dist js-dist">
+                <header>
+                  <h3>2991</h3><span>Distribuidores</span>
+                </header>
+                <dl>
+                  <dt>Top 3</dt>
+                  <dd>
+                    <ol>
+                      <li>Pachuca de Soto</li>
+                      <li>Tulancingo de Bravo</li>
+                      <li>Huejutla de Reyes</li>
+                    </ol>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <aside class="main-notification">
+        <div class="action"><a href="alerts.html" class="btn-outline">Ver todas <i class='fa fa-chevron-right'></i></a></div>
+        <div class="alert-listing-aside">
+          <ul>
+            <li class="selected"><a href="alerts.html">Se espera un incremento del 5% en los costos de manufactura en la región.</a></li>
+            <li class="new"><a href="alerts-view.html">Congreso de la industria textil 2014.</a></li>
+            <li class="new"><a href="alerts.html">Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte</a></li>
+            <li><a href="alerts.html">Taller gratuito de tecnologías de la información para PyMES.</a></li>
+            <li><a href="alerts.html">La importancia de tener un sitio web para la promoción de tus servicios a nivel global.</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/picker.date.js"></script>
+    <script src="bower_components/pickadate/lib/compressed/translations/es_ES.js"></script>
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/icApp.js"></script>
+  </body>
+</html>

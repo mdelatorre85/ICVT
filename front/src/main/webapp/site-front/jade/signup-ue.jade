@@ -1,0 +1,347 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='dashboard.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-title: .container
+					h1 Registro de Unidad Económica
+
+				.panel-question-bar
+					.container
+						.half
+							.left
+								br								
+							.right
+								button(type='submit').btn <i class='fa fa-save'></i> Guardar			
+
+				.panel-signup
+					.container
+						form(action='#').form
+
+							fieldset
+								legend Información de la empresa
+
+								dl.question
+									dt
+										label Nombre de la Unidad Económica:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+								dl.question
+									dt
+										label Razón social:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Código de la clase de actividad SCIAN:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								
+								dl.question
+									dt
+										label Personal ocupado:
+
+									dd.answers
+										ul
+											li.input-select
+												select
+													option(disabled selected) Seleciona el personal ocupado en la empresa
+													option 0 a 5 personas
+													option 6 a 10 personas
+													option 11 a 30 personas
+													option 31 a 50 personas
+													option 51 a 100 personas
+													option 101 a 250 personas
+													option 251 y más personas
+
+
+							fieldset
+								legend Dirección / Ubicación
+
+								dl.question
+									dt
+										label Calle:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Número exterior:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Número interior:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Colonia:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+								dl.question
+									dt
+										label Municipio:
+
+									dd.answers
+										ul
+											li.input-select
+												select													
+													option(disabled selected) Seleciona tu municipio
+													option Acatlán
+													option Acaxochitlán
+													option Actopan
+													option Agua Blanca de Iturbide
+													option Ajacuba
+													option Alfajayucan
+													option Almoloya
+													option Apan
+													option El Arenal
+													option Atitalaquia
+													option Atlapexco
+													option Atotonilco el Grande
+													option Atotonilco de Tula
+													option Calnali
+													option Cardonal
+													option Cuautepec de Hinojosa
+													option Chapantongo
+													option Chapulhuacán
+													option Chilcuautla
+													option Eloxochitlán
+													option Emiliano Zapata
+													option Epazoyucan
+													option Francisco I. Madero
+													option Huasca de Ocampo
+													option Huautla
+													option Huazalingo
+													option Huehuetla
+													option Huejutla de Reyes
+													option Huichapan
+													option Ixmiquilpan
+													option Jacala de Ledezma
+													option Jaltocán
+													option Juárez Hidalgo
+													option Lolotla
+													option Metepec
+													option San Agustín Metzquititlán
+													option Metztitlán
+													option Mineral del Chico
+													option Mineral del Monte
+													option La Misión
+													option Mixquiahuala de Juárez
+													option Molango de Escamilla
+													option Nicolás Flores
+													option Nopala de Villagrán
+													option Omitlán de Juárez
+													option San Felipe Orizatlán
+													option Pacula
+													option Pachuca de Soto
+													option Pisaflores
+													option Progreso de Obregón
+													option Mineral de la Reforma
+													option San Agustín Tlaxiaca
+													option San Bartolo Tutotepec
+													option San Salvador
+													option Santiago de Anaya
+													option Santiago Tulantepec de Lugo Guerrero
+													option Singuilucan
+													option Tasquillo
+													option Tecozautla
+													option Tenango de Doria
+													option Tepeapulco
+													option Tepehuacán de Guerrero
+													option Tepeji del Río de Ocampo
+													option Tepetitlán
+													option Tetepango
+													option Villa de Tezontepec
+													option Tezontepec de Aldama
+													option Tianguistengo
+													option Tizayuca
+													option Tlahuelilpan
+													option Tlahuiltepa
+													option Tlanalapa
+													option Tlanchinol
+													option Tlaxcoapan
+													option Tolcayuca
+													option Tula de Allende
+													option Tulancingo de Bravo
+													option Xochiatipan
+													option Xochicoatlán
+													option Yahualica
+													option Zacualtipán de Ángeles
+													option Zapotlán de Juárez
+													option Zempoala
+													option Zimapán
+
+								dl.question
+									dt
+										label Código Postal
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Latitud:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Longitud:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								
+							fieldset
+
+								legend Datos de contacto
+								
+								dl.question
+									dt
+										label Nombre del representante:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Teléfono:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Extensión:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+								dl.question
+									dt
+										label Correo electrónico:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+
+								dl.question
+									dt
+										label Sitio web:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Facebook:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+								dl.question
+									dt
+										label Twitter:
+
+									dd.answers
+										ul
+											li.input-text
+												input(type='text')
+
+							.error
+								span Mensaje de error
+
+							.action
+								.half
+									.left
+										br
+
+									.right
+										button(type='submit').btn <i class='fa fa-save'></i> Guardar
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts

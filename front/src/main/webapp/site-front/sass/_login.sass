@@ -1,0 +1,118 @@
+.login-head
+	color: white
+	background-color: $blue
+	padding: $spacer*2 0
+	text-align: center
+
+	h1, h2
+		+bariol
+		
+	h1
+		font-size: 3em
+		border: 3px solid white
+		padding: 5px
+		display: inline-block
+		margin-bottom: $spacer
+
+	h2
+		font-size: 0.8em
+
+.login-form
+	+center(320px)
+	padding: 0 $spacer/2
+	+bx
+
+	.title
+		text-align: center
+		p
+			margin-bottom: $spacer
+
+	h3
+		display: inline-block
+		margin: $spacer*2 0
+		padding-bottom: $spacer/2
+		font-size: 2em
+		border-bottom: 2px solid $lightgray
+
+	fieldset
+		position: relative
+		font-size: 1.2em
+		margin-bottom: $spacer
+
+		input[type='text'], input[type='password'], input[type='email']
+			padding-left: 1.3em
+
+
+		&.wi
+			i
+				position: absolute
+				left: 5px
+				top: 50%
+				margin-top: -9px
+
+
+	.loader
+		text-align: center
+		height: 20px
+		visibility: hidden
+
+		&.on
+			visibility: visible
+
+
+	.action
+		text-align: center
+		
+		button
+			width: 100%
+
+		i
+			margin-left: .5em
+
+	.error
+		color: $red
+		font-size: 0.8em
+		text-align: center
+
+
+
+.login-select
+	margin: 0 auto
+	padding: $spacer 
+	max-width: 500px
+	text-align: center
+
+	h3
+		display: inline-block
+		margin-bottom: $spacer
+		padding-bottom: $spacer/2
+		font-size: 2em
+		border-bottom: 2px solid $lightgray
+
+	p
+		margin-bottom: $spacer*2
+
+	ul
+		display: block
+		
+		margin: 0 auto
+	li
+		display: block
+		margin-bottom: $spacer
+
+	a
+		+bx
+		text-align: center
+		display: block
+		width: 100%
+		padding: $spacer/2
+		font-size: 1.3em
+
+
+.qr-container
+	margin: 0 auto
+	text-align: center
+	
+	object
+		margin: 0 auto
+

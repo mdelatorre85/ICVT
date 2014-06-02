@@ -1,0 +1,39 @@
+include includes/mixins
+doctype html
+html
+
+	include includes/head
+
+	body(ng-app='sampleApp')
+		.login-head
+			
+			h1 aie
+			h2 Sistema de Inteligencia y Tecnología Empresarial
+
+		.login-form
+			
+			.title
+				h3 Bienvenido
+				p Ingrese su nombre de usuario y contraseña para iniciar sesión.
+
+			form(action='dashboard.html')
+				fieldset.wi
+					input(type='text', ng-model='formData.identity', placeholder='Nombre de Usuario')
+					i.fa.fa-user
+				
+				fieldset.wi
+					input(type='password', ng-model='formData.password', placeholder='Contraseña')
+					i.fa.fa-lock
+
+				fieldset.loader.{{ load }}
+					i.fa.fa-spinner.fa-spin
+
+				fieldset.action
+					button(type='submit').btn Ingresar
+				fieldset.error
+					span{{ error }}
+					
+		script(src='bower_components/jquery/dist/jquery.js')
+		script(src='http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js')
+		script(src='js/main.js')
+		script(src='js/loginController.js')

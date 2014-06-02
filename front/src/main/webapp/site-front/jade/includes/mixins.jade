@@ -1,0 +1,98 @@
+//- mixins
+
+mixin container-overlay
+	.main-container-overlay.js-main-container-overlay
+
+mixin get-new
+	-var newIndex = Math.floor((Math.random() * 6) + 1);
+	-var newsTitles = { 1: 'Competencia desleal genera pérdidas de 60% a industria textil', 2: 'Tepeji del Río, potencia textilera', 3: 'Repartirá Concurso Artesanal Textil 215 mil pesos en premios', 4: 'Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012', 5: 'Universidades, respuesta a necesidades regionales', 6: 'Inversión se concentra en Pachuca, Zempoala y Tula' }
+	-var newsDesc = { 1: 'Algunos talleres que hace cinco o seis años tenían 20 empleados, hoy tienen la mitad.', 2: 'Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.', 3: 'Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso', 4: 'El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.', 5: 'Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.', 6: 'Hay recursos por alrededor de 70 mdp.' }
+	
+	-var newSourceIndex = Math.floor((Math.random() * 5) + 1);
+	-var newSources = { 1: 'milenio.com', 2: 'eleconomista.com', 3: 'eluniversal.com.mx', 4: 'elfinanciero.com', 5: 'terra.com'}
+
+	li.element
+		header.cf
+			
+			.pic
+				a(href='view-new.html')
+					img(src='img/news-thumbs/#{newIndex}.jpg')
+			.title
+				a(href='view-new.html')= newsTitles[newIndex]
+
+		.content
+			p= newsDesc[newIndex]
+			
+		footer.cf
+			.source
+				a(href='#')
+					i.fa.fa-rss
+					span= newSources[newSourceIndex]
+
+			.source-link
+				a(href='view-new.html').link Ver nota
+					i.fa.fa-arrow-right
+
+		.tags-array.cf
+			ul
+				li
+					a(href='#').tag-cat-line.green Finanzas
+				li
+					a(href='#').tag-cat-line.orange Comercio
+				li
+					a(href='#').tag-cat-line.blue General
+
+
+mixin get-tweet
+	-var newIndex = Math.floor((Math.random() * 5) + 1);
+	-var newsTweet = { 1: '#LoMásLeído: @SE_mx evalúa la posibilidad de bajar los aranceles del sector textil, vestido y calzado para 2014  http://bit.ly/19w3D6U ', 2: '#Noticias. Avanza Centro de Innovación Textil de  corte nacional http://bit.ly/1pWmKLy', 3: 'La industria textil estima crecer en 2014 sólo 1% o 2%', 4: 'Gigantes occidentales del textil apoyan acuerdos para seguridad del trabajo en Bangladesh http://mile.io/11DmJpR', 5: 'Universidades, respuesta a necesidades regionales'}
+	
+	
+	-var newSourceIndex = Math.floor((Math.random() * 4) + 1);
+	-var newSources = { 1: '@ElFinanciero_Mx', 2: '@eleconomista', 3: '@eluniversal', 4: '@Milenio', 5: '@terra'}
+
+	li.element.tweet
+		header.cf
+			
+			.pic
+				a(href='#')
+					img(src='img/twitter-thumbs/#{newIndex}.jpg')
+
+
+			.content
+				p= newsTweet[newIndex]
+			
+		footer.cf
+			.source
+				a(href='#')
+					i.fa.fa-twitter
+					span= newSources[newSourceIndex]
+
+			.source-link
+				a(href='#').link Ver tweet
+					i.fa.fa-arrow-right
+
+
+mixin get-new-widget
+	-var newIndex = Math.floor((Math.random() * 6) + 1);
+	-var newsTitles = { 1: 'Competencia desleal genera pérdidas de 60% a industria textil', 2: 'Tepeji del Río, potencia textilera', 3: 'Repartirá Concurso Artesanal Textil 215 mil pesos en premios', 4: 'Empresas Hidalguenses exportaron mil 510 millones de dólares en 2012', 5: 'Universidades, respuesta a necesidades regionales', 6: 'Inversión se concentra en Pachuca, Zempoala y Tula' }
+	-var newsDesc = { 1: 'Algunos talleres que hace cinco o seis años tenían 20 empleados, hoy tienen la mitad.', 2: 'Tepeji del Río es uno de los municipios que en el sector textil es de los productores más importantes en México y de América Latina.', 3: 'Una bolsa económica de 215 mil pesos será distribuida entre las mujeres bordadoras que obtengan los primeros lugares en el Concurso', 4: 'El titular de la SEDECO José Pablo Maauad dijo que los principales productos que se exportan son carros, partes de ferrocarril y remolques.', 5: 'Tecnológicas de Hidalgo desarrollarán investigación e innnovación en las áreas de metal-mecatrónica y energías alternativas.', 6: 'Hay recursos por alrededor de 70 mdp.' }
+	
+	-var newSourceIndex = Math.floor((Math.random() * 5) + 1);
+	-var newSources = { 1: 'milenio.com', 2: 'eleconomista.com', 3: 'eluniversal.com.mx', 4: 'elfinanciero.com', 5: 'terra.com'}
+
+	li.element
+		.content.cf
+			.pic
+				a(href='view-new.html')
+					img(src='img/news-thumbs/#{newIndex}.jpg')
+			.title
+				a(href='view-new.html')= newsTitles[newIndex]
+			
+		footer.info.cf
+			ul
+				li.source
+					a(href='#')
+						i.fa.fa-rss
+						span= newSources[newSourceIndex]
+				li.date 10-Feb-2014

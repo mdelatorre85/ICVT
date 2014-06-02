@@ -1,0 +1,102 @@
+// buttons config
+.btn
+	background-color: $blue
+	color: white !important
+	padding: $spacer/4 $spacer
+	cursor: pointer
+	+fx
+
+	&:hover
+		background-color: darken($blue, 10%)
+
+	&:focus
+		outline: 1px solid darken($blue, 10%)
+
+	&.alt
+		background-color: $gray
+		color: white
+
+		&:hover
+			background-color: darken($gray, 10%)
+
+		&:focus
+			outline: 1px solid darken($gray, 10%)
+
+
+.btn-alpha
+	display: inline-block
+	padding: $spacer/4 $spacer/2
+	border: 1px solid white
+	color: white
+
+	&:hover
+		background-color: rgba(white, 0.3)
+	i
+		margin-right: 5px
+
+
+.btn-outline
+	display: inline-block
+	padding: $spacer/4 $spacer/2
+	border: 1px solid $lightgray
+	color: $lightgray
+
+	&:hover
+		background-color: rgba($lightgray, 0.3)
+	i
+		margin-right: 5px
+
+
+
+// menu nav v1
+
+#main-nav
+	padding: $spacer/2 0
+	background-color: $black
+	color: white
+	a
+		display: block
+		@extend %cf
+
+	.icon
+		display: block
+		float: left
+		width: 35px
+		height: 35px
+		background-color: lightgray
+		margin-right: 10px
+
+	.tag
+		
+
+// footer
+
+#main-footer
+	background-color: $black
+	color: white
+	padding: $spacer $spacer/2
+	font-size: 13px
+	text-align: right
+
+
+
+// header menu v1
+
+.header-menu-container
+	text-align: right
+	display: block
+	float: right
+
+	.btn-link-continer
+		display: block
+
+		li
+			float: left
+			display: block
+			margin-left: $spacer/2
+
+
+
+
+%box-shadow-medium
+	box-shadow: 0 5px 8px rgba(black, 0.1)

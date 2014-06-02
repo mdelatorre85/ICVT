@@ -1,0 +1,104 @@
+// inteligencia comercial
+
+#main-map
+	height: 500px
+	width: 100%
+
+
+.infowindow
+	width: 180px
+	header
+		margin-bottom: $spacer/2
+		padding-bottom: $spacer/2
+		border-bottom: 1px solid $gray
+
+
+	&.competencia
+		header
+			border-bottom-color: $red
+
+	&.proveedores
+		header
+			border-bottom-color: $blue
+
+	&.distribuidores
+		header
+			border-bottom-color: $green
+
+
+.panel-map-infographic
+	padding: $spacer
+	.col
+		+col(1/3)
+
+	.item
+		header
+			padding-bottom: $spacer/4
+			margin-bottom: $spacer/2
+			border-bottom: 1px solid $gray
+
+			span
+				font-size: 0.8em
+
+		h3
+			+bariol-light
+			font-size: 2.5em
+
+		dl
+			font-size: 0.9em
+			dt
+				+bariol-bold
+				margin-bottom: $spacer/4
+
+
+		ol
+			list-style-type: decimal
+			list-style-position: inside
+
+
+
+
+
+		&.prov
+			header
+				border-bottom-color: $blue
+
+			h3
+				color: $blue
+
+		&.comp
+			header
+				border-bottom-color: $red
+
+			h3
+				color: $red
+
+		&.dist
+			header
+				border-bottom-color: $green
+
+			h3
+				color: $green
+
+
+
+.gm-style .gm-style-iw, .gm-style .gm-style-iw a, .gm-style .gm-style-iw span, .gm-style .gm-style-iw label, .gm-style .gm-style-iw div
+	max-height: 280px
+	padding: 0px 10px 5px 5px
+	overflow-y: scroll
+	overflow-x: visible
+
+.gm-style-iw div
+	overflow: visible !important
+
+
+
+@media screen and (max-width: 640px)
+	#main-map
+		height: 50%
+		width: 100%
+
+	.panel-map-infographic
+		.col
+			+stack()
+			margin-bottom: $spacer

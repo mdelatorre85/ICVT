@@ -1,0 +1,27 @@
+include includes/mixins
+doctype html
+html
+
+	include includes/head
+
+	body
+		.login-head			
+			h1 aie
+			h2 Sistema de Inteligencia y Tecnología Empresarial
+
+		.login-select
+			.title
+				h3 Bienvenido
+			p Selecciona el método de ingreso:
+			ul
+				li
+					a(href='login-qr.html').btn
+						i.fa.fa-qrcode
+						|  Ingresa tu tarjeta QR
+				li
+					a(href='login-normal.html').btn
+						i.fa.fa-lock
+						|  Ingresa un usuario y contraseña
+
+
+		

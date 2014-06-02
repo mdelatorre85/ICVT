@@ -1,0 +1,23 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			header.main-header
+				.main-logo
+					a(href='dashboard.html') site
+
+			a(href='dashboard.html', class='btn-alpha btn-back')
+				i.fa.fa-chevron-left
+				|  Regresar
+
+			.iframe-container
+				iframe(width='100%', height='2000px', src='http://www.milenio.com/hidalgo/Revivira-industria-Centro-Nacional-Innovacion_0_220777981.html')
+
+		
+
+		include includes/scripts

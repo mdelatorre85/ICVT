@@ -1,0 +1,151 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='dashboard.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li.selected: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-title: .container
+					h1 Actualidad en la industria
+
+				.panel-filters
+					.container
+						.filter-bar
+							.half
+								.left
+									.menu-select
+										ul
+											li.selected: a(href='actualidad.html').btn-outline
+												i.fa.fa-globe
+												span Noticias
+											li: a(href='actualidad-tweets.html').btn-outline
+												i.fa.fa-twitter
+												span Tweets
+											//-
+												li: a(href='actualidad-patentes.html').btn-outline
+													i.fa.fa-book
+													span Patentes
+
+								.right
+									form(action='actualidad-results.html')
+										.filter-link
+											a(href='#').btn-outline.js-open-filters
+												i.fa.fa-filter
+												| Filtrar
+
+										.filters-listing.js-filters-listing
+
+											.datepicker-container
+												h3
+													i.fa.fa-calendar-o
+													|  Fecha
+
+												.half
+													.left
+														label de:
+														input(type='text').js-date-from
+
+													.right
+														label hasta:
+														input(type='text').js-date-to
+										
+											.categories-container
+												h3
+													i.fa.fa-tag
+													|  Categorías
+
+												
+												ul.categories-listing
+													
+													li.tag-cat-option.blue
+														input(type='checkbox', id='tag-general')
+														label(for='tag-general') General
+
+													li.tag-cat-option.green
+														input(type='checkbox', id='tag-finanzas')
+														label(for='tag-finanzas') Finanzas
+
+													li.tag-cat-option.orange
+														input(type='checkbox', id='tag-comercio')
+														label(for='tag-comercio') Comercio
+
+													li.tag-cat-option.pink
+														input(type='checkbox', id='tag-exportaciones')
+														label(for='tag-exportaciones') Exportaciones
+
+													li.tag-cat-option.lime-dark
+														input(type='checkbox', id='tag-importaciones')
+														label(for='tag-importaciones') Importaciones
+													
+												
+											.half.action
+												.left
+													button(type='reset').btn.alt Borrar
+												.right
+													button(type='submit').btn
+														| Buscar 
+														i.fa.fa-search
+											
+											.window-options
+												a(href='#').js-close-filters
+													i.fa.fa-times-circle
+
+
+				.panel-news-listing: .container
+					h2.date: <i class='fa fa-calendar-o'></i><span>Hoy</span>, 24 de Septiembre 2014
+					
+					ul
+						- for(i=0 ; i<6 ; i++) {
+						+get-new()
+						- }
+
+				.panel-news-listing: .container
+					h2.date: <i class='fa fa-calendar-o'></i><span>Ayer</span>, 23 de Mayo 2014
+					
+					ul
+						- for(i=0 ; i<6 ; i++) {
+						+get-new()
+						- }
+
+				.panel-news-listing: .container
+					h2.date: <i class='fa fa-calendar'></i><span>Anteriores</span>
+					
+					ul
+						- for(i=0 ; i<6 ; i++) {
+						+get-new()
+						- }
+				
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts

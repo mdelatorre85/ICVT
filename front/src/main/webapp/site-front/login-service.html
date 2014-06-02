@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SITE</title>
+    <meta name="description" content="">
+    <!-- link(rel='shortcut icon', href='favicon.ico')-->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.min.css">
+    <!-- pickadate-->
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.css">
+    <link rel="stylesheet" href="bower_components/pickadate/lib/compressed/themes/default.date.css">
+    <!-- fancybox-->
+    <link rel="stylesheet" href="css/fancybox.css">
+    <!-- google maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUBFh3N56APo7c_AdXB2k9AJjiTG_2faY&amp;sensor=FALSE"></script>
+  </head>
+  <body>
+    <div class="login-head">
+      <h1>site</h1>
+      <h2>Sistema de Inteligencia y Tecnología Empresarial</h2>
+    </div>
+    <div class="login-form">
+      <div class="title">
+        <h3>Bienvenido</h3>
+      </div>
+      <form action="http://infra1.cloudapp.net:8080/front-1.0-SNAPSHOT/api/v1/user/login" method="POST">
+        <fieldset class="wi">
+          <input type="text" name="identity" placeholder="Nombre de Usuario"><i class="fa fa-user"></i>
+        </fieldset>
+        <fieldset class="wi">
+          <input type="password" name="password" placeholder="Contraseña"><i class="fa fa-lock"></i>
+        </fieldset>
+        <fieldset class="loader on"><i class="fa fa-spinner fa-spin"></i></fieldset>
+        <fieldset class="action">
+          <button type="submit" class="btn">Ingresar al SITE<i class="fa fa-chevron-right"></i></button>
+        </fieldset>
+        <fieldset class="error"><span>Nombre del error</span></fieldset>
+      </form>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+  </body>
+</html>

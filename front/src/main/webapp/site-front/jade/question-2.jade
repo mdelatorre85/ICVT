@@ -1,0 +1,121 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='dashboard.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li.selected: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-title: .container
+					h1 Cuestionario
+
+				.panel-question-bar
+					.container
+						.half
+							.left
+								br
+								
+							.right
+								button(type='submit').btn <i class='fa fa-save'></i> Guardar
+				
+
+				.panel-question-tabs
+					.container
+						ol
+							li: a(href='question.html'): span Economía
+							li.selected: a(href='question-2.html'): span Producción
+							li: a(href='#'): span Comercial
+							li: a(href='#'): span Innovación y Tecnología
+							li: a(href='#'): span Administración
+							li: a(href='#'): span Tecnologías de la Información
+
+				.panel-question-all-blocks-container
+					.container
+						.panel-question-container
+							header
+								h2 Producción
+								p 4 de 17 preguntas contestadas
+
+							fieldset
+								dl.question
+									dt
+										label ¿Cónoce el significado de los principales indicadores económicos de su industria?
+									dd.answers
+										ul
+											li.input-radio
+												input(type='radio', id='q1-a1', name='q1')
+												label(for='q1-a1') Sí
+
+											li.input-radio
+												input(type='radio', id='q1-a2', name='q1')
+												label(for='q1-a2') No
+
+
+								dl.question
+									dt
+										label ¿En qué tipo de noticias de la industria está interesado?
+									dd.answers
+										ul
+											li.input-checkbox
+												input(type='checkbox', id='q2-a1', name='q2')
+												label(for='q2-a1') Negocios
+
+											li.input-checkbox
+												input(type='checkbox', id='q2-a2', name='q2')
+												label(for='q2-a2') Tecnología
+
+											li.input-checkbox
+												input(type='checkbox', id='q2-a3', name='q2')
+												label(for='q2-a3') Acerca de sus clientes
+
+
+								dl.question
+									dt
+										label ¿Cuales son sus principales productos o servicios?
+
+									dd.answers
+										ul											
+											li.input-text
+												input(type='text')
+
+
+
+						.action
+							.half
+								.left
+									a(href='question.html').btn.alt <i class='fa fa-chevron-left'></i> Anterior
+								.right
+									a(href='question-2.html').btn Siguiente <i class='fa fa-chevron-right'></i>
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts

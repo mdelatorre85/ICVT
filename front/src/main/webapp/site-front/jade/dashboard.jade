@@ -1,0 +1,165 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li.selected: a(href='dashboard.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-header-summary
+					.container
+						.profile-info
+							.profile-pic
+								img(src='img/logo.jpg')
+							.title
+								h1 Centro de Abastecimiento Total
+
+						.summary
+							.col.location
+								h3
+									i.fa.fa-map-marker
+									| Locación
+								ul
+									li Estado de Hidalgo
+									li Pachuca
+									li Pachuca de Soto
+							.col.ue-info
+								h3
+									i.fa.fa-circle-o
+									| Unidad económica
+								ul
+									li [315225] Confección de Uniformes Industriales y Prendas
+							.col.employees
+								h3
+									i.fa.fa-users
+									| Número de empleados
+								ul
+									li 31 a 50 personas
+							.col.profile-chart-container
+								h3
+									i.fa.fa-tasks
+									| Perfil
+								
+								.chart.cf
+									.percentage
+										a(href='question.html')
+											span.number.js-profileChartHomePercentage 92%
+											span.tag Completado
+
+									canvas#profileChartHome(height='60', width='60')
+
+
+				.panel-widget-container
+					.container
+						.widget.widget-news
+							h2
+								a(href='#') Actualidad en la industria
+
+							ul
+								- for(i=0 ; i<4 ; i++) {
+								+get-new-widget
+									
+								- }
+
+							footer.action
+								a(href='actualidad.html').link Ver más
+									i.fa.fa-arrow-right
+
+						.widget.widget-news
+							h2
+								br
+
+							ul
+								- for(i=0 ; i<4 ; i++) {
+								+get-new-widget
+									
+								- }
+
+							footer.action
+								a(href='actualidad.html').link Ver más
+									i.fa.fa-arrow-right
+
+						.widget.widget-news
+							h2
+								br
+
+							ul
+								- for(i=0 ; i<4 ; i++) {
+								+get-new-widget
+									
+								- }
+
+							footer.action
+								a(href='actualidad.html').link Ver más
+									i.fa.fa-arrow-right
+
+	
+
+			include includes/notifications
+
+		#data
+			#profileChartHomeAnswered 92
+			#profileChartHomeNoAnswered 8
+
+		include includes/scripts
+
+
+		script.
+
+			$(window).bind("load", function() {
+
+				profileChartHomeAnsweredValue = parseInt($('#profileChartHomeAnswered').text());
+				profileChartHomeNoAnsweredValue = parseInt($('#profileChartHomeNoAnswered').text());
+
+				var profileChartHomeData = [
+					{
+						value: profileChartHomeAnsweredValue,
+						color: "#8CC63F"
+					},
+					{
+						value : profileChartHomeNoAnsweredValue,
+						color : "#E6E6E6"
+					}
+
+				];
+
+
+				var profileChartHomeConfig = {
+					segmentShowStroke : false,
+					percentageInnerCutout : 70,
+					animationSteps : 100,
+					animationEasing : "easeOutCirc",
+					animateRotate : true,
+					animateScale : false,
+					onAnimationComplete : null
+				}
+					
+
+
+				var profileChartHome = new Chart(document.getElementById("profileChartHome").getContext("2d")).Doughnut(profileChartHomeData, profileChartHomeConfig);
+			});

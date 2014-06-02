@@ -1,0 +1,168 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='dashboard.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li.selected: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+
+					
+
+			section.main-container
+				+container-overlay
+
+				.panel-title: .container
+					h1 Alertas y Notificaciones
+
+				.panel-filters
+					.container
+						.filter-bar
+							form(action='#')
+								.filter-link
+									a(href='#').btn-outline.js-open-filters
+										i.fa.fa-filter
+										| Filtrar
+
+								.filters-listing.js-filters-listing
+
+									.datepicker-container
+										h3
+											i.fa.fa-calendar-o
+											|  Fecha
+
+										.half
+											.left
+												label de:
+												input(type='text').js-date-from
+
+											.right
+												label hasta:
+												input(type='text').js-date-to
+								
+									.categories-container
+										h3
+											i.fa.fa-tag
+											|  Categorías
+
+										
+										ul.categories-listing
+											
+											li.tag-cat-option.blue
+												input(type='checkbox', id='tag-general')
+												label(for='tag-general') General
+
+											li.tag-cat-option.green
+												input(type='checkbox', id='tag-finanzas')
+												label(for='tag-finanzas') Finanzas
+
+											li.tag-cat-option.orange
+												input(type='checkbox', id='tag-comercio')
+												label(for='tag-comercio') Comercio
+
+											li.tag-cat-option.pink
+												input(type='checkbox', id='tag-exportaciones')
+												label(for='tag-exportaciones') Exportaciones
+
+											li.tag-cat-option.lime-dark
+												input(type='checkbox', id='tag-importaciones')
+												label(for='tag-importaciones') Importaciones
+											
+										
+									.half.action
+										.left
+											button(type='reset').btn.alt Borrar
+										.right
+											button(type='submit').btn
+												| Buscar 
+												i.fa.fa-search
+									
+									.window-options
+										a(href='#').js-close-filters
+											i.fa.fa-times-circle
+
+
+				.panel-alerts
+					.container
+						.alert-listing
+							ul
+								li: a(href='alerts.html') Se espera un incremento del 5% en los costos de manufactura en la región.
+								li.selected: a(href='#') Congreso de la industria textil 2014.
+								li.new: a(href='#') Propuesta de nueva ley en materia de comercio exterior podría beneficiar al sector textil en el norte
+								li: a(href='#') Taller gratuito de tecnologías de la información para PyMES.
+								li: a(href='#') La importancia de tener un sitio web para la promoción de tus servicios a nivel global.
+
+						.alert-content
+							.content
+								.date
+									span <i class='fa fa-calendar-o'></i> Lunes, 22 de Octubre 2014
+								.block
+									h2 Congreso de la industria textil 2014.
+									p Datos de la Dirección de Planeación, Análisis y Proyectos Estratégicos de la Sefoe y cifras preliminares de la Administración General de Aduanas revelan que en 2013 las exportaciones del sector textil y confección sumaron 339 millones 802 mil 984.17 dólares, siendo el segundo con mayor porcentaje de participación en el total de Yucatán, representando el 23.25 por ciento.
+									p Las exportaciones provinieron de 52 empresas, y los principales destinos fueron Luxemburgo, Estados Unidos, Macao, Islas Caimán y Canadá; mientras que los productos más demandados fueron trajes, ternos, pantalones, vestidos, filamentos sintéticos o artificiales, guata, fieltro y tela no tejida.
+								.action
+									a(href='#alert-contact').lb-alert-contact.btn Solicitar más información 
+										i.fa.fa-chevron-right
+
+								.categories-listing
+									.tags-array.cf
+										h3 Categorías:
+										ul
+											li
+												a(href='#').tag-cat-line.green Finanzas
+											li
+												a(href='#').tag-cat-line.orange Comercio
+											li
+												a(href='#').tag-cat-line.blue General
+
+				#alert-contact.lb
+					form(action='#')
+						h2 <i class='fa fa-envelope-square'></i> Solicitar más información.
+						
+						fieldset.subject
+							label Estás solicitando más información sobre: 
+							p Congreso de la industria textil 2014.
+							
+						fieldset.message
+							label Describe lo que te gustaría saber:
+							textarea
+
+						.action
+							.half
+								.left
+									br
+
+								.right
+									button(type='submit').btn Enviar 
+										i.fa.fa-chevron-right
+
+
+
+
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts

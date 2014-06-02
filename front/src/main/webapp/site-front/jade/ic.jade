@@ -1,0 +1,87 @@
+include includes/mixins
+doctype html
+html.no-js
+
+	include includes/head
+
+	body
+
+		.main-wrapper
+			include includes/header
+			
+			nav.main-nav
+				ul.nav-listing
+					li: a(href='dashboard.html')
+						span.icon
+						span.tag Dashboard de inicio
+					li: a(href='actualidad.html')
+						span.icon
+						span.tag Actualidad de la industria
+					li: a(href='question.html')
+						span.icon
+						span.tag Perfil
+					li: a(href='alerts.html')
+						span.icon
+						span.tag Alertas y notifiaciones
+					li.selected: a(href='ic.html')
+						span.icon
+						span.tag Inteligencia comercial
+
+					
+
+			section.main-container
+				+container-overlay
+				.panel-title
+					h1 Inteligencia Comercial
+				#main-map
+
+
+				.panel-map-infographic
+					.container
+						.col
+							.item.prov.js-prov
+								header
+									h3 163
+									span Proveedores
+								dl
+									dt Top 3
+									dd
+										ol
+											li Tulancingo de Bravo
+											li Pachuca de Soto
+											li Ixmiquilpan
+
+						.col
+							.item.comp.js-comp
+								header
+									h3 232
+									span Competidores
+								dl
+									dt Top 3
+									dd
+										ol
+											li Pachuca de Soto
+											li Tulancingo de Bravo
+											li Jaltocán
+
+						.col
+							.item.dist.js-dist
+								header
+									h3 2991
+									span Distribuidores
+								dl
+									dt Top 3
+									dd
+										ol
+											li Pachuca de Soto
+											li Tulancingo de Bravo
+											li Huejutla de Reyes
+				
+	
+
+			include includes/notifications
+
+		
+
+		include includes/scripts
+		script(src='js/icApp.js')
