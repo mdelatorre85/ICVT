@@ -44,11 +44,11 @@ Si todos los datos enviados, superan todas las pruebas de validación, recibirem
         "status": 1,
         "unidad_economica_id": 1453,
         "identity": "test@api.com",
-        "name": "Jair",
+        "name": "",
         "avatar": "http://lols.com/img.com",
-        "first_name": "Peña",
-        "last_name": "Trejo",
-        "phone": "5544963762"
+        "first_name": "",
+        "last_name": "",
+        "phone": ""
     },
     "errors": null
 }
